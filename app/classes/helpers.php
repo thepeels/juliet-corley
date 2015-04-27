@@ -36,3 +36,4 @@ class Helpers {
 		if($users)return $users->password;
 	}
 }
+//This is in the main believed to be a completely redundant file
