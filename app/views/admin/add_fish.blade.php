@@ -12,7 +12,7 @@
             {{--{{Form::open(array('url' => "fish/validateaddfish",'class' => 'form-addfish', 'files' => true, 'method' => 'post'))}}--}}
             <div class="form-group">
             	{{ Form::label('name', 'Enter new Species Name') }}
-            	{{ Form::input('text', 'name', null, ['class' => 'form-control col-6', 'id' => 'name']) }}
+            	{{ Form::input('text', 'name', null, ['class' => 'form-control col-6', 'id' => 'name', 'placeholder' => 'genus species']) }}
             </div>
             <div class="form-group">
                 {{ Form::label('name', 'Select primary fish image') }}

@@ -2,21 +2,27 @@
 @section('title')
 <title>Select User</title>
 @stop
+<?
+$list = \User::lists('email','email');
+$placeholder = ["Select"];
+$emails = array_merge($placeholder, $list);
+?>
 @section('content')
-<div class='centered'>
     
+<h2 >List Purchases for User</h2></br>
 {{Form::open(array('url' => '/user/userpurchases','class'=>'form-signup'))}}
-<h4 >Enter a User's E-mail</h4>
 {{--<ul>
     @foreach($errors->all() as $error)
         <li>{{ $error}}</li>
     @endforeach
 </ul>--}}
-    
-    {{Form::input('email','email',null,['class'=>'newclass','placeholder'=>'E-mail Address'])}}
-        {{$errors->first('email')}}<br>
-    
-    {{Form::submit('Select',['class'=>'btn btn-primary spaced'])}}
-{{form::close()}}
-</div>
+     <fieldset>
+        <div class="form-group">
+    		{{ Form::label('email', 'Select E-mail') }}
+            {{ Form::select('email', $emails) }}
+    	</div>
+    	<div class="form-group">
+    		{{Form::submit('Select',['class'=>'btn btn-sm btn-primary'])}}
+    	</div>
+	{{form::close()}}
 @stop

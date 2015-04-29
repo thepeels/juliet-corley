@@ -15,8 +15,16 @@ class Price extends Eloquent
     
     public $timestamps = true;
     
-    public function firstPrice()
+    /**
+     * Return the price in cents
+     * 
+     * @var string
+     * 
+     * @return integer
+     */
+    public static function getPrice($column)
     {
-        return $this->hasOne('first_price');
+        $prices = DB::table('prices')->where('name',$column)->get();
+        return $prices;
     }
 }

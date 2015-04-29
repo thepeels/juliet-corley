@@ -48,7 +48,7 @@ public function getAdd()
      * @return string
      */
 public function postAdd()
-     {
+     {	
         $prices = Price::getPrice('icons');
         foreach ($prices as $price){}  
         /*DB::disableQueryLog(); */
@@ -61,7 +61,6 @@ public function postAdd()
             $input['silhouette-image'],
             $input['outline-image'] 
         );
-        
         return Redirect::to('admin/fish');
      }
      
