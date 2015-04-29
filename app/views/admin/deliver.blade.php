@@ -7,7 +7,7 @@
 $fish = \Fish::find($id);
 /*dd($fish->name);*/
 $list = \User::lists('email','email');
-$placeholder = ["Select"];
+$placeholder = [null=>'Select'];
 $emails = array_merge($placeholder, $list);
 /*dd($emails);*/
 ?>

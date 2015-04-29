@@ -4,7 +4,7 @@
 @stop
 <?
 $list = \User::lists('email','email');
-$placeholder = ["Select"];
+$placeholder = [null=>'Select'];
 $emails = array_merge($placeholder, $list);
 ?>
 @section('content')
@@ -22,7 +22,7 @@ $emails = array_merge($placeholder, $list);
             {{ Form::select('email', $emails) }}
     	</div>
     	<div class="form-group">
-    		{{Form::submit('Select',['class'=>'btn btn-sm btn-primary'])}}
+    		{{Form::submit('Show purchases',['class'=>'btn btn-sm btn-primary'])}}
     	</div>
 	{{form::close()}}
 @stop

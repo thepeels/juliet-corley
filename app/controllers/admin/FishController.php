@@ -218,7 +218,8 @@ public function getDeliver($id)
      
 public function postDeliver()
      {   $input = Input::all();
-         $email= $input['email']; 
+         $email= $input['email'];
+		 if ($email!=null){ 
          //$fish = Fish::find($input['id']);
          $fishes = Fish::where('name',$input['fish-name'])->get();
          //$fishes = Fish::withImages()->where('name',$input['fish-name'])->get();
@@ -292,6 +293,9 @@ public function postDeliver()
                           
         }
         Session::flash('delivered', 'Commission posted!');
+        return Redirect::back();
+        }
+		Session::flash('delivered', 'No email selected!');
         return Redirect::back();
             
      
