@@ -35,9 +35,9 @@ public function getDelete($fishId)
      * @return string
      */
 public function getAdd()
-     {
-        return View::make('admin.add_fish');
-     }
+    {
+    	return View::make('admin.add_fish');
+    }
 
     /**
      * Add
@@ -48,7 +48,7 @@ public function getAdd()
      * @return string
      */
 public function postAdd()
-     {	
+    {	
         $prices = Price::getPrice('icons');
         foreach ($prices as $price){}  
         /*DB::disableQueryLog(); */
@@ -62,26 +62,26 @@ public function postAdd()
             $input['outline-image'] 
         );
         return Redirect::to('admin/fish');
-     }
+    }
      
 public function postPrices()
-     {
+    {
          //$now = new \DateTime();
-         DB::transaction(function()
-         {
-             DB::table('prices')->where('name','icons')
-             ->update(array(
-             'first_price' => Input::get('first_price')*100,
-             'second_price' => Input::get('second_price')*100,
-             'third_price' => Input::get('third_price')*100,
-             'fourth_price' => Input::get('fourth_price')*100,
-             'special_price' => Input::get('fifth_price')*100,
-             'updated_at' => \Carbon\Carbon::now()
-             )
-             );
-         });
-         return Redirect::to('admin/prices');
-     }
+        DB::transaction(function()
+        {
+            DB::table('prices')->where('name','icons')
+            ->update(array(
+            'first_price' => Input::get('first_price')*100,
+            'second_price' => Input::get('second_price')*100,
+            'third_price' => Input::get('third_price')*100,
+            'fourth_price' => Input::get('fourth_price')*100,
+            'special_price' => Input::get('fifth_price')*100,
+            'updated_at' => \Carbon\Carbon::now()
+            )
+            );
+        });
+        return Redirect::to('admin/prices');
+    }
  
     /**
      * Download
@@ -104,58 +104,56 @@ public function getDownload($name, $type)
      * @return string
      */
 public function getFind()
-     {
-         //$fish = Fish::find(1);
-         $fish = Fish::orderBy('created_at','desc')->first();
+    {
+        //$fish = Fish::find(1);
+        $fish = Fish::orderBy('created_at','desc')->first();
          
-         
-         
-         $large_image = new Image(array(
+        $large_image = new Image(array(
             'display_name' => $fish->name . ' 5cm',
             'filename' => $fish->id,
             'size' => '5cm',
             'type' => 'jpg'
-         ));
-         $large_image->save();
+        ));
+        $large_image->save();
          
-         $fish->large_image_id = $large_image->id;
-         $fish->save();
+        $fish->large_image_id = $large_image->id;
+        $fish->save();
          
-         $large_image = new Image(array(
+        $large_image = new Image(array(
             'display_name' => $fish->name . ' 3cm',
             'filename' => $fish->id,
             'size' => '3cm',
             'type' => 'jpg'
-         ));
-         $large_image->save();
+        ));
+        $large_image->save();
          
-         $fish->small_image_id = $large_image->id;
-         $fish->save();
+        $fish->small_image_id = $large_image->id;
+        $fish->save();
          
-         $large_image = new Image(array(
+        $large_image = new Image(array(
             'display_name' => $fish->name . ' outline',
             'filename' => $fish->id,
             'size' => '3cm',
             'type' => 'jpg'
-         ));
-         $large_image->save();
+        ));
+        $large_image->save();
          
-         $fish->outline_image_id = $large_image->id;
-         $fish->save();
+        $fish->outline_image_id = $large_image->id;
+        $fish->save();
          
-         $large_image = new Image(array(
+        $large_image = new Image(array(
             'display_name' => $fish->name . ' silhouette',
             'filename' => $fish->id,
             'size' => '3cm',
             'type' => 'jpg'
-         ));
-         $large_image->save();
+        ));
+        $large_image->save();
          
-         $fish->silhouette_image_id = $large_image->id;
-         $fish->save();
+        $fish->silhouette_image_id = $large_image->id;
+        $fish->save();
          
-         return Redirect::to('/addafish');
-     }
+        return Redirect::to('/addafish');
+    }
 
     /**
      * Image
@@ -164,65 +162,66 @@ public function getFind()
      * @return string
      */
 public function getImage()
-     {
-         $fish = Fish::with('small_image')->get();
+    {
+        $fish = Fish::with('small_image')->get();
          
-         $fish->each(function($fish)
-         {
-             echo '<img src="' . $fish->small_image['image_path'] . '">';
+        $fish->each(function($fish)
+        {
+            echo '<img src="' . $fish->small_image['image_path'] . '">';
              
-         });
+        });
          
-         $fish = Fish::find(1);
-         $image = $fish->small_image;
-         #$image = $fish->small_image()->first();
+        $fish = Fish::find(1);
+        $image = $fish->small_image;
+        #$image = $fish->small_image()->first();
          
-         print_r($image);
-     }
+        print_r($image);
+    }
      
 public function getStore()
-     {
+    {
          
-     }
+    }
      
-     private $rules = array
-     (
+    private $rules = array
+    	(
             'name' => 'required',
             'base-price' => 'required',
-     );
+     	);
      
            // 'main-image' => 'required',
            // 'outline-image' => 'required',   
            // 'silhouette-image' => 'required',
      
 public function postValidateaddfish()
-     {
-         $input = Input::get();
+    {
+        $input = Input::get();
          
-         $validator = Validator::make($input, $this->$rules);
+        $validator = Validator::make($input, $this->$rules);
          
-         if ($validator->fails()) 
-         {
-             $messages = $validator->messages();
-             return Redirect::to('/addafish')
+        if ($validator->fails()) 
+        {
+            $messages = $validator->messages();
+            return Redirect::to('/addafish')
                 ->withErrors($validator);
-         } else {
-             return Redirect::to('/fish/create');
-         }
-     }
+        } else {
+            return Redirect::to('/fish/create');
+        }
+    }
      
 public function getDeliver($id)
-     {
-         return View::make('admin/deliver',array('id'=>$id));
-     }
+    {
+        return View::make('admin/deliver',array('id'=>$id));
+    }
      
 public function postDeliver()
-     {   $input = Input::all();
-         $email= $input['email'];
-		 if ($email!=null){ 
-         //$fish = Fish::find($input['id']);
-         $fishes = Fish::where('name',$input['fish-name'])->get();
-         //$fishes = Fish::withImages()->where('name',$input['fish-name'])->get();
+	{
+		$input = Input::all();
+        $email= $input['email'];
+		if ($email!=null){ 
+        //$fish = Fish::find($input['id']);
+        $fishes = Fish::where('name',$input['fish-name'])->get();
+        //$fishes = Fish::withImages()->where('name',$input['fish-name'])->get();
         //dd($fishes->small_image_flipped_id);
         //dd($fishes);
         //echo $email;
