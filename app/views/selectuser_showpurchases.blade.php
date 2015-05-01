@@ -25,4 +25,7 @@ $emails = array_merge($placeholder, $list);
     		{{Form::submit('Show purchases',['class'=>'btn btn-sm btn-primary'])}}
     	</div>
 	{{form::close()}}
+            @if(Session::has('notselected'))
+        		<p>{{Session::get('notselected')}}</p>
+    		@endif
 @stop

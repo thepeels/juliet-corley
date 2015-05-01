@@ -91,8 +91,12 @@ class UserController extends \BaseController {
     
     public function postUserpurchases()
     {
-        $email = Input::get('email');    
+        $email = Input::get('email');
+		if ($email!=null){    
         return View::make('userpurchases')->with($email);
+        }
+		Session::flash('notselected', 'No email selected!');
+        return Redirect::back();
     }
     
      public function getShowuserpurchases()
