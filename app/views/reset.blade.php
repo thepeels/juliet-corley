@@ -16,6 +16,5 @@
     {{Form::submit('Reset Password',['class'=>'btn newclass'])}}
     
 {{Form::close()}}
-
 </div>
 @stop

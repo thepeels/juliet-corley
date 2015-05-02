@@ -17,6 +17,6 @@
     {{Form::submit('Request Reset',['class'=>'btn btn-info btn-xs'])}}
     
 {{Form::close()}}</br>
-</fieldset>
+</fieldset></br>
 </div>
 </div>
