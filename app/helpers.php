@@ -187,14 +187,14 @@ function showPurchases($email)
     $prior_purchases = showPurchases(Auth::user()->email);
     //check for prior purchases and reduce charge by amount paid or other algorithm
     foreach ($prior_purchases as $prior_purchase)
-        if (strpos($prior_purchase->purchase,$fish_name)!==false)
+        if (strpos($prior_purchase->purchase,$fish_name)!==false)//one of the icons of the fish has been bought
 		
         {  
-            $prev_charge += $prior_purchase->amount;
-            $prior = TRUE;
-            $charge = $base_price - $prev_charge;
-            if($charge < 0)$charge = 0;
-            $base_price= $charge;
+            $prev_charge += $prior_purchase->amount;//previous charge incremented by price paid for item(s)
+            $prior = TRUE;//Flag may be unnecessary
+            $charge = $base_price - $prev_charge;//charge is price minus previous amount paid
+            if($charge < 0)$charge = 0;// no negative amount
+            $base_price= $charge; //price to be passed back in for next fish or output for payment
         }
       
     return cartAdd($id,$fish_name,$base_price,$table_row_index,$prior);
