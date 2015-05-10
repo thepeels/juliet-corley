@@ -29,7 +29,7 @@ class SessionsController extends BaseController{
         if (Auth::attempt($credentials,true))
         {   //correct login details
             //return Redirect::to(Session::get('return_url'))->with(Auth::user()->email);
-            return Redirect::intended('/download')->with(Auth::user()->email);
+            return Redirect::intended('/download'.$_COOKIE['thefragment'])->with(Auth::user()->email);
         }
         else  //login failed - is entered email in db?
         {
@@ -41,7 +41,7 @@ class SessionsController extends BaseController{
             return Redirect::back()
                 ->withInput(['email' => $entered_email])
                 ->withErrors($validator)
-                ->with('message', 'Incorrect password');
+                ->withMessage('Incorrect password');
         }
         //return Redirect::intended();
         return Redirect::to('user/newuser');
