@@ -1,26 +1,26 @@
-<a href="/download#A" title="Search by initial letter">A</a>
-<a href="/download#B" title="Search by initial letter">B</a>
-<a href="/download#C" title="Search by initial letter">C</a>
-<a href="/download#D" title="Search by initial letter">D</a>
-<a href="/download#E" title="Search by initial letter">E</a>
-<a href="/download#F" title="Search by initial letter">F</a>
-<a href="/download#G" title="Search by initial letter">G</a>
-<a href="/download#H" title="Search by initial letter">H</a>
-<a href="/download#I" title="Search by initial letter">I</a>
-<a href="/download#J" title="Search by initial letter">J</a>
-<a href="/download#K" title="Search by initial letter">K</a>
-<a href="/download#L" title="Search by initial letter">L</a>
-<a href="/download#M" title="Search by initial letter">M</a>
-<a href="/download#N" title="Search by initial letter">N</a>
-<a href="/download#O" title="Search by initial letter">O</a>
-<a href="/download#P" title="Search by initial letter">P</a>
-<a href="/download#Q" title="Search by initial letter">Q</a>
-<a href="/download#R" title="Search by initial letter">R</a>
-<a href="/download#S" title="Search by initial letter">S</a>
-<a href="/download#T" title="Search by initial letter">T</a>
-<a href="/download#U" title="Search by initial letter">U</a>
-<a href="/download#V" title="Search by initial letter">V</a>
-<a href="/download#W" title="Search by initial letter">W</a>
-<a href="/download#X" title="Search by initial letter">X</a>
-<a href="/download#Y" title="Search by initial letter">Y</a>
-<a href="/download#Z" title="Search by initial letter" class="lastchild">Z</a>
+<a href="/download#A" title="Search by initial letter" class="select-letter">A</a>
+<a href="/download#B" title="Search by initial letter" class="select-letter">B</a>
+<a href="/download#C" title="Search by initial letter" class="select-letter">C</a>
+<a href="/download#D" title="Search by initial letter" class="select-letter">D</a>
+<a href="/download#E" title="Search by initial letter" class="select-letter">E</a>
+<a href="/download#F" title="Search by initial letter" class="select-letter">F</a>
+<a href="/download#G" title="Search by initial letter" class="select-letter">G</a>
+<a href="/download#H" title="Search by initial letter" class="select-letter">H</a>
+<a href="/download#I" title="Search by initial letter" class="select-letter">I</a>
+<a href="/download#J" title="Search by initial letter" class="select-letter">J</a>
+<a href="/download#K" title="Search by initial letter" class="select-letter">K</a>
+<a href="/download#L" title="Search by initial letter" class="select-letter">L</a>
+<a href="/download#M" title="Search by initial letter" class="select-letter">M</a>
+<a href="/download#N" title="Search by initial letter" class="select-letter">N</a>
+<a href="/download#O" title="Search by initial letter" class="select-letter">O</a>
+<a href="/download#P" title="Search by initial letter" class="select-letter">P</a>
+<a href="/download#Q" title="Search by initial letter" class="select-letter">Q</a>
+<a href="/download#R" title="Search by initial letter" class="select-letter">R</a>
+<a href="/download#S" title="Search by initial letter" class="select-letter">S</a>
+<a href="/download#T" title="Search by initial letter" class="select-letter">T</a>
+<a href="/download#U" title="Search by initial letter" class="select-letter">U</a>
+<a href="/download#V" title="Search by initial letter" class="select-letter">V</a>
+<a href="/download#W" title="Search by initial letter" class="select-letter">W</a>
+<a href="/download#X" title="Search by initial letter" class="select-letter">X</a>
+<a href="/download#Y" title="Search by initial letter" class="select-letter">Y</a>
+<a href="/download#Z" title="Search by initial letter" class="lastchild select-letter">Z</a>

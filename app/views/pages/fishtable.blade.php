@@ -11,20 +11,14 @@
 @stop
 @section('content')
 
-<script>
-	if(window.location.hash){
-		var frag = window.location.hash;
-		document.cookie = 'thefragment='+frag;
-	}
-	else {
-		document.cookie = 'thefragment='+"";
-	}	
-</script>
+
 <?$url = Request::url();
 $genus = Input::get('genus');
 $species = Input::get('species');
 $return_url=urlencode($url.'?'.'genus='.$genus.'&'.'species='.$species);
-$frag=$_COOKIE['thefragment'];
+//$frag = $_COOKIE['thefragment'];
+//dd($frag);
+//Session::put('usefragment',$frag);
 ?>
 <?
 $table_row_index = 1;

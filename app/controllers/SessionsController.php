@@ -18,7 +18,9 @@ class SessionsController extends BaseController{
     }
     
     public function store()
-    {   
+    {
+    	if(isset($_COOKIE['thefragment']))Session::flash('urifragment',$_COOKIE['thefragment']);
+		setcookie ("thefragment", "", time() - 3600);   
         $validator = $this->getLoginValidator();
         $credentials = [
             'email'    => Input::get('email'),
@@ -29,7 +31,9 @@ class SessionsController extends BaseController{
         if (Auth::attempt($credentials,true))
         {   //correct login details
             //return Redirect::to(Session::get('return_url'))->with(Auth::user()->email);
-            return Redirect::intended('/download'.$_COOKIE['thefragment'])->with(Auth::user()->email);
+            $uri_fragment = Session::get('urifragment');
+			Session::pull('urifragment');
+            return Redirect::intended('/download'.$uri_fragment)->with(Auth::user()->email);
         }
         else  //login failed - is entered email in db?
         {

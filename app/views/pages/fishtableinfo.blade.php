@@ -3,15 +3,14 @@
 {{ HTML::style( asset('css/grid24.css'))}}
 {{ HTML::style( asset('css/info.css') ) }}
 @stop
-@section('title')
-<title>Commissions</title>
-@stop
+
 @section('body-class')
 <body class="fish-table">
 @stop
+@section('title')
+<title>Commissions</title>
+@stop
 @section('content')
-
-
 
 
 <div class="container-24">
