@@ -23,6 +23,9 @@
 {{Form::label('text','Amount in AUS$')}}
 {{Form::input('text','amountindollars',null,['class'=>'newclass aligned-right','placeholder'=>'AUD$','size'=>'5'])}}<br>
 
+{{Form::label('text','Receipt e-mail')}}
+{{Form::input('text','receipt_email',null,['class'=>'newclass aligned-right','placeholder'=>'e-mail','size'=>'40'])}}<br>
+
 <span class="payment-errors"></span>
 {{Form::label('text','Desription of item agreed for purchase')}}
 {{Form::input('text','itemdescription',null,['class' => 'newclass','placeholder' => 'Item description','size'=>'40'])}}

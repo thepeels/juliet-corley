@@ -168,6 +168,7 @@ public function postPay()
     $token = Input::get('stripeToken');
     $amountincents = Input::get('amountincents');
     $itemdescription = Input::get('itemdescription');
+	$receipt_email = Input::get('receipt_email');
     // Create the charge on Stripe's servers - this will charge the user's card
     try {
         $charge = Stripe_Charge::create(array(
@@ -175,6 +176,7 @@ public function postPay()
           "currency" => "aud",
           "card"  => $token,
           "description" => $itemdescription,
+          "receipt_email" => $receipt_email,
           )
         );
 

@@ -57,11 +57,12 @@ public function postAdd()
         $fish = $builder->build(
             $input['name'], 
             $price->first_price, 
-            $input['main-image'], 
+            $input['main-image'],
+            $input['small-image'], 
             $input['silhouette-image'],
             $input['outline-image'] 
         );
-        return Redirect::to('admin/fish');
+        return Redirect::to('admin/fish');//re-load the admin fish table
     }
      
 public function postPrices()

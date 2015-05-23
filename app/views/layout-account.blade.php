@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
+
     <head>
-        <!-- Bootstrap CSS & JS -->
+        <!-- Bootstrap CSS & JS (at bottom of page)-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         {{ HTML::style( asset('css/admin.css') ) }}
         @yield('stylesheets')
         <meta charset="UTF-8">
@@ -75,6 +74,7 @@
             
             @yield('footer')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        </div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        </div><!--/.container-->
     </body>
 </html>

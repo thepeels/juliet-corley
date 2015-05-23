@@ -59,6 +59,7 @@ class FishBuilder
      * @param   string  $name
      * @param   int     $base_price
      * @param   string  $large_image_path
+				 * @param   string  $small_image_path
      * @param   string  $outline_image_path
      * @param   string  $silhouette_image_path
      * @return  Fish|string
@@ -67,6 +68,7 @@ class FishBuilder
         $name,
         $base_price,
         $large_image_path,
+        $small_image_path,
         $silhouette_image_path,
         $outline_image_path
      ) {
@@ -83,7 +85,7 @@ class FishBuilder
          $fish->genus = $genus_species[0];
          $fish->species = $genus_species[1];
          # Process images
-         $paths = $this->process_images($large_image_path, $silhouette_image_path, $outline_image_path);
+         $paths = $this->process_images($large_image_path, $small_image_path, $silhouette_image_path, $outline_image_path);
          if ( ! $paths)
          {
              return 'One of the images wasn\'t found';
@@ -203,15 +205,15 @@ class FishBuilder
      * @param   string  $silhouette_image_path
      * @return  string[]|FALSE      array of paths to temp images
      */
-     private function process_images($large_image_path, $silhouette_image_path, $outline_image_path)
+     private function process_images($large_image_path, $small_image_path, $silhouette_image_path, $outline_image_path)
      {
          try
          {
              $paths = array(
                 'large_image'          => $this->process_image($large_image_path,       '1.jpg', $this->large_image_width),
                 'large_image_flipped'  => $this->process_image($large_image_path,       '2.jpg', $this->large_image_width, TRUE),
-                'small_image'          => $this->process_image($large_image_path,       '3.jpg', $this->small_image_width),
-                'small_image_flipped'  => $this->process_image($large_image_path,       '4.jpg', $this->small_image_width, TRUE),
+                'small_image'          => $this->process_image($small_image_path,       '3.jpg', $this->small_image_width),
+                'small_image_flipped'  => $this->process_image($small_image_path,       '4.jpg', $this->small_image_width, TRUE),
                 'silhouette_image'     => $this->process_image($silhouette_image_path,  '5.jpg', $this->large_image_width),
                 'outline_image'        => $this->process_image($outline_image_path,     '6.jpg', $this->large_image_width),
                 'image_thumb'          => $this->process_image($large_image_path,       '7.jpg', $this->thumb_image_width, FALSE, TRUE),

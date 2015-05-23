@@ -18,6 +18,10 @@
                 {{ Form::label('name', 'Select primary fish image') }}
                 {{ Form::file('main-image') }}
             </div>
+             <div class="form-group">
+                {{ Form::label('name', 'Select small (3cm) fish image') }}
+                {{ Form::file('small-image') }}
+            </div>
             <div class="form-group">
                 {{ Form::label('name', 'Select fish silhouette image') }}
                 {{ Form::file('silhouette-image') }}
