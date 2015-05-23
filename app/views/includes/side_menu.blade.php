@@ -8,6 +8,7 @@
                 <li><a class="btn btn-default btn-sm" href="/download#E">Merchandise</a></li>
                 <li><a class="btn btn-default btn-sm" href="/download#F">Contact me</a></li>
                 <li><a class="btn btn-default btn-sm" href="/download#G">Links</a></li>
+                <li><a class="btn btn-default btn-sm" href="/payment/stripe">Pay for Drawings</a></li>
                 @if(Auth::check())
                 <li><a class="btn btn-default btn-sm" href="/user/myaccount" title="Previous Downloads">My account</a></li>
                 <li><a class="btn btn-default btn-sm" href="/logout">Logout</a></li>
