@@ -230,7 +230,7 @@ public function postTestsinglepayment()
     $token = Input::get('stripeToken');
     $amountincents = Input::get('amountincents');
     $itemdescription = Input::get('itemdescription');
-				$receipt_email = Input::get('receipt_email');
+				$receipt_email = null!=Input::get('receipt_email')?Input::get('receipt_email'):null;
     // Create the charge on Stripe's servers - this will charge the user's card
     try {
         $charge = Stripe_Charge::create(array(
@@ -254,8 +254,9 @@ public function postTestsinglepayment()
     // Stripe charge was successfull, continue by redirecting to a page with a thank you message
     if ($charge->paid == true) {
         
-        $email = isset(Auth::user()->email) ? Auth::user()->email : $receipt_email;
+        //$email = isset(Auth::user()->email) ? Auth::user()->email : $receipt_email;
         //dd($email);
+        //ok so send an email as stripe won't...
         return Redirect::to('payment/singlesuccess');
     }
     #return Route::get('success/{return_url}','PaymentController@getSuccess');
@@ -270,7 +271,7 @@ public function postSinglepayment()
     $token = Input::get('stripeToken');
     $amountincents = Input::get('amountincents');
     $itemdescription = Input::get('itemdescription');
-				$receipt_email = Input::get('receipt_email');
+				$receipt_email = null!=Input::get('receipt_email')?Input::get('receipt_email'):null;
     // Create the charge on Stripe's servers - this will charge the user's card
     try {
         $charge = Stripe_Charge::create(array(

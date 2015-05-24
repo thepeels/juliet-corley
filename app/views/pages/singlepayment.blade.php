@@ -27,7 +27,7 @@
 {{Form::input('text','receipt_email',null,['class'=>'newclass aligned-right','placeholder'=>'e-mail','size'=>'40'])}}<br>
 
 <span class="payment-errors"></span>
-{{Form::label('text','Desription of item agreed for purchase')}}
+{{Form::label('text','Description of item agreed for purchase')}}
 {{Form::input('text','itemdescription',null,['class' => 'newclass','placeholder' => 'Item description','size'=>'40'])}}
 </span><br>
 <span>
@@ -38,7 +38,7 @@
 <h4>
     N.B. No card data are stored or processed on my website, 
     all the secure stuff is handled remotely by 
-    <a href ="https://stripe.com">Stripe.com</a>
+    <a href ="https://stripe.com" target="blank">Stripe.com</a>
 </h3>
 </div> 
 @stop
