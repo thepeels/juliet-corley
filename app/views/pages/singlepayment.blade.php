@@ -10,27 +10,28 @@
 
 
 <div class='cart'>
-<h3>Pay Juliet Corley</h3>
-<fieldset>
+<h3>Pay <span class="julie">Juliet Corley</span></h3>
 	
 
 <h4>Please fill in the boxes and submit 
     to make a card payment handled by Stripe.com
 </h4>
+<fieldset class="stripe-fieldset">
 
 {{Form::open(array('url' => "payment" ,'id' => 'payment-form'))}}{{--what goes in url here--}}
 
 {{Form::label('text','Amount in AUS$')}}
 {{Form::input('text','amountindollars',null,['class'=>'newclass aligned-right','placeholder'=>'AUD$','size'=>'5'])}}<br>
-
-{{Form::label('text','Receipt e-mail')}}
-{{Form::input('text','receipt_email',null,['class'=>'newclass aligned-right','placeholder'=>'e-mail','size'=>'40'])}}<br>
-
+</br>
+{{Form::label('text','Please send my receipt e-mail to:')}}
+{{Form::input('text','receipt_email',null,['class'=>'newclass aligned-right','placeholder'=>'e-mail','size'=>'43'])}}<br>
+</br>
 <span class="payment-errors"></span>
 {{Form::label('text','Description of item agreed for purchase')}}
-{{Form::input('text','itemdescription',null,['class' => 'newclass','placeholder' => 'Item description','size'=>'40'])}}
+{{Form::input('text','itemdescription',null,['class' => 'newclass','placeholder' => 'Item description','size'=>'35'])}}
 </span><br>
 <span>
+	</br>
 {{Form::submit('Pay with Stripe',['class'=>'btn btn-primary btn-sm'])}}
 </span> 
 {{Form::close()}}

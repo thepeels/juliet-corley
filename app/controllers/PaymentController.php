@@ -238,9 +238,10 @@ public function postTestsinglepayment()
           "currency" => "aud",
           "card"  => $token,
           "description" => $itemdescription,
-          "receipt_email" => $receipt_email,
+          "receipt_email" => $receipt_email
           )
         );
+								dd($charge['receipt_email']);
 
     } catch(Stripe_CardError $e) {
         $e_json = $e->getJsonBody();
@@ -279,7 +280,7 @@ public function postSinglepayment()
           "currency" => "aud",
           "card"  => $token,
           "description" => $itemdescription,
-          "receipt_email" => $receipt_email,
+          "receipt_email" => $receipt_email
           )
         );
 

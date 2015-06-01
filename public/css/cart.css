@@ -41,6 +41,7 @@ table.cart{background-color:#fff;}
 }
 .cr{clear:right;}
 .table-summary em{font-size:11px;}
+.stripe-fieldset{padding:10px 10px 0px 10px;border:1px solid #444;border-radius: 10px}
 .btn-xxs{
   padding: 1px 2px;
   font-size: 9px;
@@ -73,3 +74,4 @@ table.cart{background-color:#fff;}
  color: #fff !important; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.42); 
  -webkit-font-smoothing: antialiased; } 
  }
+ 

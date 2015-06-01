@@ -30,7 +30,7 @@ Route::get('temphome','HomeController@temphome');
 //Route::get('/','HomeController@temphome');
 Route::get('/','DownloadController@getIndex');
 Route::get('home','HomeController@showWelcome');
-
+Route::get('jchome','HomeController@jchome');
 Route::get('about','PagesController@about');
 Route::get('charge','PagesController@charge');
 Route::get('services','PagesController@services');

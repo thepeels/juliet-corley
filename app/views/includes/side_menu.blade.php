@@ -1,7 +1,7 @@
             <ul>
-                <li><a class="btn btn-default btn-sm" href="/demo">Home</a></li>
-                <li><a class="btn btn-default btn-sm"href="/info">Commissions</a></li>
-                <li><a class="btn btn-default btn-sm"href="/download">Icon store</a></li>
+                <li><a class="btn btn-default btn-sm" href="/jchome">Home</a></li>
+                <li><a class="btn btn-default btn-sm" href="/info">Commissions</a></li>
+                <li><a class="btn btn-default btn-sm" href="/download">Icon store</a></li>
                 <li><a class="btn btn-default btn-sm" href="/download#B">Fish gallery</a></li>
                 <li><a class="btn btn-default btn-sm" href="/download#C">Portfolio</a></li>
                 <li><a class="btn btn-default btn-sm" href="/download#D">Services</a></li>

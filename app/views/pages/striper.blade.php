@@ -5,7 +5,7 @@
 </head>
 <body>
 	
-<title>Stripe</title>
+<title>Payment - Stripe</title>
  
 <?php require_once(public_path().'/stripe/config.php');
 $amountindollars = Input::get('amountindollars');

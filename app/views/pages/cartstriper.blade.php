@@ -28,13 +28,12 @@ $amountindollars= $amountincents/100;
 	<input name ="itemdescription" type="hidden" value="<?=$itemdescription?>">
 	<input name ="receipt_email" type="hidden" value="<?=Auth::user()->email?>">
 
-  <script
+  <script>
     src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button waiting"
     data-key="{{Config::get('stripetest.stripe.public')}}"//stripe.stripe.public - or stripetest.stripe.public
     data-amount="<?=$amountincents;?>"
     data-name="JulietCorley.com"
     data-description="<?=$itemdescription;?>"
-    data-receipt_email="<?=Auth::user()->email?>"
     data-image="">
   </script>
 
