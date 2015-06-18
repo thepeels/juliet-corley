@@ -1,0 +1,130 @@
+p{margin-left:0;margin-right:0;}
+#cssmenu {
+   /* margin-left:-10px;
+    margin-right:10px;*/
+   margin-top:0px;
+}
+#cssmenu ul li a{
+    width:200px;
+    font:normal 18px/27px  "Merriweather" ,sans-serif;
+}
+.jchomelogo{
+    background-image:url("/images/bg-images/juliet-corley-illustrator.png");
+    display:inline-block;
+    background-size:288px 180px;
+    background-repeat:no-repeat;
+    height:187px;
+    margin-left:-28px;
+    margin-right:28px;
+}
+.container-24{
+    margin-top:58px;
+}
+.marine{
+    font:normal 22px/24px  "SegoePrint" ,sans-serif;
+    font-weight:400;
+    margin-top:-6px;
+    display:inline-block;
+    color:#006;
+}
+p.heading{
+    font:normal 19px/24px  "SegoePrint" ,sans-serif;
+    font-weight:400;
+    display:inline-block;
+    color:#333;
+}
+.shells{
+    background-image:url("/images/bg-images/shells.jpg");
+    height:85px;
+    margin-top:-6px;
+    /*margin-left:-22px;*/
+    background-repeat:no-repeat;
+}
+.image-strip{
+    background-image:url("/images/bg-images/image-strip.jpg");
+    height:76px;
+    background-size:288px 74px;
+    background-repeat:no-repeat;
+    margin-top:9px;
+    margin-left:-18px;
+}
+.pageimagelink{
+    height:175px;
+    /*opacity:0.7;*/
+    background-repeat:no-repeat;
+}
+.postcards{
+    background-image:url("/images/bg-images/pc-puc.jpg");
+}
+.illustration{
+    background-image:url("/images/bg-images/is-puc.jpg");
+    margin-top:30px;
+    width:360px;
+}
+.science{
+    background-image:url("/images/bg-images/marine-science.jpg");
+    margin-top:30px;
+}
+.payment-link{
+    margin-left:-12px;
+    margin-right:12px;
+    margin-top:-10px;
+}
+.payment-link a{
+    font: italic 15px/16px "Merriweather" ,sans-serif;
+    color:#780050;
+    height:60px;
+    width:140px;
+}
+.mpa{
+    font:bold 12px  "Merriweather" ,sans-serif;
+    letter-spacing:-.4px;
+    color:#333;
+    margin-left:0px;
+    margin-right:0;
+}
+.game{
+    background-image:url("/images/bg-images/mpa.jpg");
+    height:78px;
+    background-size:102px 78px;
+    margin-top:10px;
+}
+/*.omega.paint{width:150px;
+}*/
+li.final a span{
+    font-style:italic;
+    color:#780050;
+}
+.paint.paint{
+    margin-left:12px;
+    margin-right:-12px;
+}
+.shading-container{position:relative;display:inline-block;margin:0 auto;    height:105vh;
+    /*background-image:url('../images/bg-images/shading-line.png');
+    background-repeat:repeat-y;*/
+    background-image:url('../images/bg-images/shading-juliet-corley-1.png');
+    background-size:100%;
+    /*background: -moz-gradient(linear, left-top, left-bottom, rgba 0,0,0,1, rgba(0,0,0,0,));*/
+    
+ 
+   /*width:1358px;*/
+    /*overflow-x: scroll;*/
+    z-index :1000;
+}
+.arrow{
+    background-image:url("/images/bg-images/arrow.png");
+    background-size:60px 20px;
+    background-repeat: no-repeat;
+    background-position: 244px 30px;
+    width:320px;
+    padding-right:50px;
+}
+a.underline{
+    text-decoration:underline;
+}
+a.underline.blues{
+    color:#23527c;
+}
+a:hover.underline.blues{
+    color:#337ab7;
+}
