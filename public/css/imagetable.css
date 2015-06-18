@@ -111,6 +111,12 @@ table.captions tr th:nth-child(n+4){min-width:98px;text-align:center;}
   box-shadow: 1px 1px 3px 1px rgba(128,128,192,0.4) ;
   margin-bottom:10px;
 }
+.btn-xxs{
+  padding: 0px 5px;
+  font-size: 9px;
+  border-radius: 3px;
+  margin-top:-4px;
+}
 .show-all{ box-shadow: 1px 1px 3px 1px rgba(128,128,192,0.4);margin-left:-20px;}
 .data .cell{border:1px solid #ccc;border-radius:4px;padding:3px;}
 /*.fish-table table{background-color: #ccc;}*/
@@ -135,7 +141,7 @@ table.captions tr th:nth-child(n+4){min-width:98px;text-align:center;}
 }
 .blue,  .alpha-search.blue a{color: #112789 }
 .segoe{
-    font-family:'Segoe Print', 'Handlee',cursive;
+    font-family:'Segoe print', 'Handlee',cursive;
 }
 .segoe h1 {font-size:42px}
 .segoe h2 {font-size:36px}
@@ -241,14 +247,14 @@ a span {
       transition: display 1s;
           
 }
-
+.letter-space{letter-spacing:1px}
 
 .preview{
     display:inline-block;
     width: 80%;
     margin-bottom:30px;
 }
-.preview.fish-name{margin-top:45px;font-family:'Segoe print';}
+.preview.fish-name{margin-top:45px;font-family:'SegoePrint';}
 .preview img { 
     position:relative;
     border:1px solid #444;

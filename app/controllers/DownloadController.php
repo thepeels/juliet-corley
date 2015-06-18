@@ -50,7 +50,7 @@ class DownloadController extends \BaseController {
         return $response;
     }
     
-    public function getFreedbdownload($image_id,$name)
+	public function getFreedbdownload($image_id,$name)
     {
         //must only be allowed if file is in DB for user Auth::user()->email ?????
         $email = Auth::user()->email;
@@ -66,6 +66,10 @@ class DownloadController extends \BaseController {
         if (App::environment('local')) ob_end_clean();//for xampp locally
         return $response;
     }
+	public function getAllocate($image_id,$name)
+	{
+		dd($image_id,$name,Auth::user()->email);
+	}
 
     public function getFinished()//after successful downloads
     {

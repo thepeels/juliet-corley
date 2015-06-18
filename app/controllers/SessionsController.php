@@ -90,6 +90,7 @@ class SessionsController extends BaseController{
     public function destroy()
     {   
         Session::forget('return_url');
+		Session::forget('dest_email');
         //Cart::destroy();
         Auth::logout();
         

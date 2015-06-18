@@ -3,11 +3,12 @@
 @section('content')
 <?$url = Request::url();
 $return_url=urlencode($url);
-Session::put('return_url',$url);?>
+Session::put('return_url',$url);
+Session::put('dest_email',isset($dest_email)?$dest_email:Session::get('dest_email'))?>
 <div class="cart">
     
     <h2 class="julie">JulietCorley.com</h2>
-    <h2 class= "caption h3">Your Cart</h2>
+    <h2 class= "caption h3">Cart for {{Session::get('dest_email')}}</h2>
         
     <h3><a href="/icon/dumpcart" class="btn btn-custom-danger btn-sm">Empty Cart</a></h3>
     
@@ -27,7 +28,7 @@ Session::put('return_url',$url);?>
             </tr>
         </table>
     
-        {{showPayButton()}}
+        {{showPayButton(Session::get('dest_email'))}}
     
     <h3><a href="{{ $back }}"class="btn btn-info">Continue Shopping</a></h3>
 </div>

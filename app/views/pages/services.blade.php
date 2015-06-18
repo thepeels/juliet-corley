@@ -1,6 +1,7 @@
 @extends('layout')
 {{ HTML::style( asset('css/grid16.css'))}}
 {{ HTML::style( asset('css/services.css') ) }}
+{{ HTML::style( asset('css/menu-jquery.css') ) }}
 @section('body-class')
 <body class="fish-table">
     
@@ -14,10 +15,40 @@
         <h3 class="title">Scientific illustration, Artwork, Technical drawings</h3>
     </div>
     <div class="grid-16">
-        <div class="grid-3  side-menu">
-            @include('includes.side_menu')    
+        <div class="grid-2  side-menu">
+            <!--@include('includes.side_menu') -->
+            <div id='cssmenu'class="grid-2  side-menu">
+<ul>
+   <li class='active'><a href='#'><span>Home</span></a></li>
+   <li class='has-sub'><a href='#'><span>Art Gallery</span></a>
+      <ul>
+         <li><a href='#'><span>Photo Gallery</span></a></li>
+         <li class='last'><a href='#'><span>Fish Paintings</span></a></li>
+      </ul>
+   </li>
+   <li class='has-sub'><a href='#'><span>Illustration</span></a>
+      <ul>
+         <li><a href='#'><span>Portfolio</span></a></li>
+         <li class='last'><a href='#'><span>Testimonials</span></a></li>
+      </ul>
+   </li>
+   <li class='has-sub'><a href='#'><span>Fish Icons</span></a>
+      <ul>
+         <li><a href='info'><span>Icon Commissions</span></a></li>
+         <li class='last'><a href='download'><span>Icon Database</span></a></li>
+      </ul>
+   </li>
+   <li class='has-sub'><a href='#'><span>About</span></a>
+      <ul>
+         <li><a href='#'><span>Project Portfolio</span></a></li>
+         <li class='last'><a href='#'><span>Contact me</span></a></li>
+      </ul>
+   </li>
+   <li class='last'><a href='#'><span>Card Payments</span></a></li>
+</ul>
+</div>   
         </div>
-        <div class="grid-4 para">
+        <div class="grid-4 push-1 para">
             <p>
                 I am a marine biologist and a scuba diver,
 sidelining as a professional illustrator for
@@ -47,7 +78,7 @@ contact me for other designs.
             </p>
         </div>
         <div class="grid-13 ">
-            <div class="grid-5">
+            <div class="grid-5 push-1">
                     <h1 title="how to style this pop-up?  
 - after all I am a marine biologist and a scuba diver,
 sidelining as a professional illustrator for
@@ -120,3 +151,5 @@ contact me for other designs.
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script><?  include_once('/packages/menu-script.js');?></script>

@@ -11,7 +11,7 @@
 
 <div class="container-24" style = "background:inherit">
 <div class="push-3 grid-21 preview fish-name">
-    <h2>{{ $fish_name }}</h2>
+    <h2 style='font-family:"Merriweather";letter-spacing:-1px;'>{{ $fish_name }}</br>Juliet Corley</h2>
 </div>    
 <div class="push-3 grid-21 preview">
     <img src="/images/{{ $preview_url }}" alt="image preview" />

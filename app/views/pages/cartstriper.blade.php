@@ -1,12 +1,6 @@
 @extends('layout')
 {{ HTML::style( asset('css/cart.css') ) }}
 @section('content')
-<script type="javascript">
-	function showbutton(){
-		$('.waiting')FadeIn(2000);
-		document.onload = showbutton;
-	}
-</script>
 <title>Cart Payment</title>
 
 <?php require_once(public_path().'/stripe/config.php'); 
@@ -28,7 +22,7 @@ $amountindollars= $amountincents/100;
 	<input name ="itemdescription" type="hidden" value="<?=$itemdescription?>">
 	<input name ="receipt_email" type="hidden" value="<?=Auth::user()->email?>">
 
-  <script>
+  <script
     src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button waiting"
     data-key="{{Config::get('stripetest.stripe.public')}}"//stripe.stripe.public - or stripetest.stripe.public
     data-amount="<?=$amountincents;?>"
@@ -42,4 +36,10 @@ $amountindollars= $amountincents/100;
 <p><em>(Sometimes, especially with Firefox, a pop-up indicates that a script has stopped, please 
     select 'continue', be patient, and stripe will shortly complete its job.)</em></p>
 </div>
+<script type="javascript">
+	function showbutton(){
+		$('.waiting')FadeIn(2000);
+		document.onload = showbutton;
+	}
+</script>
 @stop

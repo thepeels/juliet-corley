@@ -28,7 +28,36 @@ class IconController extends \BaseController {
 			)
 		);
 	}
-    	 
+    public function getMakecart()
+    {
+    	//dd(Session::get('dest_email'));
+		//   $proxy=Input::get('proxyemail');
+	//if($proxy==""){$proxy=Auth::user()->email;}
+	
+        return View::make('shoppingcart',array(
+            'back'=>Input::get('return_url','/download'),
+			//'dest_email'=>$proxy)
+			)
+        );
+    }
+ /*
+  * see functions cartAdd and cartTabulate in helpers.php
+  */	
+    public function postAjaxemail($proxyemail=null)
+	{
+		$proxyemail=Input::get('proxyemail');
+		$instance = null!=($proxyemail)?$proxyemail:'main';
+		Cart::instance($instance);
+		Session::forget('cart_instance');
+		Session::put('cart_instance',$instance);
+		//dd(Cart::get('instance'));
+		//dd($instance);
+		//return ajaxemail($proxyemail);
+		return Response::json(array(
+			'success' 		=> true,
+			'current_email' => Session::get('cart_instance')));
+	}
+		 
 	public function getAddtocart($id,$fish_name,$base_price,$table_row_index)
 	{
 		if(!Auth::check())return Response::json(array(
@@ -36,7 +65,6 @@ class IconController extends \BaseController {
 				'notloggedin' 	=>	"Please log in to use the cart"
 			)
 		);
-	    		
 	    // add return URL to session? 
         if (Session::has('go_back_to_URL'))
         {   
@@ -62,6 +90,10 @@ class IconController extends \BaseController {
 	{
 		Cart::destroy();
 	    return Redirect::back();
+	    /*return View::make('shoppingcart',array(
+            'back'=>Input::get('return_url','/download'),
+			'dest_email'=>$proxy)
+		);*/
 	}
 	
 	public function getAjaxdumpcart()
@@ -75,13 +107,14 @@ class IconController extends \BaseController {
 		);
 	}
 	
-
-    public function getMakecart()
-    {   
-        return View::make('shoppingcart',array(
+/*	public function getMakecart()
+	{
+		return View::make('shoppingcart',array(
             'back'=>Input::get('return_url','/download'))
-        );
-    }
+		);
+	}
+*/
+ 
     /**
      * Preview the Full size fish image
      * 

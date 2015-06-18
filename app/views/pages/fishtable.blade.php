@@ -15,6 +15,12 @@
 <?$url = Request::url();
 $genus = Input::get('genus');
 $species = Input::get('species');
+
+if(null!=Session::get('cart_instance'))
+	{$placeholder = (string)Session::get('cart_instance');}
+else 
+	{$placeholder = "enter e-mail";}
+	
 $return_url=urlencode($url.'?'.'genus='.$genus.'&'.'species='.$species);
 //$frag = $_COOKIE['thefragment'];
 //dd($frag);
@@ -32,14 +38,25 @@ foreach ($prices as $price){}
                 <p>&nbsp;</p>
             </div>
             <div class="push-4 grid-8 fish-icons segoe blue">
-                <h2>Fish Icons</h2>
+                <h2>Fish Ico<span class="letter-space">ns</span></h2>
                 <h3>&nbsp;&nbsp;&nbsp;for graphs and data</h3>
             </div>
             <div class=" push-5 grid-11 ">
                 <div class="cart">
                     <h5> Cart Summary: <span id="cartresume">{{cartResume()}} </span></h5>
-                    <h3><a href="/icon/makecart?return_url={{$return_url}}" 
-                            class="btn btn-primary btn-xs">View Cart / Checkout
+                   <!--<form id="proxyemail" action="/icon/ajaxemail" > 
+                    	<h6 style ="font-size: 8px;margin-top:-2px;margin-bottom:-18px">Cart for:-
+                    		<input size="15" type="email" id="themailaddress"
+                    			name="proxyemail"
+                    			placeholder={{$placeholder}}/>
+                    		<input type="submit" class="btn btn-info btn-xxs ajaxit" value="Set"/>
+                    		<!--<a class="btn btn-primary btn-xs"
+                    			href="/icon/makecart?return_url={{$return_url}}"
+                    			>View Cart / Checkout"</a>--><!--
+                   		</h6>
+                   </form>-->
+                   <h3><a href="/icon/makecart?return_url={{$return_url}}" 
+                            class="btn btn-primary btn-xs" id="themailaddress">View Cart / Checkout
                         </a>
                             &nbsp;&nbsp;
                         <a href="/icon/ajaxdumpcart" 
@@ -48,6 +65,7 @@ foreach ($prices as $price){}
                     </h3>
                 </div>
             </div>
+
             <div class="push-4 grid-15 second-row">
                 <div class="grid-7">
                     @include('includes.alphabetical')

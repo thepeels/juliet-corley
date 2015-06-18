@@ -13,14 +13,15 @@ function in_url($string)
         return strpos($_SERVER["REQUEST_URI"], $string) !== FALSE;
     }
 
-function showPayButton()
+function showPayButton($dest_email)
     {
         if (Cart::total()!=0){
             echo('<h3><a href="/cardpay" class="btn btn-primary ">Pay by Card
                 </a></h3>');
+			echo('Cart destination:-');
         }
-    } 
-    
+    }
+
 function cartSummary()
     {   $test = FALSE;
         $cart = Cart::content();
@@ -59,7 +60,7 @@ function cartTabulate()
                 }
                 echo'<td>&dollar;'.($row->price/100).'</td>';
                 echo'<td>'.$row->qty.'</td>';
-                echo'<td><a href="/icon/dumprow/'.$row->rowid.'" class="btn btn-warning btn-xs">Remove</a></td>';
+                echo'<td><a href="/icon/dumprow/'.$row->rowid.'" class="btn btn-warning btn-xs">Remove</a>'./*$row->options->proxy.*/'</td>';
                 //echo'<td>'.$row->options->filepath.'</td>';
             echo'</tr>';
         }
@@ -89,7 +90,8 @@ function cartAdd($id,$fish_name,$base_price,$id_index,$prior)
                 	'price' 	=> $base_price,
                     'options' 	=> array(
                     'filepath'	=> $selection->id,
-                    'prior'		=> $prior
+                    'prior'		=> $prior,
+                    //'proxy'		=> (string)Session::get('cart_instance')
                     )
                     )
                 );
@@ -122,7 +124,13 @@ function fillOutPurchaseTable()
                 if(Session::has('purchased',$row->options->name)){
                     echo'<td><a href="../download/cartdownload/'
                     . $row->id . '/' . $row->name . '" class="btn btn-info btn-xs">'
-                    . 'Download Now.</a>
+                    . 'Download Now</a> '
+                    //. '<a href="../download/allocate/'
+                    //. $row->id . '/' . $row->name . '" class="btn btn-default btn-xs byajax">'
+                    //. 'Allocate to email</a>
+                    //.'<form action="../icon/ajaxemail" class="btn btn-default btn-xs byajax">
+                    //<input type="email" name="proxyemail" size="20" />
+                    .'  
                     </td>';
                 }
             echo'</tr>';
@@ -206,8 +214,17 @@ function getPrice($column)
     //$prices = DB::table('prices')->where('name',$column)->get();
     return $prices;
 }
-
-
+function ajaxemail($proxyemail)
+	{
+		$proxyemail=Input::get('proxyemail');
+		if ($proxyemail=="")$proxyemail=Auth::user()->email;
+		//dd($proxyemail);
+		//Session::put('dest_email',$proxyemail);
+		//dd(Session::get('dest_email'));
+		return Response::json(array(
+			'success' 		=> true,
+			'current_email' => $proxyemail));
+	}
 
 
 

@@ -63,7 +63,7 @@ public function postPay()
 	if ($charge->paid == true) 
 	   {
     	    $content = Cart::content();
-            $email = isset(Auth::user()->email);
+            $email = null!=(Auth::user()->email)?Auth::user()->email:Auth::user()->email;
             
             //Session::put('purchased',array());
                 //put the purchased items in the database for later download if necessary
@@ -197,7 +197,7 @@ public function postPay()
     // Stripe charge was successfull, continue by redirecting to a page with a thank you message
     if ($charge->paid == true) {
         $content = Cart::content();
-        $email = isset(Auth::user()->email);
+        $email = null!=(Auth::user()->email)?Auth::user()->email:Auth::user()->email;
         //Session::put('purchased',array());
             //put the purchased items in the database for later download if necessary
         
@@ -205,10 +205,11 @@ public function postPay()
             
             DB::table('userpurchases')->insert(
                 array(
-                    'email'=>$email,
-                    'purchase'=>$item->name,
-                    'amount'=>$item->price,
-                    'image_id'=>$item->id,
+                    'email'		=>$email,
+                    //'email'=>$item->options->proxy,
+                    'purchase'	=>$item->name,
+                    'amount'	=>$item->price,
+                    'image_id'	=>$item->id,
                     'created_at'=> new DateTime,
                     )
                 );
@@ -230,7 +231,7 @@ public function postTestsinglepayment()
     $token = Input::get('stripeToken');
     $amountincents = Input::get('amountincents');
     $itemdescription = Input::get('itemdescription');
-				$receipt_email = null!=Input::get('receipt_email')?Input::get('receipt_email'):null;
+	$receipt_email = null!=Input::get('receipt_email')?Input::get('receipt_email'):null;
     // Create the charge on Stripe's servers - this will charge the user's card
     try {
         $charge = Stripe_Charge::create(array(
@@ -272,7 +273,7 @@ public function postSinglepayment()
     $token = Input::get('stripeToken');
     $amountincents = Input::get('amountincents');
     $itemdescription = Input::get('itemdescription');
-				$receipt_email = null!=Input::get('receipt_email')?Input::get('receipt_email'):null;
+	$receipt_email = null!=Input::get('receipt_email')?Input::get('receipt_email'):null;
     // Create the charge on Stripe's servers - this will charge the user's card
     try {
         $charge = Stripe_Charge::create(array(

@@ -87,14 +87,14 @@ a, a:hover, a:active, a:focus{outline:0;}
 }
 .blue,  .alpha-search.blue a{color: #112789 }
 .segoe{
-    //font-family: "Trebuchet MS" ,sans-serif;
     font:normal 12px  "Segoe print" ,sans-serif;
+    /*font-family: "Trebuchet MS" ,sans-serif;
     //font-family:"segoe UI" ,Helvetica ;
     //font-family:"ComicNeue-Oblique" ,Helvetica ;
     //font-family:Arial,Helvetica,sans-serif;
     //font-family:'Handlee', cursive;
     //font-family:'Overlock',sans-serif;
-    //font-style:italic;
+    //font-style:italic;*/
     -webkit-font-style:normal;
     
 }
@@ -196,7 +196,7 @@ h4.search-strip{padding-bottom:6px;padding-top:4px;margin-bottom:4px;letter-spac
 .scrolling{overflow-y:scroll;height:450px;z-index:50}
 
 ul{display:list-item;list-style-type: none;}
-ul li {width:120px;margin-top:6px}
+.side-menu ul li {width:120px;margin-top:6px}
 
 .side-menu{
     margin-top:12px;
@@ -264,7 +264,7 @@ ul li {width:120px;margin-top:6px}
     font:normal 12px/24px Tahoma;
     background-image:none;
     background-color:#fff;
-    border:solid 3px #66c;
+    border:solid 2px #66c;
     border-radius:8px;
     z-index:100;
     padding:8px;

@@ -1,109 +1,150 @@
 @extends('layout')
-{{ HTML::style( asset('css/imagetable.css') ) }}
+@section('stylesheets')
+{{ HTML::style( asset('css/grid24.css'))}}{{ HTML::style( asset('css/imagetable.css') ) }}
+@stop
+
 @section('body-class')
 <body class="fish-table">
 @stop
-@section('content')
-<div class="container-fluid">
-<div class="row toprow">
-    <div class="col-md-3">
-        
-        <h1>Juliet Corley Art</h1>
-    </div>
-    
-</div>
-<div class="row second-row">
-    <div class="col-md-5 col-md-offset-2">
-        @include('includes.alphabetical')
-    </div>  
-    <div class="col-md-4 cart">
-    
-        <p>
-        Cart Summary: {{Carthelper::cartResume()}}
-        </p>
-        
-        <h4><a href="/icon/makecart">View Cart / Checkout</a></h4>
-    </div>    
-</div>
-<div class="row third-row" >
-    <div class="col-md-3 col-md-offset-1">
-        <h3>Select your download:</h3>
-    </div>    
-</div>
-
-<div class="row">
-    <div class="col-md-2 col-md-offset-1 side-menu">
-            
-        <ul>
-            <li>Home</li>
-            <li>Fish icon store</li>
-            <li>Fish gallery</li>
-            <li>Portfolio</li>
-            <li>Services</li>
-            <li>Merchandise</li>
-            <li>Contact me</li>
-            <li>Links</li>
-        </ul>
-    </div>
-   
-         
-        
-    <div class="col-md-8  captions">
-            <table class="separated captions" style = "padding:0px">
-                <tr>
-                    <th style="width:270px"></th>
-                    <th>Price</th>
-                    <th>5cm Left</th>
-                    <th>5cm Right</th>
-                    <th>3cm Left</th>
-                    <th>3cm Right</th>
-                    <th>Silhouette</th>
-                    <th>Outline</th>
-                </tr>
-            </table>
-    </div>
-    <div class="col-md-8  main-table scrolling">
-            <table class="separated data" style = "padding:0px">
-            @foreach ($fishs as $fish)
-                <tr id="<?=$fish->name[0]?>" style= "border:1px solid #777">
-                    <td>{{ $fish->name }}</td>
-                    <td>${{ $fish->base_price_dollars }}</td>
-                    <td>
-                        {{--<a href="/icon/addtocart/'.$key->id.'">--}}
-                        <a href="/icon/addtocart/{{ $fish->large_image_id }} / {{ $fish->name }}">
-                            <img src="{{ $fish->image_thumb->image_url }}">
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/icon/addtocart/{{ $fish->large_image_flipped_id }} / {{ $fish->name }}">
-                            <img src="{{ $fish->image_thumb_flipped->image_url }}">
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/icon/addtocart/{{ $fish->small_image_id }} / {{ $fish->name }}">
-                            <img src="{{ $fish->image_thumb->image_url }}">
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/icon/addtocart/{{ $fish->small_image_flipped_id }} / {{ $fish->name }}">
-                            <img src="{{ $fish->image_thumb_flipped->image_url }}">
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/icon/addtocart/{{ $fish->silhouette_image_id }} / {{ $fish->name }}">
-                            <img src="{{ $fish->silhouette_thumb->image_url }}">
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/icon/addtocart/{{ $fish->outline_image_id }} / {{ $fish->name }}">
-                            <img src="{{ $fish->outline_thumb->image_url }}">
-                        </a>
-                    </td>
-                </tr>
-            @endforeach 
-            </table>
-    </div>
-</div>
-@include('includes.footer')
-</div>
+@section('title')
+<title>Icon Store</title>
 @stop
+@section('content')
+
+
+<?$url = Request::url();
+$genus = Input::get('genus');
+$species = Input::get('species');
+$return_url=urlencode($url.'?'.'genus='.$genus.'&'.'species='.$species);
+//$frag = $_COOKIE['thefragment'];
+//dd($frag);
+//Session::put('usefragment',$frag);
+?>
+<?
+$table_row_index = 1;
+$prices = getPrice('icons');
+foreach ($prices as $price){}
+?>
+<div class="container-24">
+    <div class="grid-24">
+         
+            <div class="grid-3 push-3 logo">
+                <p>&nbsp;</p>
+            </div>
+            <div class="push-4 grid-8 fish-icons segoe blue">
+                <h2>Fish Icons</h2>
+                <h3>&nbsp;&nbsp;&nbsp;for graphs and data</h3>
+            </div>
+            <div class=" push-5 grid-11 ">
+                <div class="cart">
+                    <h5> Cart Summary: <span id="cartresume">{{cartResume()}} </span></h5>
+                    <h3><a href="/icon/makecart?return_url={{$return_url}}" 
+                            class="btn btn-primary btn-xs">View Cart / Checkout
+                        </a>
+                            &nbsp;&nbsp;
+                        <a href="/icon/ajaxdumpcart" 
+                            class= " byajax btn btn-info btn-xs">Empty Cart
+                        </a>
+                    </h3>
+                </div>
+            </div>
+            <div class="push-4 grid-15 second-row">
+                <div class="grid-7">
+                    @include('includes.alphabetical')
+                </div>
+                <div class="grid-6   segoe note blue">
+                    <p>This database is a work-in-progress and is still very small. 
+                        If species you want are not shown here, please 
+                        <a href="mailto:julietcorley@gmail.com?Subject=Commission%20species%20enquiry" 
+                		target="_top">email me</a> to commission them.
+                    </p>
+                </div>
+            </div>
+    </div>
+    
+    <div class="push-7 grid-17 third">
+            
+        <h5><a href="../download" class= "btn btn-default btn-xs show-all">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Show all species&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Click on fish images to select your download.  
+            <em>(Click on fish name to preview full size image)</em>
+        </h5>
+    </div>
+
+    <div class="grid-24">
+        
+        <div class="push-3 grid-3 side-menu bt-group-sm">
+            @include('includes.side_menu')    
+        </div>
+            
+        <div class="grid-14 push-2 captions">
+                <table class="separated captions" style = "padding:0px">
+                    <tr>
+                        <th></th>
+                        <th>3cm ${{ $price->second_price/100 }}</th>
+                        <th>5cm ${{ $price->first_price/100 }}</th>
+                        
+                        <th>Silhouette ${{ $price->third_price/100 }}</th>
+                        <th>Outline ${{ $price->fourth_price/100 }}</th>
+                    </tr>
+                </table>
+        </div>
+        
+        <div id="data" class="push-4 grid-14 main-table scrolling" style="transform:translateX(-30px)">
+            
+            <div class="inner-shadow">
+                
+                <table class="separated data row">
+                @foreach ($fishs as $fish)
+                    
+                    <tr id="{{$table_row_index}}">
+                        <td id="{{ $fish->name[0] }}"><a href="/icon/preview{{ $fish->large_image_watermarked->image_url }} /
+                             {{ $fish->name }}?return_url=download#{{$table_row_index}}" class="btn btn-default btn-lg" title="Click to Preview">
+                             {{ $fish->name }}    
+                            </a></td>
+                        <td>
+                            <a class="byajax" href="/icon/addtocart/{{ $fish->small_image_id }}/{{$fish->name }}/{{ $price->second_price }}/{{$table_row_index }}">
+                                <img src="{{ $fish->image_thumb->image_url }}" class="cell">
+                            </a>
+                        </td>
+                        <td>
+                            <a class="byajax" href="/icon/addtocart/{{ $fish->small_image_flipped_id }}/{{ $fish->name }}/{{ $price->second_price }}/{{$table_row_index }}">
+                                <img src="{{ $fish->image_thumb_flipped->image_url }}" class="cell">
+                            </a>
+                        </td>
+                        <td>
+                            <a class="byajax" href="/icon/addtocart/{{ $fish->large_image_id }}/{{ $fish->name }}/{{ $price->first_price }}/{{$table_row_index }}">
+                                <img src="{{ $fish->image_thumb->image_url }}" class="cell">
+                            </a>
+                        </td>
+                        <td>
+                            <a class="byajax" href="/icon/addtocart/{{ $fish->large_image_flipped_id }}/{{ $fish->name }}/{{ $price->first_price }}/{{$table_row_index }}">
+                                <img src="{{ $fish->image_thumb_flipped->image_url }}" class="cell">
+                            </a>
+                        </td>
+                        
+                        <td>
+                            <a class="byajax" href="/icon/addtocart/{{ $fish->silhouette_image_id }}/{{ $fish->name }}/{{ $price->third_price }}/{{$table_row_index }}">
+                                <img src="{{ $fish->silhouette_thumb->image_url }}" class="cell">
+                            </a>
+                        </td>
+                        <td>
+                            <a class="byajax" href="/icon/addtocart/{{ $fish->outline_image_id }}/{{ $fish->name }}/{{ $price->fourth_price }}/{{$table_row_index }}">
+                                <img src="{{ $fish->outline_thumb->image_url }}" class="cell">
+                            </a>
+                        </td>
+                       	
+                    </tr>
+                    <?$table_row_index ++;?>
+                @endforeach 
+               
+                </table>
+            </div>    
+        </div>
+    </div>
+</div> {{--container-24 end--}}
+@stop
+

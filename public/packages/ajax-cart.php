@@ -9,7 +9,7 @@ $(document).ready(function(cart){
 	        	}
         		$("#cartresume").html(data.cart_description + data.cart_amount);
         	}
-        });
+        },"json");
     });
 });
 </script>
