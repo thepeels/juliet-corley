@@ -1,0 +1,30 @@
+.text-table td, th{border:1px solid #888;border-collapse:collapse;margin:0 auto;padding:4px 10px;}
+.userdownloads th{border:none;}
+.spaced{margin-top:15px}
+.scrollable{overflow-y:scroll;max-height:525px}
+.col-4{width:25%;min-width:215px;}
+.col-6{width:40%;}
+.col-6{min-width:280px;}
+h2 span{font-size:14px;}
+.navbar-brand
+{
+    background:url('/images/bg-images/blue-icon.jpg')no-repeat 10px 4px;
+    padding-left:50px;
+    }
+.my-account.navbar-brand{padding-left:60px}    
+body{margin-top:152px;}
+body.myaccount{margin-top:0;}
+.attached-nav{padding-top:10px;}
+@media (min-width:768px){
+.navbar-fixed-top.container{width:720px}
+.centered{margin:0 auto;width:500px;}
+}
+@media (min-width:988px){
+.navbar-fixed-top.container{width:940px}
+}
+@media (min-width:1188px){
+.navbar-fixed-top.container{width:1140px}
+}
+.newclass{width:200px;}
+.centered{margin:0 auto;width:600px;}
+.modified{display:none;}
