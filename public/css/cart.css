@@ -39,6 +39,11 @@ table.cart{background-color:#fff;}
 .julie{
     color:#4288CE;
 }
+.merri{
+    font-family: "Merriweather";
+    letter-spacing:-0.025em;
+}
+    
 .cr{clear:right;}
 .table-summary em{font-size:11px;}
 .stripe-fieldset{padding:10px 10px 0px 10px;border:1px solid #444;border-radius: 10px}

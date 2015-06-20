@@ -87,7 +87,7 @@ a, a:hover, a:active, a:focus{outline:0;}
 }
 .blue,  .alpha-search.blue a{color: #112789 }
 .segoe{
-    font:normal 12px  "Segoe print" ,sans-serif;
+    font:normal 12px  "SegoePrint" ,sans-serif;
     /*font-family: "Trebuchet MS" ,sans-serif;
     //font-family:"segoe UI" ,Helvetica ;
     //font-family:"ComicNeue-Oblique" ,Helvetica ;
@@ -105,8 +105,8 @@ a, a:hover, a:active, a:focus{outline:0;}
     ::i-block-chrome, .segoe {font-style:normal;}
 }
 .segoe h1 {font-size:42px}
-.segoe h2 {font:normal 42px/42px "Segoe print" ,sans-serif;}
-.segoe h3 {margin-top:-0px;font:normal 24px/24px "Segoe print" ,sans-serif;}
+.segoe h2 {font:normal 42px/42px "SegoePrint" ,sans-serif;}
+.segoe h3 {margin-top:-0px;font:normal 24px/24px "SegoePrint" ,sans-serif;}
 .fish-icons{
     background-image:url("/images/bg-images/fish-icons-title.png");
     background-repeat:no-repeat;

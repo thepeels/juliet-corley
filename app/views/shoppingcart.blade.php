@@ -7,8 +7,9 @@ Session::put('return_url',$url);
 Session::put('dest_email',isset($dest_email)?$dest_email:Session::get('dest_email'))?>
 <div class="cart">
     
-    <h2 class="julie">JulietCorley.com</h2>
-    <h2 class= "caption h3">Cart for {{Session::get('dest_email')}}</h2>
+    <h2 class="julie merri">JulietCorley.com</h2>
+    <!--<h2 class= "caption h3">Cart for {{Session::get('dest_email')}}</h2>-->
+    <h2 class= "caption h3 merri">Cart for {{Auth::user()->email}}</h2>
         
     <h3><a href="/icon/dumpcart" class="btn btn-custom-danger btn-sm">Empty Cart</a></h3>
     

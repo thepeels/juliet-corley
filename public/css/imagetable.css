@@ -141,7 +141,7 @@ table.captions tr th:nth-child(n+4){min-width:98px;text-align:center;}
 }
 .blue,  .alpha-search.blue a{color: #112789 }
 .segoe{
-    font-family:'Segoe print', 'Handlee',cursive;
+    font-family:'SegoePrint', 'Handlee',cursive;
 }
 .segoe h1 {font-size:42px}
 .segoe h2 {font-size:36px}

@@ -34,16 +34,18 @@
 				</div>
 				<div id='cssmenu' class='grid-4 '>
 					<ul>
-					   <li class='active'><a href='#'><span>Home</span></a></li>
+					   <li class='active'><a href='/'><span>Home</span></a></li>
 					   <li ><a href='#' title = "Coming Soon"><span style="letter-spacing:-.5px;">Merchandise/Shop</span></a></li>
-					   <li><a href='#' title = "Coming Soon"><span>Craft items</span></a></li>
+					   <li><a href='payment/singlesuccess' title = "Coming Soon"><span>Craft items</span></a></li>
 					   <li><a href='#' title = "Coming Soon"><span>Art Gallery</span></a></li>
 					   <li><a href='#' title = "Coming Soon"><span>Fish Paintings</span></a></li>
 					   <li><a href='#' title = "Coming Soon"><span>Photo Gallery</span></a></li>
-					   <li class='has-sub'><a href='#'><span>About me</span></a>
+					   <li class='has-sub'><a href='#'><span>About</span></a>
 					      <ul>
+					         <li><a href='#' title = "Coming Soon"><span>About me</span></a></li>
 					         <li><a href='#' title = "Coming Soon"><span>Contact me</span></a></li>
-					         <li class='last' title = "Coming Soon"><a href='#'><span>About me</span></a></li>
+					         <li><a href='#' title = "Coming Soon"><span>Site info</span></a></li>
+					         <li class='last' title = "Coming Soon"><a href='#'><span>Site map</span></a></li>
 					      </ul>
 					   </li>
 					   <li><a href='#' title = "Coming Soon"><span>Project Portfolio</span></a></li>

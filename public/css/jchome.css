@@ -25,7 +25,7 @@ p{margin-left:0;margin-right:0;}
     font-weight:400;
     margin-top:-6px;
     display:inline-block;
-    color:#006;
+    color:#010066;
 }
 p.heading{
     font:normal 19px/24px  "SegoePrint" ,sans-serif;
@@ -72,28 +72,28 @@ p.heading{
 }
 .payment-link a{
     font: italic 15px/16px "Merriweather" ,sans-serif;
-    color:#780050;
+    color:#81007f;
     height:60px;
     width:140px;
 }
 .mpa{
-    font:bold 12px  "Merriweather" ,sans-serif;
+    font:normal 12px  "Merriweather" ,sans-serif;
     letter-spacing:-.4px;
-    color:#333;
+    color:#003;
     margin-left:0px;
-    margin-right:0;
 }
 .game{
     background-image:url("/images/bg-images/mpa.jpg");
     height:78px;
-    background-size:102px 78px;
+    background-size:106px 81px;
     margin-top:10px;
 }
 /*.omega.paint{width:150px;
 }*/
 li.final a span{
     font-style:italic;
-    color:#780050;
+    color:#81007f;
+    
 }
 .paint.paint{
     margin-left:12px;
@@ -128,3 +128,6 @@ a.underline.blues{
 a:hover.underline.blues{
     color:#337ab7;
 }
+_::-moz-svg-foreign-content, :root .mpa,.game  { /*safari 5.1 - 6.0 chrome 10 - 24*/
+    margin-right:-4px;
+}  
