@@ -57,7 +57,7 @@ $return_url = urlencode($url);
 						</div>
 					</div>
 					@foreach ($products as $product)
-					<?$form_id = 'form-'.$form_index;?>
+					<?$form_id = 'form-'.$form_index;?><!-- redundant -->
 					<div class="grid-11 pushdown">
 					<div class="grid-5 alpha image-column">
 						<img src="{{$product->small_size_image->image_url}}" width="270px">

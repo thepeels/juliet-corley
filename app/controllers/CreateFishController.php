@@ -13,11 +13,11 @@ class CreateFishController extends BaseController
         }
     }
     
-    public function getArt()
+    public function getCraft()
     {
         try
         {
-            $builder = new ArtBuilder();
+            $builder = new CraftBuilder();
             $builder->build('Some name');
         } catch (DuplicateUniqueKeyException $e) {
             # Redirect the user with some error message

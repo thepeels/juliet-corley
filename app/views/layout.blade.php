@@ -18,6 +18,8 @@ else{echo("
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="/fonts/MyFontsWebfontsKit.css" type="text/css">
+<!--<link rel="shortcut icon" href="favicon.ico"/> 
+<link rel="icon" href="favicon.ico"/> -->
         
 @yield('stylesheets')
 </head>

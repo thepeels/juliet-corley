@@ -94,6 +94,13 @@ class Image extends Eloquent
         
         return '/' . $this->subfolder . '/' . $this->storage_filename;
     }
+	
+    public function getCraftImageUrlAttribute() //attribute drops off the end of this name
+    {
+        return '/' . $this->subfolder . '/' . $this->storage_filename;
+    }
+	
+	
 
     /**
      * Add Image

@@ -1,5 +1,4 @@
 @extends('admin.layout')
-
 @section('title')
 <title>Product Table</title>
 @stop

@@ -88,5 +88,4 @@ class ProductController extends \BaseController
 		});
         return Redirect::to('admin/shop');
 	}
-	
 }

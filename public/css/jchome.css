@@ -1,4 +1,22 @@
 p{margin-left:0;margin-right:0;}
+h4.segoe{font:bold 18px/18px 'SegoePrint';color:#222;margin:5px;}
+p.segoe{font:normal 14px/16px 'SegoePrint';color:#222;margin:0px 5px 5px 5px;}
+
+.centered{
+    text-align:center;
+    border:dashed 2px #666;
+}
+.pushdown{
+    margin-top:20px;
+}
+.quantity{width:30px;margin-left:0px;margin-top:4px; height:24px;}
+label.label{font:normal 12px Arial, Helvetica, sans-serif;color:#222;padding: 0.2em 0 0.3em;}
+.form-addfish{margin-top:5px;}
+.image-column{margin-left:-10px;}
+.form-control{padding:5px 5px;}
+.opaque{/*display:none;*/}
+.body.btn{disabled:true;}
+/*.text-description{width:295px;margin-left:35px}*/
 #cssmenu {
    /* margin-left:-10px;
     margin-right:10px;*/
@@ -6,7 +24,7 @@ p{margin-left:0;margin-right:0;}
 }
 #cssmenu ul li a{
     width:200px;
-    font:normal 18px/27px  "Merriweather" ,sans-serif;
+    font:normal 18px/27px  "Merriweather" ,serif;
 }
 .jchomelogo{
     background-image:url("/images/bg-images/juliet-corley-illustrator.png");
@@ -17,6 +35,41 @@ p{margin-left:0;margin-right:0;}
     margin-left:-28px;
     margin-right:28px;
 }
+.jcshoplogo{
+    background-image:url("/images/bg-images/juliet-corley-shop.png");
+    display:inline-block;
+    background-size:264px 170px;
+    background-repeat:no-repeat;
+    height:170px;
+    margin-left:-21px;
+    margin-right:21px;
+    margin-bottom:80px;
+}
+.one-off{background-image:url("/images/bg-images/shop-uc1.jpg");
+    display:inline-block;
+    background-size:291px 236px;
+    background-repeat:no-repeat;
+    height:236px;
+    margin-left:-10px;
+    margin-top:-10px;
+}
+p.cone-notice{margin-top:-6px;}
+.cone-notice{
+    font:normal 24px/38px "Merriweather" ,serif;
+    color:#333;
+    text-align:center;
+    background:url("/images/bg-images/traffic-cone.png") no-repeat 0px 20px;
+    margin-left:-12px;
+    margin-right:-18px;
+}
+.babyfoot{
+    background:url("/images/bg-images/babyfoot3.jpg") no-repeat;
+    margin-left:15px;
+    margin-top:12px;
+    height:93px;
+}
+.grid-11.cart{margin-top:0px;margin-bottom:15px;}
+.emptycart{margin-left:-20px;}
 .container-24{
     margin-top:58px;
 }

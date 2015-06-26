@@ -5,7 +5,7 @@
                 <li><a class="btn btn-default btn-sm" href="/download#B">Fish gallery</a></li>
                 <li><a class="btn btn-default btn-sm" href="/download#C">Portfolio</a></li>
                 <li><a class="btn btn-default btn-sm" href="/services">Services</a></li>
-                <li><a class="btn btn-default btn-sm" href="/download#E">Merchandise</a></li>
+                <li><a class="btn btn-default btn-sm" href="/shop">Merchandise</a></li>
                 <li><a class="btn btn-default btn-sm" href="/download#F">Contact me</a></li>
                 <li><a class="btn btn-default btn-sm" href="/download#G">Links</a></li>
                 <li><a class="btn btn-default btn-sm" href="/payment/stripe">Pay for Drawings</a></li>

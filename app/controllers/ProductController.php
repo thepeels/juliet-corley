@@ -25,7 +25,6 @@ class ProductController extends \BaseController
 		$quantity			= Input::get('number');
 		$productName 		= Input::get('productName');
 		return shopCartAdd($productId,$quantity);
-		
 	}
 	
 }

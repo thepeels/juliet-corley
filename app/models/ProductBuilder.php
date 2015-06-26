@@ -8,7 +8,7 @@ class ProductBuilder
      * 
      * @var int
      */
-    private $full_size_image_width = 591;
+    private $full_size_image_width = 591; //does this cause large file failure?
     /**
      * Small image width
      * 

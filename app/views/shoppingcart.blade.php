@@ -21,10 +21,10 @@ Session::put('dest_email',isset($dest_email)?$dest_email:Session::get('dest_emai
                 <th></th><!-- empty <td> required for border in webkit browsers-->
             </tr>
         
-            {{cartTabulate()}}   
+            {{CartTabulate()}}   
         
             <tr>
-                {{cartSummary()}}
+                {{CartSummary()}}
                 <td></td>
             </tr>
         </table>

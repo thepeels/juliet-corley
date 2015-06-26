@@ -40,6 +40,14 @@ class IconController extends \BaseController {
 			)
         );
     }
+	public function getMakeshopcart()
+    {
+        return View::make('shopcart',array(
+            'back'=>Input::get('return_url','/shop'),
+			//'dest_email'=>$proxy)
+			)
+        );
+    }
  /*
   * see functions cartAdd and cartTabulate in helpers.php
   */	
@@ -85,6 +93,15 @@ class IconController extends \BaseController {
 		//return Carthelper::display();
 		return Redirect::back();
 	}
+	public function getShopdumprow($rowId)
+	{
+	    if (Cart::instance('shop')->get($rowId))
+	    {
+	        Cart::remove($rowId);
+	    }
+		//return Carthelper::display();
+		return Redirect::back();
+	}
 
 	public function getDumpcart()
 	{
@@ -98,7 +115,17 @@ class IconController extends \BaseController {
 	
 	public function getAjaxdumpcart()
 	{
-		Cart::destroy();
+		Cart::instance('main')->destroy();
+	    return Response::json(array(
+			'success' => true,
+			'cart_description' => "",
+			'cart_amount' => ""
+			)
+		);
+	}
+	public function getAjaxdumpshopcart()
+	{
+		Cart::instance('shop')->destroy();
 	    return Response::json(array(
 			'success' => true,
 			'cart_description' => "",

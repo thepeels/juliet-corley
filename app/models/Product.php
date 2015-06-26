@@ -130,5 +130,4 @@ class Product extends Eloquent
        }
        return parent::delete();
     }
-
 }

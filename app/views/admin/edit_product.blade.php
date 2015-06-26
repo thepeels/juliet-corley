@@ -55,7 +55,7 @@
             	{{ Form::label('name', 'Edit Product subType ') }}
             	{{ Form::input('text', 'product_sub_type', $product->product_sub_type, ['class' => 'form-control col-6 row-4', 'id' => 'product_sub_type', 'placeholder' => 'subtype']) }}
             </div>
-            <!--<div class="form-group">
+            <!--<div class="form-group">//but not needed in edit - can delete
                 {{ Form::label('name', 'Select item image') }}
                 {{ Form::file('image') }}
             </div>-->

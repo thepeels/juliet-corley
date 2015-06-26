@@ -3,6 +3,8 @@ Route::controller('download','DownloadController');
 
 Route::controller('art','admin\ArtController');
 
+Route::controller('shop','ProductController');
+
 Route::controller('user','UserController');
 
 Route::controller('test','TestController');
@@ -29,7 +31,7 @@ Route::get('demo','HomeController@demo');
 Route::get('temphome','HomeController@temphome');
 //Route::get('/','HomeController@temphome');
 //Route::get('/','DownloadController@getIndex');
-Route::get('/','HomeController@jchome');
+Route::get('jchome','HomeController@jchome');
 Route::get('about','PagesController@about');
 Route::get('charge','PagesController@charge');
 Route::get('services','PagesController@services');
@@ -40,6 +42,7 @@ Route::post('validatefish','Fishcontroller@validateAddFish');
 Route::group(array('before'=>'superuser'), function() {
     Route::controller('admin/fish','\Admin\FishController');
     Route::controller('admin/art','Admin\ArtController');
+    Route::controller('admin/shop','Admin\ProductController');
     Route::controller('admin','Admin\IndexController');
     Route::get('user','UserController@getIndex');
     Route::get('purchases','UserController@getUserpurchases');

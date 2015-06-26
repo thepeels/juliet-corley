@@ -7,6 +7,7 @@
         <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         {{ HTML::style( asset('css/admin.css') ) }}
+        {{ HTML::style( asset('css/grid16.css') ) }}
         <meta charset="UTF-8">
 
     </head>
@@ -37,6 +38,13 @@
                           <li class="divider"></li>
                           <li class="dropdown-header">Pricing</li>
                           <li><a href="/admin/prices">Icon Prices</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Products <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="/admin/shop">Product Table</a></li>
+                          <li><a href="/admin/shop/add">Add Product</a></li>
                         </ul>
                       </li>
                       <li class="dropdown">
