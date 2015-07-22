@@ -252,8 +252,8 @@ function downloadWholeCart()
 		header("Content-Type: application/zip"); 
 	    header("Content-Length: " . filesize($zipfilepath)); 
 	    header("Content-Disposition: attachment; filename=". $zipname); 
-    	readfile($zipfilepath); //shows download screen
-    	unlink($zipfilepath);//deletes zipfile form public folder
+    	readfile($zipfilepath); //shows download options window
+    	unlink($zipfilepath);//deletes zipfile from public folder
 }
 function downloadafile($image_id,$name)
 {
