@@ -20,7 +20,7 @@ class SessionsController extends BaseController{
     public function store()
     {
     	if(isset($_COOKIE['thefragment']))Session::flash('urifragment',$_COOKIE['thefragment']);
-		setcookie ("thefragment", "", time() - 3600);   
+		setcookie ("thefragment", "", time() - 3600); //to get return to same view of icon table  
         $validator = $this->getLoginValidator();
         $credentials = [
             'email'    => Input::get('email'),

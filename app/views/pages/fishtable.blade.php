@@ -32,6 +32,7 @@ $prices = getPrice('icons');
 foreach ($prices as $price){}
 ?>
 <div class="container-24">
+<div class="shading-container">
     <div class="grid-24">
          
             <div class="grid-3 push-3 logo">
@@ -119,8 +120,7 @@ foreach ($prices as $price){}
                 @foreach ($fishs as $fish)
                     
                     <tr id="{{$table_row_index}}">
-                        <td id="{{ $fish->name[0] }}"><a href="/icon/preview{{ $fish->large_image_watermarked->image_url }} /
-                             {{ $fish->name }}?return_url=download#{{$table_row_index}}" class="btn btn-default btn-lg" title="Click to Preview">
+                        <td id="{{ $fish->name[0] }}"><a href="/icon/preview{{ $fish->large_image_watermarked->image_url }}/{{ $fish->name }}?return_url=download#{{$table_row_index}}" class="btn btn-default btn-lg" title="Click to Preview">
                              {{ $fish->name }}    
                             </a></td>
                         <td>
@@ -164,5 +164,14 @@ foreach ($prices as $price){}
         </div>
     </div>
 </div> {{--container-24 end--}}
+</div> {{--shading-container--}}
 @stop
-
+@section('footer')
+<!--<script>
+	$(document).ready(function(){
+		$('html, body').animate({
+            scrollTop: 0
+            },100);
+	});
+</script>-->
+@stop

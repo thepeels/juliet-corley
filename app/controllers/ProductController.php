@@ -5,7 +5,7 @@ class ProductController extends \BaseController
 {
 	public function getIndex()
 	{
-		$products = Product::withImages()->orderBy('created_at','DESC')->get();
+		$products = Product::withImages()->orderBy('page_order','ASC','created_at','DESC')->get();
 		return View::make('pages.shoptable',array(
 			'products' => $products
 		));

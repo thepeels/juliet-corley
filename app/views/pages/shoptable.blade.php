@@ -36,9 +36,14 @@ $return_url = urlencode($url);
 							<p>&nbsp;</p>
 						</div>
 						<div class="grid-6">
+							<?$pclass = '<p class="babyfoot"></p>';?>
 							<p class="cone-notice">This page is not yet</br>
 								fully functional</br>- please email
 								</br>me with orders</p>
+							<!--{{HTML::mailto('babyfoot3@bigfoot.com?subject=Shop%20enquiry
+								&body=I%20wish%20to%20purchase%20the%20following%20items%20
+								from%20your%20shop%3A%0A%0A%0AMy%20address%20is%3A','email-me',['subject'=>'sublect','text'=>'this is the body'])}}-->
+							
 							<a href="mailto:babyfoot3@bigfoot.com?subject=Shop%20enquiry
 								&body=I%20wish%20to%20purchase%20the%20following%20items%20
 								from%20your%20shop%3A%0A%0A%0AMy%20address%20is%3A"
@@ -60,7 +65,7 @@ $return_url = urlencode($url);
 					<?$form_id = 'form-'.$form_index;?><!-- redundant -->
 					<div class="grid-11 pushdown">
 					<div class="grid-5 alpha image-column">
-						<img src="{{$product->small_size_image->image_url}}" width="270px">
+						<img src="{{$product->small_size_image->image_url}}" width="270px" />
 						<div class="opaque grid-5">
 						{{Form::open(array('id' => $form_id, 'url' => "/shop/cartadd?return_url=$url",'class' => 'shopform form-addfish'))}}
 							{{ Form::hidden('productId', $product->id)}}

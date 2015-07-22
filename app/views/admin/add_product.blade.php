@@ -11,23 +11,23 @@
         <fieldset>
             {{--{{Form::open(array('url' => "fish/validateaddfish",'class' => 'form-addfish', 'files' => true, 'method' => 'post'))}}--}}
             <div class="form-group">
-            	{{ Form::label('name', 'Enter Product Name') }}
+            	{{ Form::label('name', 'Enter Product Name') }} <em> - this line not displayed</em>
             	{{ Form::input('text', 'name', null, ['class' => 'form-control col-6', 'id' => 'name', 'placeholder' => 'item name']) }}
             </div>
             <div class="form-group">
-            	{{ Form::label('name', 'Enter Price') }}
+            	{{ Form::label('name', 'Enter Price ($AUD)') }} 
             	{{ Form::input('text', 'price', null, ['class' => 'form-control col-6', 'id' => 'price', 'placeholder' => 'price $AUD']) }}
             </div>
             <div class="form-group">
-            	{{ Form::label('name', 'Enter Title') }}
+            	{{ Form::label('name', 'Enter Title') }} <em> - bold type</em>
             	{{ Form::input('text', 'title', null, ['class' => 'form-control col-6', 'id' => 'title', 'placeholder' => 'title']) }}
             </div>
             <div class="form-group">
-            	{{ Form::label('name', 'Enter Subtitle') }}
+            	{{ Form::label('name', 'Enter Subtitle') }} <em> - normal type</em>
             	{{ Form::input('text', 'subtitle', null, ['class' => 'form-control col-6', 'id' => 'subtitle', 'placeholder' => 'subtitle']) }}
             </div>
             <div class="form-group">
-            	{{ Form::label('name', 'Enter Description - first paragraph') }}
+            	{{ Form::label('name', 'Enter Description - first paragraph') }} <em> - all descriptions are optional</em>
             	{{ Form::input('text', 'description_1', null, ['class' => 'form-control col-6 row-4', 'id' => 'description_1', 'placeholder' => 'paragraph / sentence']) }}
             </div>
             <div class="form-group">
@@ -43,12 +43,16 @@
             	{{ Form::input('text', 'description_4', null, ['class' => 'form-control col-6 row-4', 'id' => 'description_4', 'placeholder' => 'paragraph / sentence']) }}
             </div>
             <div class="form-group">
-            	{{ Form::label('name', 'Enter Product Type or Category') }}
+            	{{ Form::label('name', 'Enter Product Type or Category') }} <em> - types may be used in the future for sorting, can be added later</em>
             	{{ Form::input('text', 'product_type', null, ['class' => 'form-control col-6 row-4', 'id' => 'product_type', 'placeholder' => 'type']) }}
             </div>
             <div class="form-group">
             	{{ Form::label('name', 'Enter Product subType ') }}
             	{{ Form::input('text', 'product_sub_type', null, ['class' => 'form-control col-6 row-4', 'id' => 'product_sub_type', 'placeholder' => 'subtype']) }}
+            </div>
+            <div class="form-group">
+            	{{ Form::label('name', 'Enter Page display position ') }} <em> - smallest number first, duplicate numbers -> most recent entry first</em>
+            	{{ Form::input('text', 'page_order', null, ['class' => 'form-control col-6 row-4', 'id' => 'product_sub_type', 'placeholder' => 'display position']) }}
             </div>
             <div class="form-group">
                 {{ Form::label('name', 'Select item image') }}

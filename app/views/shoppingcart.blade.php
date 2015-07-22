@@ -4,6 +4,7 @@
 <?$url = Request::url();
 $return_url=urlencode($url);
 Session::put('return_url',$url);
+Session::put('cart_instance','main');
 Session::put('dest_email',isset($dest_email)?$dest_email:Session::get('dest_email'))?>
 <div class="cart">
     
@@ -21,10 +22,10 @@ Session::put('dest_email',isset($dest_email)?$dest_email:Session::get('dest_emai
                 <th></th><!-- empty <td> required for border in webkit browsers-->
             </tr>
         
-            {{CartTabulate()}}   
+            {{cartTabulate()}}   
         
             <tr>
-                {{CartSummary()}}
+                {{cartSummary()}}
                 <td></td>
             </tr>
         </table>

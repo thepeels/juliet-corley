@@ -21,6 +21,7 @@ function showPayButton($dest_email)
 			//echo('Cart destination:-');
         }
     }
+
 function shopShowPayButton($dest_email)
     {
         if (Cart::instance('shop')->total()!=0){
@@ -32,11 +33,12 @@ function shopShowPayButton($dest_email)
 
 function cartSummary()
     {   $test = FALSE;
-        $cart = Cart::instance('main')->content();
+		Cart::instance('main');
+        $cart = Cart::content();
         foreach ($cart as $row){
             if($row->options->prior == TRUE){$test=TRUE;}}
         //insert here if(total = 0 && No >0) echo go to my account to download
-            if($test && Cart::instance('main')->total()==0 && Cart::instance('main')->count()>0){
+            if($test && Cart::total()==0 && Cart::count()>0){
             echo'<td class="table-summary"><em>* Download these Icons from your Account</em>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     Cart Total</td>';}
@@ -47,17 +49,19 @@ function cartSummary()
         else{
             echo'<td class="table-summary">Cart Total</td>';
         }
-        echo'<td>&dollar;'.(Cart::instance('main')->total()/100).'</td>';
-        echo'<td>'.Cart::instance('main')->count().'</td>';
+        echo'<td>&dollar;'.(Cart::total()/100).'</td>';
+        echo'<td>'.Cart::count().'</td>';
         //carthelper::showPaybutton(); // would need to be inside <td>
     }
+
 function shopCartSummary()
     {   $test = FALSE;
-        $cart = Cart::instance('shop')->content();
+		Cart::instance('shop');
+        $cart = Cart::content();
         foreach ($cart as $row){
             if($row->options->prior == TRUE){$test=TRUE;}}
         //insert here if(total = 0 && No >0) echo go to my account to download
-            if($test && Cart::instance('shop')->total()==0 && Cart::instance('shop')->count()>0){
+            if($test && Cart::total()==0 && Cart::count()>0){
             echo'<td class="table-summary"><em>* Download these Icons from your Account</em>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     Cart Total</td>';}
@@ -68,8 +72,8 @@ function shopCartSummary()
         else{
             echo'<td class="table-summary">Cart Total</td>';
         }
-        echo'<td>&dollar;'.(Cart::instance('shop')->total()/100).'</td>';
-        echo'<td>'.Cart::instance('shop')->count().'</td>';
+        echo'<td>&dollar;'.(Cart::total()/100).'</td>';
+        echo'<td>'.Cart::count().'</td>';
         //carthelper::showPaybutton(); // would need to be inside <td>
     }
     
@@ -87,13 +91,14 @@ function cartTabulate()
                 else{
                     echo'<td>'.$row->name.'</td>';
                 }
-                echo'<td>&dollar;'.($row->price).'</td>';
+                echo'<td>&dollar;'.($row->price/100).'</td>';
                 echo'<td>'.$row->qty.'</td>';
                 echo'<td><a href="/icon/dumprow/'.$row->rowid.'" class="btn btn-warning btn-xs">Remove</a>'./*$row->options->proxy.*/'</td>';
                 //echo'<td>'.$row->options->filepath.'</td>';
             echo'</tr>';
         }
     } 
+
 function shopCartTabulate()
     {
         $cart = Cart::instance('shop')->content();
@@ -124,6 +129,7 @@ function cartResume()
             echo '&dollar;' . Cart::total()/100;
         }    
     } 
+
 function shopResume()
     {
         if(Cart::instance('shop')->count()>0)
@@ -141,8 +147,8 @@ function cartAdd($id,$fish_name,$base_price,$id_index,$prior)
         foreach($selections as $selection)
         {
             //only add to cart if not already present so...    
-            if (Cart::instance('main')->search(array('id'=>$selection->id)) == false)
-                Cart::instance('main')->add(array(
+            if (Cart::search(array('id'=>$selection->id)) == false)
+                Cart::add(array(
                     'id' 		=> $selection->id,
                     'name' 		=> $fish_name . " " . $selection->filename,
                     'qty' 		=> 1,
@@ -155,10 +161,10 @@ function cartAdd($id,$fish_name,$base_price,$id_index,$prior)
                     )
                 );
             }
-		if(Cart::instance('main')->count()>0) //show summary
-        {   if(Cart::instance('main')->count()==1){$cart_description = Cart::instance('main')->count() . ' item  . . . ';}
-            else {$cart_description = Cart::instance('main')->count() . ' items . . ';}
-            $cart_amount = '$' . Cart::instance('main')->total()/100;
+		if(Cart::count()>0) //show summary
+        {   if(Cart::count()==1){$cart_description = Cart::count() . ' item  . . . ';}
+            else {$cart_description = Cart::count() . ' items . . ';}
+            $cart_amount = '$' . Cart::total()/100;
         }
 		//send ajax response ...
 		return Response::json(array(
@@ -171,10 +177,39 @@ function cartAdd($id,$fish_name,$base_price,$id_index,$prior)
         //return Redirect::to($return_to);
         //return Redirect::back();
     }
-    
+
+function shopCartAdd($productId,$quantity)
+{
+		$product = Product::where('id',$productId)->get();
+		foreach($product as $product){
+		//dd($product);
+		Cart::instance('shop');	
+		Cart::add(
+			$product->id,
+	        $product->title,
+	        $quantity,
+	    	$product->price
+	        );
+		if(Cart::count()>0) //show summary
+        {   if(Cart::count()==1){$cart_description = Cart::count() . ' item  . . . ';}
+            else {$cart_description = Cart::count() . ' items . . ';}
+            $cart_amount = '$' . Cart::total()/100;
+        }
+		//send ajax response ...
+		return Response::json(array(
+			'success' => true,
+			'cart_description' => $cart_description,
+			'cart_amount' => $cart_amount
+			//'id'=>$product->id
+			)
+		);}
+}
+
 function fillOutPurchaseTable()
-    {   
-        $content = Cart::instance('main')->content();
+    {
+        $cart_instance = Session::get('cart_instance');
+		Cart::instance($cart_instance);   
+        $content = Cart::content();
         foreach ($content as $row){
             echo'<tr>';
                 echo'<td>'.$row->name.'</td>';
@@ -195,25 +230,31 @@ function fillOutPurchaseTable()
             echo'</tr>';
         }
         echo'<tr><td class="table-summary">Cart Total</td>';
-        echo'<td>&dollar;' . Cart::instance('main')->total()/100 . '</td>';
-        echo'<td>' . Cart::instance('main')->count() . '</td>';
-        echo'<td></td></tr>';
+        echo'<td>&dollar;' . Cart::total()/100 . '</td>';
+        echo'<td>' . Cart::count() . '</td>';
+        echo'<td><a href="/download/downloadall" class="btn btn-default btn-xs">&nbsp;&nbsp;Download All&nbsp;&nbsp;</a></td></tr>';
     }
     
 function downloadWholeCart()
 {
+    $zipname = 'julietcorley' .time().'.zip';
+	$zip = new ZipArchive();
+	$zip->open($zipname, ZipArchive::CREATE);	
     $content = Cart::instance('main')->content();
         foreach ($content as $row){
-            
-            //return downloadafile($row->id,$row->name);
             $image = Image::where('id',$row->id)->first();
-    $image_file = storage_path() . '/images/' . $image->storage_filename;
-    $response = Response::download($image_file, $row->name);
-    if (App::environment('local')) ob_end_clean();//for xampp locally
-    return $response;
-        }
+    		$image_file = storage_path() . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . $image->storage_filename;
+        	$zip->addFile($image_file,$row->name);
+		}
+		$zipfilepath = $zip->filename;
+	$zip->close();//save zipfile in public folder with contents
+    
+		header("Content-Type: application/zip"); 
+	    header("Content-Length: " . filesize($zipfilepath)); 
+	    header("Content-Disposition: attachment; filename=". $zipname); 
+    	readfile($zipfilepath); //shows download screen
+    	unlink($zipfilepath);//deletes zipfile form public folder
 }
-
 function downloadafile($image_id,$name)
 {
     $image = Image::where('id',$image_id)->first();
@@ -229,10 +270,6 @@ function adminshowpurchases($email)
         ->where('email',$email)
         ->orderBy('created_at','DESC')
         ->get();
-    /*$purchases = DB::table('Userpurchases')
-        ->where('email',$email)
-        ->orderBy('created_at','DESC')
-        ->get();*/
     return $purchases;
 }
 
@@ -244,7 +281,8 @@ function showPurchases($email)
         ->get();
     return $purchases;
 }
- function priorPurchase($id,$fish_name,$base_price,$table_row_index)
+
+function priorPurchase($id,$fish_name,$base_price,$table_row_index)
 {                      //dd(Auth::check());
     $prev_charge = 0;
     $prior = FALSE;
@@ -273,6 +311,7 @@ function getPrice($column)
     //$prices = DB::table('prices')->where('name',$column)->get();
     return $prices;
 }
+
 function ajaxemail($proxyemail)
 	{
 		$proxyemail=Input::get('proxyemail');
@@ -284,31 +323,6 @@ function ajaxemail($proxyemail)
 			'success' 		=> true,
 			'current_email' => $proxyemail));
 	}
-function shopCartAdd($productId,$quantity)
-{
-		$product = Product::where('id',$productId)->get();
-		foreach($product as $product){
-		//dd($product);		
-		Cart::instance('shop')->add(
-			$product->id,
-	        $product->title,
-	        $quantity,
-	    	$product->price
-	        );
-		if(Cart::instance('shop')->count()>0) //show summary
-        {   if(Cart::instance('shop')->count()==1){$cart_description = Cart::instance('shop')->count() . ' item  . . . ';}
-            else {$cart_description = Cart::instance('shop')->count() . ' items . . ';}
-            $cart_amount = '$' . Cart::instance('shop')->total();
-        }
-		//send ajax response ...
-		return Response::json(array(
-			'success' => true,
-			'cart_description' => $cart_description,
-			'cart_amount' => $cart_amount/100
-			//'id'=>$product->id
-			)
-		);}
-}
 
 
 

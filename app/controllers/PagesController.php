@@ -1,5 +1,5 @@
 <?php
-
+use \Stripe;
 class PagesController extends \BaseController {
 
 	/**

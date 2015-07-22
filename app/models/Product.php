@@ -12,6 +12,7 @@ class Product extends Eloquent
 		'description_4',
 		'product_type',
 		'product_sub_type',
+		'page_order',
 	];
 		
 	protected $table = 'product';
@@ -74,7 +75,7 @@ class Product extends Eloquent
     */
     public function getNameAttribute($value)
     {
-        return ucfirst(strtolower(trim($value)));
+        return ltrim($value);
     }
       
     /**

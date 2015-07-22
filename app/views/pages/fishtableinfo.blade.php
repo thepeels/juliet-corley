@@ -13,10 +13,10 @@
 @section('content')
 
 
+<div class="shading-container">
 <div class="container-24">
     <div class = "left-edge"></div>
     <div class = "right-edge"></div>
-<div class="shading-container">
     <div class="grid-24">
         <div class="grid-3 push-4 logo">
                 <p>&nbsp;</p>
@@ -163,6 +163,6 @@
         <div class="grid-3 push-5">
         </div>     
     </div>
-</div>{{--shading-container end--}}
 </div>{{--container-24 end--}}
+</div>{{--shading-container end--}}
 @stop    

@@ -6,7 +6,10 @@ class ProductController extends \BaseController
 	
 	public function getIndex()
 	{
-		$product = Product::withImages()->orderBy('created_at','DESC')->get();
+		$product = Product::withImages()
+			->orderBy('page_order','ASC')
+			->orderBy('created_at','DESC')
+			->get();
 		return View::make('admin.shop_table',array(
 			'products' => $product
 		));
@@ -52,6 +55,7 @@ class ProductController extends \BaseController
 		$input['description_4'],
 		$input['product_type'],
 		$input['product_sub_type'],
+		$input['page_order'],
 		$input['image']
         );
         return Redirect::to('admin/shop');//re-load the admin product table
@@ -81,8 +85,9 @@ class ProductController extends \BaseController
 			'description_2' 	=> Input::get('description_2'),
 			'description_3'  	=> Input::get('description_3'),
 			'description_4'  	=> Input::get('description_4'),
-			'product_type'  		=> Input::get('product_type'),
+			'product_type'  	=> Input::get('product_type'),
 			'product_sub_type' 	=> Input::get('product_sub_type'),
+			'page_order' 		=> Input::get('page_order'),
 			'updated_at' 		=> \Carbon\Carbon::now()
 	        ));
 		});

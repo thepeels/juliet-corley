@@ -33,7 +33,6 @@ class IconController extends \BaseController {
     	//dd(Session::get('dest_email'));
 		//   $proxy=Input::get('proxyemail');
 	//if($proxy==""){$proxy=Auth::user()->email;}
-	
         return View::make('shoppingcart',array(
             'back'=>Input::get('return_url','/download'),
 			//'dest_email'=>$proxy)
@@ -44,6 +43,7 @@ class IconController extends \BaseController {
     {
         return View::make('shopcart',array(
             'back'=>Input::get('return_url','/shop'),
+            'cart_instance'=>'shop',
 			//'dest_email'=>$proxy)
 			)
         );
@@ -86,7 +86,7 @@ class IconController extends \BaseController {
 	
 	public function getDumprow($rowId)
 	{
-	    if (Cart::get($rowId))
+	    if (Cart::instance('main')->get($rowId))
 	    {
 	        Cart::remove($rowId);
 	    }
@@ -105,7 +105,17 @@ class IconController extends \BaseController {
 
 	public function getDumpcart()
 	{
-		Cart::destroy();
+		Cart::instance('main')->destroy();
+	    return Redirect::back();
+	    /*return View::make('shoppingcart',array(
+            'back'=>Input::get('return_url','/download'),
+			'dest_email'=>$proxy)
+		);*/
+	}
+	
+	public function getDumpshopcart()
+	{
+		Cart::instance('shop')->destroy();
 	    return Redirect::back();
 	    /*return View::make('shoppingcart',array(
             'back'=>Input::get('return_url','/download'),

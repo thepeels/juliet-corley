@@ -3,7 +3,9 @@
 @section('content')
 <title>Cart Payment</title>
 
-<?php require_once(public_path().'/stripe/config.php'); 
+<?php require_once(public_path().'/stripe/config.php');
+$cart_instance = Session::get('cart_instance');
+Cart::instance($cart_instance); 
 $content = Cart::content();
 foreach($content as $row){$itemdescription = $row['name'];}
 if (Cart::count()>=2){$itemdescription = (Cart::count().'&nbsp;images');}
@@ -36,10 +38,5 @@ $amountindollars= $amountincents/100;
 <p><em>(Sometimes, especially with Firefox, a pop-up indicates that a script has stopped, please 
     select 'continue', be patient, and stripe will shortly complete its job.)</em></p>
 </div>
-<script type="javascript">
-	function showbutton(){
-		$('.waiting')FadeIn(2000);
-		document.onload = showbutton;
-	}
-</script>
+
 @stop

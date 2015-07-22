@@ -9,10 +9,10 @@ h2 span{font-size:14px;}
 .navbar-brand
 {
     background:url('/images/bg-images/blue-icon.jpg')no-repeat 10px 4px;
-    padding-left:50px;
+    padding-left:60px;
     }
 .my-account.navbar-brand{padding-left:60px}    
-body{margin-top:152px;}
+body{margin-top:132px;}
 body.myaccount{margin-top:0;}
 .attached-nav{padding-top:10px;}
 @media (min-width:768px){

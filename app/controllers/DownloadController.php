@@ -74,7 +74,7 @@ class DownloadController extends \BaseController {
     public function getFinished()//after successful downloads
     {
         Cart::destroy();
-        return Redirect::to('/');
+        return Redirect::to('download');
     }
     
     public function getDownloadall()

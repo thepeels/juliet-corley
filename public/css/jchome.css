@@ -152,7 +152,9 @@ li.final a span{
     margin-left:12px;
     margin-right:-12px;
 }
-.shading-container{position:relative;display:inline-block;margin:0 auto;    height:105vh;
+.shading-container{position:relative;display:inline-block;
+    margin:0 auto;    
+    height:985px;
     /*background-image:url('../images/bg-images/shading-line.png');
     background-repeat:repeat-y;*/
     background-image:url('../images/bg-images/shading-juliet-corley-1.png');

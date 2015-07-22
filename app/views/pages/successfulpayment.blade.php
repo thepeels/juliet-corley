@@ -5,6 +5,8 @@
     <h2 class="julie">JulietCorley.com</h2>
 
 <?php
+$cart_instance = Session::get('cart_instance');
+Cart::instance($cart_instance);
 if (Cart::count()!=0){
 ?>		
 <h3>Hi {{Auth::user()->email}}</h3>
@@ -27,13 +29,7 @@ if (Cart::count()!=0){
 			<th>&nbsp;</th>
 		</tr>
         {{fillOutPurchasetable()}}
-		
-		<tr>
-		    <td>
-		        <a href="/download/downloadall" class="btn btn-info btn-sm">Download all images</a>
-		    </td>
-		</tr>
-	</table>
+</table>
 	
 <?}
 else echo ('<h3>Your Cart is empty</h3>')

@@ -50,6 +50,7 @@ public function build(
 		$description_4,
 		$product_type,
 		$product_sub_type,
+		$page_order,
 		$image_path
 	){
 		if ($this->product_name_exists($name))
@@ -58,7 +59,7 @@ public function build(
 		}
 		//Create new product object to be returned
 		$product = new Product;
-		$product->name 			= ucfirst(strtolower(trim($name)));
+		$product->name 			= ltrim($name);
 		$product->price			= $price*100;//price in cents for stripe
 		$product->title			= $title;
 		$product->subtitle		= $subtitle;
@@ -68,6 +69,7 @@ public function build(
 		$product->description_4	= $description_4;
 		$product->product_type		= $product_type;
 		$product->product_sub_type 	= $product_sub_type;
+		$product->page_order	= $page_order;
 		$paths = $this->process_images($image_path);
 		if (!$paths)
 		{

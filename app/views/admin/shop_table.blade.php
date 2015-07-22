@@ -16,7 +16,7 @@
 			<img src="{{$product->small_size_image->image_url}}" width="210px">
 			</div>
 			<div class="grid-1">
-				<br/><br/>
+				<p>Position<br/>{{$product->page_order}}</p>
 				<a href="/admin/shop/delete/{{ $product->id }}" 
 	                class="btn btn-danger btn-xs"
 	                style="width:55px"

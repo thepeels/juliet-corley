@@ -26,13 +26,13 @@ else{echo("
 @yield('body-class')
 @yield('title')
 @yield('content')
-@yield('footer')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <?include_once('packages/prevent_right_click_script.php');
   include_once('packages/ajax-cart.php');
   include_once('packages/selected_letter.php');
   include_once('packages/ajax-email.php');
 ?>
+@yield('footer')
 
 </body>
 </html>

@@ -5,6 +5,7 @@ body{
     background-image:url('/images/bg-images/dbase-bg-tile.jpg');
     color:#333;
     margin:0 auto;
+    height:100%;
     //font-family:"Trykker",'Garamond',serif;
     font-family:Tahoma, Geneva, Verdana,sans-serif;
 }
@@ -41,11 +42,16 @@ a, a:hover, a:active, a:focus{outline:0;}
 } */
 .left-edge{position:absolute;margin-left:105px;margin-top:20px;width:60px;height:97.5%;background:url("/images/bg-images/edgefish.png")repeat-y;}
 .right-edge{position:absolute;margin-left:1190px;margin-top:20px;width:60px;height:97.5%;background:url("/images/bg-images/edgefish.png")repeat-y;}
-.shading-container{position:relative;display:inline-block;margin:0 auto;    height:97.5vh;
+.shading-container{position:absolute;
+    display:inline-block;
+        
+    
     /*background-image:url('../images/bg-images/shading-line.png');
     background-repeat:repeat-y;*/
     background-image:url('../images/bg-images/shading5.png');
     background-size:100%;
+    top:0;
+    bottom:0;
     /*background: -moz-gradient(linear, left-top, left-bottom, rgba 0,0,0,1, rgba(0,0,0,0,));*/
     
  

@@ -11,10 +11,12 @@ public function postIndex()
 	{	
 		return View::make('pages.striper');
 	}
+
 public function getPayforcart()
 	{
 		return View::make('pages.cartstriper');
 	}
+
 public function getStripe()
 	{	#return 'hello';
 		return View::make('pages.singlepayment');
@@ -26,10 +28,12 @@ public function getSuccess()
 		return View::make('pages.successfulpayment');
 		#return Redirect::to($return_url);
 	}
+
 public function getSinglesuccess()
 	{
 		return View::make('pages.successfulsingle');
 	}
+
 public function postPay()
 	{
 		// Use the config for the stripe secret key
@@ -96,76 +100,9 @@ public function postPay()
 	}
 	#return Route::get('success/{return_url}','PaymentController@getSuccess');
 	}
-		/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
-
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-    public function postTestpay()
-    {
+	
+public function postTestpay()
+{
         // Use the config for the stripe secret key
     Stripe::setApiKey(Config::get('stripetest.stripe.secret'));//duplicated in stripe script in cartstriper
 
@@ -196,6 +133,8 @@ public function postPay()
     // Maybe add an entry to your DB that the charge was successful, or at least Log the charge or errors
     // Stripe charge was successfull, continue by redirecting to a page with a thank you message
     if ($charge->paid == true) {
+    	$cart_instance = Session::get('cart_instance');
+		Cart::instance($cart_instance);
         $content = Cart::content();
         $email = null!=(Auth::user()->email)?Auth::user()->email:Auth::user()->email;
         //Session::put('purchased',array());
@@ -221,7 +160,8 @@ public function postPay()
         return Redirect::to('payment/success');
     }
     #return Route::get('success/{return_url}','PaymentController@getSuccess');
-    }
+}
+
 public function postTestsinglepayment()
     {
         // Use the config for the stripe secret key
@@ -242,7 +182,7 @@ public function postTestsinglepayment()
           "receipt_email" => $receipt_email
           )
         );
-								dd($charge['receipt_email']);
+		//						dd($charge['receipt_email']);
 
     } catch(Stripe_CardError $e) {
         $e_json = $e->getJsonBody();
@@ -303,5 +243,76 @@ public function postSinglepayment()
     }
     #return Route::get('success/{return_url}','PaymentController@getSuccess');
     }
-}
+
 	
+		/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	 
+public function create()
+	{
+		//
+	}
+
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		//
+	}
+
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		//
+	}
+
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+		//
+	}
+
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	 
+	public function update($id)
+	{
+		//
+	}
+
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+public function destroy($id)
+	{
+		//
+	}
+}

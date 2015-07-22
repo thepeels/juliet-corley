@@ -9,6 +9,7 @@ body{
     color:#333;
     /*width:1344px;*/
     margin:0 auto;
+    height:100%;
     font-family:Tahoma,Geneva,Verdana,sans-serif;
 }
 body:before { 
@@ -40,11 +41,34 @@ body:before {
     background: -webkit-radial-gradient(top center, ellipse cover, rgba(255,255,255,0.1) 0%,rgba(0,0,0,0.3) 100%);
     background: -moz-radial-gradient(top center, ellipse cover, rgba(255,255,255,0.2) 0%,rgba(0,0,0,0.5) 100%);
 } */
-.container-24{position:relative;display:inline-block;margin:0 auto;
+html{
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+    position:relative
+}
+.shading-container{
+    background-image:url('../images/bg-images/shading3.png');
+    background-size:100%;
+    position:absolute;
+    top:0;
+    bottom:0;
+    height:100vh;
+}
+    /*
+.shading-container{
+    position:relative;
+    display:inline-block;
+    margin:0 auto;
+    background-image:url('../images/bg-images/shading3.png');
+    background-size:cover;
+    -moz-background-size: cover;
+    /*height:98vh;*/
+/*}*/
+/*.container-24{position:relative;display:inline-block;
+    margin:0 auto;
     background-image:url('../images/bg-images/shading3.png');
     background-size:100%;
     height:97vh;
-}
+}*/
 .captions{
     height:25px;
     /*width:862px;*/
@@ -267,4 +291,12 @@ fieldset.login{
     border:1px solid #222;
     border-radius:10px;
     padding:10px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+    
+    /* Safari only override */
+    ::i-block-chrome,#data.safari-only {
+     margin-left:-60px;
+    }
 }
