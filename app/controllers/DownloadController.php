@@ -37,7 +37,6 @@ class DownloadController extends \BaseController {
             Session::flash('message','File already downloaded');
             Session::flash('alert-class', 'alert-info');
             return Redirect::back();//App::abort(401, 'File already downloaded');
-             
         }
     }
     
