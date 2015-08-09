@@ -62,11 +62,11 @@ $return_url = urlencode($url);
 						<div class="grid-4 alpha">
 							<p>Cart Summary: <span id="cartresume">{{shopResume()}}</span></p>
 						</div>
-						<div class="grid-3">
-							<a href="/icon/makeshopcart?return_url={{$return_url}}"class= "  btn btn-primary btn-xs">View Cart / Checkout</a>
+						<div class="opaque grid-3">
+							<a href="#"class= "  btn btn-primary btn-xs" title="not yet enabled">View Cart / Checkout</a><!--/icon/makeshopcart?return_url={{$return_url}}"-->
 						</div>
-						<div class="grid-3 emptycart">
-							<a href="/icon/ajaxdumpshopcart" class="byajax btn btn-info btn-xs">Empty Cart</a>
+						<div class="opaque grid-3 emptycart">
+							<a href="#"class="byajax btn btn-info btn-xs" title="not yet enabled">Empty Cart</a><!--/icon/ajaxdumpshopcart"--> 
 						</div>
 					</div>
 					@foreach ($products as $product)
@@ -83,8 +83,8 @@ $return_url = urlencode($url);
 							&nbsp;
 							{{ Form::text('number','1',  ['class' => 'form-control quantity', 'id' => 'number','style' => 'float:left;margin-top:0px;']) }}
 							&nbsp;
-							{{ Form::submit('Add to Cart', ['class' => 'shopajax btn btn-xs btn-primary']) }}
-							<!--<a href="shop/cartadd" class="btn btn-xs btn-primary">Back</a>-->
+							{{-- Form::submit('Add to Cart', ['class' => 'shopajax btn btn-xs btn-primary']) --}}
+							<a href="#" class="btn btn-xs btn-primary" title="not yet enabled">Add to Cart</a>
             			{{Form::close()}}
             			</div>
 					</div> 

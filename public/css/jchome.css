@@ -14,7 +14,7 @@ label.label{font:normal 12px Arial, Helvetica, sans-serif;color:#222;padding: 0.
 .form-addfish{margin-top:5px;}
 .image-column{margin-left:-10px;}
 .form-control{padding:5px 5px;}
-.opaque{/*display:none;*/}
+.opaque{opacity:0.4;}
 .body.btn{disabled:true;}
 /*.text-description{width:295px;margin-left:35px}*/
 #cssmenu {
