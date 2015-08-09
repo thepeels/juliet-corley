@@ -46,22 +46,31 @@ class UserController extends \BaseController {
 		{
 			return Redirect::back()->withInput()->withErrors($validation->messages());
 		}
-         /*
-		$password = Input::get('password');
-		$hashedPassword = Hash::make($password);
-		$userdata = array(
-			'newuser' => Input::get('newuser'),
-			'email' => Input::get('email'),
-			'password' => $hashedPassword//Input::get('password')
-		);
-		DB::table('users')->insert(array(
-			'email' => $userdata['email'], 
-			'name' => $userdata['newuser'],
-			'password' => $userdata['password']
-		));
-		*/
-		//return Redirect::to('user');
         return Redirect::intended();
+	}
+	public function postEdituser()
+	{
+		$id=Input::get('userid');
+		$user = User::find($id);
+		$user->email = Input::get('email');
+		$user->save();
+		return View::make('change_details');
+	}
+	public function postEditpassword()
+	{
+		$id=Input::get('userid');
+		$user = User::find($id);
+		$user->password = Hash::make(Input::get('password'));
+		$user->save();
+		return View::make('change_details');
+	}
+	public function postEditauthor()
+	{
+		$id=Input::get('userid');
+		$user = User::find($id);
+		$user->author_name = Input::get('authorname');
+		$user->save();
+		return View::make('change_details');
 	}
 	////////////////////////
 	public function getAddusers()

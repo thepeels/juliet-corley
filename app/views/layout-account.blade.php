@@ -28,8 +28,9 @@
                   <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                       <li><a href="/">Home</a></li>
-                      <li><a href="myaccount">Purchases</a></li>
-                      <li><a href="change">Details</a></li>
+                      <li><a href="myaccount">My Purchases</a></li>
+                      <li><a href="change">My Details</a></li>
+@if (Auth::user()->superuser == 1)                     
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Fish <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -52,17 +53,19 @@
                           <li><a href="#">One more separated link</a></li>
                         </ul>
                       </li>
+@endif
                       {{--<li {{ Request::is('admin/fish*') ? ' class="active"' : '' }}><a href="/admin/fish">Fish</a></li>--}}
                       {{--<li {{ Request::is('admin/art*') ? ' class="active"' : '' }}><a href="/admin/art">Art</a></li>--}}
                     </ul>                    
                     <ul class="nav navbar-nav navbar-right">
+                    @if (Auth::user()->superuser == 1)
                       <li> <a href="/download">Public Pages</a></li>
-                      <? if (Auth::check()){?>
+                    @endif
+                    @if (Auth::check())
                       <li><a href="{{ URL::to('logout') }}">Logout</a></li>{{--admin/logout--}}
-                      <?}
-                      else{?>
+                    @else
                       <li><a href="{{ URL::to('login') }}">Login</a></li>{{--admin/logout--}}
-                      <?}?>
+                    @endif
                     </ul>
                   </div><!--/.nav-collapse -->
                 </div><!--/.container-fluid -->

@@ -2,6 +2,7 @@ body{
     background-image:url('/images/bg-images/dbase-bg-tile.jpg');
     background-repeat:repeat;
 }
+h5{font-size:16px;}
 table{
     margin:30px auto;
     border:1px solid #222;
@@ -23,6 +24,10 @@ table.cart{background-color:#fff;}
 .cart {
     margin: 0 auto;
     width:550px;
+}
+.about {
+    margin: 0 auto;
+    width:950px;
 }
 .cartstriper{
     margin:50px auto;

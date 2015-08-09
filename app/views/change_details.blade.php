@@ -18,14 +18,14 @@
     if(Auth::check()){
         $email =  Auth::user()->email;
         $icons = showPurchases($email);
-    
+		$id = Auth::user()->id;
     
     ?>
 
     <h4>Registered e-mail - <?php echo Auth::user()->email;?></h4>
     <?}?>
     
-        {{Form::open(array('url' => '/user/adduser','class'=>'form-signup'))}}
+        {{Form::open(array('url' => '/user/edituser','class'=>'form-signup'))}}
 
             {{--<ul>
                  @foreach($errors->all() as $error)
@@ -33,8 +33,8 @@
                  @endforeach
             </ul>--}}
         
-        
-            {{Form::input('email','email',null,['class'=>'newclass','placeholder'=>'Change E-mail Address'])}}</br>
+        	{{Form::input('hidden','userid',$id)}}
+            {{Form::input('email','email',null,['class'=>'newclass','placeholder'=>'Enter new email'])}}</br>
         
             {{$errors->first('email')}}</br>
         
@@ -44,14 +44,28 @@
     
     <h4>Change Password</h4>
         
-        {{Form::open(array('url' => '/user/adduser','class'=>'form-signup'))}}
+        {{Form::open(array('url' => '/user/editpassword','class'=>'form-signup'))}}
 
+            {{Form::input('hidden','userid',$id)}}
             {{Form::input('password','password',null,['class'=>'newclass','placeholder'=>'Change Password'])}}</br>
         
             {{$errors->first('email')}}</br>
         
         
             {{Form::submit('Change',['class'=>'btn btn-info btn-xs'])}}
+        {{form::close()}}</br></br>
+        
+    <h4>Add/Edit Publishing Author Name - {{Auth::user()->author_name}}</h4>
+        
+        {{Form::open(array('url' => '/user/editauthor','class'=>'form-signup'))}}
+
+            {{Form::input('hidden','userid',$id)}}
+            {{Form::input('authorname','authorname',null,['class'=>'newclass','placeholder'=>'Author Name'])}}</br>
+        
+            {{$errors->first('email')}}</br>
+        
+        
+            {{Form::submit('Add/Edit',['class'=>'btn btn-info btn-xs'])}}
         {{form::close()}}</br></br>
         
         

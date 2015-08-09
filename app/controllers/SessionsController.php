@@ -31,9 +31,11 @@ class SessionsController extends BaseController{
         if (Auth::attempt($credentials,true))
         {   //correct login details
             //return Redirect::to(Session::get('return_url'))->with(Auth::user()->email);
+            //from download page ...{
             $uri_fragment = Session::get('urifragment');
 			Session::pull('urifragment');
             return Redirect::intended('/download'.$uri_fragment)->with(Auth::user()->email);
+			//...}
         }
         else  //login failed - is entered email in db?
         {
@@ -94,7 +96,7 @@ class SessionsController extends BaseController{
         //Cart::destroy();
         Auth::logout();
         
-        return Redirect::back();
+        return Redirect::to('/');
     }
     
     protected function getLoginValidator()

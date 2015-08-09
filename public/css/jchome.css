@@ -186,3 +186,7 @@ a:hover.underline.blues{
 _::-moz-svg-foreign-content, :root .mpa,.game  { /*safari 5.1 - 6.0 chrome 10 - 24*/
     margin-right:-4px;
 }  
+.zazzle{
+    margin-left:-20px;
+}
+p.zazzle{text-align:center;margin-left:-45px;}

@@ -1,4 +1,7 @@
-<a href="../demo">Home Page</a> | 
-<a href="../privacy">Privacy and Cookies</a> |
-<a href="../contact">Contact Me</a>
+<div class = "footer">
+<a href="/">Home Page</a> | 
+<a href="../about">Privacy</a> |
+<a href="../about#cookies">Cookies</a> |
+<a href="mailto:juliet@julietcorley.com" target="_top">Contact Me</a>
+</div>
 

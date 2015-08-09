@@ -2,10 +2,13 @@
 @section('stylesheets')<link href='/css/cart.css' rel='stylesheet' type='text/css'>@endsection
 @section('content')
 <?$url = Request::url();
+$previous = URL::previous();
+//dd($url);
 $return_url=urlencode($url);
 Session::put('return_url',$url);
 Session::put('cart_instance','main');
-Session::put('dest_email',isset($dest_email)?$dest_email:Session::get('dest_email'))?>
+Session::put('dest_email',isset($dest_email)?$dest_email:Session::get('dest_email'));
+Session::flash('previous_url',$previous);?>
 <div class="cart">
     
     <h2 class="julie merri">JulietCorley.com</h2>
@@ -32,6 +35,6 @@ Session::put('dest_email',isset($dest_email)?$dest_email:Session::get('dest_emai
     
         {{showPayButton(Session::get('dest_email'))}}
     
-    <h3><a href="{{ $back }}"class="btn btn-info">Continue Shopping</a></h3>
+    <h3><a href="{{ Session::get('previous_url') }}"class="btn btn-info">Continue Shopping</a></h3>
 </div>
 @endsection

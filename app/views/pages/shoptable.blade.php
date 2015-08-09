@@ -36,7 +36,14 @@ $return_url = urlencode($url);
 							<p>&nbsp;</p>
 						</div>
 						<div class="grid-6">
-							<?$pclass = '<p class="babyfoot"></p>';?>
+							<!--
+							<embed wmode="transparent" 
+							src="http://www.zazzle.com.au/utl/getpanel?zp=117448596789393688" 
+							FlashVars="feedId=117448596789393688" width="315" height="210" 
+							type="application/x-shockwave-flash" 
+							class="zazzle" style="margin-top:-10px;">
+							</embed><br/><p class="zazzle segoe">View more <a href="http://www.zazzle.com.au/">gifts</a> at Zazzle.</p>
+							--><?$pclass = '<p class="babyfoot"></p>';?>
 							<p class="cone-notice">This page is not yet</br>
 								fully functional</br>- please email
 								</br>me with orders</p>
@@ -48,6 +55,7 @@ $return_url = urlencode($url);
 								&body=I%20wish%20to%20purchase%20the%20following%20items%20
 								from%20your%20shop%3A%0A%0A%0AMy%20address%20is%3A"
 								title="Click to email"><p class="babyfoot"></p></a>
+							
 						</div>
 					</div>
 					<div class="grid-11 cart">

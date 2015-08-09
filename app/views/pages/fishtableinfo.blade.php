@@ -79,9 +79,8 @@
                     <img src="/images/bg-images/question.png"/>
                 </a>-->
                 <span class="hover-to-display">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Here are the instructions 
-                    mmmmmmmmmmmmm ddddddddddd jj lllllllllll m m jkslfslj
-                    hsjdlfsl <a href="/download">here</a>fhdjslhfudl hufdsl yuds guyd fsdd sus
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instructions - </br> 
+                    coming soon.
                 </span>
             </p>
         </div> 

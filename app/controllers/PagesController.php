@@ -27,6 +27,11 @@ class PagesController extends \BaseController {
     {
         return View::make('pages.fishtableinfo');
     }
+	
+    public function colouring()
+    {
+        return View::make('pages.colouring');
+    }
     
 	public function striper()
 	{
@@ -41,6 +46,11 @@ class PagesController extends \BaseController {
     public function services()
     {
         return View::make('pages.services');
+    }
+    
+    public function terms()
+    {
+        return View::make('pages.terms');
     }
     
 	/**

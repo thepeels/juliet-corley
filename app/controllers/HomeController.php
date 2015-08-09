@@ -23,7 +23,7 @@ class HomeController extends BaseController {
 	{
 		return View::make('demotemphomepage');
 	}
-public function jchome()
+public function home()
 	{
 		return View::make('julietcorleyhome');
 	}

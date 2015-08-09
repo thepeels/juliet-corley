@@ -40,5 +40,5 @@ $icons = showPurchases($email);
 </div>
 @stop
 @section('footer')
-<h5>@include('includes.footer')</h5>
+<h5 style = "text-align:center;">@include('includes.footer')</h5>
 @stop

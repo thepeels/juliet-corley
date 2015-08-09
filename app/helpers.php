@@ -208,7 +208,7 @@ function shopCartAdd($productId,$quantity)
 function fillOutPurchaseTable()
     {
         $cart_instance = Session::get('cart_instance');
-		Cart::instance($cart_instance);   
+		Cart::instance($cart_instance);
         $content = Cart::content();
         foreach ($content as $row){
             echo'<tr>';
@@ -232,7 +232,7 @@ function fillOutPurchaseTable()
         echo'<tr><td class="table-summary">Cart Total</td>';
         echo'<td>&dollar;' . Cart::total()/100 . '</td>';
         echo'<td>' . Cart::count() . '</td>';
-        echo'<td><a href="/download/downloadall" class="btn btn-default btn-xs">&nbsp;&nbsp;Download All&nbsp;&nbsp;</a></td></tr>';
+        if($cart_instance == 'main')echo'<td><a href="/download/downloadall" class="btn btn-default btn-xs">&nbsp;&nbsp;Download All&nbsp;&nbsp;</a></td></tr>';
     }
     
 function downloadWholeCart()
