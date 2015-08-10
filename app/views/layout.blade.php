@@ -11,7 +11,7 @@ else{echo("
 <link href='https://fonts.googleapis.com/css?family=Trykker' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Overlock' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Merriweather:400,400italic' rel='stylesheet' type='text/css'>
 ");}
 ?>
 <link rel='stylesheet' href='/css/bootstrap.css' type='text/css'>

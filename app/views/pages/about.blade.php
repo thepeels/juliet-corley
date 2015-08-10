@@ -92,7 +92,7 @@
 	
 	If you have any questions about this privacy policy or JulietCorley.com’s treatment of your personal information, please write:
 	<ul>
-		<li>by email to <img src="email.jpg"/> or</li> 
+		<li>by email to <img src="/images/sales-link.jpg" height="20px"/> or</li> 
 		<li>by post to “Juliet Corley, Care GPO, 38 Sheridan St, Cairns. Qld, Australia 4870”</li>
 	</ul>
 
@@ -214,8 +214,8 @@
 	<h5>PERMISSIONS</h5>
 	
 	You may request permission to use the copyright materials on this website by 
-	writing to</br>
-	<img src="email.jpg"/></br> 
+	writing to
+	<img src="/images/sales-link.jpg" height="20px"/></br> 
 	Materials made available on this website for printing or downloading may only 
 	be used after payment of the appropriate fee, and their use is subject to the 
 	additional restrictions set out in their individual copyright or licensing terms 
@@ -235,14 +235,14 @@
 	to pay legal costs.</br> 
 	
 	If you become aware of any use of Juliet Corley’s copyright materials that 
-	contravenes or may contravene the license above, please report this by email to</br>  
-	<img src="email.jpg"/></br>
+	contravenes or may contravene the license above, please report this by email to  
+	<img src="/images/sales-link.jpg" height="20px"/></br>
 	
 	<h5>INFRINGING MATERIAL</h5>
 	
 	If you become aware of any material on the website that you believe 
-	infringes your or any other person's copyright, please report this by email to</br>
-	<img src="email.jpg"/></br> 
+	infringes your or any other person's copyright, please report this by email to
+	<img src="/images/sales-link.jpg" height="20px"/></br> 
 	or by post to “Juliet Corley, Care GPO, 38 Sheridan St, Cairns. Qld, Australia 4870”.
 
 </div></br> 

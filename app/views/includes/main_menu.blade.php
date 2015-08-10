@@ -33,13 +33,16 @@
 					         <li class='last'><a href='download'><span>Icon Database</span></a></li>
 					      </ul>
 					   </li>
-					   <li><a href='#' title = "Coming Soon"><span>links</span></a></li>
+					   <li><a href='#' title = "Coming Soon"><span>Links</span></a></li>
 					   <li class='final'><a href='../payment/stripe'><span>Card Payments</span></a></li>
 					   @if(Auth::check())
 		                   <li><a href="/logout">Log Out</a></li>
+		                   <li><a href="/user/myaccount">My account</a></li>
 						   @if(Auth::user()->superuser ==TRUE)
 		                   <li><a href="/admin/fish">Admin Pages</a></li>
 		                   @endif
+		               @else
+		               <li><a href="/login">Log In</a></li>
 	                   @endif
 					</ul>
 				

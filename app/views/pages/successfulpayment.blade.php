@@ -2,18 +2,18 @@
 {{ HTML::style( asset('css/cart.css') ) }}
 @section('content')
 <div class="cart">
-    <h2 class="julie">JulietCorley.com</h2>
+    <h2 class="julie merri">JulietCorley.com</h2>
 
 <?php
 $cart_instance = Session::get('cart_instance');
 Cart::instance($cart_instance);
 if (Cart::count()!=0){
 ?>		
-<h3>Hi {{Auth::user()->email}}</h3>
-	<h4 class="caption cr">Thank you, your card payment was successful</h4>
+<h3 class="merri">Hi - {{Auth::user()->email}}</h3>
+	<h4 class="caption cr merri">Thank you, your card payment was successful</h4>
 
 
-<h4 class="cr">You have paid for:</h4>@if(Session::has('message'))
+<h4 class="cr merri">You have paid for:</h4>@if(Session::has('message'))
 <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">
     {{Session::pull('message')}}
     &nbsp;&nbsp;&nbsp;<button onclick="myFunction()">Ok</button>

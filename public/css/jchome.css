@@ -1,7 +1,10 @@
 p{margin-left:0;margin-right:0;}
 h4.segoe{font:bold 18px/18px 'SegoePrint';color:#222;margin:5px;}
-p.segoe{font:normal 14px/16px 'SegoePrint';color:#222;margin:0px 5px 5px 5px;}
-
+p.segoe{font:normal 14px/16px 'SegoePrint';color:#222;margin:0px 5px 5px 5px;} 
+p.segoe.colouring{
+    font:normal 13px/15px 'SegoePrint';color:#222;margin:0px 5px 5px 5px;
+    margin-left:325px;margin-top:155px;
+}
 .centered{
     text-align:center;
     border:dashed 2px #666;
@@ -22,6 +25,7 @@ label.label{font:normal 12px Arial, Helvetica, sans-serif;color:#222;padding: 0.
     margin-right:10px;*/
    margin-top:0px;
 }
+#cssmenu .jccolouringlogo .menu{margin-top:228px;margin-left:21px}
 #cssmenu ul li a{
     width:200px;
     font:normal 18px/27px  "Merriweather" ,serif;
@@ -45,6 +49,16 @@ label.label{font:normal 12px Arial, Helvetica, sans-serif;color:#222;padding: 0.
     margin-right:21px;
     margin-bottom:80px;
 }
+.jccolouringlogo{
+    background-image:url("/images/bg-images/juliet-corley-colouring-page.png");
+    display:inline-block;
+    background-size:203px 170px;
+    background-repeat:no-repeat;
+    height:170px;
+    margin-left:-21px;
+    margin-right:21px;
+    margin-bottom:80px;
+}
 .one-off{background-image:url("/images/bg-images/shop-uc1.jpg");
     display:inline-block;
     background-size:291px 236px;
@@ -54,6 +68,15 @@ label.label{font:normal 12px Arial, Helvetica, sans-serif;color:#222;padding: 0.
     margin-top:-10px;
 }
 p.cone-notice{margin-top:-6px;}
+.colouringimage{
+    background:url("/images/bg-images/colouring.png") no-repeat 0px 0px;
+    width:724px;
+    height:525px;
+    margin-top:-58px;
+    z-index:50;
+    position:relative;
+}
+.colouringimage p{margin-left:320px;margin-top:150px;}
 .cone-notice{
     font:normal 24px/38px "Merriweather" ,serif;
     color:#333;
@@ -164,7 +187,7 @@ li.final a span{
  
    /*width:1358px;*/
     /*overflow-x: scroll;*/
-    z-index :1000;
+    z-index :500;
 }
 .arrow{
     background-image:url("/images/bg-images/arrow.png");

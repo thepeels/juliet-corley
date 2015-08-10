@@ -9,13 +9,13 @@
 
 
 
-<div class='cart'>
-<h3>Pay <span class="julie">Juliet Corley</span></h3>
+<div class='cart merri'>
+<h2>Pay <span class="julie">Juliet Corley</span></h2>
 	
 
-<h4>Please fill in the boxes and submit 
+<h5>Please fill in the boxes and submit 
     to make a card payment handled by Stripe.com
-</h4>
+</h5>
 <fieldset class="stripe-fieldset">
 
 {{Form::open(array('url' => "payment" ,'id' => 'payment-form'))}}{{--what goes in url here--}}
@@ -36,10 +36,10 @@
 </span> 
 {{Form::close()}}
 </fieldset>
-<h4>
+<h5>
     N.B. No card data are stored or processed on my website, 
     all the secure stuff is handled remotely by 
     <a href ="https://stripe.com" target="blank">Stripe.com</a>
-</h3>
+</h5>
 </div> 
 @stop
