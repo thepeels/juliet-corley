@@ -177,7 +177,34 @@ function cartAdd($id,$fish_name,$base_price,$id_index,$prior)
         //return Redirect::to($return_to);
         //return Redirect::back();
     }
-
+function cartAddColouringItem($productId)
+{
+	Cart::instance('main');
+	$products = Product::where('id',$productId)->get();
+	foreach ($products as $product)
+		{
+			Cart::add(array(
+				'id'		=> $product->full_size_image_id,
+				'name'		=> $product->title,
+				'qty' 		=> 1,
+				'price'		=> $product->price,
+				'options'	=> array(
+				'filepath'	=> $product->full_size_image_id,
+				))
+			);
+		}
+		if(Cart::count()>0) //show summary
+        {   if(Cart::count()==1){$cart_description = Cart::count() . ' item  . . . ';}
+            else {$cart_description = Cart::count() . ' items . . ';}
+            $cart_amount = '$' . Cart::total()/100;
+        }
+		//send ajax response ...
+		return Response::json(array(
+		'cart_description' => $cart_description,
+		'cart_amount' => $cart_amount
+		)
+		); 
+}
 function shopCartAdd($productId,$quantity)
 {
 		$product = Product::where('id',$productId)->get();

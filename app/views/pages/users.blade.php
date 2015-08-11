@@ -9,7 +9,7 @@
     		<th>ID</th>
     		<th>Name</th>
     		<th>E-Mail</th>
-    		<th>Password</th>
+    		<th>Author Name</th>
     		<th>Admin?</th>
     	</tr>
     	<? foreach ($table_row as $user) : ?>
@@ -25,7 +25,7 @@
     				<?=$user->email?>
     			</td>
     			<td>
-    				<?=$user->password?>
+    				<?=$user->author_name?>
     			</td>
     			<td>
     			    <?=$user->superuser*-1?>

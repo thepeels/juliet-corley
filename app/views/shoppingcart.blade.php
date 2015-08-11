@@ -13,7 +13,7 @@ Session::flash('previous_url',$previous);?>
     
     <h2 class="julie merri">JulietCorley.com</h2>
     <!--<h2 class= "caption h3">Cart for {{Session::get('dest_email')}}</h2>-->
-    <h2 class= "caption h3 merri">Cart for {{Auth::user()->email}}</h2>
+    <h2 class= "caption h3 merri">Cart for {{--Auth::user()->email--}}</h2>
         
     <h3><a href="/icon/dumpcart" class="btn btn-custom-danger btn-sm">Empty Cart</a></h3>
     

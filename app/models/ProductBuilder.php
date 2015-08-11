@@ -78,7 +78,7 @@ public function build(
 		
 		$full_size_image			= new Image;
 		$full_size_image->filename 	= 'full.jpg';
-		$full_size_image->public	= TRUE;
+		$full_size_image->public	= FALSE;
 		$full_size_image->addImage($paths['full_size_image']);
 		$full_size_image->save();
 		$product->full_size_image_id 	= $full_size_image->id;

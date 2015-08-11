@@ -1,5 +1,5 @@
 <?php namespace Admin;
-use \Session,\Product,\ProductBuilder,\Redirect,\DB,\View,\Price,\Input,\Validator,\Userpurchase,\Image;
+use \Session,\Product,\ProductBuilder,\PdfBuilder,\Redirect,\DB,\View,\Price,\Input,\Validator,\Userpurchase,\Image;
 
 class ProductController extends \BaseController
 {
@@ -43,7 +43,7 @@ class ProductController extends \BaseController
 	public function postAdd()
     {	
         $input = Input::all();
-        $builder = new ProductBuilder;
+        $builder = new PdfBuilder;
         $product = $builder->build(
         $input['name'], 
 		$input['price'],
@@ -56,7 +56,8 @@ class ProductController extends \BaseController
 		$input['product_type'],
 		$input['product_sub_type'],
 		$input['page_order'],
-		$input['image']
+		$input['image'],
+		$input['pdf']
         );
         return Redirect::to('admin/shop');//re-load the admin product table
     }

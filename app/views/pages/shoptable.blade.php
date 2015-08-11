@@ -88,7 +88,7 @@ $return_url = urlencode($url);
             			{{Form::close()}}
             			</div>
 					</div> 
-					<div class="grid-5 push-1 omega centered text-description">
+					<div class="grid-5 push-1 omega centered bordered text-description">
 						<!--text-->
 						<h4 class="segoe">{{$product->title}}</h4>
 						<p class="segoe">{{$product->subtitle}}</p>

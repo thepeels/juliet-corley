@@ -32,7 +32,7 @@ Route::get('temphome','HomeController@temphome');
 //Route::get('/','HomeController@temphome');
 //Route::get('/','DownloadController@getIndex');
 Route::get('/','HomeController@home');
-Route::get('colouring','PagesController@colouring');
+Route::get('colouring','ProductController@getColouring');
 Route::get('about','PagesController@about');
 Route::get('terms','PagesController@terms');
 Route::get('charge','PagesController@charge');
