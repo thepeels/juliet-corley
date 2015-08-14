@@ -18,7 +18,8 @@ p.segoe.colouring{
     margin-top:50px;
 }
 .raised{
-    margin-top:-75px;
+    margin-top:-85px;
+    margin-bottom:110px;
 }
 .quantity{width:30px;margin-left:0px;margin-top:4px; height:24px;}
 label.label{font:normal 12px Arial, Helvetica, sans-serif;color:#222;padding: 0.2em 0 0.3em;}
@@ -33,11 +34,12 @@ label.label{font:normal 12px Arial, Helvetica, sans-serif;color:#222;padding: 0.
     margin-right:10px;*/
    margin-top:0px;
 }
-#cssmenu .jccolouringlogo .menu{margin-top:228px;margin-left:21px}
+
 #cssmenu ul li a{
     width:200px;
     font:normal 18px/27px  "Merriweather" ,serif;
 }
+#cssmenu #colouringcart .cart h5{font:normal 12px/12px Arial sans-serif}
 .jchomelogo{
     background-image:url("/images/bg-images/juliet-corley-illustrator.png");
     display:inline-block;

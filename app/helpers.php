@@ -182,10 +182,12 @@ function cartAddColouringItem($productId)
 	Cart::instance('main');
 	$products = Product::where('id',$productId)->get();
 	foreach ($products as $product)
+	#$name = Image::withImages()->where('id',$product->full_size_image_id)->get();
+	
 		{
 			Cart::add(array(
 				'id'		=> $product->full_size_image_id,
-				'name'		=> $product->title,
+				'name'		=> $product->title.'.pdf',
 				'qty' 		=> 1,
 				'price'		=> $product->price,
 				'options'	=> array(

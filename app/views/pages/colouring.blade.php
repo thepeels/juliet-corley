@@ -21,11 +21,27 @@ $return_url = urlencode($url);
 <div class="container-24">
 	<div class="grid-24">
 		<div class="grid-18 push-4">
-			<div id='cssmenu' class="grid-5 alpha">
+			<div class="grid-5 alpha">
 				<div class="grid-5 jccolouringlogo alpha">
 					<p>&nbsp;</p>
 				</div>
+				<div id='cssmenu'>
 				@include('includes.main_menu')
+				</div>
+				{{--@if((Cart::instance('main')->count())>0)--}}
+				<div id="colouringcart" class="cart">
+                    <h5> Cart Summary: <span id="cartresume">{{cartResume()}} </span></h5>
+                   
+                   <h3 class="arial"><a href="/icon/makecart?return_url={{$return_url}}" 
+                            class="btn btn-primary btn-xs" id="themailaddress">View Cart / Checkout
+                        </a>
+                            &nbsp;&nbsp;</br>
+                        <a href="/icon/ajaxdumpcart" 
+                            class= " byajax btn btn-info btn-xs">Empty Cart
+                        </a>
+                    </h3>
+                </div>
+                {{--@endif--}}
 			</div>
 			<div class="grid-13 pull-2 omega"> 
 			<div class="grid-13 omega colouringimage">
@@ -40,6 +56,19 @@ $return_url = urlencode($url);
 			</div>
 			@foreach ($products as $product)
 			<?$form_id = 'form-'.$form_index;?>
+			@if (($product->product_sub_type) == 'free')
+			{{--$product->full_size_image->image_url--}}
+			<div class="grid-9 push-1 raised">
+				<div class="grid-4 alpha image-column">
+					<img src="{{$product->small_size_image->image_url}}" width="270px" />
+				</div>
+            <div class="grid-4 push-2 omega centered lowered">
+                
+					<p class="segoe">{{$product->description_1}}</p>
+					<p class="segoe"><a href="/download/freepdfdownload/{{ Image::freeFile($product->full_size_image->image_path) }}/{{ $product->title }}">Download now</a></p>
+            </div>
+           </div>
+            @else
 			<div class="grid-9 push-1 raised">
 				<div class="grid-4 alpha image-column">
 					<img src="{{$product->small_size_image->image_url}}" width="270px" />
@@ -51,12 +80,14 @@ $return_url = urlencode($url);
 					{{--add to separate cart function wothout prior purchase--}}
                     {{Form::open(array('id' => $form_id, 'url' => "/shop/cartadd?return_url=$url",'class' => 'shopform form-addfish'))}}
                     	{{ Form::hidden('productId', $product->id)}}
+                    	{{ Form::hidden('productType','ColouringPdf')}}
 						{{ Form::submit('Add to Cart', ['class' => 'colouringajax btn btn-xs btn-primary']) }}
 						{{--<a href="#" class="btn btn-xs btn-primary opaque" title="not yet enabled">Add to Cart</a>--}}
 					{{Form::close()}}
 						
 				</div>  
 			</div>
+			@endif
 			@endforeach  
 			</div> 
 		</div> 

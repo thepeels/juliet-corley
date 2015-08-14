@@ -32,6 +32,11 @@ class ProductController extends \BaseController
     	return View::make('admin.add_product');
     }
 
+	public function getAddpdf()
+    {
+    	return View::make('admin.add_pdf');
+    }
+
     /**
      * Add
      * 
@@ -43,7 +48,7 @@ class ProductController extends \BaseController
 	public function postAdd()
     {	
         $input = Input::all();
-        $builder = new PdfBuilder;
+        $builder = new ProductBuilder;//////////// need new function here
         $product = $builder->build(
         $input['name'], 
 		$input['price'],
@@ -56,8 +61,26 @@ class ProductController extends \BaseController
 		$input['product_type'],
 		$input['product_sub_type'],
 		$input['page_order'],
+		$input['image']		
+        );
+        return Redirect::to('admin/shop');//re-load the admin product table
+    }
+	
+	public function postAddpdf()
+    {	
+        $input = Input::all();
+        $builder = new PdfBuilder;//////////// need new function here
+        $product = $builder->build(
+        $input['name'], 
+		$input['price'],
+		$input['title'],
+		$input['description_1'],
+		$input['description_2'],
+		$input['product_type'],
+		$input['product_sub_type'],
+		$input['page_order'],
 		$input['image'],
-		$input['pdf']
+		$input['pdf']		
         );
         return Redirect::to('admin/shop');//re-load the admin product table
     }

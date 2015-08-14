@@ -49,6 +49,15 @@ class DownloadController extends \BaseController {
         return $response;
     }
     
+    public function getFreepdfdownload($image_id,$description)
+    {
+        $target_image = public_path()."/images/".$image_id;
+        $name = $description.".pdf";
+        $response = Response::download($target_image,$name);
+        if (App::environment('local')) ob_end_clean();//for xampp locally
+        return $response;
+    }
+    
 	public function getFreedbdownload($image_id,$name)
     {
         //must only be allowed if file is in DB for user Auth::user()->email ?????

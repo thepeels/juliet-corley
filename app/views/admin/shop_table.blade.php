@@ -6,6 +6,7 @@
 @section('attached-nav')
     <p class="attached-nav">
         <a href="/admin/shop/add" class="btn btn-primary">Add a Product</a>
+        <a href="/admin/shop/addpdf" class="btn btn-primary">Add a .pdf</a>
     </p>
 @stop
 @section('content')
@@ -13,7 +14,8 @@
 	@foreach ($products as $product)
 		<div class="grid-16">
 			<div class=" grid-4 alpha">
-			<img src="{{$product->small_size_image->image_url}}" width="210px">
+			<img src="{{$product->small_size_image->image_url}}" width="210px"></br></br>
+			 
 			</div>
 			<div class="grid-1">
 				<p>Position<br/>{{$product->page_order}}</p>
@@ -29,8 +31,8 @@
 	            </a>	
 			</div>
 			<div class="push-1 grid-7 omega">
-				<h4>{{$product->name}}</h4>
-				<p><em>{{$product->title}}</em>&nbsp;&nbsp;. . . . . .&nbsp;&nbsp;{{$product->subtitle}}</p>
+				<p><em>{{$product->name}}</em>&nbsp;&nbsp;&nbsp;&nbsp;- &nbsp;(name)</p>
+				<h4>{{$product->title}}</em>&nbsp;&nbsp;. . . . . .&nbsp;&nbsp;{{$product->subtitle}}</h4>
 				<p>${{number_format(($product->price)/100,2)}}</p>	
 				<p>{{$product->description_1}}</p>	
 				<p>{{$product->description_2}}</p>	

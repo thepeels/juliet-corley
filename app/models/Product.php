@@ -111,7 +111,7 @@ class Product extends Eloquent
     * @return Art
     */
     
-    public function scopeGetByProductType($query, $productt_type)
+    public function scopeGetByProductType($query, $product_type)
     {
         return $query->withImages()->where('product_type',$product_type);
     }

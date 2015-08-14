@@ -53,7 +53,6 @@ Route::group(array('before'=>'superuser'), function() {
 Route::group(array('before'=>'auth'), function(){
         Route::get('cardpay', function(){return View::make('pages.cartstriper');});
         Route::get('icon/addtocart','IconController@getAddtocart');
-		//Route::get('icon/makeshopcart','IconController@getMakeshopcart');
 });
     
 Route::controller('icon','IconController');

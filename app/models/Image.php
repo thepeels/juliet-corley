@@ -95,9 +95,9 @@ class Image extends Eloquent
         return '/' . $this->subfolder . '/' . $this->storage_filename;
     }
 	
-    public function getCraftImageUrlAttribute() //attribute drops off the end of this name
+    public function getFreeImageUrlAttribute() //attribute drops off the end of this name
     {
-        return '/' . $this->subfolder . '/' . $this->storage_filename;
+        return '/' . $this->storage_filename;
     }
 	
 	
@@ -127,6 +127,52 @@ class Image extends Eloquent
         copy($path, $this->image_path);
         
     }
+    /**
+     * Add Pdf(Image)
+     * 
+     * @var    string     $path
+     * @return void
+     * 
+     */
+    public function addPdf($path)
+	
+    {#dd($path);
+        if ( ! file_exists($path))
+        {
+            throw new Exception("Must specify valid path to pdf file");
+        }
+        #dd($path);
+        # Delete the old file if one exists
+        if (file_exists($this->image_path) && ! is_dir($this->image_path))
+        {
+            unlink($this->image_path);
+        }
+        
+        # Copy the pdf to the storage folder with a unique filename if paid for item
+        if(! $this->public)
+		{
+	        $this->storage_filename = uniqid('',TRUE) . '.pdf';
+	        copy($path, $this->image_path);
+		}
+		if( $this->public)
+		{
+			$this->storage_filename = uniqid('',TRUE) . '.pdf';
+			copy($path, $this->image_path);
+		}
+        # Copy the pdf to the public folder with a original filename if free item
+        #$this->storage_filename = uniqid('',TRUE) . '.jpg';
+        #copy($path, $this->image_path);
+        
+    }
+	public static function freeFile($path)
+	{
+		if ( ! file_exists($path))
+        {
+            throw new Exception("Must specify valid path to pdf file");
+        }
+		$pdfname = pathinfo($path, PATHINFO_BASENAME);
+		return $pdfname;
+	}
     
     /**
      * Download

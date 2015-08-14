@@ -24,11 +24,13 @@ class ProductController extends \BaseController
 	public function postCartadd() //this is to be an ajax function
 	{	
 		$productId 			= Input::get('productId');
+		$productType 		= Input::get('productType');
 		//$product			= Product::where('id',$productId)->get();
 		//foreach($product as $product);
 		$quantity			= 1;
 		//$productName 		= Input::get('productName');
 		//return $productId;
+		if ($productType == 'ColouringPdf')
 		return cartAddColouringItem($productId);
 	}
 	public function getColouring()

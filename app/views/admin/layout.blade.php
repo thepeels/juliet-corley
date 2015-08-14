@@ -34,6 +34,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Fish <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                           <li><a href="/admin/fish">Fish Table</a></li>
+                          <li class="divider"></li>
                           <li><a href="/admin/fish/add">Add Fish</a></li>
                           <li class="divider"></li>
                           <li class="dropdown-header">Pricing</li>
@@ -44,7 +45,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Products <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                           <li><a href="/admin/shop">Product Table</a></li>
+                          <li class="divider"></li>
                           <li><a href="/admin/shop/add">Add Product</a></li>
+                          <li><a href="/admin/shop/addpdf">Add Colouring pdf</a></li>
                         </ul>
                       </li>
                       <li class="dropdown">
@@ -52,11 +55,6 @@
                         <ul class="dropdown-menu" role="menu">
                           <li><a href="{{ URL::to('user') }}">User List</a></li>
                           <li><a href="{{ URL::to('purchases') }}">User Purchases</a></li>
-                          <li><a href="#">Something else here</a></li>
-                          <li class="divider"></li>
-                          <li class="dropdown-header">Nav header</li>
-                          <li><a href="#">Separated link</a></li>
-                          <li><a href="#">One more separated link</a></li>
                         </ul>
                       </li>
                       {{--<li {{ Request::is('admin/fish*') ? ' class="active"' : '' }}><a href="/admin/fish">Fish</a></li>--}}
