@@ -55,6 +55,8 @@
                         <ul class="dropdown-menu" role="menu">
                           <li><a href="{{ URL::to('user') }}">User List</a></li>
                           <li><a href="{{ URL::to('purchases') }}">User Purchases</a></li>
+                          <li class="divider"></li>
+                          <li><a href="{{ URL::to('allpurchases') }}">All Purchases</a></li>
                         </ul>
                       </li>
                       {{--<li {{ Request::is('admin/fish*') ? ' class="active"' : '' }}><a href="/admin/fish">Fish</a></li>--}}

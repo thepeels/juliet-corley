@@ -48,6 +48,7 @@ Route::group(array('before'=>'superuser'), function() {
     Route::controller('admin','Admin\IndexController');
     Route::get('user','UserController@getIndex');
     Route::get('purchases','UserController@getUserpurchases');
+    Route::get('allpurchases','UserController@getShowallpurchases');
 });
 
 Route::group(array('before'=>'auth'), function(){

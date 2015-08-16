@@ -112,6 +112,15 @@ class UserController extends \BaseController {
     {
         return View::make('userpurchases');
     }
+     
+     public function getShowallpurchases()
+    {
+        $purchases = Purchase::all();
+        return View::make('showallpurchases',array(
+        'purchases' => $purchases
+		));
+    }
+
     
     public function getChange()
     {
