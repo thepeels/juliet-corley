@@ -7,7 +7,7 @@
 @section('content')
     
     <h2>Add a Colouring .pdf</h2>
-    <p><em>These items are all entered as 'Product Type -> colouring </em></p>
+    <p><em>These items are automatically entered as 'Product Type -> colouring </em></p>
     {{Form::open(array('url' => "admin/shop/addpdf",'class' => 'form-addfish', 'files' => true))}}
         <fieldset>
             {{--{{Form::open(array('url' => "fish/validateaddfish",'class' => 'form-addfish', 'files' => true, 'method' => 'post'))}}--}}
@@ -24,8 +24,7 @@
                 {{ Form::input('text', 'title', null, ['class' => 'form-control col-6', 'id' => 'title', 'placeholder' => 'title']) }}
             </div>
             <div class="form-group">
-                {{ Form::label('name', 'Enter Description - first paragraph') }} <em> - all descriptions are optional -
-                		but this line is the only text shown beside free pdf download</em>
+                {{ Form::label('name', 'Enter Description - first paragraph') }} <em> - all descriptions are optional </em>
                 {{ Form::input('text', 'description_1', null, ['class' => 'form-control col-6 row-4', 'id' => 'description_1', 'placeholder' => 'paragraph / sentence']) }}
             </div>
             <div class="form-group">

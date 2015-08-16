@@ -46,6 +46,13 @@ class DownloadController extends \BaseController {
         $name = "test-icon.jpg";
         $response = Response::download($target_image,$name);
         if (App::environment('local')) ob_end_clean();//for xampp locally
+        $purchase_email = null!=Auth::user()?Auth::user()->email:'FREE download';
+        	$purchase = new Purchase;
+            $purchase->email = $purchase_email;
+            $purchase->purchase = $name;
+            $purchase->amount = 0;
+            $purchase->image_id = 0;
+            $purchase->save();
         return $response;
     }
     
@@ -55,6 +62,13 @@ class DownloadController extends \BaseController {
         $name = $description.".pdf";
         $response = Response::download($target_image,$name);
         if (App::environment('local')) ob_end_clean();//for xampp locally
+        $purchase_email = null!=Auth::user()?Auth::user()->email:'FREE download';
+        	$purchase = new Purchase;
+            $purchase->email = $purchase_email;
+            $purchase->purchase = $name;
+            $purchase->amount = 0;
+            $purchase->image_id = 0;
+            $purchase->save();
         return $response;
     }
     

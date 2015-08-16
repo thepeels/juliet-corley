@@ -35,6 +35,7 @@ Session::flash('previous_url',$previous);?>
     
         {{showPayButton(Session::get('dest_email'))}}
     
-    <h3><a href="{{ Session::get('previous_url') }}"class="btn btn-info">Continue Shopping</a></h3>
+    {{--<h3><a href="{{ Session::get('previous_url') }}"class="btn btn-info">Continue Shopping</a></h3>--}}
+    <h3><a href="{{$back}}"class="btn btn-info">Continue Shopping</a></h3>
 </div>
 @endsection

@@ -1,7 +1,7 @@
 					<ul class="menu">
 					   <li class='active'><a href='/'><span>Home</span></a></li>
-					   <li ><a href='shop' title = "Shop"><span style="letter-spacing:-.5px;">Merchandise/Shop</span></a></li>
-					   <li ><a href='colouring' title = "Coming Soon"><span style="letter-spacing:-.5px;">Colouring pages</span></a></li>
+					   <li ><a href='shop'><span style="letter-spacing:-.5px;">Merchandise/Shop</span></a></li>
+					   <li ><a href='colouring'><span style="letter-spacing:-.5px;">Colouring pages</span></a></li>
 					   <!--
 					   <li><a href='#' title = "Coming Soon"><span>Craft items</span></a></li>
 					   <li><a href='#' title = "Coming Soon"><span>Art Gallery</span></a></li>

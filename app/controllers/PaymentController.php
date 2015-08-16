@@ -81,6 +81,13 @@ public function postPay()
             $purchase->amount = $item->price;
             $purchase->image_id = $item->id;
             $purchase->save();
+			
+            $purchase = new Purchase;
+            $purchase->email = $email;
+            $purchase->purchase = $item->name;
+            $purchase->amount = $item->price;
+            $purchase->image_id = $item->id;
+            $purchase->save();
             /*
             DB::table('userpurchases')->insert(
                 array(
@@ -152,6 +159,13 @@ public function postTestpay()
                     'created_at'=> new DateTime,
                     )
                 );
+				
+			$purchase = new Purchase;
+            $purchase->email = $email;
+            $purchase->purchase = $item->name;
+            $purchase->amount = $item->price;
+            $purchase->image_id = $item->id;
+            $purchase->save();
             #Session::push('purchased_download',$item->name);
             Session::push('purchased',$item->name);
         }
@@ -199,6 +213,12 @@ public function postTestsinglepayment()
         //$email = isset(Auth::user()->email) ? Auth::user()->email : $receipt_email;
         //dd($email);
         //ok so send an email as stripe won't...
+        	$purchase = new Purchase;
+            $purchase->email = $receipt_email;
+            $purchase->purchase = $itemdescription;
+            $purchase->amount = $amountincents;
+            $purchase->image_id = 0;
+            $purchase->save();
         return Redirect::to('payment/singlesuccess');
     }
     #return Route::get('success/{return_url}','PaymentController@getSuccess');
@@ -239,6 +259,12 @@ public function postSinglepayment()
         
         $email = isset(Auth::user()->email) ? Auth::user()->email : $receipt_email;
         //dd($email);
+          	$purchase = new Purchase;
+            $purchase->email = $receipt_email;
+            $purchase->purchase = $itemdescription;
+            $purchase->amount = $amountincents;
+            $purchase->image_id = 0;
+            $purchase->save();
         return Redirect::to('payment/singlesuccess');
     }
     #return Route::get('success/{return_url}','PaymentController@getSuccess');

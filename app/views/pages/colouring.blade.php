@@ -59,21 +59,23 @@ $return_url = urlencode($url);
 			@if (($product->product_sub_type) == 'free')
 			{{--$product->full_size_image->image_url--}}
 			<div class="grid-9 push-1 raised">
-				<div class="grid-4 alpha image-column">
-					<img src="{{$product->small_size_image->image_url}}" width="270px" />
+				<div class="grid-4 alpha image-column push-1">
+					<img src="{{$product->small_size_image->image_url}}" width="60%" style="margin-left:20%"/>
 				</div>
             <div class="grid-4 push-2 omega centered lowered">
                 
 					<p class="segoe">{{$product->description_1}}</p>
+					<p class="segoe">{{$product->description_2}}</p>
 					<p class="segoe"><a href="/download/freepdfdownload/{{ Image::freeFile($product->full_size_image->image_path) }}/{{ $product->title }}">Download now</a></p>
             </div>
            </div>
             @else
 			<div class="grid-9 push-1 raised">
-				<div class="grid-4 alpha image-column">
-					<img src="{{$product->small_size_image->image_url}}" width="270px" />
+				<div class="grid-4 alpha image-column push-1">
+					<img src="{{$product->small_size_image->image_url}}" width="100%" />
 				</div>
 				<div class="grid-4 push-2 omega centered lowered">
+					<p class="segoe">{{$product->title}}</p>
 					<p class="segoe">{{$product->description_1}}</p>
 					<p class="segoe">{{$product->description_2}}</p>
 					<p class="segoe">${{number_format(($product->price)/100,2)}}<p>

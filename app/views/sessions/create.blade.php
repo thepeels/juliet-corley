@@ -3,6 +3,11 @@
 {{ HTML::style( asset('css/imagetable.css') ) }}
 {{ HTML::style( asset('css/grid16.css') ) }}
 @stop
+<?$url = Request::url();
+$previous = URL::previous();
+//dd($url);
+$return_url=urlencode($url);
+Session::flash('previous_url',$previous);?>
 @section('content')
 <div class="container-16">
     <div class="grid-5 push-3 loginform">

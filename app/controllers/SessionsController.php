@@ -34,7 +34,8 @@ class SessionsController extends BaseController{
             //from download page ...{
             $uri_fragment = Session::get('urifragment');
 			Session::pull('urifragment');
-            return Redirect::intended('/download'.$uri_fragment)->with(Auth::user()->email);
+			
+            return Redirect::intended(Session::get('previous_url').$uri_fragment)->with(Auth::user()->email);
 			//...}
         }
         else  //login failed - is entered email in db?

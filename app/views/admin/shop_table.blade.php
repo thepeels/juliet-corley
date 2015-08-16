@@ -6,7 +6,7 @@
 @section('attached-nav')
     <p class="attached-nav">
         <a href="/admin/shop/add" class="btn btn-primary">Add a Product</a>
-        <a href="/admin/shop/addpdf" class="btn btn-primary">Add a .pdf</a>
+        <a href="/admin/shop/addpdf" class="btn btn-primary">Add a .pdf (colouring)</a>
     </p>
 @stop
 @section('content')
