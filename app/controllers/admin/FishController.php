@@ -1,5 +1,6 @@
 <?php namespace Admin;
-use \Session,\Fish,\FishBuilder,\Redirect,\DB,\View,\Price,\Input,\Validator,\Userpurchase,\Image;
+use \Session,\Fish,\FishBuilder,\Redirect,\DB,
+	\View,\Price,\Input,\Validator,\Userpurchase,\Purchase,\Image;
 
 class FishController extends \BaseController
 {
@@ -253,6 +254,15 @@ public function postDeliver()
         $purchase->amount      = $first_price;
         $purchase->image_id    = $fish->large_image_flipped_id;
 		$purchase->save();
+		
+        $purchase = new Purchase;
+        $purchase->email       = $email;
+        $purchase->purchase    = $fish->name . ' (Full Set of Icons)';
+        $purchase->amount      = 0;
+        $purchase->image_id    = 0;
+		$purchase->save();
+		
+		
         //Session::push('purchased',$image->filepath);//this does not make a difference
         
         $images = Image::where('id',$fish->small_image_id)->get();

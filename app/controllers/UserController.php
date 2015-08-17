@@ -101,8 +101,16 @@ class UserController extends \BaseController {
     public function postUserpurchases()
     {
         $email = Input::get('email');
-		if ($email!=null){    
-        return View::make('userpurchases')->with($email);
+		if ($email!=null){
+			$purchases = Userpurchase::distinct()
+        	->where('email',$email)
+        	->orderBy('created_at','DESC')
+			#->paginate(3);
+        	->get();	    
+        return View::make('userpurchases',array(
+			'purchases' => $purchases,
+			'email'		=> $email
+		));
         }
 		Session::flash('notselected', 'No email selected!');
         return Redirect::back();
@@ -115,9 +123,13 @@ class UserController extends \BaseController {
      
      public function getShowallpurchases()
     {
-        $purchases = Purchase::all();
+        #$purchases = Purchase::all();
+		$purchases = DB::table('purchases')
+		->groupBy('purchase')
+		->paginate(10);
+		#->get();
         return View::make('showallpurchases',array(
-        'purchases' => $purchases
+        	'purchases' => $purchases
 		));
     }
 

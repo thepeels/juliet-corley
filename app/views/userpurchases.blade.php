@@ -5,15 +5,15 @@
 @section('content')
 
 <?php
-$email = Input::get('email');
+#$email = Input::get('email');
 
-$purchases = adminshowpurchases($email);
+#$purchases = adminshowpurchases($email);
 ?>    
+    <h4><a href="../back" class="btn btn-primary">Select different User</a></h4>
     <table class="text-table">
         <caption>
             
         <?echo('<h4>Summary for '.(isset($email)?$email:'nothing here').'</h4>');?>
-    <h4><a href="../back" class="btn btn-primary">Select different User</a></h4>
         </caption>
         <tr>
             <th>ID</th>
@@ -45,7 +45,8 @@ $purchases = adminshowpurchases($email);
         <? endforeach; ?>
 
     </table>
+    {{--$purchases->links()--}}
 @stop
 @section('footer')  
-    <h4><a href="../back" class="btn btn-primary">Select different User</a></h4>
+    <!--<h4><a href="../back" class="btn btn-primary">Select different User</a></h4>-->
 @stop

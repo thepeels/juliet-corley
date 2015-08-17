@@ -16,7 +16,7 @@ $emails = array_merge($placeholder, $list);
         <li>{{ $error}}</li>
     @endforeach
 </ul>--}}
-     <fieldset>
+    
         <div class="form-group">
     		{{ Form::label('email', 'Select E-mail') }}
             {{ Form::select('email', $emails) }}

@@ -298,6 +298,7 @@ function adminshowpurchases($email)
     $purchases = Userpurchase::distinct()
         ->where('email',$email)
         ->orderBy('created_at','DESC')
+		#->paginate(3);
         ->get();
     return $purchases;
 }
