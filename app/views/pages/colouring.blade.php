@@ -6,7 +6,7 @@
 {{ HTML::style( asset('css/jchome.css') ) }}
 
 @stop
-<?$form_index = 1;
+<?$div_index = 1;
 $url = Request::url();
 $return_url = urlencode($url);
 ?>
@@ -55,14 +55,14 @@ $return_url = urlencode($url);
       			</p>
 			</div>
 			@foreach ($products as $product)
-			<?$form_id = 'form-'.$form_index;?>
+			<?$div_id = 'position-'.$div_index;?>
 			@if (($product->product_sub_type) == 'free')
 			{{--$product->full_size_image->image_url--}}
 			<div class="grid-9 push-1 raised">
 				<div class="grid-4 alpha image-column push-1">
 					<img src="{{$product->small_size_image->image_url}}" width="60%" style="margin-left:20%"/>
 				</div>
-            <div class="grid-4 push-2 omega centered lowered">
+            <div id="{{$div_id}}" class="grid-4 push-2 omega centered lowered">
                 
 					<p class="segoe">{{$product->description_1}}</p>
 					<p class="segoe">{{$product->description_2}}</p>
@@ -74,13 +74,13 @@ $return_url = urlencode($url);
 				<div class="grid-4 alpha image-column push-1">
 					<img src="{{$product->small_size_image->image_url}}" width="100%" />
 				</div>
-				<div class="grid-4 push-2 omega centered lowered">
+				<div id="{{$div_id}}" class="grid-4 push-2 omega centered lowered">
 					<p class="segoe">{{$product->title}}</p>
 					<p class="segoe">{{$product->description_1}}</p>
 					<p class="segoe">{{$product->description_2}}</p>
 					<p class="segoe">${{number_format(($product->price)/100,2)}}<p>
 					{{--add to separate cart function wothout prior purchase--}}
-                    {{Form::open(array('id' => $form_id, 'url' => "/shop/cartadd?return_url=$url",'class' => 'shopform form-addfish'))}}
+                    {{Form::open(array( 'url' => "/shop/cartadd?return_url=$url",'class' => 'shopform form-addfish'))}}
                     	{{ Form::hidden('productId', $product->id)}}
                     	{{ Form::hidden('productType','ColouringPdf')}}
 						{{ Form::submit('Add to Cart', ['class' => 'colouringajax btn btn-xs btn-primary']) }}
@@ -90,6 +90,7 @@ $return_url = urlencode($url);
 				</div>  
 			</div>
 			@endif
+			<?$div_index ++;?>
 			@endforeach  
 			</div> 
 		</div> 
