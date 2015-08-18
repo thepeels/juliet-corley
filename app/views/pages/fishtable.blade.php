@@ -74,8 +74,7 @@ foreach ($prices as $price){}
                 <div class="grid-6   segoe note blue">
                     <p>This database is a work-in-progress and is still very small. 
                         If species you want are not shown here, please 
-                        <a href="mailto:julietcorley@gmail.com?Subject=Commission%20species%20enquiry" 
-                		target="_top">email me</a> to commission them.
+                        {{HTML::mailto('julietcorley@gmail.com?Subject=Commission%20species%20enquiry','email me')}} to commission them.
                     </p>
                 </div>
             </div>

@@ -49,7 +49,7 @@ $return_url = urlencode($url);
 								</br>me with orders</p>
 							<!--{{HTML::mailto('babyfoot3@bigfoot.com?subject=Shop%20enquiry
 								&body=I%20wish%20to%20purchase%20the%20following%20items%20
-								from%20your%20shop%3A%0A%0A%0AMy%20address%20is%3A','email-me',['subject'=>'sublect','text'=>'this is the body'])}}-->
+								from%20your%20shop%3A%0A%0A%0AMy%20address%20is%3A','')}}-->
 							
 							<a href="mailto:babyfoot3@bigfoot.com?subject=Shop%20enquiry
 								&body=I%20wish%20to%20purchase%20the%20following%20items%20

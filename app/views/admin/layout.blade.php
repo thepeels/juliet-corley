@@ -63,7 +63,7 @@
                       {{--<li {{ Request::is('admin/art*') ? ' class="active"' : '' }}><a href="/admin/art">Art</a></li>--}}
                     </ul>                    
                     <ul class="nav navbar-nav navbar-right">
-                      <li> <a href="/download">Public Pages</a></li>
+                      <li> <a href="/">Public Pages</a></li>
                       <li><a href="{{ URL::to('logout') }}">Logout</a></li>{{--admin/logout--}}
                     </ul>
                   </div><!--/.nav-collapse -->

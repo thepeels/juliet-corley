@@ -1,10 +1,7 @@
 p{margin-left:0;margin-right:0;}
 h4.segoe{font:bold 18px/18px 'SegoePrint';color:#222;margin:5px;}
-p.segoe{font:normal 14px/16px 'SegoePrint';color:#222;margin:0px 5px 5px 5px;} 
-p.segoe.colouring{
-    font:normal 13px/15px 'SegoePrint';color:#222;margin:0px 5px 5px 5px;
-    margin-left:325px;margin-top:155px;
-}
+p.segoe{font:normal 14px/16px 'SegoePrint';color:#222;margin:0px 5px 5px 5px;}
+p.segoe.larger{font:normal 16px/18px 'SegoePrint';color:#222;margin:0px 5px 5px 5px;}
 .centered{
     text-align:center;
 }

@@ -59,8 +59,8 @@
         </div> 
         <div class="grid-6 push-5 left-para">
             <p>
-                Please <a href="mailto:juliet@julietcorley.com?Subject=Commission%20species%20enquiry" 
-                target="_top">contact me</a> to commission new species. Please note that completed
+                Please {{HTML::mailto('juliet@julietcorley.com?Subject=Commission%20species%20enquiry',' 
+                contact me')}} to commission new species. Please note that completed
                 commissions will be added to this Downloadable Icon database (see right <span>&#8594;</span>),
                 as well as emailed directly to you.
             </p>
@@ -125,8 +125,7 @@
                 as I may have already drawn the species you want.
             </p>
             <p class = "fifth-box">
-                To commission a list of species: <a href="mailto:juliet@julietcorley.com?Subject=Commission%20species%20list" 
-                target="_top">click here.</a>
+                To commission a list of species: {{ HTML::mailto('juliet@julietcorley.com?Subject=Commission%20species%20list','click here.')}}
                 I will email you in response.
             </p>
         </div> 
