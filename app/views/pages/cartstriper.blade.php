@@ -12,6 +12,7 @@ if (Cart::count()>=2){$itemdescription = (Cart::count().'&nbsp;images');}
 
 $amountincents = Cart::total();
 $amountindollars= $amountincents/100;
+$receipt_email=Auth::user()->email;
 #$itemdescription = Cart::count().'&nbsp;items';
 #$itemdescription = Input::get('itemdescription');
 ?>
@@ -30,6 +31,7 @@ $amountindollars= $amountincents/100;
     data-amount="<?=$amountincents;?>"
     data-name="JulietCorley.com"
     data-description="<?=$itemdescription;?>"
+    data-receipt_email="<?=$receipt_email;?>"
     data-image="">
   </script>
 

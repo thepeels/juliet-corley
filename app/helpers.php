@@ -39,7 +39,7 @@ function cartSummary()
             if($row->options->prior == TRUE){$test=TRUE;}}
         //insert here if(total = 0 && No >0) echo go to my account to download
             if($test && Cart::total()==0 && Cart::count()>0){
-            echo'<td class="table-summary"><em>* Download these Icons from your Account</em>
+            echo'<td class="table-summary"><em>* Download these Images from your Account</em>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     Cart Total</td>';}
             elseif($test){
@@ -62,7 +62,7 @@ function shopCartSummary()
             if($row->options->prior == TRUE){$test=TRUE;}}
         //insert here if(total = 0 && No >0) echo go to my account to download
             if($test && Cart::total()==0 && Cart::count()>0){
-            echo'<td class="table-summary"><em>* Download these Icons from your Account</em>
+            echo'<td class="table-summary"><em>* Download these Images from your Account</em>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     Cart Total</td>';}
             elseif($test){

@@ -76,6 +76,7 @@ $return_url = urlencode($url);
 				</div>
 				<div id="{{$div_id}}" class="grid-5 push-2 omega centered lowered">
 					<p class="segoe larger">{{$product->title}}</p>
+					<p class="segoe">{{$product->subtitle}}</p>
 					<p class="segoe">{{$product->description_1}}</p>
 					<p class="segoe">{{$product->description_2}}</p>
 					<p class="segoe">${{number_format(($product->price)/100,2)}}<p>

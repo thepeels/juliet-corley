@@ -94,7 +94,8 @@ class SessionsController extends BaseController{
     {   
         Session::forget('return_url');
 		Session::forget('dest_email');
-        //Cart::destroy();
+        Cart::instance('main')->destroy();
+        Cart::instance('shop')->destroy();
         Auth::logout();
         
         return Redirect::to('/');
