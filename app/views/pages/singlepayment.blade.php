@@ -22,13 +22,16 @@
 
 {{Form::label('text','Amount in AUS$')}}
 {{Form::input('text','amountindollars',null,['class'=>'newclass aligned-right','placeholder'=>'AUD$','size'=>'5'])}}<br>
+{{$errors->first('amountindollars')}}
 </br>
 {{Form::label('text','Please send my receipt e-mail to:')}}
-{{Form::input('text','receipt_email',null,['class'=>'newclass aligned-right','placeholder'=>'e-mail','size'=>'43'])}}<br>
+{{Form::input('email','receipt_email',null,['class'=>'newclass aligned-right','placeholder'=>'e-mail','size'=>'35'])}}<br>
+{{$errors->first('receipt_email')}}
 </br>
 <span class="payment-errors"></span>
 {{Form::label('text','Description of item agreed for purchase')}}
 {{Form::input('text','itemdescription',null,['class' => 'newclass','placeholder' => 'Item description','size'=>'35'])}}
+{{$errors->first('itemdescription')}}
 </span><br>
 <span>
 	</br>

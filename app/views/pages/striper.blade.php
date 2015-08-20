@@ -33,8 +33,7 @@ $receipt_email = Input::get('receipt_email');
 ?>
 <div class="cart merri">
 <h3></br> Pay <span class= "julie">Juliet Corley</span> $<?=$amountindollars?> for <?=$itemdescription?></h3></br> 
-<h5>Please wait for page to finish loading before proceeding.</h5></br> 
-<form action="{{url('payment/testsinglepayment')}}" method="POST"> {{--pay or testpay uses different stripe keys--}}
+<form action="{{url('payment/testsinglepayment')}}" method="POST"> {{--singlepayment or testsinglepayment uses different stripe keys--}}
 	<input name ="amountincents" type="hidden" value="<?=$amountincents;?>">
 	<input name ="itemdescription" type="hidden" value="<?=$itemdescription;?>">
 	<input name ="receipt_email" type="hidden" value="<?=$receipt_email;?>">

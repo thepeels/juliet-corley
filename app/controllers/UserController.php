@@ -35,18 +35,31 @@ class UserController extends \BaseController {
 	//////////////////////////
 	public function postAdduser()
 	{
+		$rules = [
+            'name' => 'required|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed|min:4'
+        ];
+		$validation = Validator::make(Input::all(), $rules);
+
+        if($validation->fails())
+        {
+            return Redirect::back()->withInput()->withErrors($validation->messages());
+        }
 	    User::create(array(
-	        'name' => Input::get('newuser'),
+	        'name' => Input::get('name'),
             'email' => Input::get('email'),
             'password' => Hash::make(Input::get('password'))
-	    ));  
-	   
-		$validation = Validator::make(Input::all(), array('newuser'=>'required','email'=>'required','password'=>'required'));	
-		if ($validation->fails())
-		{
-			return Redirect::back()->withInput()->withErrors($validation->messages());
+	    ));
+		$credentials = [
+			'email' => Input::get('email'),
+            'password' => Input::get('password')
+			];
+		if (Auth::attempt($credentials)){
+			return Redirect::intended('/');
 		}
-        return Redirect::intended();
+		 
+        return Redirect::to('login')->withInput(Input::all());
 	}
 	public function postEdituser()
 	{

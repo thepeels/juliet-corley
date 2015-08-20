@@ -19,7 +19,6 @@ $receipt_email=Auth::user()->email;
 <div class="cartstriper">
     
 <h3>Pay <span class="julie">Juliet Corley</span> $<?=$amountindollars?> for <?=$itemdescription?></h3>
-<h4>Please wait for page to finish loading before proceeding.</h4>
 <form action="{{url('payment/testpay')}}" method="POST"> {{--pay or test pay uses different stripe keys--}}
 	<input name ="amountincents" type="hidden" value="<?=$amountincents?>">
 	<input name ="itemdescription" type="hidden" value="<?=$itemdescription?>">

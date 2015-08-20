@@ -95,8 +95,9 @@ class DownloadController extends \BaseController {
 
     public function getFinished()//after successful downloads
     {
+        $back_to = Session::get('before_cart_url');
         Cart::destroy();
-        return Redirect::to('download');
+        return Redirect::to($back_to);
     }
     
     public function getDownloadall()

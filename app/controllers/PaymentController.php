@@ -8,7 +8,17 @@ class PaymentController extends \BaseController {
 	 * @return Response
 	 */
 public function postIndex()
-	{	
+	{
+		$rules = [
+		'amountindollars' 	=> ['required'],
+		'receipt_email' 	=> ['required','email'],
+		'itemdescription'	=> ['required']
+		];
+		$validation = Validator::make(Input::all(),$rules);
+		if ($validation->fails())
+		{
+			return Redirect::back()->withInput()->withErrors($validation->messages());
+		}		
 		return View::make('pages.striper');
 	}
 
@@ -43,6 +53,7 @@ public function postPay()
 	$token = Input::get('stripeToken');
 	$amountincents = Input::get('amountincents');
 	$itemdescription = Input::get('itemdescription');
+	$receipt_email = Input::get('receipt_email');
 	// Create the charge on Stripe's servers - this will charge the user's card
 	try {
 	    $charge = Stripe_Charge::create(array(
@@ -134,7 +145,7 @@ public function postTestpay()
         $error = $e_json['error'];
         // The card has been declined
         // redirect back to checkout page
-        return Redirect::to('payment/pay')
+        return Redirect::to('payment/testpay')
             ->withInput()->with('stripe_errors',$error['message']);
     }
     // Maybe add an entry to your DB that the charge was successful, or at least Log the charge or errors
@@ -203,7 +214,7 @@ public function postTestsinglepayment()
         $error = $e_json['error'];
         // The card has been declined
         // redirect back to checkout page
-        return Redirect::to('payment/pay')
+        return Redirect::to('payment/testpay')
             ->withInput()->with('stripe_errors',$error['message']);
     }
     // Maybe add an entry to your DB that the charge was successful, or at least Log the charge or errors
@@ -219,6 +230,16 @@ public function postTestsinglepayment()
             $purchase->amount = $amountincents;
             $purchase->image_id = 0;
             $purchase->save();
+			
+			$emailcheck = User::where('email','=',$receipt_email)->first();
+			if ($emailcheck !== null){
+				$purchase = new Userpurchase;
+	            $purchase->email = $receipt_email;
+	            $purchase->purchase = $itemdescription;
+	            $purchase->amount = $amountincents;
+	            $purchase->image_id = 0;
+	            $purchase->save();	
+			}
         return Redirect::to('payment/singlesuccess');
     }
     #return Route::get('success/{return_url}','PaymentController@getSuccess');

@@ -161,6 +161,7 @@ function cartAdd($id,$fish_name,$base_price,$id_index,$prior)
                     )
                 );
             }
+		Session::flash('before_cart_url','download');
 		if(Cart::count()>0) //show summary
         {   if(Cart::count()==1){$cart_description = Cart::count() . ' item  . . . ';}
             else {$cart_description = Cart::count() . ' items . . ';}
@@ -195,6 +196,7 @@ function cartAddColouringItem($productId)
 				))
 			);
 		}
+		Session::flash('before_cart_url','colouring');
 		if(Cart::count()>0) //show summary
         {   if(Cart::count()==1){$cart_description = Cart::count() . ' item  . . . ';}
             else {$cart_description = Cart::count() . ' items . . ';}
@@ -262,6 +264,9 @@ function fillOutPurchaseTable()
         echo'<td>&dollar;' . Cart::total()/100 . '</td>';
         echo'<td>' . Cart::count() . '</td>';
         if($cart_instance == 'main')echo'<td><a href="/download/downloadall" class="btn btn-default btn-xs">&nbsp;&nbsp;Download All&nbsp;&nbsp;</a></td></tr>';
+  	//Cart::destroy();
+   //var_dump(Session::get('cart_instance'));
+   //dd(Session::get('purchased'));
     }
     
 function downloadWholeCart()

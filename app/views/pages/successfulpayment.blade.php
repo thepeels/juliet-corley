@@ -67,17 +67,16 @@ if (Cart::count()!=0){
 <?}
 else echo ('<h3>Your Cart is empty</h3>')
 ?>
+<p class="merri" style="font-size:10px;">
+	</br> The above items are now available for download, either now or if you prefer 
+	later from the 'My Account' link when you are logged in to the website. Please
+	click 'Done' when you are finished.
 
 
 
-
-<h3><a href="/download/finished" class="btn  btn-info">Finished Downloading?</a></h3>
-<h3><a href="/" class="btn  btn-warning">Go back to Home page</a></h3>
+<!--<h3><a href="/download/finished" class="btn  btn-info">Finished Downloading?</a></h3>-->
+<h3><a href="/download/finished" class="btn btn-xs btn-info">Done</a></h3>
 </div>
 
-<script>
-function myFunction() {
-    location.reload();
-}
-</script>
+
 @stop
