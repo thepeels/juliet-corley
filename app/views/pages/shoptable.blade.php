@@ -24,13 +24,28 @@ $return_url = urlencode($url);
 				
 			</div>
 			<div class="grid-17 push-4">
-				<div id='cssmenu' class="grid-5 suffix-1 alpha">
+				<div  class="grid-5 suffix-1 alpha">
+					<div id='cssmenu'>
 					<div class="grid-5  jcshoplogo">
 	            		<p>&nbsp;</p>
 	       			 </div>
 					@include('includes.main_menu')
-				</div>
-				<div class="grid-12 omega">
+					</div>
+					<div class="grid-5 zazzle-column alpha omega pull-1">
+						
+							<embed wmode="transparent" 
+							src="http://www.zazzle.com.au/utl/getpanel?zp=117448596789393688" 
+							FlashVars="feedId=117448596789393688" width="300" height="200" 
+							type="application/x-shockwave-flash" 
+							class="zazzle" style="margin-top:20px;margin-left:18px;">
+							</embed><br/><p class="zazzle segoe">
+								(For other items with my designs, click 
+								<a href="http://www.zazzle.com.au/"class="segoe julie">here </a> 
+								to go to my Zazzle site)</p>
+								
+					</div>
+				</div> 
+				<div class="grid-12 omega right-shifted">
 					<div class="grid-12">
 						<div class="grid-6 one-off">
 							<p>&nbsp;</p>
@@ -73,7 +88,7 @@ $return_url = urlencode($url);
 					<?$form_id = 'form-'.$form_index;?><!-- redundant -->
 					<div class="grid-11 pushdown">
 					<div class="grid-5 alpha image-column">
-						<img src="{{$product->small_size_image->image_url}}" width="270px" />
+						<img src="{{$product->small_size_image->image_url}}" width="286px" />
 						<div class="opaque grid-5">
 						{{Form::open(array('id' => $form_id, 'url' => "/shop/cartadd?return_url=$url",'class' => 'shopform form-addfish'))}}
 							{{ Form::hidden('productId', $product->id)}}

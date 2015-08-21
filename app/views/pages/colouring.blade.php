@@ -42,6 +42,16 @@ $return_url = urlencode($url);
                     </h3>
                 </div>
                 {{--@endif--}}
+                <div style="margin-top:35px">
+                <div class="fb-like merri"  
+	                data-href="localhost/colouring" 
+	                data-width="200" 
+	                data-layout="standard" 
+	                data-action="like" 
+	                data-show-faces="true" 
+	                data-share="true">
+                </div>
+                </div>
 			</div>
 			<div class="grid-13 pull-2 omega"> 
 			<div class="grid-13 omega colouringimage">
@@ -99,5 +109,15 @@ $return_url = urlencode($url);
 </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script><?  include_once(public_path().'/packages/menu-script.js');?></script>
+<script><?  include_once(public_path().'/packages/menu-script.js');?>
+
+</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 @endsection

@@ -11,6 +11,7 @@ p.segoe.larger{font:normal 16px/18px 'SegoePrint';color:#222;margin:0px 5px 5px 
 .pushdown{
     margin-top:20px;
 }
+.right-shifted{margin-left:5px;}
 #position-1{
     margin-top:50px;
 }
@@ -21,7 +22,7 @@ p.segoe.larger{font:normal 16px/18px 'SegoePrint';color:#222;margin:0px 5px 5px 
 .quantity{width:30px;margin-left:0px;margin-top:4px; height:24px;}
 label.label{font:normal 12px Arial, Helvetica, sans-serif;color:#222;padding: 0.2em 0 0.3em;}
 .form-addfish{margin-top:5px;}
-.image-column{margin-left:-10px;}
+.image-column{margin-left:-5px;}
 .form-control{padding:5px 5px;}
 .opaque{opacity:0.4;}
 .body.btn{disabled:true;}
@@ -219,4 +220,4 @@ _::-moz-svg-foreign-content, :root .mpa,.game  { /*safari 5.1 - 6.0 chrome 10 - 
 .zazzle{
     margin-left:-20px;
 }
-p.zazzle{text-align:center;margin-left:-45px;}
+p.zazzle{text-align:center;margin-left:25px;}
