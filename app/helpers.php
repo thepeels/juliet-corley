@@ -313,6 +313,7 @@ function showPurchases($email)
     $purchases = Userpurchase::distinct()
         ->where('email',$email)
         ->orderBy('purchase')
+		//->paginate(10);
         ->get();
     return $purchases;
 }

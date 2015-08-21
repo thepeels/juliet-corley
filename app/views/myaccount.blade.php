@@ -66,6 +66,7 @@ $icons = showPurchases($email);
         </tr>
         @endforeach
     </table>
+        {{--$icons->links()--}}
 
 
 <h4><a href="/download" class="btn btn-primary btn-xs">Go back to fish icon page</a></h4>
