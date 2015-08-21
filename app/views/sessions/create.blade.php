@@ -13,8 +13,8 @@ Session::flash('previous_url',$previous);?>
     <div class="grid-5 push-3 loginform">
         
 
-<h2 class="julie">JulietCorley.com</h2>
-<h3 class= "caption">Log in</h3>
+<h2 class="julie merri">JulietCorley.com</h2>
+<h3 class= "caption merri">Log in</h3>
 <fieldset class="login">
     
 {{Form::open(['route'=>'sessions.store'])}}
@@ -22,16 +22,13 @@ Session::flash('previous_url',$previous);?>
     {{Form:: label('email','Email')}}
     </br>
     {{Form::email('email')}}
-    </br>
+    {{$errors->first('name','<small style="color:#f00">:message</small>')}}</br></br>
 
     {{Form:: label('password','Password')}}
     </br>
     {{Form::password('password')}} 
     </br>
-           
-    @if($errors->has('email'))
-        {{ $errors->first('email')}}
-    @endif
+    
     </br>
     @if(Auth::guest())
         {{Form::submit('Login',array('class'=>'btn btn-info btn-xs'))}}

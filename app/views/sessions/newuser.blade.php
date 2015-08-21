@@ -8,7 +8,7 @@
 
 <h2 class="julie merri">JulietCorley.com</h2>
 <h3 class= "caption merri">Register</h3>
-<fieldset class="login merri">
+<fieldset class="login">
     {{Form::open(array('url' => '/user/adduser','class'=>'form-signup'))}}
 
 {{--<ul>
@@ -18,16 +18,16 @@
 </ul>--}}
     
     {{Form::input('text','name',null,['class'=>'newclass','placeholder'=>'Name'])}} 
-        {{$errors->first('name')}}</br></br> 
+        {{$errors->first('name','<small style="color:#f00">:message</small>')}}</br></br> 
     
     {{Form::input('email','email',null,['class'=>'newclass','placeholder'=>'E-mail Address'])}}
-        {{$errors->first('email')}}</br></br> 
+        {{$errors->first('email','<small style="color:#f00">:message</small>')}}</br></br> 
     
     {{Form::input('text','password',null,['class'=>'newclass','placeholder'=>'Password'])}}
-        {{$errors->first('password')}}</br></br>
+        {{$errors->first('password','<small style="color:#f00">:message</small>')}}</br></br>
     
     {{Form::input('password','password_confirmation',null,['class'=>'newclass','placeholder'=>'Confirm password'])}}
-        {{$errors->first('password_confirmation')}}</br></br>
+        {{$errors->first('password_confirmation','<small style="color:#f00">:message</small>')}}</br></br>
         
     {{Form::submit('Register',['class'=>'btn btn-info btn-xs'])}}
 {{form::close()}}

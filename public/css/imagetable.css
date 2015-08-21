@@ -272,7 +272,13 @@ a span {
           
 }
 .letter-space{letter-spacing:1px}
-
+.merri{
+    font-family: "Merriweather";
+    letter-spacing:-0.025em;
+}
+.julie{
+    color:#4288CE;
+}
 .preview{
     display:inline-block;
     width: 80%;
