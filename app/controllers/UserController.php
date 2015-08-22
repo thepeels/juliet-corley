@@ -138,7 +138,9 @@ class UserController extends \BaseController {
     {
         #$purchases = Purchase::all();
 		$purchases = DB::table('purchases')
+		
 		->groupBy('purchase')
+		//->first()
 		->paginate(10);
 		#->get();
         return View::make('showallpurchases',array(

@@ -310,9 +310,10 @@ function adminshowpurchases($email)
 
 function showPurchases($email)
 {
-    $purchases = Userpurchase::distinct()
+    $purchases = Userpurchase::distinct('purchase')
         ->where('email',$email)
         ->orderBy('purchase')
+		->orderBy('created_at','ASC')
 		//->paginate(10);
         ->get();
     return $purchases;

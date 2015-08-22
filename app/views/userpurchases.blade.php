@@ -38,7 +38,7 @@
                     <?='$'.number_format($row->amount/100,2,'.','')?>
                 </td>
                 <td>
-                    <?=$row->created_at?>
+                    <?=date_format($row->created_at,'Y-M-d g:ia')?>
                 </td>
             </tr>
         
