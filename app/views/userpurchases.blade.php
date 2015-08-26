@@ -8,12 +8,14 @@
 #$email = Input::get('email');
 
 #$purchases = adminshowpurchases($email);
+
+
 ?>    
     <h4><a href="../back" class="btn btn-primary">Select different User</a></h4>
     <table class="text-table">
         <caption>
             
-        <?echo('<h4>Summary for '.(isset($email)?$email:'nothing here').'</h4>');?>
+        <?echo('<h4>Purchases by '.(isset($email)?$email:'nothing here').'</h4>');?>
         </caption>
         <tr>
             <th>ID</th>
@@ -22,9 +24,11 @@
             <th>Amount</th>
             <th>Date</th>
         </tr>
-        <? foreach ($purchases as $row) : ?>
-        
-            <tr>
+        <? foreach ($purchases as $row) :
+		$date = new DateTime($row->created_at,new DateTimeZone('Europe/London'));
+		$date->setTimeZone(new DateTimeZone('Australia/Brisbane'));
+		 
+        ?>            <tr>
                 <td>
                     <?=$row->id?>
                 </td>
@@ -38,7 +42,7 @@
                     <?='$'.number_format($row->amount/100,2,'.','')?>
                 </td>
                 <td>
-                    <?=date_format($row->created_at,'Y-M-d g:ia')?>
+                    <?=date_format($date,'Y-M-d g:ia');?>
                 </td>
             </tr>
         

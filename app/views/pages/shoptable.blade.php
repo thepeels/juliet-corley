@@ -34,7 +34,7 @@ $return_url = urlencode($url);
 					<div class="grid-5 zazzle-column alpha omega pull-1">
 						
 							<embed wmode="transparent" 
-							src="http://www.zazzle.com.au/utl/getpanel?zp=117448596789393688" 
+							src="https://www.zazzle.com.au/utl/getpanel?zp=117448596789393688" 
 							FlashVars="feedId=117448596789393688" width="300" height="200" 
 							type="application/x-shockwave-flash" 
 							class="zazzle" style="margin-top:20px;margin-left:18px;">

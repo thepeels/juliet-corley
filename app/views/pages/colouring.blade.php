@@ -4,14 +4,28 @@
 {{ HTML::style( asset('css/info.css') ) }}
 {{ HTML::style( asset('css/menu-jquery.css'))}}
 {{ HTML::style( asset('css/jchome.css') ) }}
-
 @stop
+<meta property="og:url"			content="https://julietcorley.com/colouring"/>
+<meta property="og:type"		content="product"/>
+<meta property="og:title"		content="colouring downloads"/>
+<meta property="og:site_name"	content="Juliet Corley"/>
+<meta property="og:description"	content="Colouring can be a good way to relax and unwind after a stressful day.
+								Try my colouring pages ansd see if they work for you &9786;"/>
+<meta property="og:image"		content="https://julietcorley.com/images/bg-images/colouring.jpg"/>
 <?$div_index = 1;
 $url = Request::url();
 $return_url = urlencode($url);
 ?>
 @section('body-class')
 <body class="colouring">
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
 @stop
 @section('title')
 <title>Colouring Pages</title>
@@ -36,21 +50,22 @@ $return_url = urlencode($url);
                             class="btn btn-primary btn-xs" id="themailaddress">View Cart / Checkout
                         </a>
                             &nbsp;&nbsp;</br>
+                        <p>
                         <a href="/icon/ajaxdumpcart" 
                             class= " byajax btn btn-info btn-xs">Empty Cart
-                        </a>
+                        </a></p>
                     </h3>
                 </div>
                 {{--@endif--}}
-                <div style="margin-top:35px">
                 <div class="fb-like merri"  
 	                data-href="localhost/colouring" 
 	                data-width="200" 
 	                data-layout="standard" 
 	                data-action="like" 
 	                data-show-faces="true" 
-	                data-share="true">
-                </div>
+	                data-share="true"
+	                data-colorscheme="light"
+	                style="margin-top:35px">
                 </div>
 			</div>
 			<div class="grid-13 pull-2 omega"> 
@@ -112,12 +127,6 @@ $return_url = urlencode($url);
 <script><?  include_once(public_path().'/packages/menu-script.js');?>
 
 </script>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+
+
 @endsection

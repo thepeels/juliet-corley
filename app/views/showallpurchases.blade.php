@@ -23,6 +23,10 @@
             	$total_amount 	= Purchase::where('purchase',$row->purchase)->sum('amount');
             	$first_entry 	= Purchase::where('purchase',$row->purchase)->orderBy('created_at','ASC')->first();
             	$last_entry 	= Purchase::where('purchase',$row->purchase)->orderBy('created_at','DESC')->first();
+				$first_date = new DateTime($first_entry->created_at,new DateTimeZone('Europe/London'));
+				$first_date->setTimeZone(new DateTimeZone('Australia/Brisbane'));
+				$last_date = new DateTime($last_entry->created_at,new DateTimeZone('Europe/London'));
+				$last_date->setTimeZone(new DateTimeZone('Australia/Brisbane'));
             ?>
         
             <tr>
@@ -40,10 +44,10 @@
                     <?='$'.number_format($total_amount/100,2,'.','')?>
                 </td>
                 <td>
-                    <?=date_format($first_entry->created_at,'Y-M-d')?>
+                    <?=date_format($first_date,'Y-M-d')?>
                 </td>
                 <td>
-                    <?=date_format($last_entry->created_at,'Y-M-d g:ia')?>
+                    <?=date_format($last_date,'Y-M-d g:ia')?>
                 </td>
         	</tr>
         <? endforeach; ?>
