@@ -31,6 +31,7 @@ else{echo("
   include_once('packages/ajax-cart.php');
   include_once('packages/selected_letter.php');
   include_once('packages/ajax-email.php');
+  include_once('packages/prevent_double_click_script.php');
 ?>
 @yield('footer')
 

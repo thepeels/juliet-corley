@@ -17,6 +17,7 @@
             <th>Total</th>
             <th>First Sale</th>
             <th>Most Recent Sale</th>
+            <th>Sold to:</th>
         </tr>
         <? foreach ($purchases as $row) : ?>
             <? 	$number = Purchase::where('purchase',$row->purchase)->count();
@@ -48,6 +49,9 @@
                 </td>
                 <td>
                     <?=date_format($last_date,'Y-M-d g:ia')?>
+                </td>
+                <td>
+                	<?=$last_entry->email?>
                 </td>
         	</tr>
         <? endforeach; ?>

@@ -98,7 +98,10 @@
             </p>
         </div>
         <div class="grid-2 push-5 test-fish one">
-            <a href="/download/freedownload/free-icon3cm.jpg"><img src="/images/bg-images/test-fish.jpg" /></a>
+            <a href="/download/freedownload/free-icon3cm.jpg"
+            	onclick="this.addEventListener('click', doubleClickStopper, false);">
+            	<img src="/images/bg-images/test-fish.jpg" />
+            </a>
             <div class="grid-3">
                 <p>
                     3cm free test sample
@@ -106,7 +109,10 @@
             </div>
         </div>
         <div class="grid-2 push-6 test-fish two">
-            <a href="/download/freedownload/free-icon5cm.jpg"><img src="/images/bg-images/test-fish.jpg" /></a>
+            <a href="/download/freedownload/free-icon5cm.jpg"
+            	onclick="this.addEventListener('click', doubleClickStopper, false);">
+            	<img src="/images/bg-images/test-fish.jpg" />
+        	</a>
             <div class="grid-3">
                 <p>
                     5cm free test sample

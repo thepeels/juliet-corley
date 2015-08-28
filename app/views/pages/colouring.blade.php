@@ -67,6 +67,16 @@ $return_url = urlencode($url);
 	                data-colorscheme="light"
 	                style="margin-top:35px">
                 </div>
+                <div>
+                	<!-- Facebook Badge START -->
+                	<a href="https://www.facebook.com/pages/Colouring-pages/1483350095298518" title="Colouring pages" target="_TOP">
+                		<img class="img" src="https://badge.facebook.com/badge/1483350095298518.11042.1627361987.png" style="border: 0px;" alt=""/> <!--width="140px"-->                 			
+                	</a><br />
+                	<a href="https://www.facebook.com/pages/Colouring-pages/1483350095298518" title="Colouring pages" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" target="_blank">
+                		Colouring Pages on FaceBook
+                	</a><br />
+                			<!-- Facebook Badge END -->
+                </div>
 			</div>
 			<div class="grid-13 pull-2 omega"> 
 			<div class="grid-13 omega colouringimage">
@@ -91,7 +101,11 @@ $return_url = urlencode($url);
                 
 					<p class="segoe">{{$product->description_1}}</p>
 					<p class="segoe">{{$product->description_2}}</p>
-					<p class="segoe"><a href="/download/freepdfdownload/{{ Image::freeFile($product->full_size_image->image_path) }}/{{ $product->title }}">Download now</a></p>
+					<p class="segoe">
+						<a href="/download/freepdfdownload/{{ Image::freeFile($product->full_size_image->image_path) }}/{{ $product->title }}" 
+							onclick="this.addEventListener('click', doubleClickStopper, false);">
+							Download now
+						</a></p>
             </div>
            </div>
             @else
@@ -125,8 +139,5 @@ $return_url = urlencode($url);
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script><?  include_once(public_path().'/packages/menu-script.js');?>
-
 </script>
-
-
 @endsection
