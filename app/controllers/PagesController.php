@@ -25,6 +25,11 @@ class PagesController extends \BaseController {
 
     public function info()
     {
+        return View::make('pages.info');
+    }
+	
+    public function infoNew()
+    {
         return View::make('pages.fishtableinfo');
     }
 	

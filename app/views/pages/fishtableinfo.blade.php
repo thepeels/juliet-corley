@@ -97,6 +97,7 @@
                 Crediting me will help me keep going. </br>So will paying me!&nbsp;&nbsp;<span>&#128522;</span>
             </p>
         </div>
+        
         <div class="grid-2 push-5 test-fish one">
             <a href="/download/freedownload/free-icon3cm.jpg"
             	onclick="this.addEventListener('click', doubleClickStopper, false);">
@@ -119,6 +120,7 @@
                 </p>
             </div>
         </div>
+        
         <div class="grid-3 push-7 third-box">
             <h4>View All <span>→</span></h4>
         </div>
