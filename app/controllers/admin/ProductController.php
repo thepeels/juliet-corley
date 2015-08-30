@@ -36,6 +36,11 @@ class ProductController extends \BaseController
     {
     	return View::make('admin.add_pdf');
     }
+	
+	public function getAddfreepdf()
+    {
+    	return View::make('admin.add_free_pdf');
+    }
 
     /**
      * Add

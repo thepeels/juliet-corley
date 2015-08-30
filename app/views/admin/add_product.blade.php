@@ -58,10 +58,10 @@
                 {{ Form::label('name', 'Select item image') }}
                 {{ Form::file('image') }}
             </div>
-            <div class="form-group">
+            <!--<div class="form-group">
                 {{ Form::label('name', 'Select .pdf File') }}
                 {{ Form::file('pdf') }}
-            </div>
+            </div>-->
             <div class="form-group">
             	{{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
             	<a href="/admin/shop" class="btn btn-default">Back</a>

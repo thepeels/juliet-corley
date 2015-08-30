@@ -38,7 +38,6 @@ Route::get('terms','PagesController@terms');
 Route::get('charge','PagesController@charge');
 Route::get('services','PagesController@services');
 Route::get('info','PagesController@info');
-//Route::get('info','PagesController@infoNew');
 
 Route::post('validatefish','Fishcontroller@validateAddFish');
 

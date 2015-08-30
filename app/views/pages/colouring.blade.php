@@ -69,7 +69,7 @@ $return_url = urlencode($url);
                 </div>
                 <div>
                 	<!-- Facebook Badge START 
-                	<a href="https://www.facebook.com/pages/Colouring-pages/1483350095298518" title="Colouring pages" target="_TOP">
+                	<a href="https://www.facebook.com/pages/Colouring-pages/1483350095298518" title="Colouring pages" target="_blank">
                 		<img class="img" src="https://badge.facebook.com/badge/1483350095298518.11042.1627361987.png" style="border: 0px;" alt=""width="140px"/> <!----><!--                			
                 	</a><br />
                 	<a href="https://www.facebook.com/pages/Colouring-pages/1483350095298518" title="Colouring pages" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" target="_blank">

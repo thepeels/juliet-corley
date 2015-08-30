@@ -7,6 +7,7 @@
     <p class="attached-nav">
         <a href="/admin/shop/add" class="btn btn-primary">Add a Product</a>
         <a href="/admin/shop/addpdf" class="btn btn-primary">Add a .pdf (colouring)</a>
+        <a href="/admin/shop/addfreepdf" class="btn btn-primary">Add a Free .pdf</a>
     </p>
 @stop
 @section('content')
@@ -23,12 +24,12 @@
 	                class="btn btn-danger btn-xs"
 	                style="width:55px"
 	                title="Delete Item and all associated images">Delete
-	            </a>	
+	            </a>
 				<a href="/admin/shop/edit/{{ $product->id }}" 
 	                class="btn btn-info btn-xs"
 	                style="width:55px"
 	                title="Edit Item ">Edit
-	            </a>	
+	            </a>
 			</div>
 			<div class="push-1 grid-7 omega">
 				<p><em>{{$product->name}}</em>&nbsp;&nbsp;&nbsp;&nbsp;- &nbsp;(name)</p>

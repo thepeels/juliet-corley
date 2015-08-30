@@ -151,7 +151,7 @@ a, a:hover, a:active, a:focus{outline:0;}
 .note {font:italic 700 10px/12px Tahoma;max-width:310px;margin-top:0px;text-align:center;}
 .how-works{font:400 12px/14px Tahoma; margin-top:10px;margin-left:-5px}
 .contact{font:700 12px/14px Tahoma; margin-top:10px;margin-left:0px}
-.double-box{border:double 5px #003388;padding:5px;}
+.double-box{border:double 5px #003388;}
 p.double-box {padding:5px;}
 /*.second-box{border:3px solid #003388;padding:0 6px;margin:0px 20px 30px 10px;background-color:#fff}*/
 .second-box{
@@ -236,21 +236,27 @@ ul{display:list-item;list-style-type: none;}
  margin:5px 5px 0 5px;
   width: 100px;
   border:2px solid #f00;
-  z-index:-100;
-  -webkit-transition: all 1s ease;
-     -moz-transition: all 1s ease;
-       -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-          transition: all 1s ease;
-          transition-delay:0.5s;
+  z-index:1000;
+  -webkit-transition: all 0s ease;
+     -moz-transition: all 0s ease;
+       -o-transition: all 0s ease;
+      -ms-transition: all 0s ease;
+          transition: all 0.0s ease;
+          transition-delay:0.0s;
 }
 
 .grow img:hover {
   width: 220px;
-    margin-left:-48px;
-    margin-top:-149px;
-  z-index:100;
-  
+    margin-right:-115px;
+    margin-top:-162px;
+ z-index:1000;
+ position:relative; 
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 0.5s ease;
+          transition-delay:0.5s;
 }
 
 .preview{

@@ -48,6 +48,7 @@
                           <li class="divider"></li>
                           <li><a href="/admin/shop/add">Add Product</a></li>
                           <li><a href="/admin/shop/addpdf">Add Colouring pdf</a></li>
+                          <li><a href="/admin/shop/addfreepdf">Add Free pdf</a></li>
                         </ul>
                       </li>
                       <li class="dropdown">

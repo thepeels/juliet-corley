@@ -1,13 +1,14 @@
 @extends('admin.layout')
 
 @section('title')
-<title>Add Colouring pdf</title>
+<title>Add Free pdf</title>
 @stop
 
 @section('content')
     
-    <h2>Add a Colouring .pdf</h2>
-    <p><em>These items are automatically entered as 'Product Type -> colouring </em></p>
+    <h2>Add a Free .pdf</h2>
+    <p><em>These items are automatically entered as 'Product Type -> colouring  </br> 
+    		and Subtype -> free</em></p>
     {{Form::open(array('url' => "admin/shop/addpdf",'class' => 'form-addfish', 'files' => true))}}
         <fieldset>
             {{--{{Form::open(array('url' => "fish/validateaddfish",'class' => 'form-addfish', 'files' => true, 'method' => 'post'))}}--}}
@@ -15,10 +16,7 @@
                 {{ Form::label('name', 'Enter Product Name') }} <em> - this line not displayed</em>
                 {{ Form::input('text', 'name', null, ['class' => 'form-control col-6', 'id' => 'name', 'placeholder' => 'item name']) }}
             </div>
-            <div class="form-group">
-                {{ Form::label('name', 'Enter Price ($AUD)') }} <em> - for free items see sub-type below</em>
-                {{ Form::input('text', 'price', null, ['class' => 'form-control col-6', 'id' => 'price', 'placeholder' => 'price $AUD']) }}
-            </div>
+            {{Form::input('hidden','price','0')}}
             <div class="form-group">
                 {{ Form::label('name', 'Enter Title') }} <em> - bold type</em>
                 {{ Form::input('text', 'title', null, ['class' => 'form-control col-6', 'id' => 'title', 'placeholder' => 'title']) }}
@@ -32,6 +30,7 @@
             	{{ Form::input('text', 'description_2', null, ['class' => 'form-control col-6 row-4', 'id' => 'description_2', 'placeholder' => 'paragraph / sentence']) }}
             </div>
             {{Form::input('hidden','product_type','colouring')}}
+            {{Form::input('hidden','product_sub_type','free')}}
             <div class="form-group">
                 {{ Form::label('name', 'Enter Page display position ') }} <em> - smallest number first, duplicate numbers -> most recent entry first</em>
                 {{ Form::input('text', 'page_order', null, ['class' => 'form-control col-6 row-4', 'id' => 'product_sub_type', 'placeholder' => 'display position']) }}
