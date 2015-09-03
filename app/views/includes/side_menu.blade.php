@@ -1,12 +1,12 @@
             <ul>
                 <li><a class="btn btn-default btn-sm" href="/">Home</a></li>
-                <li><a class="btn btn-default btn-sm" href="/info">Commissions</a></li>
+                <li><a class="btn btn-default btn-sm" href="/commissions">Commissions</a></li>
                 <li><a class="btn btn-default btn-sm" href="/download">Icon store</a></li>
                 <!--<li><a class="btn btn-default btn-sm" href="/download#B">Fish gallery</a></li>
                 <li><a class="btn btn-default btn-sm" href="/download#C">Portfolio</a></li>
                 <li><a class="btn btn-default btn-sm" href="/services">Services</a></li>
                 <li><a class="btn btn-default btn-sm" href="/shop">Merchandise</a></li>-->
-                <li><a class="btn btn-default btn-sm" href="mailto:juliet@julietcorley.com" target="_top">Contact Me</a></li>
+                <li>{{HTML::mailto('juliet@julietcorley.com','Contact me',['class'=>'btn btn-default btn-sm'])}}</li>
                 <li><a class="btn btn-default btn-sm" href="shop">Merchandise</a></li>
                 <li><a class="btn btn-default btn-sm" href="/payment/stripe">Pay for Drawings</a></li>
                 @if(Auth::check())

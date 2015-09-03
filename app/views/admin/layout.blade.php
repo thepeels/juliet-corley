@@ -45,6 +45,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Products <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                           <li><a href="/admin/shop">Product Table</a></li>
+                          <li><a href="/admin/shop">Edit and Delete</a></li>
                           <li class="divider"></li>
                           <li><a href="/admin/shop/add">Add Product</a></li>
                           <li><a href="/admin/shop/addpdf">Add Colouring pdf</a></li>
@@ -57,6 +58,13 @@
                           <li><a href="{{ URL::to('user') }}">User List</a></li>
                           <li><a href="{{ URL::to('purchases') }}">User Purchases</a></li>
                           <li class="divider"></li>
+                          <li><a href="{{ URL::to('allpurchases') }}">All Purchases</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Purchases <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="{{ URL::to('purchases') }}">User Purchases</a></li>
                           <li><a href="{{ URL::to('allpurchases') }}">All Purchases</a></li>
                         </ul>
                       </li>

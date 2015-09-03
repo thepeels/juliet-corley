@@ -36,7 +36,7 @@
         	{{Form::input('hidden','userid',$id)}}
             {{Form::input('email','email',null,['class'=>'newclass','placeholder'=>'Enter new email'])}}</br>
         
-            {{$errors->first('email')}}</br>
+            {{$errors->first('email','<small style="color:#f00">:message</small>')}}</br>
         
         
             {{Form::submit('Change',['class'=>'btn btn-info btn-xs'])}}
@@ -49,7 +49,7 @@
             {{Form::input('hidden','userid',$id)}}
             {{Form::input('password','password',null,['class'=>'newclass','placeholder'=>'Change Password'])}}</br>
         
-            {{$errors->first('email')}}</br>
+            {{$errors->first('password','<small style="color:#f00">:message</small>')}}</br>
         
         
             {{Form::submit('Change',['class'=>'btn btn-info btn-xs'])}}
@@ -62,7 +62,7 @@
             {{Form::input('hidden','userid',$id)}}
             {{Form::input('authorname','authorname',null,['class'=>'newclass','placeholder'=>'Author Name'])}}</br>
         
-            {{$errors->first('email')}}</br>
+            {{$errors->first('authorname','<small style="color:#f00">:message</small>')}}</br>
         
         
             {{Form::submit('Add/Edit',['class'=>'btn btn-info btn-xs'])}}

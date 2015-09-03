@@ -37,6 +37,7 @@ Route::get('about','PagesController@about');
 Route::get('terms','PagesController@terms');
 Route::get('charge','PagesController@charge');
 Route::get('services','PagesController@services');
+Route::get('commissions','PagesController@commissions');
 Route::get('info','PagesController@info');
 
 Route::post('validatefish','Fishcontroller@validateAddFish');

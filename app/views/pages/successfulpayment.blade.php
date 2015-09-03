@@ -44,8 +44,9 @@ if (Cart::count()!=0){
 				of a research paper, please contact me.
 			</li>
 		</ul>
-		<p class="cr merri" style="font-size:12px;">(This above applies to Fish Icon images only. 
-		All images remain copyright Juliet Corley &copy; {{date("Y")}}).</p>
+		<p class="cr merri" style="font-size:12px;">(This above applies to Fish Icon 
+			images only. Fish Icon images and all other images remain copyright 
+			Juliet Corley &copy; {{date("Y")}}).</p>
 <h4 class="cr merri">You have paid for:</h4>@if(Session::has('message'))
 <p class="alert {{ Session::get('alert-class', 'alert-danger') }}">
     {{Session::pull('message')}}

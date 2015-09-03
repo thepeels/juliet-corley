@@ -35,17 +35,17 @@
                 for graphical presentation of data. <span>(Try the test samples below).</span>
             	</p>
             <div class="grid-6 alpha samples">
-            <div class="grid-3 test-fish one">
-	            <a href="/download/freedownload/free-icon3cm.jpg"
-	            	onclick="this.addEventListener('click', doubleClickStopper, false);">
-	            	<img src="/images/bg-images/test-fish.jpg" />
-	            </a>
-	            <div class="grid-3 alpha">
-	                <p>
-	                    3cm free test sample
-	                </p>
-	            </div>
-	        </div>
+	            <div class="grid-3 test-fish one">
+		            <a href="/download/freedownload/free-icon3cm.jpg"
+		            	onclick="this.addEventListener('click', doubleClickStopper, false);">
+		            	<img src="/images/bg-images/test-fish.jpg" />
+		            </a>
+		            <div class="grid-3 alpha">
+		                <p>
+		                    3cm free test sample
+		                </p>
+		            </div>
+		        </div>
 		        <div class="grid-2 test-fish two">
 		            <a href="/download/freedownload/free-icon5cm.jpg"
 		            	onclick="this.addEventListener('click', doubleClickStopper, false);">

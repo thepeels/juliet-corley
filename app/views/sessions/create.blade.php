@@ -22,13 +22,15 @@ Session::flash('previous_url',$previous);?>
     {{Form:: label('email','Email')}}
     </br>
     {{Form::email('email')}}
-    {{$errors->first('name','<small style="color:#f00">:message</small>')}}</br></br>
+    {{$errors->first('name','<small style="color:#f00">:message</small>')}}</br></br> 
 
     {{Form:: label('password','Password')}}
     </br>
-    {{Form::password('password')}} 
-    </br>
+    {{Form::password('password')}} </br> 
     
+@if(Session::has('message'))
+    {{Session::pull('message','<small style="color:#f00">:message</small>')}}
+@endif
     </br>
     @if(Auth::guest())
         {{Form::submit('Login',array('class'=>'btn btn-info btn-xs'))}}
@@ -36,9 +38,6 @@ Session::flash('previous_url',$previous);?>
 
 {{Form::close()}}
 
-@if(Session::has('message'))
-    {{Session::pull('message')}}
-@endif
 </br>
 
 <a href="user/newuser">Register</a>&nbsp;&nbsp;&nbsp;&nbsp;

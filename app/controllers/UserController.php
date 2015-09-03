@@ -38,7 +38,7 @@ class UserController extends \BaseController {
 		$rules = [
             'name' => 'required|unique:users',
             'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed|min:4'
+            'password' => 'required|confirmed|min:4|not_in:admin1,admin,123456,password,654321,1234567,7654321'
         ];
 		$validation = Validator::make(Input::all(), $rules);
 
@@ -71,6 +71,16 @@ class UserController extends \BaseController {
 	}
 	public function postEditpassword()
 	{
+		$rules = [
+		'password' => 'required|min:6|not_in:admin1,administrator,
+			123456789,987654321,87654321,12345678,123456,1234567,
+			password,7654321,654321,111111,aaaaaaa'
+		];
+		$validation = Validator::make(Input::all(), $rules);
+		if($validation->fails())
+        {
+            return Redirect::back()->withInput()->withErrors($validation->messages());
+        }
 		$id=Input::get('userid');
 		$user = User::find($id);
 		$user->password = Hash::make(Input::get('password'));

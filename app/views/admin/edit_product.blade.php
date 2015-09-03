@@ -22,10 +22,12 @@
             	{{ Form::label('name', 'Edit Product Name') }} <em> - this line not displayed</em>
             	{{ Form::input('text', 'name', $product->name, ['class' => 'form-control col-6', 'id' => 'name', 'placeholder' => 'item name']) }}
             </div>
-            <div class="form-group">
-            	{{ Form::label('name', 'Edit Price ($AUD)') }}
-            	{{ Form::input('text', 'price', $product->price/100,['class' => 'form-control col-6', 'id' => 'price', 'placeholder' => 'price $AUD']) }}
-            </div>
+            @if($product->product_sub_type != 'free')
+	            <div class="form-group">
+	            	{{ Form::label('name', 'Edit Price ($AUD)') }}
+	            	{{ Form::input('text', 'price', $product->price/100,['class' => 'form-control col-6', 'id' => 'price', 'placeholder' => 'price $AUD']) }}
+	            </div>
+			@endif
             <div class="form-group">
             	{{ Form::label('name', 'Edit Title') }} <em> - bold type</em>
             	{{ Form::input('text', 'title', $product->title, ['class' => 'form-control col-6', 'id' => 'title', 'placeholder' => 'title']) }}
@@ -51,14 +53,19 @@
             	{{ Form::input('text', 'description_4', $product->description_4, ['class' => 'form-control col-6 row-4', 'id' => 'description_4', 'placeholder' => 'paragraph / sentence']) }}
             </div>
             @if($product->product_type != 'colouring')
-            <div class="form-group">
-            	{{ Form::label('name', 'Edit Product Type or Category') }} <em> - types may be used in the future for sorting, can be added later</em>
-            	{{ Form::input('text', 'product_type', $product->product_type, ['class' => 'form-control col-6 row-4', 'id' => 'product_type', 'placeholder' => 'type']) }}
-            </div>
-            <div class="form-group">
-            	{{ Form::label('name', 'Edit Product subType ') }} 
-            	{{ Form::input('text', 'product_sub_type', $product->product_sub_type, ['class' => 'form-control col-6 row-4', 'id' => 'product_sub_type', 'placeholder' => 'subtype']) }}
-            </div>
+	            <div class="form-group">
+	            	{{ Form::label('name', 'Edit Product Type or Category') }} <em> - types may be used in the future for sorting, can be added later</em>
+	            	{{ Form::input('text', 'product_type', $product->product_type, ['class' => 'form-control col-6 row-4', 'id' => 'product_type', 'placeholder' => 'type']) }}
+	            </div>
+	            <div class="form-group">
+	            	{{ Form::label('name', 'Edit Product subType ') }} 
+	            	{{ Form::input('text', 'product_sub_type', $product->product_sub_type, ['class' => 'form-control col-6 row-4', 'id' => 'product_sub_type', 'placeholder' => 'subtype']) }}
+	            </div>
+            @else
+            	{{Form::input('hidden','product_type','colouring')}}
+            	@if($product->product_sub_type == 'free')
+            		{{Form::input('hidden','product_sub_type','free')}}
+	            @endif
             @endif
             <div class="form-group">
             	{{ Form::label('name', 'Edit Page display position ') }} <em> - smallest number first, duplicate numbers - most recent entry first</em>

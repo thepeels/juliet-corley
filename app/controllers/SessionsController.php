@@ -41,8 +41,8 @@ class SessionsController extends BaseController{
         }
         else  //login failed - is entered email in db?
         {
-        $e_exists = (!null ==(DB::table('users')->where('email',$entered_email)->get()));
-        if ($e_exists)
+        $email_exists = (!null ==(DB::table('users')->where('email',$entered_email)->get()));
+        if ($email_exists)
         {
               
             //return Redirect::to('user/addusers');   
@@ -52,7 +52,8 @@ class SessionsController extends BaseController{
                 ->withMessage('Incorrect password');
         }
         //return Redirect::intended();
-        return Redirect::to('user/newuser');
+        return Redirect::to('user/newuser')
+			->withErrors('OR </br>  entered the wrong E-mail address?');
         #return Redirect::back()->withErrors($validator);
         }
     }

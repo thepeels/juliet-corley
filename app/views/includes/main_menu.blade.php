@@ -29,7 +29,7 @@
 					   -->
 					   <li class='has-sub'><a href='#'><span>Fish Icons</span></a>
 					      <ul>
-					         <li><a href='info'><span>Icon Commissions</span></a></li>
+					         <li><a href='commissions'><span>Icon Commissions</span></a></li>
 					         <li class='last'><a href='download'><span>Icon Database</span></a></li>
 					      </ul>
 					   </li>
