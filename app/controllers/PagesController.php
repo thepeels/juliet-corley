@@ -15,6 +15,8 @@ class PagesController extends \BaseController {
 	}
 	public function about()
 	{
+		$previous = URL::previous();
+		Session::flash('previous_url',$previous);
 		return View::make('pages.about');
 	}
 	
@@ -25,6 +27,8 @@ class PagesController extends \BaseController {
 
     public function info()
     {
+        $previous = URL::previous();
+		Session::flash('previous_url',$previous);
         return View::make('pages.info');
     }
 	
@@ -60,7 +64,9 @@ class PagesController extends \BaseController {
     
     public function terms()
     {
-        return View::make('pages.terms');
+        $previous = URL::previous();
+		Session::flash('previous_url',$previous);
+		return View::make('pages.terms');
     }
     
 	/**

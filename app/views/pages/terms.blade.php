@@ -1,6 +1,14 @@
 @extends('layout')
-@section('stylesheets')<link href='/css/cart.css' rel='stylesheet' type='text/css'>
+@section('stylesheets')<link href='/css/cart.css' rel='stylesheet' type='text/css'>@endsection
+@section('body-class')
+<body class="info" style="overflow-x:hidden;">
 @endsection
+@section('title')
+<title>Terms</title>
+@stop
+<?
+$previous = Session::get('previous_url');
+?>
 @section('content')
 <div class="about merri">
 	<h2 class="julie merri">JulietCorley.com</h2></br>

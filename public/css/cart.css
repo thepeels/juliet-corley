@@ -48,6 +48,19 @@ table.cart{background-color:#fff;}
     font-family: "Merriweather";
     letter-spacing:-0.025em;
 }
+.fixed-menu{
+    position:fixed;
+    top:6px;
+    left:40px;
+    width:240px;
+}
+.info-main-section{
+    margin-left:300px;
+    max-width:620px;
+    overflow-x: none;
+}
+.smiley{font-size:20px;line-height:16px;}
+.fixed-menu li{list-style-type: none;}
 .red-error{color:#f00;} 
     
 .cr{clear:right;}

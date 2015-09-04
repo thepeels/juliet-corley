@@ -38,7 +38,7 @@
 			</div>
 			<div class="grid-5">
 				<p class="heading arrow">I am a tropical fish artist and 
-					<a href="#" class="underline blues">scientific illustrator</a>, with a background in marine biology.
+					<a href="info#03" class="underline blues">scientific illustrator</a>, with a background in marine biology.
 				</p>
 				<div class="grid-2 alpha">
 					<p class="mpa game">&nbsp;
@@ -50,7 +50,7 @@
 				<div class="grid-3 omega paint">
 					<p class="heading paint">I paint, sketch, craft, 
 						and my products and craft 
-						pieces can be found <a href="#" class="underline blues" title = "Coming Soon">here</a>.
+						pieces can be found <a href="shop" class="underline blues">here</a>.
 					</p>
 				</div>
 				<p class="heading">

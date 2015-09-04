@@ -69,12 +69,12 @@
 		        <div class="grid-6 alpha">
 		        	<p class ="how-works grow">
 			        	How this site works: Purchased icons are intended for multiple
-			        	use by the purchaser, in scientific publications. <a href="#">(more).</a>
+			        	use by the purchaser, in scientific publications. <a href="info#05">(more).</a>
 			        	The Downloadable Icon Database on the right contains a small stock
 			        	of existing images. &nbsp;These can be downloaded for a one-off licence fee, 
 	        		<img src="/images/bg-images/image-of-pdf.jpg" class=" grow"/>
 			        	while all other species can be commissioned directly by contacting me 
-			        	for a quote. <a href="#">(See details).</a>
+			        	for a quote. <a href="info#04">(See details).</a>
 		       		</p>
 		        </div> 
 	        </div>
@@ -88,8 +88,9 @@
 	        </div>  	
             <div class="grid-6 margin-left alpha">
             	<p class="contact double-box">
-            		Commission Service:&nbsp;<span>if you e-mail me a list of the species you want,
-            		I will check the database for existing images, and send you a quote 
+            		Commission Service:&nbsp;<span>if you 
+        			{{HTML::mailto('juliet@julietcorley.com?Subject=Commissions%20Service%20enquiry','e-mail me')}} 
+        			a list of the species you want, I will check the database for existing images, and send you a quote 
             		for the remainder.</span>
             	</p>
             </div> 
@@ -123,7 +124,7 @@
 	        <div class="grid-6 top-box">
 	            <h5>DOWNLOADABLE ICONS</h5>
 	            <h6>The icons below are available for download, 
-	                for a fee of up to $18 each. <a href="#">(see details)</a></h6>
+	                for a fee of up to $18 each. <a href="info#05">(see details)</a></h6>
 	        </div>
 	        <div class="grid-3 third-box">
 	        	<h4>View All <span>→</span></h4>

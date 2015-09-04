@@ -1,16 +1,49 @@
 @extends('layout')
 @section('stylesheets')<link href='/css/cart.css' rel='stylesheet' type='text/css'>@endsection
+@section('body-class')
+<body class="info" style="overflow-x:hidden;">
+@endsection
+@section('title')
+<title>About</title>
+@stop
+<?
+$previous = Session::get('previous_url');
+?>
 @section('content')
-<div class="about merri">	
+<div class="fixed-menu merri">
+	<h3 id="01" class="julie">JulietCorley.com</h3>
+	<h5 class="julie">POLICIES</h5>
+		<a href="{{$previous}}/"class="btn btn-primary ">&#10094;&nbsp;&nbsp;&nbsp;Back&nbsp; </a>
+	<h5 class="julie">Quick Links</h5>			
+	<ul style ="padding-left:0px">
+		<li><a href="#privacy">Privacy</a></li>
+		<li><a href="#02">Personal Information Collection</a></li>
+		<li><a href="#03">Using Personal Information</a></li>
+		<li><a href="#04">Securing Your Data</a></li>
+		<li><a href="#06">Contact</a></li>
+		<li>&nbsp;</li>
+		<li><a href="#cookies">Cookie Policy</a></li>
+		<li><a href="#07">Refusing Cookies</a></li>
+		<li>&nbsp;</li>
+		<li><a href="#linking">Linking Policy</a></li>
+		<li><a href="#copyright">Copyright</a></li>
+		<li><a href="#08">Copyright Licence</a></li>
+		<li>&nbsp;</li>
+		<li><a href="#disclaimer">Disclaimer</a></li>
+	</ul>
+</div>
+<div id="privacy" class="info-main-section merri"> 	
 	<h2 class="julie merri">JulietCorley.com</h2></br>
 	
-<div id="privacy">
+
 	<h4 class="julie">PRIVACY</h4> 
 
 	<p>Your privacy is important to JulietCorley.com.  This privacy statement provides 
 	information about the personal information that JulietCorley.com collects, 
 	and the ways in which JulietCorley.com uses that personal information.
-	</p>
+	</p> 
+
+<div id="02"></br> 
 	<h5>PERSONAL INFORMATION COLLECTION</h5>
 
 	<p>JulietCorley.com may collect and use the following kinds of personal information: 
@@ -22,7 +55,9 @@
 		<li>information about transactions carried out over this website;</li>
 		<li>any other information that you send to JulietCorley.com.</li>	
 	</ul>
-	</p>
+	</p> 
+</div>
+<div id="03"></br> 
 	<h5>USING PERSONAL INFORMATION</h5>
 
 	<p>JulietCorley.com may use your personal information to: 
@@ -43,61 +78,64 @@
 	<p>Where JulietCorley.com discloses your personal information to its 
 	agents or sub-contractors for these purposes, the agent or sub-contractor 
 	in question will be obligated to use that personal information in 
-	accordance with the terms of this privacy statement.</br> 
+	accordance with the terms of this privacy statement. </p>
 	
-	In addition to the disclosures reasonably necessary for the purposes 
+	<p>In addition to the disclosures reasonably necessary for the purposes 
 	identified elsewhere above, JulietCorley.com may disclose your 
 	personal information to the extent that it is required to do so by 
 	law, in connection with any legal proceedings or prospective legal 
 	proceedings, and in order to establish, exercise or defend its legal 
-	rights.</p></br> 
-
+	rights.</p> 
+</div>
+<div id="04"></br> 
 	<h5>SECURING YOUR DATA</h5>
 	
 	<p>JulietCorley.com will take reasonable technical and organisational 
 	precautions to prevent the loss, misuse or alteration of your 
-	personal information.</br>  
+	personal information.</p>  
 	
-	JulietCorley.com will store all the personal information you provide.</p> 
+	<p>JulietCorley.com will store all the personal information you provide.</p> 
 	
 	<h5>CROSS-BORDER DATA TRANSFERS</h5>
 	
 	<p>Information that JulietCorley.com collects may be stored and processed 
 	in and transferred between any of the countries in which JulietCorley.com 
 	operates to enable the use of the information in accordance with this 
-	privacy policy.</br> 
+	privacy policy.</p> 
 	
-	In addition, personal information that you submit for publication on 
+	<p>In addition, personal information that you submit for publication on 
 	the website will be published on the internet and may be available 
-	around the world.</br> 
+	around the world.</p> 
 	
-	You agree to such cross-border transfers of personal information.</p>
-	
+	<p>You agree to such cross-border transfers of personal information.</p> 
+</div>
+<div id="05"></br> 	
 	<h5>UPDATING THIS STATEMENT</h5>
 	
 	<p>JulietCorley.com may update this privacy policy by posting a new 
-	version on this website.</br>   
+	version on this website.</p>   
 	
-	You should check this page occasionally to ensure you are familiar 
-	with any changes.</p>  
+	<p>You should check this page occasionally to ensure you are familiar 
+	with any changes.</p>   
 	
 	<h5>OTHER WEBSITES</h5>
+	<p>This website contains links to other websites.</p>   
 	
-	This website contains links to other websites.</br>   
+	<p>JulietCorley.com is not responsible for the privacy policies or 
+	practices of any third party. </p>
 	
-	JulietCorley.com is not responsible for the privacy policies or 
-	practices of any third party.
-	
+</div>
+<div id="06"></br> 	
 	<h5>CONTACT JULIETCORLEY.COM</h5>
 	
 	If you have any questions about this privacy policy or JulietCorley.com’s treatment of your personal information, please write:
 	<ul>
-		<li>by email to <img src="/images/sales-link.jpg" height="20px"/> or</li> 
+		<li>by email to {{ HTML::mailto('sales_julietcorley@bigfoot.com') }} or</li> 
 		<li>by post to “Juliet Corley, Care GPO, 38 Sheridan St, Cairns. Qld, Australia 4870”</li>
 	</ul>
 
-</div></br> 
-<div id="cookies">
+</div> 
+<div id="cookies"></br> 
 	<h4 class = "julie merri">COOKIES POLICY</h4>
 	
 	<h5>ABOUT COOKIES</h5>
@@ -118,7 +156,8 @@
 	
 	<p>JulietCorley.com uses the cookies to assist navigation and 
 	manage the shopping cart.</p>
-	
+</div>
+<div id="07"></br>	
 	<h5>REFUSING COOKIES</h5>
 	
 	<p>Most browsers allow you to refuse to accept cookies.</p>  
@@ -130,8 +169,8 @@
 	“Options” and “Privacy”.</p>
 	<p>Blocking cookies will have a negative impact upon the usability 
 	of some websites.</p>
-</div></br>
-<div id="linking">
+</div>
+<div id="linking"></br> 
 	<h4 class="julie">LINKING POLICY</h4>
 
 	<h5>STATUS OF LINKING POLICY</h5>
@@ -176,8 +215,8 @@
 	
 	Should you have any questions about this linking policy, please contact 
 	JulietCorley.com using the details set out below:
-</div></br> 
-<div id="copyright">
+</div> 
+<div id="copyright"></br> 
 	<h4 class="julie">COPYRIGHT NOTICE</h4>
 	
 	<p>Copyright &copy; 1996-{{date("Y")}} Juliet Corley</p>
@@ -188,7 +227,8 @@
 	(including without limitation the text, computer code, artwork, photographs, 
 	images, music, audio material, video material and audio-visual material 
 	on this website) is owned by Juliet Corley.
-	
+</div>
+<div id="08"></br>	
 	<h5>COPYRIGHT LICENSE</h5>
 	
 	Juliet Corley grants to you a worldwide non-exclusive royalty-free 
@@ -245,8 +285,8 @@
 	<img src="/images/sales-link.jpg" height="20px"/></br> 
 	or by post to “Juliet Corley, Care GPO, 38 Sheridan St, Cairns. Qld, Australia 4870”.
 
-</div></br> 
-<div id = "disclaimer">
+</div> 
+<div id = "disclaimer"></br> 
 	<h4 class="julie">WEBSITE DISCLAIMER</h4>
 	
 	<h5>NO WARRANTIES</h5>

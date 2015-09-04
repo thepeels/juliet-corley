@@ -10,11 +10,12 @@
 					   -->
 					   <li class='has-sub'><a href='#'><span>About</span></a>
 					      <ul>
-					         <li><a href='#' title = "Coming Soon"><span>About me</span></a></li>
-					         <li><a href="mailto:juliet@julietcorley.com" target="_top" title = "Coming Soon"><span>Contact me</span></a></li>
-					         <li><a href='about'><span>Policies/Site info</span></a></li>
+					         <li><a href='info#14'><span>About me</span></a></li>
+					         <li><a href="info#01"><span>Contact me</span></a></li>
+					         <li><a href='about'><span>Policies</span></a></li>
+					         <li><a href='info'><span>Site info</span></a></li>
 					         <li><a href='about#copyright'><span>Copyright</span></a></li>
-					         <li><a href='terms' title = "Terms and conditions"><span>Terms & Conditions</span></a></li>
+					         <li><a href='terms'><span>Terms & Conditions</span></a></li>
 					         <li class='last' title = "Coming Soon"><a href='#'><span>Site map</span></a></li>
 					      </ul>
 					   </li>
