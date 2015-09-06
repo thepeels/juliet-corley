@@ -50,7 +50,7 @@ table.cart{background-color:#fff;}
 }
 .fixed-menu{
     position:fixed;
-    top:6px;
+    top:24px;
     left:40px;
     width:240px;
 }
@@ -58,6 +58,7 @@ table.cart{background-color:#fff;}
     margin-left:300px;
     max-width:620px;
     overflow-x: none;
+    padding-top:20px;
 }
 .smiley{font-size:20px;line-height:16px;}
 .fixed-menu li{list-style-type: none;}

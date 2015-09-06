@@ -80,8 +80,9 @@
 	        </div>
 	        <div class="grid-4 alpha" style="margin-top:-80px">
         	<p class="contact">
-                Please {{HTML::mailto('juliet@julietcorley.com?Subject=Commission%20species%20enquiry',' 
-                contact me')}} to commission new species. <span>Please note that completed
+                Please <a id="email" href="Commission.species.enquiry"
+   					onclick='subjectMailer(this);'> 
+                contact me</a> to commission new species. <span>Please note that completed
                 commissions will be added to this Downloadable Icon database
                 as well as emailed directly to you.</span>
             </p>
@@ -89,7 +90,8 @@
             <div class="grid-6 margin-left alpha">
             	<p class="contact double-box">
             		Commission Service:&nbsp;<span>if you 
-        			{{HTML::mailto('juliet@julietcorley.com?Subject=Commissions%20Service%20enquiry','e-mail me')}} 
+        			<a id="email" href="Commission.new.species.enquiry"
+   					onclick='subjectMailer(this);'>e-mail me</a> 
         			a list of the species you want, I will check the database for existing images, and send you a quote 
             		for the remainder.</span>
             	</p>

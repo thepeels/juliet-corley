@@ -1,8 +1,10 @@
 @extends('layout')
-@section('stylesheets')<link href='/css/cart.css' rel='stylesheet' type='text/css'>@endsection
+@section('stylesheets')
+{{ HTML::style( asset('css/cart.css'))}}
+@stop
 @section('body-class')
 <body class="info" style="overflow-x:hidden;">
-@endsection
+@stop
 @section('title')
 <title>About</title>
 @stop
@@ -13,7 +15,7 @@ $previous = Session::get('previous_url');
 <div class="fixed-menu merri">
 	<h3 id="01" class="julie">JulietCorley.com</h3>
 	<h5 class="julie">POLICIES</h5>
-		<a href="{{$previous}}/"class="btn btn-primary ">&#10094;&nbsp;&nbsp;&nbsp;Back&nbsp; </a>
+		<a href="{{$previous}}/"class="btn btn-primary "><!--&#10094;--><<&nbsp;&nbsp;&nbsp;Back&nbsp; </a>
 	<h5 class="julie">Quick Links</h5>			
 	<ul style ="padding-left:0px">
 		<li><a href="#privacy">Privacy</a></li>
@@ -30,6 +32,14 @@ $previous = Session::get('previous_url');
 		<li><a href="#08">Copyright Licence</a></li>
 		<li>&nbsp;</li>
 		<li><a href="#disclaimer">Disclaimer</a></li>
+		<li>&nbsp;</li>
+		<li>see also</li> 
+		<li><a href="info">Information and General T&Cs</a></li>
+		<li><a href="terms">Website Terms & Conditions</a></li>
+		<li>---------------</li>
+		<li><a href="/">HOME PAGE</a></li>
+		<li><a href="commissions/">Fish Icons</a></li>
+		<li><a href="colouring">Colouring Pages</a></li>
 	</ul>
 </div>
 <div id="privacy" class="info-main-section merri"> 	
@@ -130,7 +140,8 @@ $previous = Session::get('previous_url');
 	
 	If you have any questions about this privacy policy or JulietCorley.com’s treatment of your personal information, please write:
 	<ul>
-		<li>by email to {{ HTML::mailto('sales_julietcorley@bigfoot.com') }} or</li> 
+		<li>by email to <a id="email"href="click:the.address.will.be.decrypted.by.javascript"
+   					onclick='openMailer(this);'>(Click Here)</a> or</li> 
 		<li>by post to “Juliet Corley, Care GPO, 38 Sheridan St, Cairns. Qld, Australia 4870”</li>
 	</ul>
 
@@ -275,14 +286,16 @@ $previous = Session::get('previous_url');
 	to pay legal costs.</br> 
 	
 	If you become aware of any use of Juliet Corley’s copyright materials that 
-	contravenes or may contravene the license above, please report this by email to  
-	<img src="/images/sales-link.jpg" height="20px"/></br>
+	contravenes or may contravene the license above, please report this by email to <a id="email" 
+   	href="click:the.address.will.be.decrypted.by.javascript"
+   	onclick='openMailer(this);'>(Click Here). </a></br>
 	
 	<h5>INFRINGING MATERIAL</h5>
 	
 	If you become aware of any material on the website that you believe 
 	infringes your or any other person's copyright, please report this by email to
-	<img src="/images/sales-link.jpg" height="20px"/></br> 
+	<a id="email"href="click:the.address.will.be.decrypted.by.javascript"
+   					onclick='openMailer(this);'>(Click Here).</a></br> 
 	or by post to “Juliet Corley, Care GPO, 38 Sheridan St, Cairns. Qld, Australia 4870”.
 
 </div> 
@@ -384,4 +397,4 @@ This document was created using a Contractology template available at
 http://www.freenetlaw.com
 </div>
 </div>	
-@endsection
+@stop

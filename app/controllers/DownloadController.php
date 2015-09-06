@@ -43,7 +43,7 @@ class DownloadController extends \BaseController {
     public function getFreedownload($image_id)
     {
         $target_image = public_path()."/images/bg-images/".$image_id;
-        $name = "test-icon.jpg";
+        $name = $image_id;
         $response = Response::download($target_image,$name);
         if (App::environment('local')) ob_end_clean();//for xampp locally
         $purchase_email = null!=Auth::user()?Auth::user()->email:'FREE download';
