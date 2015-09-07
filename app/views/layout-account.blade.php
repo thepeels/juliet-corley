@@ -61,11 +61,11 @@
                     @if (Auth::user()->superuser == 1)
                       <li> <a href="/download">Public Pages</a></li>
                     @endif
-                    @if (Auth::check())
+                    <!--@if (Auth::check())
                       <li><a href="{{ URL::to('logout') }}">Logout</a></li>{{--admin/logout--}}
                     @else
                       <li><a href="{{ URL::to('login') }}">Login</a></li>{{--admin/logout--}}
-                    @endif
+                    @endif-->
                     </ul>
                   </div><!--/.nav-collapse -->
                 </div><!--/.container-fluid -->

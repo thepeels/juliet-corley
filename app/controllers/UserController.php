@@ -56,7 +56,7 @@ class UserController extends \BaseController {
             'password' => Input::get('password')
 			];
 		if (Auth::attempt($credentials)){
-			return Redirect::intended('/');
+			return Redirect::to(Session::pull('login_from'),'/');
 		}
 		 
         return Redirect::to('login')->withInput(Input::all());
@@ -113,7 +113,12 @@ class UserController extends \BaseController {
     
     public function getMyaccount()
     {
-        return View::make('myaccount');
+        if(Auth::check()){
+        	return View::make('myaccount');
+		}
+		else{
+			Redirect::to('/');
+		}
     }
     
     public function getUserpurchases()

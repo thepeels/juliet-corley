@@ -15,7 +15,9 @@ $previous = Session::get('previous_url');
 <div class="fixed-menu merri">
 	<h3 id="01" class="julie">JulietCorley.com</h3>
 	<h5 class="julie">POLICIES</h5>
-		<a href="{{$previous}}/"class="btn btn-primary "><!--&#10094;--><<&nbsp;&nbsp;&nbsp;Back&nbsp; </a>
+		@if(($previous != "https://julietcorley.com/terms") && ($previous != "https://julietcorley.com/info"))
+			<a href="{{$previous}}/"class="btn btn-primary "><!--&#10094;--><<&nbsp;&nbsp;&nbsp;Back&nbsp; </a>
+		@endif
 	<h5 class="julie">Quick Links</h5>			
 	<ul style ="padding-left:0px">
 		<li><a href="#privacy">Privacy</a></li>
@@ -140,8 +142,8 @@ $previous = Session::get('previous_url');
 	
 	If you have any questions about this privacy policy or JulietCorley.com’s treatment of your personal information, please write:
 	<ul>
-		<li>by email to <a id="email"href="click:the.address.will.be.decrypted.by.javascript"
-   					onclick='openMailer(this);'>(Click Here)</a> or</li> 
+		<li>by email to <a id="email"href="click:the.address.will.be.decrypted.by.javascript" title="click to Email"
+   					onclick='openMailer(this);'><img src="/images/sales-link.jpg" height="20px"/></a> or</li> 
 		<li>by post to “Juliet Corley, Care GPO, 38 Sheridan St, Cairns. Qld, Australia 4870”</li>
 	</ul>
 
@@ -265,8 +267,8 @@ $previous = Session::get('previous_url');
 	<h5>PERMISSIONS</h5>
 	
 	You may request permission to use the copyright materials on this website by 
-	writing to
-	<img src="/images/sales-link.jpg" height="20px"/></br> 
+	writing to <a id="email"href="click:the.address.will.be.decrypted.by.javascript" title="click to Email"
+   	onclick='openMailer(this);'><img src="/images/sales-link.jpg" height="20px"/></a></br> 
 	Materials made available on this website for printing or downloading may only 
 	be used after payment of the appropriate fee, and their use is subject to the 
 	additional restrictions set out in their individual copyright or licensing terms 
@@ -287,15 +289,15 @@ $previous = Session::get('previous_url');
 	
 	If you become aware of any use of Juliet Corley’s copyright materials that 
 	contravenes or may contravene the license above, please report this by email to <a id="email" 
-   	href="click:the.address.will.be.decrypted.by.javascript"
-   	onclick='openMailer(this);'>(Click Here). </a></br>
+   	href="click:the.address.will.be.decrypted.by.javascript" title="click to Email"
+   	onclick='openMailer(this);'><img src="/images/sales-link.jpg" height="20px"/></a></br>
 	
 	<h5>INFRINGING MATERIAL</h5>
 	
 	If you become aware of any material on the website that you believe 
 	infringes your or any other person's copyright, please report this by email to
-	<a id="email"href="click:the.address.will.be.decrypted.by.javascript"
-   					onclick='openMailer(this);'>(Click Here).</a></br> 
+	<a id="email"href="click:the.address.will.be.decrypted.by.javascript" title="click to Email"
+   					onclick='openMailer(this);'><img src="/images/sales-link.jpg" height="20px"/></a></br> 
 	or by post to “Juliet Corley, Care GPO, 38 Sheridan St, Cairns. Qld, Australia 4870”.
 
 </div> 

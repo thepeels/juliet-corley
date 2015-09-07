@@ -5,6 +5,10 @@ class SessionsController extends BaseController{
      
     public function create()
     {
+            //dd($login_source);
+            if(!Session::has('login_from')){	
+			Session::put('login_from',URL::previous());
+			}
             if (Auth::check()) return Redirect::intended();
             return View::make('sessions.create');
         
@@ -36,7 +40,10 @@ class SessionsController extends BaseController{
 			Session::pull('urifragment');
 			
             //return Redirect::intended(Session::get('previous_url').$uri_fragment)->with(Auth::user()->email);
-            return Redirect::intended('/')->with(Auth::user()->email);
+            //return Redirect::intended('/')->with(Auth::user()->email);
+			return Redirect::to(Session::pull('login_from'))
+				->with(Auth::user()->email)
+				;
 			//...}
         }
         else  //login failed - is entered email in db?
@@ -44,12 +51,13 @@ class SessionsController extends BaseController{
         $email_exists = (!null ==(DB::table('users')->where('email',$entered_email)->get()));
         if ($email_exists)
         {
-              
+             
             //return Redirect::to('user/addusers');   
             return Redirect::back()
                 ->withInput(['email' => $entered_email])
                 ->withErrors($validator)
                 ->withMessage('Incorrect password');
+				//->with(['login_source' => $login_to]);
         }
         //return Redirect::intended();
         return Redirect::to('user/newuser')
@@ -96,6 +104,19 @@ class SessionsController extends BaseController{
     {   
         Session::forget('return_url');
 		Session::forget('dest_email');
+		Session::forget('login_to');
+        Cart::instance('main')->destroy();
+        Cart::instance('shop')->destroy();
+        Auth::logout();
+        
+        return Redirect::to(URL::previous('/'));
+    }
+    
+    public function adminDestroy()
+    {
+    	Session::forget('return_url');
+		Session::forget('dest_email');
+		Session::forget('login_to');
         Cart::instance('main')->destroy();
         Cart::instance('shop')->destroy();
         Auth::logout();

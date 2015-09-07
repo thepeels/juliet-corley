@@ -15,7 +15,9 @@ $previous = Session::get('previous_url');
 <div class="fixed-menu merri">
 	<h3 id="01" class="julie">JulietCorley.com</h3>
 	<h5 class="julie">TERMS AND CONDITIONS</h5>
-		<a href="{{$previous}}/"class="btn btn-primary "><<&nbsp;&nbsp;&nbsp;Back&nbsp; </a>
+	@if(($previous != "https://julietcorley.com/info") && ($previous != "https://julietcorley.com/about"))
+			<a href="{{$previous}}/"class="btn btn-primary "><<&nbsp;&nbsp;&nbsp;Back&nbsp; </a>
+	@endif
 	<h5 class="julie">Quick Links</h5>			
 	<ul style ="padding-left:0px">
 		<li><a href="#terms">Introduction</a></li>
@@ -317,8 +319,8 @@ $previous = Session::get('previous_url');
 	38 Sheridan St, Cairns. Qld, Australia 4870”.</br> 
 	
 	You can contact JulietCorley.com by email to <a id="email" 
-   	href="click:the.address.will.be.decrypted.by.javascript"
-   	onclick='openMailer(this);'>(Click Here). </a></p></br> 
+   	href="click:the.address.will.be.decrypted.by.javascript" title="click to Email"
+   	onclick='openMailer(this);'><img src="/images/sales-link.jpg" height="20px"/></a></p></br> 
 </div>
 <div id="credit">
 	<h4 class="julie">CREDIT</h4>

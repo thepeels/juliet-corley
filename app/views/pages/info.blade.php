@@ -15,15 +15,17 @@ $previous = Session::get('previous_url');
 		<div class="fixed-menu merri">
 			<h3 class="julie">JulietCorley.com</h3>
 			<h5 class="julie">INFORMATION and</br> GENERAL T&Cs</h5>
-			<a href="{{$previous}}/"class="btn btn-primary "><<&nbsp;&nbsp;&nbsp;Back&nbsp; </a>
+			@if(($previous != "https://julietcorley.com/terms") && ($previous != "https://julietcorley.com/about"))
+				<a href="{{$previous}}/"class="btn btn-primary "><<&nbsp;&nbsp;&nbsp;Back&nbsp; </a>
+			@endif
 			<h5 class="julie">Quick Links</h5>			
 			<ul style ="padding-left:0px">
 				<li>&nbsp;</li>
 				<li><a href="#01">Contact</a></li>
 				<li><a href="#02">About STRIPE</a></li>
-				<li>&nbsp;</li>
+				<!--<li>&nbsp;</li>-->
 				<li><a href="#03">Commissions</a></li>
-				<li><a href="#04">Commissioning Fish Icons</a></li>
+				<!--<li><a href="#04">Commissioning Fish Icons</a></li>-->
 				<li>&nbsp;</li>
 				<li><a href="#05">Fish Icons</a></li>
 				<li><a href="#06">Downloading and Registration</a></li>
@@ -37,7 +39,7 @@ $previous = Session::get('previous_url');
 				<li><a href="#12">Copyright and Sharing</a></li>
 				<li><a href="#13">Royalty Agreements</a></li>
 				<li><a href="#14">About Me</a></li>
-				<li>&nbsp;</li>
+				<!--<li>&nbsp;</li>-->
 				<li>see also</li> 
 				<li><a href="about">Cookie and Privacy Policies</a></li>
 				<li><a href="terms">Website Terms & Conditions</a></li>
@@ -59,15 +61,15 @@ $previous = Session::get('previous_url');
 			<div></br>
 				<h5>CONTACT </h5>
 				<p>Contact me by emailing me at 
-					<a id="email"href="click:the.address.will.be.decrypted.by.javascript"
-   					onclick='openMailer(this);'>(Click Here). </a></p>
+					<a id="email"href="click:the.address.will.be.decrypted.by.javascript" title="click to Email"
+   					onclick='openMailer(this);'><img src="/images/sales-link.jpg" height="20px"/></a></p>
 			</div>
 			<div id ="02"></br> 
 				<h5>REFUNDS AND STRIPE</h5>
 				<p>If you have any issues at all with any of my downloads or products, 
 					please let me know as soon as possible 
-					<a id="email"href="click:the.address.will.be.decrypted.by.javascript"
-   					onclick='openMailer(this);'>(click to Email). </a></p>
+					<a id="email"href="click:the.address.will.be.decrypted.by.javascript" title="click to Email"
+   					onclick='openMailer(this);'><img src="/images/sales-link.jpg" height="20px"/></a></p>
 				<p>We use Stripe, as an alternative to Paypal (having had too many 
 					issues with Paypal in the past). As far as I understand from doing 
 					test runs, when you make a purchase Stripe will hang on to your 
@@ -86,8 +88,8 @@ $previous = Session::get('previous_url');
 			<div id="03"></br>
 				<h5>COMMISSIONING AN ILLUSTRATION OR NEW FISH ICON</h5>
 				<p>To commission an illustration, or ask me about the feasibility of a 
-					prospective illustration, please email me at <a id="email"href="click:the.address.will.be.decrypted.by.javascript"
-   					onclick='openMailer(this);'>(Click Here). </a>				<p>I will email back to discuss it, and if you think you still want to go 
+					prospective illustration, please email me at <a id="email"href="click:the.address.will.be.decrypted.by.javascript" title="click to Email"
+   					onclick='openMailer(this);'><img src="/images/sales-link.jpg" height="20px"/></a>				<p>I will email back to discuss it, and if you think you still want to go 
 					ahead, I will send you a quote or an estimate.</p> 
 				<p>I am very happy to discuss ideas with no expectation that you will proceed with them!</p>
 			</div>
@@ -115,8 +117,8 @@ $previous = Session::get('previous_url');
 					 It also tends to add extra hours to my time, which then makes the illustrations 
 					 much less cheap.</p>
 				<p> If you have any questions, or to commission Fish Icon images, please email me 
-					at <a id="email"href="click:the.address.will.be.decrypted.by.javascript"
-   					onclick='openMailer(this);'>(Click Here). </a></p>
+					at: <a id="email"href="click:the.address.will.be.decrypted.by.javascript" title="click to Email"
+   					onclick='openMailer(this);'><img src="/images/sales-link.jpg" height="20px"/></a></p>
 			</div>
 			<div id ="05"></br>
 				<h4 class ="julie">FISH ICONS</h4>

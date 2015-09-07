@@ -68,10 +68,14 @@ $return_url = urlencode($url);
 								&body=I%20wish%20to%20purchase%20the%20following%20items%20
 								from%20your%20shop%3A%0A%0A%0AMy%20address%20is%3A','')}}-->
 							
-							<a href="mailto:babyfoot3@bigfoot.com?subject=Shop%20enquiry
+							<a id="email" href="the.address.will.be.decrypted.by.javascript"
+   								onclick='shopMailer(this);'title="Click to email">
+   								<p class="babyfoot"></p><!-- this is the image-->
+   							</a>
+							<!--<a href="mailto:babyfoot3@bigfoot.com?subject=Shop%20enquiry
 								&body=I%20wish%20to%20purchase%20the%20following%20items%20
 								from%20your%20shop%3A%0A%0A%0AMy%20address%20is%3A"
-								title="Click to email"><p class="babyfoot"></p></a>
+								title="Click to email"><p class="babyfoot"></p></a>-->
 							
 						</div>
 					</div>

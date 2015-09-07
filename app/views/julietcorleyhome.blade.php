@@ -42,9 +42,9 @@
 				</p>
 				<div class="grid-2 alpha">
 					<p class="mpa game">
-						<a href="/download/freedownload/IMG_2920.zip"
+						<!--<a href="/download/freedownload/IMG_2920.zip"
 		            	onclick="this.addEventListener('click', doubleClickStopper, false);"
-		            	title="This is a Free Download"><img src="/images/bg-images/mpa.jpg"/></a>
+		            	title="This is a Free Download"><img src="/images/bg-images/mpa.jpg"/></a>-->
 					</p>
 					<p class="mpa">
 						Fishing Game for marine educators

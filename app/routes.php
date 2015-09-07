@@ -20,6 +20,7 @@ Route::controller('payment','PaymentController');
 
 Route::resource('sessions','SessionsController');
     Route::get('logout', 'SessionsController@destroy');
+    Route::get('logoutadmin', 'SessionsController@adminDestroy');
     Route::get('login', 'SessionsController@create');
     Route::post('login',array('before'=>'csrf',function()
             {Route::post('login','SessionsController@store');}));

@@ -79,10 +79,10 @@ a, a:hover, a:active, a:focus{outline:0;}
 .btn-group-sm > .btn {
   padding: 5px 10px;
   font-size:12px;
-  line-height: 1.1em;
+  line-height: 1.3em;
   border-radius: 3px;
   box-shadow: inset -1px -1px 2px 1px rgba(128,128,192,0.4) ;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 .btn-default:hover,.btn-default:focus{
     background-color:#fff;
@@ -224,9 +224,9 @@ ul{display:list-item;list-style-type: none;}
 .side-menu{
     margin-top:12px;
 }
-.side-menu ul li a.btn{width:100px;text-align:left;}
+.side-menu ul li a.btn{width:110px;text-align:left;}
 .side-menu ul li:first-child {margin-top:5px;}
-.side-menu ul{margin-left:3px;}
+.side-menu ul{margin-left:-1px;}
 .footer{margin-top:80px}
 /*GROW*/
 

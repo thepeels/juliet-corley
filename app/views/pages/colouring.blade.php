@@ -77,6 +77,11 @@ $return_url = urlencode($url);
                 	</a><br />
                 			 Facebook Badge END -->
                 </div>
+                <div>
+                </br><a style="font:normal 12/12px 'Merriweather' serif;color:#23527c;" href="https://www.facebook.com/pages/Colouring-pages/1483350095298518?sk=photos"
+                	>my Colouring Pages on facebook
+                </a>
+                </div>
 			</div>
 			<div class="grid-13 pull-2 omega"> 
 			<div class="grid-13 omega colouringimage">

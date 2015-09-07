@@ -73,7 +73,7 @@
                     </ul>                    
                     <ul class="nav navbar-nav navbar-right">
                       <li> <a href="/">Public Pages</a></li>
-                      <li><a href="{{ URL::to('logout') }}">Logout</a></li>{{--admin/logout--}}
+                      <li><a href="{{ URL::to('logoutadmin') }}">Logout</a></li>{{--admin/logout--}}
                     </ul>
                   </div><!--/.nav-collapse -->
                 </div><!--/.container-fluid -->
