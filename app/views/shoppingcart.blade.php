@@ -8,13 +8,13 @@ $return_url=urlencode($url);
 Session::put('return_url',$url);
 Session::put('cart_instance','main');
 Session::put('dest_email',isset($dest_email)?$dest_email:Session::get('dest_email'));
-Session::flash('previous_url',$previous);?>
+Session::flash('previous_url',$previous);
+$owner = (isset(Auth::user()->email)?Auth::user()->email:"guest user");?>
 <div class="cart">
     
     <h2 class="julie merri">JulietCorley.com</h2>
     <!--<h2 class= "caption h3">Cart for {{Session::get('dest_email')}}</h2>-->
-    <h2 class= "caption h3 merri">Cart for {{--Auth::user()->email--}}</h2>
-        
+    <h2 class= "caption h3 merri">Cart for {{$owner}}</h2>
     <h3><a href="/icon/dumpcart" class="btn btn-custom-danger btn-sm">Empty Cart</a></h3>
     
         <table class="cart">

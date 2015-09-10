@@ -37,6 +37,11 @@ class PagesController extends \BaseController {
         return View::make('pages.commissions');
     }
 	
+    public function sitemap()
+    {
+        return View::make('pages.sitemap');
+    }
+	
     public function infoNew()
     {
         return View::make('pages.fishtableinfo');

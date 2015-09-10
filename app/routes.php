@@ -40,6 +40,7 @@ Route::get('charge','PagesController@charge');
 Route::get('services','PagesController@services');
 Route::get('commissions','PagesController@commissions');
 Route::get('info','PagesController@info');
+Route::get('sitemap','PagesController@sitemap');
 
 Route::post('validatefish','Fishcontroller@validateAddFish');
 

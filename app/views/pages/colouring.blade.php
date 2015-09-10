@@ -109,7 +109,7 @@ $return_url = urlencode($url);
 					<p class="segoe">{{$product->description_2}}</p>
 					<p class="segoe">
 						<a href="/download/freepdfdownload/{{ Image::freeFile($product->full_size_image->image_path) }}/{{ $product->title }}" 
-							onclick="this.addEventListener('click', doubleClickStopper, false);">
+							 onclick="return disableDoubleClick()">
 							Download now
 						</a></p>
             </div>

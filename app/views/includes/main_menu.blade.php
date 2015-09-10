@@ -16,7 +16,7 @@
 					         <li><a href='info'><span>Site info</span></a></li>
 					         <li><a href='about#copyright'><span>Copyright</span></a></li>
 					         <li><a href='terms'><span>Terms & Conditions</span></a></li>
-					         <li class='last' title = "Coming Soon"><a href='#'><span>Site map</span></a></li>
+					         <li class='last'><a href='sitemap'><span>Site map</span></a></li>
 					      </ul>
 					   </li>
 					   <!--

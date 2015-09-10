@@ -78,7 +78,7 @@ class SessionsController extends BaseController{
         //return Redirect::intended();
         //return Redirect::to('user/addusers');
         return Redirect::back()->withErrors($validator);
-        return Redirect::back()->withInput()->withErrors($validator);
+        //return Redirect::back()->withInput()->withErrors($validator);
         }
     }
     

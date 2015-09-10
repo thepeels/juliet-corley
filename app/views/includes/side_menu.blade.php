@@ -6,7 +6,7 @@
                 <li><a class="btn btn-default btn-sm" href="/download#C">Portfolio</a></li>
                 <li><a class="btn btn-default btn-sm" href="/services">Services</a></li>
                 <li><a class="btn btn-default btn-sm" href="/shop">Merchandise</a></li>-->
-                <li>{{HTML::mailto('juliet@julietcorley.com','Contact me',['class'=>'btn btn-default btn-sm'])}}</li>
+                <li><a class="btn btn-default btn-sm" href="info#01">Contact me</a></li>
                 <li><a class="btn btn-default btn-sm" href="shop">Merchandise</a></li>
                 <li><a class="btn btn-default btn-sm" href="colouring">Colouring pages</a></li>
                 <li><a class="btn btn-default btn-sm" href="/payment/stripe">Pay for Drawings</a></li>
