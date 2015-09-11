@@ -1,4 +1,5 @@
-<script>
+<!---------------- Cart Ajax Sections ----------->
+<script> //------------ Icon Page -------------
 $(document).ready(function(cart){
     $(".byajax").click(function(e){
         e.preventDefault();
@@ -13,7 +14,7 @@ $(document).ready(function(cart){
     });
 });
 </script>
-<script>
+<script> //-----------------Shop Page -------------
 $(document).ready(function(shopcart){
     $(".shopajax").click(function(e){
         e.preventDefault();
@@ -35,7 +36,7 @@ $(document).ready(function(shopcart){
     });
 });
 </script>
-<script>
+<script> // ------------- Colouring Page -----------
 $(document).ready(function(colouringcart){
     $(".colouringajax").click(function(e){
         e.preventDefault();
@@ -56,4 +57,4 @@ $(document).ready(function(colouringcart){
         },"json");
     });
 });
-</script>
+</script></br> 

@@ -1,3 +1,4 @@
+<!--------------- Prevent Double download from double click -------->
 <!--
 <script type="text/javascript">
 	$.fn.oneclicklink = function(event, callback) {
@@ -26,4 +27,4 @@ disableDoubleClick = function() {
         _linkEnabled = false;
         setTimeout("_linkEnabled=true", 1000);
     }
-</script>
+</script></br>

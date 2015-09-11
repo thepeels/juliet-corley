@@ -1,4 +1,5 @@
-<script>
+<!---------from includes/alphabetical.php and alphabetical_remote.php --------->
+<script> 
 $(".select-letter").click(function(){
 	var wholefrag = ($(this).attr("href"));
 	frags = wholefrag.split("#");
@@ -7,4 +8,4 @@ $(".select-letter").click(function(){
 		
 	}
 )	
-</script>
+</script></br>

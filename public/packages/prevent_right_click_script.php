@@ -1,3 +1,4 @@
+<!-----------  Prevent Right Click ---------->
 <script language=JavaScript> 
 	var message="Function Disabled!"; 
 	function clickIE4()
@@ -25,4 +26,4 @@
 		{ document.onmousedown=clickIE4; 
 		} 
 	document.oncontextmenu=new Function("alert(message);return false") 
-</script>
+</script></br> 
