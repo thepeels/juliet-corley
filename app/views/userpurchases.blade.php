@@ -25,7 +25,7 @@
             <th>Date</th>
         </tr>
         <? foreach ($purchases as $row) :
-		$date = new DateTime($row->created_at,new DateTimeZone('Europe/London'));
+		$date = new DateTime($row->updated_at,new DateTimeZone('Europe/London'));
 		$date->setTimeZone(new DateTimeZone('Australia/Brisbane'));
 		 
         ?>            <tr>
@@ -35,9 +35,15 @@
                 <td>
                     <?=$row->email?>
                 </td>
+                @if($row->image_id==0)
+                <td style="font-style:italic;">
+                 	Card Payment 
+                </td>
+                @else
                 <td>
                     <?=$row->purchase?>
                 </td>
+                @endif
                 <td>
                     <?='$'.number_format($row->amount/100,2,'.','')?>
                 </td>

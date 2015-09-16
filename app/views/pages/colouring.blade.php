@@ -4,14 +4,14 @@
 {{ HTML::style( asset('css/info.css') ) }}
 {{ HTML::style( asset('css/menu-jquery.css'))}}
 {{ HTML::style( asset('css/jchome.css') ) }}
-@stop
 <meta property="og:url"			content="https://julietcorley.com/colouring"/>
 <meta property="og:type"		content="product"/>
 <meta property="og:title"		content="colouring downloads"/>
 <meta property="og:site_name"	content="Juliet Corley"/>
 <meta property="og:description"	content="Colouring can be a good way to relax and unwind after a stressful day.
-								Try my colouring pages ansd see if they work for you &9786;"/>
+								Try my colouring pages ansd see if they work for you &#9786;"/>
 <meta property="og:image"		content="https://julietcorley.com/images/bg-images/colouring.jpg"/>
+@stop
 <?$div_index = 1;
 $url = Request::url();
 $return_url = urlencode($url);

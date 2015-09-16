@@ -93,7 +93,7 @@ function cartTabulate()
                 }
                 echo'<td>&dollar;'.($row->price/100).'</td>';
                 echo'<td>'.$row->qty.'</td>';
-                echo'<td><a href="/icon/dumprow/'.$row->rowid.'" class="btn btn-warning btn-xs">Remove</a>'./*$row->options->proxy.*/'</td>';
+                echo'<td><a href="/icon/dumprow/'.$row->rowid.'" class="btn btn-warning btn-custom-warning btn-xs">Remove</a>'./*$row->options->proxy.*/'</td>';
                 //echo'<td>'.$row->options->filepath.'</td>';
             echo'</tr>';
         }

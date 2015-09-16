@@ -6,7 +6,7 @@
 <body class="info" style="overflow-x:hidden;">
 @stop
 @section('title')
-<title>Not About</title>
+<title>About</title>
 @stop
 <?
 $previous = Session::get('previous_url');

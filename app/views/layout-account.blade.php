@@ -80,4 +80,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
         </div><!--/.container-->
     </body>
+    <?
+    include_once('packages/rot13_script.php');
+	?>
 </html>

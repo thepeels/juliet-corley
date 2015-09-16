@@ -63,7 +63,11 @@ $icons = showPurchases($email);
         @foreach ($icons as $row)
         <tr>
             <td>{{$row->purchase}}</td>
+            @if($row->image_id==0)
+            <td style="font-size:smaller;">Card Payment ${{number_format($row->amount/100,2,'.','')}}</td>
+            @else
             <td><a href="/download/freedbdownload/{{$row->image_id}}/{{$row->purchase}}"class="btn btn-default btn-xs">Download again</a></td>
+            @endif
         </tr>
         @endforeach
     </table>

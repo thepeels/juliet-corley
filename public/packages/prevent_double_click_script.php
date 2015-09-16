@@ -20,11 +20,11 @@ $("a").oneclicklink("click", function() {
 <script type="text/javascript">
 disableDoubleClick = function() {
         if (typeof(_linkEnabled)=="undefined") _linkEnabled = true;
-        setTimeout("blockClick()", 100);
+        setTimeout("blockClick()", 50);
         return _linkEnabled;
     }
     blockClick = function() {
         _linkEnabled = false;
-        setTimeout("_linkEnabled=true", 1000);
+        setTimeout("_linkEnabled=true", 1100);
     }
 </script></br>

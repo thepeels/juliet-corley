@@ -160,16 +160,12 @@ public function postTestpay()
         
         foreach ($content as $item){
             
-            DB::table('userpurchases')->insert(
-                array(
-                    'email'		=>$email,
-                    //'email'=>$item->options->proxy,
-                    'purchase'	=>$item->name,
-                    'amount'	=>$item->price,
-                    'image_id'	=>$item->id,
-                    'created_at'=> new DateTime,
-                    )
-                );
+            $purchase = new Userpurchase;
+            $purchase->email = $email;
+            $purchase->purchase = $item->name;
+            $purchase->amount = $item->price;
+            $purchase->image_id = $item->id;
+            $purchase->save();
 				
 			$purchase = new Purchase;
             $purchase->email = $email;
@@ -281,6 +277,13 @@ public function postSinglepayment()
         $email = isset(Auth::user()->email) ? Auth::user()->email : $receipt_email;
         //dd($email);
           	$purchase = new Purchase;
+            $purchase->email = $receipt_email;
+            $purchase->purchase = $itemdescription;
+            $purchase->amount = $amountincents;
+            $purchase->image_id = 0;
+            $purchase->save();
+			
+			$purchase = new Userpurchase;
             $purchase->email = $receipt_email;
             $purchase->purchase = $itemdescription;
             $purchase->amount = $amountincents;

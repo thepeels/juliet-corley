@@ -76,16 +76,23 @@ class DownloadController extends \BaseController {
     {
         //must only be allowed if file is in DB for user Auth::user()->email ?????
         $email = Auth::user()->email;
-        $eligible_files = DB::table('userpurchases')->where('email',$email)->lists('image_id');
+        $eligible_files = Userpurchase::where('email',$email)->lists('image_id');
       
         if( ! in_array($image_id, $eligible_files))
         {
             App::abort(401, 'This file not in purchase record');
         }
+		$purchase = Userpurchase::where('email',$email)
+			->where('image_id',$image_id)
+			->firstOrFail();
+			$purchase->touch();
+		//dd($purchase->image_id);	
+		//$update_purchase = DB::table('userpurchases')- 
         $image = Image::where('id',$image_id)->first();
         $target_image = storage_path() . '/images/' . $image->storage_filename;
         $response = Response::download($target_image,$name);
         if (App::environment('local')) ob_end_clean();//for xampp locally
+        
         return $response;
     }
 	public function getAllocate($image_id,$name)
