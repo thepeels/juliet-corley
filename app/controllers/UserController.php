@@ -56,7 +56,8 @@ class UserController extends \BaseController {
             'password' => Input::get('password')
 			];
 		if (Auth::attempt($credentials)){
-			return Redirect::to(Session::pull('login_from'),'/');
+			if(Session::has('login_from'))return Redirect::to(Session::get('login_from'));
+			return Redirect::to('/');
 		}
 		 
         return Redirect::to('login')->withInput(Input::all());

@@ -9,6 +9,11 @@
 <h2 class="julie merri">JulietCorley.com</h2>
 <h3 class= "caption merri">Register</h3>
 <fieldset class="login">
+<?
+//$previous = URL::previous();
+//Session::flash('login_from',$previous);
+//dd(Session::get('login_from'));
+?>
     {{Form::open(array('url' => '/user/adduser','class'=>'form-signup'))}}
 
 {{--<ul>
@@ -41,3 +46,4 @@
 </fieldset>
 </div>
 </div>
+<!-- register from scratch not redirecting properly -->

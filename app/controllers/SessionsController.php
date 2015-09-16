@@ -85,6 +85,9 @@ class SessionsController extends BaseController{
     
      public function newstore()
     {
+        if(!Session::has('login_from')){	
+			Session::put('login_from',URL::previous());
+			}
         $email = Input::get('email'); 
         $password = Input::get('password');  
         if (Auth::attempt(Input::only('email','password')))

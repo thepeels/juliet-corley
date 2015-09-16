@@ -217,25 +217,25 @@ public function postTestsinglepayment()
     // Stripe charge was successfull, continue by redirecting to a page with a thank you message
     if ($charge->paid == true) {
         
-        //$email = isset(Auth::user()->email) ? Auth::user()->email : $receipt_email;
+        $email = isset(Auth::user()->email) ? Auth::user()->email : $receipt_email;
         //dd($email);
         //ok so send an email as stripe won't...
         	$purchase = new Purchase;
-            $purchase->email = $receipt_email;
+            $purchase->email = $email;
             $purchase->purchase = $itemdescription;
             $purchase->amount = $amountincents;
             $purchase->image_id = 0;
             $purchase->save();
 			
 			$emailcheck = User::where('email','=',$receipt_email)->first();
-			if ($emailcheck !== null){
+			//if ($emailcheck !== null){
 				$purchase = new Userpurchase;
 	            $purchase->email = $receipt_email;
 	            $purchase->purchase = $itemdescription;
 	            $purchase->amount = $amountincents;
 	            $purchase->image_id = 0;
 	            $purchase->save();	
-			}
+			//}
         return Redirect::to('payment/singlesuccess');
     }
     #return Route::get('success/{return_url}','PaymentController@getSuccess');
@@ -277,14 +277,14 @@ public function postSinglepayment()
         $email = isset(Auth::user()->email) ? Auth::user()->email : $receipt_email;
         //dd($email);
           	$purchase = new Purchase;
-            $purchase->email = $receipt_email;
+            $purchase->email = $email;
             $purchase->purchase = $itemdescription;
             $purchase->amount = $amountincents;
             $purchase->image_id = 0;
             $purchase->save();
 			
 			$purchase = new Userpurchase;
-            $purchase->email = $receipt_email;
+            $purchase->email = $email;
             $purchase->purchase = $itemdescription;
             $purchase->amount = $amountincents;
             $purchase->image_id = 0;

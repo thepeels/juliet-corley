@@ -7,7 +7,8 @@
 $previous = URL::previous();
 //dd($url);
 $return_url=urlencode($url);
-Session::flash('previous_url',$previous);?>
+Session::put('login_from',$previous);
+//dd(Session::get('login_from'));?>
 @section('content')
 <div class="container-16">
     <div class="grid-5 push-3 loginform">
