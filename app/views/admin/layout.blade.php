@@ -72,7 +72,14 @@
                       {{--<li {{ Request::is('admin/art*') ? ' class="active"' : '' }}><a href="/admin/art">Art</a></li>--}}
                     </ul>                    
                     <ul class="nav navbar-nav navbar-right">
-                      <li> <a href="/">Public Pages</a></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Public Pages <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="../../">Public Home Page</a></li>
+                          <li><a href="../../colouring">Colouring</a></li>
+                          <li><a href="../../shop">Shop</a></li>
+                        </ul>
+                      </li>
                       <li><a href="{{ URL::to('logoutadmin') }}">Logout</a></li>{{--admin/logout--}}
                     </ul>
                   </div><!--/.nav-collapse -->

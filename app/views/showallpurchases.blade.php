@@ -9,6 +9,7 @@
         <caption>
             
     <h4>Image Downloads and Sales </h4>
+    {{$purchases->links()}}
         </caption>
         <tr>
             <th>X Times</th>
@@ -57,7 +58,6 @@
         <? endforeach; ?>
 
     </table>
-    {{$purchases->links()}}
 @stop
 @section('footer')  
     

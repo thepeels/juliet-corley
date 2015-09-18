@@ -60,6 +60,7 @@
                     <ul class="nav navbar-nav navbar-right">
                     @if (Auth::user()->superuser == 1)
                       <li> <a href="/download">Public Pages</a></li>
+                      <li> <a href="/admin/fish">Admin Pages</a></li>
                     @endif
                     <!--@if (Auth::check())
                       <li><a href="{{ URL::to('logout') }}">Logout</a></li>{{--admin/logout--}}
