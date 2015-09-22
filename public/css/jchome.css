@@ -183,13 +183,14 @@ li.final a span{
     margin-left:12px;
     margin-right:-12px;
 }
-.shading-container{position:relative;display:inline-block;
-    margin:0 auto;    
+.shading-container{
+    position:relative;display:inline-block;
     height:985px;
     /*background-image:url('../images/bg-images/shading-line.png');
     background-repeat:repeat-y;*/
     background-image:url('../images/bg-images/shading-juliet-corley-1.png');
     background-size:100%;
+   background-color:rgba(127,63,0,0.1);  /*overlay but not shadows*/
     /*background: -moz-gradient(linear, left-top, left-bottom, rgba 0,0,0,1, rgba(0,0,0,0,));*/
     
  
@@ -197,6 +198,13 @@ li.final a span{
     /*overflow-x: scroll;*/
     z-index :500;
 }
+/*.overlay{
+    position:absolute;display:inline-block;
+    margin:0 auto; 
+    height:100%;
+    opacity:0.1;
+    z-index:-500;   
+}*/
 .arrow{
     background-image:url("/images/bg-images/arrow.png");
     background-size:60px 20px;

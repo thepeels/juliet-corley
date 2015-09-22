@@ -60,7 +60,11 @@ class DownloadController extends \BaseController {
     {
         $target_image = public_path()."/images/".$image_id;
         $name = $description.".pdf";
-        $response = Response::download($target_image,$name);
+		//$clicked = date("Y-m-d H:i:s");
+		//$clicked_at = Purchase::whereCreated_at($clicked)->first();
+		//dd($clicked_at);
+		//if(NULL == $clicked_at){
+		$response = Response::download($target_image,$name);
         if (App::environment('local')) ob_end_clean();//for xampp locally
         $purchase_email = null!=Auth::user()?Auth::user()->email:'FREE download';
         	$purchase = new Purchase;
@@ -69,7 +73,9 @@ class DownloadController extends \BaseController {
             $purchase->amount = 0;
             $purchase->image_id = 0;
             $purchase->save();
+		//}
         return $response;
+		
     }
     
 	public function getFreedbdownload($image_id,$name)

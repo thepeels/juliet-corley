@@ -17,10 +17,10 @@ $("a").oneclicklink("click", function() {
 	  });
 </script>
 -->
-<script type="text/javascript">
+<script>
 disableDoubleClick = function() {
         if (typeof(_linkEnabled)=="undefined") _linkEnabled = true;
-        setTimeout("blockClick()", 50);
+        setTimeout("blockClick()", 10);
         return _linkEnabled;
     }
     blockClick = function() {
@@ -28,3 +28,19 @@ disableDoubleClick = function() {
         setTimeout("_linkEnabled=true", 1100);
     }
 </script></br>
+<!--
+<script>
+	var link = document.getElementByClass("oneclick");
+	link.addEventListener("dblclick",'startDblClick',false);
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("form").submit(function(){
+        setTimeout(function() {
+            $('input').attr('disabled', 'disabled');
+            $('a').attr('disabled', 'disabled');
+        }, 50);
+    })
+});
+</script></br>
+-->

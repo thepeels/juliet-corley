@@ -20,7 +20,7 @@ else{echo("
 <link rel="stylesheet" href="/fonts/MyFontsWebfontsKit.css" type="text/css">
 <!--<link rel="shortcut icon" href="favicon.ico"/> 
 <link rel="icon" href="favicon.ico"/> -->
-        
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">        
 @yield('stylesheets')
 </head>
 @yield('body-class')

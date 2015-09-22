@@ -15,6 +15,8 @@
 @stop
 @section('content')
 	<div class="shading-container">
+		<div class ="overlay">
+		</div>
 <div class="container-24">
 	<div class="grid-24">
 		<div class="grid-14">

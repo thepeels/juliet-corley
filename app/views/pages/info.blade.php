@@ -172,8 +172,8 @@ $previous = Session::get('previous_url');
 					circumvent any disputes over whether or not someone is licensed to use an image, 
 					as it can just be matched to the authorship of the publication in question 
 					without any need to contact you.  If you publish under different names, you 
-					are welcome to make a note of this in the “Notes” section.  …(please can we 
-					have a “Notes” field in the My Details page!)</p>
+					are welcome to make a note of this in the 'Notes' section of the 'My Details' 
+					page.</p>
 				<p>Please note that the purpose of my Fish Icon images is to give you a 
 					peace-of-mind solution, so I don’t intend to trawl the publications looking 
 					for semi-imagined breaches of copyright! However I am a one-person outfit 
@@ -187,8 +187,8 @@ $previous = Session::get('previous_url');
 					identifies you in a publication. For example if you have changed your name 
 					but still publish under your birth name, then put your birth name here. If 
 					it is more complicated than that, you are welcome to list all names in your 
-					"My Account". I only need your name so that I know your publications aren't 
-					copyright infringements.</p> 
+					"My Account". I only need your name so that I can see that your publications 
+					aren't copyright infringements.</p> 
 			</div>
 			<div id="08"></br>
 				<h5>OVERVIEW T&C STATEMENT, WITHIN YOUR ACCOUNT</h5>
