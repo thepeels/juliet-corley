@@ -10,8 +10,8 @@
 @stop
 @section('content')
 <div class="centered userdownloads">
-<p class="cr merri"><?if(Auth::user()->author_name!=""){
-		echo(Auth::user()->author_name.' is');
+<p class="cr merri"><?if(Auth::user()->detail->author_name){
+		echo(Auth::user()->detail->author_name.' is');
 	}else{
 		echo('You {Author Name} are');
 	}?>&nbsp;entitled to use the Fish Icon 

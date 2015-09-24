@@ -26,6 +26,9 @@ body.myaccount{margin-top:0;}
 .navbar-fixed-top.container{width:1140px}
 }
 .newclass{width:200px;}
+.noteclass{width:500px;}
+.btn-xs{margin-top:-4px;}
+.myaccount input.btn{margin-right:10px;}
 .centered{margin:0 auto;width:700px;}
 .modified{display:none;}
 .footer{text-align:center;}

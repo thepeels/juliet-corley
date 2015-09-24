@@ -46,11 +46,19 @@ class UserController extends \BaseController {
         {
             return Redirect::back()->withInput()->withErrors($validation->messages());
         }
-	    User::create(array(
+		$user = new User;
+		$user->name 	= Input::get('name');
+		$user->email 	= Input::get('email');
+		$user->password = Hash::make(Input::get('password'));
+		$user->save();
+	   /* User::create(array(
 	        'name' => Input::get('name'),
             'email' => Input::get('email'),
             'password' => Hash::make(Input::get('password'))
-	    ));
+	    ));*/
+		Detail::create(array(
+			'user_id' => $user->id
+		));
 		$credentials = [
 			'email' => Input::get('email'),
             'password' => Input::get('password')
@@ -68,7 +76,7 @@ class UserController extends \BaseController {
 		$user = User::find($id);
 		$user->email = Input::get('email');
 		$user->save();
-		return View::make('change_details');
+		return Redirect::to('user/change');
 	}
 	public function postEditpassword()
 	{
@@ -86,15 +94,81 @@ class UserController extends \BaseController {
 		$user = User::find($id);
 		$user->password = Hash::make(Input::get('password'));
 		$user->save();
-		return View::make('change_details');
+		return Redirect::to('user/change');
 	}
 	public function postEditauthor()
 	{
+		$detail_id = Auth::user()->detail->id;
+		$detail = Detail::find($detail_id);
+		$detail->author_name = Input::get('authorname');
+		
+		$detail->save();
+		return Redirect::to('user/change');
+	}
+	public function postAddaddress()
+	{
+		$detail_id = Auth::user()->detail->id;
+		$detail = Detail::find($detail_id);
+		if(NULL != Input::get('address'))$detail->address = Input::get('address');
+		if(NULL != Input::get('postcode'))$detail->postcode = Input::get('postcode');
+		
+		$detail->save();
+		return Redirect::to('user/change');
+	}
+	public function postAddalias()
+	{
+		$detail_id = Auth::user()->detail->id;
+		$detail = Detail::find($detail_id);
+		if($detail->alias != ""){
+			$alias = ($detail->alias.', '.Input::get('alias'));
+		}
+		else{
+			$alias = Input::get('alias');
+		}
+		$detail->alias = $alias;
+		$detail->save();
+		/*
 		$id=Input::get('userid');
 		$user = User::find($id);
-		$user->author_name = Input::get('authorname');
-		$user->save();
-		return View::make('change_details');
+		$user->detail->author_name = Input::get('authorname');
+		$user->save();*/
+		return Redirect::to('user/change');
+	}
+	public function postReplacenote() //needs two actions on form so is Addnote below
+	{
+		$detail_id = Auth::user()->detail->id;
+		$detail = Detail::find($detail_id);
+		$detail->note = Input::get('note');
+		
+		$detail->save();
+		return Redirect::to('user/change');
+	}
+	public function postAddnote()
+	{
+		$detail_id = Auth::user()->detail->id;
+		$detail = Detail::find($detail_id);
+		if(Input::get('append')){
+			$note = ($detail->note.'</br>'.Input::get('note'));
+			$detail->note = $note;
+		}
+		if(Input::get('newnote')){
+			$detail->note = Input::get('note');
+		}
+		if(Input::get('delete')){
+			$detail->note = "";
+		}
+		
+		$detail->save();
+		return Redirect::to('user/change');
+	}
+	public function getDeletenote()
+	{
+		$detail_id = Auth::user()->detail->id;
+		$detail = Detail::find($detail_id);
+		$detail->note = "";
+		
+		$detail->save();
+		return Redirect::to('user/change');
 	}
 	////////////////////////
 	public function getAddusers()
@@ -164,6 +238,39 @@ class UserController extends \BaseController {
 		));
     }
 
+    public function getUsernotes()
+    {
+        return View::make('selectuser_shownotes');
+    }
+
+    public function postUsernotes()
+    {
+        $email = Input::get('email');
+		if ($email!=null){
+			
+			$user_id = User::where('email',$email)->pluck('id');
+			$detail = Detail::where('user_id',$user_id)->get();
+			foreach($detail as $detail){
+        	$note = $detail->note;
+			//dd($note);
+			$address = $detail->address;
+			$postcode = $detail->postcode;
+			$alias = $detail->alias;
+			$author_name = $detail->author_name;
+			}	    
+        return View::make('usernotes',array(
+			'email'		=> $email,
+			'note'		=> $note,
+			'address'	=> $address,
+			'postcode'	=> $postcode,
+			'alias'		=> $alias,
+			'author_name'=> $author_name
+		));
+        }
+		Session::flash('notselected', 'No email selected!');
+        return Redirect::back();
+    }
+        
     
     public function getChange()
     {
