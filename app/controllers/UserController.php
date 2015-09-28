@@ -16,6 +16,13 @@ class UserController extends \BaseController {
 			'table_row' => $users
 		));
 	}
+	public function getAuthorname()
+	{
+		$authors = \User::has('detail')->get();
+		return View::make('pages.authors', array(
+			'authors' => $authors
+		));
+	}
     
 /*    public function postUserexists()
     {
@@ -98,7 +105,7 @@ class UserController extends \BaseController {
 	}
 	public function postEditauthor()
 	{
-		$detail_id = Auth::user()->detail->id;
+		$detail_id = \Auth::user()->detail->id;
 		$detail = Detail::find($detail_id);
 		$detail->author_name = Input::get('authorname');
 		
@@ -107,7 +114,7 @@ class UserController extends \BaseController {
 	}
 	public function postAddaddress()
 	{
-		$detail_id = Auth::user()->detail->id;
+		$detail_id = \Auth::user()->detail->id;
 		$detail = Detail::find($detail_id);
 		if(NULL != Input::get('address'))$detail->address = Input::get('address');
 		if(NULL != Input::get('postcode'))$detail->postcode = Input::get('postcode');
@@ -117,7 +124,7 @@ class UserController extends \BaseController {
 	}
 	public function postAddalias()
 	{
-		$detail_id = Auth::user()->detail->id;
+		$detail_id = \Auth::user()->detail->id;
 		$detail = Detail::find($detail_id);
 		if($detail->alias != ""){
 			$alias = ($detail->alias.', '.Input::get('alias'));
@@ -136,7 +143,7 @@ class UserController extends \BaseController {
 	}
 	public function postReplacenote() //needs two actions on form so is Addnote below
 	{
-		$detail_id = Auth::user()->detail->id;
+		$detail_id = \Auth::user()->detail->id;
 		$detail = Detail::find($detail_id);
 		$detail->note = Input::get('note');
 		
@@ -145,7 +152,7 @@ class UserController extends \BaseController {
 	}
 	public function postAddnote()
 	{
-		$detail_id = Auth::user()->detail->id;
+		$detail_id = \Auth::user()->detail->id;
 		$detail = Detail::find($detail_id);
 		if(Input::get('append')){
 			$note = ($detail->note.'</br>'.Input::get('note'));
@@ -163,7 +170,7 @@ class UserController extends \BaseController {
 	}
 	public function getDeletenote()
 	{
-		$detail_id = Auth::user()->detail->id;
+		$detail_id = \Auth::user()->detail->id;
 		$detail = Detail::find($detail_id);
 		$detail->note = "";
 		

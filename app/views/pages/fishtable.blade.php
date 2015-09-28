@@ -120,8 +120,8 @@ foreach ($prices as $price){}
                 @foreach ($fishs as $fish)
                     
                     <tr id="{{$table_row_index}}">
-                        <td id="{{ $fish->name[0] }}"><a href="/icon/preview{{ $fish->large_image_watermarked->image_url }}/{{ $fish->name }}?return_url=download#{{$table_row_index}}" class="btn btn-default btn-lg" title="Click to Preview">
-                             {{ $fish->name }}    
+                        <td id="{{ $fish->name[0] }}"><a href="/icon/preview{{ $fish->large_image_watermarked->image_url }}/{{ $fish->name }}/{{$table_row_index}}" 
+                        	class="btn btn-default btn-lg" title="Click to Preview">{{ $fish->name }}    
                             </a></td>
                         <td>
                             <a class="byajax" href="/icon/addtocart/{{ $fish->small_image_id }}/{{$fish->name }}/{{ $price->second_price }}/{{$table_row_index }}">

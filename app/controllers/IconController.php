@@ -158,12 +158,13 @@ class IconController extends \BaseController {
      * @param url
      * @return view
      */
-    public function getPreview($folder,$preview_url,$fish_name)
+    public function getPreview($folder,$preview_url,$fish_name,$table_row_index)
     {
-        return View::make('pages.image_preview',array(
+        
+		return View::make('pages.image_preview',array(
         'preview_url'=>$preview_url,
         'fish_name'=>$fish_name,
-        'back'=>URL::previous()
+        'return_to'=> URL::previous().'#'.$table_row_index
         ));
     }
     

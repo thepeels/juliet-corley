@@ -15,7 +15,7 @@ $previous = Session::get('previous_url');
 <div class="fixed-menu merri">
 	<h3 id="01" class="julie">JulietCorley.com</h3>
 	<h5 class="julie">POLICIES</h5>
-		@if(($previous != "https://julietcorley.com/terms") && ($previous != "https://julietcorley.com/info"))
+		@if(strpos($previous, '/terms')===FALSE && strpos($previous,'/info')===FALSE)
 			<a href="{{$previous}}/"class="btn btn-primary "><!--&#10094;--><<&nbsp;&nbsp;&nbsp;Back&nbsp; </a>
 		@endif
 	<h5 class="julie">Quick Links</h5>			

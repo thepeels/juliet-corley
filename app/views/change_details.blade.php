@@ -110,7 +110,7 @@
         
             {{$errors->first('note','<small style="color:#f00">:message</small>')}}</br>
         
-            {{Form::submit('Start New Note',['name'=>'newnote','class'=>'btn btn-primary btn-xs'])}}
+            {{Form::submit('Load / Change the above Note',['name'=>'newnote','class'=>'btn btn-primary btn-xs'])}}
             {{Form::submit('Append to Existing Note',['name'=>'append','class'=>'btn btn-info btn-xs'])}}
             {{Form::submit('Delete Existing Notes',['name'=>'delete','class'=>'btn btn-default btn-xs'])}}
         {{form::close()}}</br></br>

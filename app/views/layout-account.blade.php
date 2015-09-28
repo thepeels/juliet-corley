@@ -59,8 +59,15 @@
                     </ul>                    
                     <ul class="nav navbar-nav navbar-right">
                     @if (Auth::user()->superuser == 1)
-                      <li> <a href="/download">Public Pages</a></li>
-                      <li> <a href="/admin/fish">Admin Pages</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Public Pages <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                        	<li> <a href="/">Home Page</a></li>
+                        	<li> <a href="/colouring">Colouring Pages</a></li>
+                        	<li> <a href="/download">Fish Icons</a></li>
+                 		</ul>
+                  	</li>
+                    <li> <a href="/admin/fish">Admin Pages</a></li>
                     @endif
                     <!--@if (Auth::check())
                       <li><a href="{{ URL::to('logout') }}">Logout</a></li>{{--admin/logout--}}

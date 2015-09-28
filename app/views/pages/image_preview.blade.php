@@ -8,16 +8,15 @@
 @section('body')
 
 @section('content')
-
 <div class="container-24" style = "background:inherit">
 <div class="push-3 grid-21 preview fish-name">
-    <h2 style='font-family:"Merriweather";letter-spacing:-1px;'>{{ $fish_name }}</br>Juliet Corley</h2>
+    <h2>{{ $fish_name }}</h2>
 </div>    
 <div class="push-3 grid-21 preview">
     <img src="/images/{{ $preview_url }}" alt="image preview" />
 </div>
 <div class="push-4 grid-4">
-    <a href="{{ $back }}" class="btn btn-default btn-sm">Close Preview</a>
+    <a href="{{URL::to($return_to)}}" class="btn btn-default btn-sm">Close Preview</a>
 </div>
 </div>    
 

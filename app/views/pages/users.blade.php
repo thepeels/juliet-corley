@@ -12,27 +12,28 @@
     		<th>Author Name</th>
     		<th>Admin?</th>
     	</tr>
-    	<? foreach ($table_row as $user) : ?>
+    	
+    	@foreach ($table_row as $user)
     	
     		<tr>
     			<td>
-    				<?=$user->id?>
+    				{{$user->id}}
     			</td>
     			<td>
-    				<?=$user->name?>
+    				{{$user->name}}
     			</td>
     			<td>
-    				<?=$user->email?>
+    				{{$user->email}}
     			</td>
     			<td>
-    				<?=$user->author_name?>
+    				{{$user->author_name}}
     			</td>
     			<td>
-    			    <?=$user->superuser*-1?>
+    			    {{$user->superuser*-1}}
     			</td>
     		</tr>
     	
-    	<? endforeach; ?>
+    	@endforeach
 
   	</table>
 @stop
