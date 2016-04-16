@@ -25,7 +25,7 @@ disableDoubleClick = function() {
     }
     blockClick = function() {
         _linkEnabled = false;
-        setTimeout("_linkEnabled=true", 1100);
+        setTimeout("_linkEnabled=true",1500);
     }
 </script></br>
 <!--

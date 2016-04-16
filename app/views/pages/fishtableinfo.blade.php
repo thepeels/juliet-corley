@@ -59,7 +59,7 @@
         </div> 
         <div class="grid-6 push-5 left-para">
             <p>
-                Please {{HTML::mailto('juliet@julietcorley.com?Subject=Commission%20species%20enquiry',' 
+                Please {{HTML::mailto('juliet@julietcorley.com?cc=julietcorley@gmail.com&Subject=Commission%20species%20enquiry',' 
                 contact me')}} to commission new species. Please note that completed
                 commissions will be added to this Downloadable Icon database (see right <span>&#8594;</span>),
                 as well as emailed directly to you.

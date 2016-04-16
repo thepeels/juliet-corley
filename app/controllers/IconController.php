@@ -70,7 +70,7 @@ class IconController extends \BaseController {
 	{
 		if(!Auth::check())return Response::json(array(
 				'fail' 		=>	true,
-				'notloggedin' 	=>	"Please log in to use the cart"
+				'notloggedin' 	=>	"Please login/register to use the cart.\r\n...I apologise for this, as I hate being forced to register to use sites!\nBut this is the only way I can keep a record of your entitlement to use your images.\nSo I've kept registration minimal, with just an email address and password.\nAnd I promise not to spam you!"
 			)
 		);
 	    // add return URL to session? 

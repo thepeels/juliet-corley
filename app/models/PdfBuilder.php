@@ -38,6 +38,7 @@ class PdfBuilder
 	 * @param string	$description_4
 	 * @param string	$product_type
 	 * @param string	$product_sub_type
+	 * @return Product/string
 	 */
 public function build(
 		$name,

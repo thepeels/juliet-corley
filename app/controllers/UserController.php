@@ -23,7 +23,34 @@ class UserController extends \BaseController {
 			'authors' => $authors
 		));
 	}
-    
+
+    public function getAuthornotes()
+    {
+        return View::make('selectauthor_shownotes');
+    }
+	
+    public function postAuthornotes()
+    {
+        $author = Input::get('author');
+		//var_dump(Input::get('author'));
+		if ($author!=null){
+			$notes = Detail::distinct('note')
+        	->where('author_name',$author)
+        	->orderBy('created_at','DESC')
+			#->paginate(3);
+        	->get();
+		foreach ($notes as $row);
+		$email = User::where('id','=',$row->user_id)->pluck('email');
+        return View::make('authornotes',array(
+			'author' 	=> $author,
+			'notes'		=> $notes,
+			'email'		=> $email
+		));
+        }
+		Session::flash('notselected', 'No Author selected!');
+        return Redirect::back();
+    }
+        
 /*    public function postUserexists()
     {
         $email = Input::get('email');

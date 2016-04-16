@@ -16,4 +16,9 @@ class detail extends Eloquent
 	{
 		return $this->belongsTo('User');
 	}
+	
+	public function author()
+	{
+		return $this->author_name;
+	}
 }

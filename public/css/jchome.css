@@ -133,21 +133,34 @@ p.heading{
     margin-left:-18px;
 }
 .pageimagelink{
-    height:175px;
+    height:165px;
     /*opacity:0.7;*/
     background-repeat:no-repeat;
 }
+.purpleborder{
+    border:solid 2px #6600ff;
+}
+.blueborder{
+    border:solid 2px #6060c0;
+}
 .postcards{
-    background-image:url("/images/bg-images/pc-puc.jpg");
+    background-image:url("/images/bg-images/postcards.jpg");
 }
 .illustration{
-    background-image:url("/images/bg-images/is-puc.jpg");
-    margin-top:30px;
-    width:360px;
+    background-image:url("/images/bg-images/illustration.jpg");
+    margin-top:40px;
+    /*width:360px;*/
 }
 .science{
     background-image:url("/images/bg-images/marine-science.jpg");
-    margin-top:30px;
+    margin-top:40px;
+}
+.superimposed{
+    display: block;
+    position:relative;
+    left:250px;
+    top:-189px;
+    margin-bottom:-62px;
 }
 .payment-link{
     margin-left:-12px;
@@ -190,7 +203,7 @@ li.final a span{
     background-repeat:repeat-y;*/
     background-image:url('../images/bg-images/shading-juliet-corley-1.png');
     background-size:100%;
-   background-color:rgba(127,63,0,0.1);  /*overlay but not shadows*/
+  /* background-color:rgba(127,63,0,0.1);  /*overlay but not shadows*/
     /*background: -moz-gradient(linear, left-top, left-bottom, rgba 0,0,0,1, rgba(0,0,0,0,));*/
     
  

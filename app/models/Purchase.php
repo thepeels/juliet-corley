@@ -8,7 +8,8 @@ class Purchase extends Eloquent
         'email',
         'purchase',
         'amount',
-        'image_id'     
+        'image_id',
+        'client_ip'     
     ];
     
     

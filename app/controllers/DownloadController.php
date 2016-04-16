@@ -44,6 +44,11 @@ class DownloadController extends \BaseController {
     {
         $target_image = public_path()."/images/bg-images/".$image_id;
         $name = $image_id;
+		$clicked = date("Y-m-d H:i:s");
+		$clicked_at = Purchase::whereCreated_at($clicked)->first();
+		if(NULL != $clicked_at){
+			return Redirect::back();
+		}
         $response = Response::download($target_image,$name);
         if (App::environment('local')) ob_end_clean();//for xampp locally
         $purchase_email = null!=Auth::user()?Auth::user()->email:'FREE download';
@@ -52,7 +57,9 @@ class DownloadController extends \BaseController {
             $purchase->purchase = $name;
             $purchase->amount = 0;
             $purchase->image_id = 0;
+			$purchase->client_ip = null!=Request::getClientIp()?Request::getClientIp():'not discovered';
             $purchase->save();
+			usleep(10000);
         return $response;
     }
     
@@ -60,10 +67,11 @@ class DownloadController extends \BaseController {
     {
         $target_image = public_path()."/images/".$image_id;
         $name = $description.".pdf";
-		//$clicked = date("Y-m-d H:i:s");
-		//$clicked_at = Purchase::whereCreated_at($clicked)->first();
-		//dd($clicked_at);
-		//if(NULL == $clicked_at){
+		$clicked = date("Y-m-d H:i:s");
+		$clicked_at = Purchase::whereCreated_at($clicked)->first();
+		if(NULL != $clicked_at){
+			return Redirect::back();
+		}
 		$response = Response::download($target_image,$name);
         if (App::environment('local')) ob_end_clean();//for xampp locally
         $purchase_email = null!=Auth::user()?Auth::user()->email:'FREE download';
@@ -72,7 +80,9 @@ class DownloadController extends \BaseController {
             $purchase->purchase = $name;
             $purchase->amount = 0;
             $purchase->image_id = 0;
+			$purchase->client_ip = null!=Request::getClientIp()?Request::getClientIp():'not discovered';
             $purchase->save();
+			usleep(10000);
 		//}
         return $response;
 		

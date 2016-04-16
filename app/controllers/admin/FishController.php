@@ -20,6 +20,7 @@ public function getIndex()
      * Get Delete
      * 
      * @param   int     $fishId
+	 * @return string
      */
 public function getDelete($fishId)
     {

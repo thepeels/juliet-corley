@@ -72,10 +72,11 @@
 			
 		</div> 
 		</div> 
-		<div class="grid-7 alpha">
-			<a href="download"><p class="pageimagelink postcards" title = "Under Construction"></p></a>
-			<a href="download"><p class="pageimagelink illustration " title = "Under Construction"></p></a>
-			<a href="info"><p class="pageimagelink science"></p></a>
+		<div class="grid-6 alpha">
+			<a href="shop"><p class="pageimagelink postcards purpleborder" title = "Merchandise"></p></a>
+			<a href="info#03"><p class="pageimagelink illustration purpleborder" title = "Illustration"></p></a>
+			<img src="/images/bg-images/hand.png" class="superimposed"/>
+			<a href="info"><p class="pageimagelink science blueborder"></p></a>
 		</div>							
 	</div>
 	</div>

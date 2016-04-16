@@ -4,6 +4,7 @@
 @stop
 <?
 $list = \User::lists('email','email');
+//var_dump($list);
 $placeholder = [null=>'Select'];
 $emails = array_merge($placeholder, $list);
 ?>

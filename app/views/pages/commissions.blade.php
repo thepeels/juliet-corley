@@ -78,7 +78,7 @@
 	        </div>
 	        <div class="grid-4 alpha" style="margin-top:-80px">
         	<p class="contact">
-                Please <a id="email" href="Commission.species.enquiry"
+                Please <a id="email" href="Commission%20species%20enquiry"
    					onclick='subjectMailer(this);'> 
                 contact me</a> to commission new species. <span>Please note that completed
                 commissions will be added to this Downloadable Icon database
@@ -88,7 +88,7 @@
             <div class="grid-6 margin-left alpha">
             	<p class="contact double-box">
             		Commission Service:&nbsp;<span>if you 
-        			<a id="email" href="Commission.new.species.enquiry"
+        			<a id="email" href="Commission%20new%20species%20enquiry"
    					onclick='subjectMailer(this);'>e-mail me</a> 
         			a list of the species you want, I will check the database for existing images, and send you a quote 
             		for the remainder.</span>

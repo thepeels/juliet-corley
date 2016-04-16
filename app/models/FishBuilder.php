@@ -59,7 +59,7 @@ class FishBuilder
      * @param   string  $name
      * @param   int     $base_price
      * @param   string  $large_image_path
-				 * @param   string  $small_image_path
+	 * @param   string  $small_image_path
      * @param   string  $outline_image_path
      * @param   string  $silhouette_image_path
      * @return  Fish|string

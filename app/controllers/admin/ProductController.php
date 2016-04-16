@@ -1,9 +1,12 @@
 <?php namespace Admin;
 use \Session,\Product,\ProductBuilder,\PdfBuilder,\Redirect,\DB,\View,\Price,\Input,\Validator,\Userpurchase,\Image;
 
+
 class ProductController extends \BaseController
 {
-	
+    /**
+     * Get Index
+ 	 */
 	public function getIndex()
 	{
 		$product = Product::withImages()
@@ -14,6 +17,12 @@ class ProductController extends \BaseController
 			'products' => $product
 		));
 	}
+	
+	 /**
+     * Get Delete
+     * 
+     * @param   int     $productId
+     */
 	public function getDelete($productId)
 	{
 		$product = Product::where('id', $productId)->first();
@@ -31,12 +40,22 @@ class ProductController extends \BaseController
     {
     	return View::make('admin.add_product');
     }
-
+	 /**
+     * Get Addpdf
+     * 
+     * @param  none
+     * @return string
+     */
 	public function getAddpdf()
     {
     	return View::make('admin.add_pdf');
     }
-	
+	 /**
+     * Get Addfreepdf
+     * 
+     * @param  none
+     * @return string
+     */	
 	public function getAddfreepdf()
     {
     	return View::make('admin.add_free_pdf');
@@ -53,7 +72,7 @@ class ProductController extends \BaseController
 	public function postAdd()
     {	
         $input = Input::all();
-        $builder = new ProductBuilder;//////////// need new function here
+        $builder = new ProductBuilder;
         $product = $builder->build(
         $input['name'], 
 		$input['price'],
@@ -70,11 +89,19 @@ class ProductController extends \BaseController
         );
         return Redirect::to('admin/shop');//re-load the admin product table
     }
-	
+
+    /**
+     * Add
+     * 
+     * This builds a new pdf item
+     * 
+     * @param  none
+     * @return string
+     */	
 	public function postAddpdf()
     {	
         $input = Input::all();
-        $builder = new PdfBuilder;//////////// need new function here
+        $builder = new PdfBuilder;
         $product = $builder->build(
         $input['name'], 
 		$input['price'],
@@ -89,7 +116,12 @@ class ProductController extends \BaseController
         );
         return Redirect::to('admin/shop');//re-load the admin product table
     }
-	
+    /**
+     * Get Edit
+     * 
+     * @param   int     $productId
+	 * @return string
+     */	
 	public function getEdit($productId)
 	{
 		$product = Product::where('id',$productId)->first();
