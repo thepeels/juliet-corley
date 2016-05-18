@@ -12,7 +12,9 @@ if (Cart::count()>=2){$itemdescription = (Cart::count().'&nbsp;images');}
 
 $amountincents = Cart::total();
 $amountindollars= $amountincents/100;
-$receipt_email=Auth::user()->email;
+if (Auth::user()->email) $receipt_email=Auth::user()->email;
+elseif(Auth::user()->oauth_email) $receipt_email=Auth::user()->oauth_email;
+else $receipt_email ="john@jjc.me";
 #$itemdescription = Cart::count().'&nbsp;items';
 #$itemdescription = Input::get('itemdescription');
 ?>
@@ -22,7 +24,7 @@ $receipt_email=Auth::user()->email;
 <form action="{{url('payment/testpay')}}" method="POST"> {{--pay or test pay uses different stripe keys--}}
 	<input name ="amountincents" type="hidden" value="<?=$amountincents?>">
 	<input name ="itemdescription" type="hidden" value="<?=$itemdescription?>">
-	<input name ="receipt_email" type="hidden" value="<?=Auth::user()->email?>">
+	<input name ="receipt_email" type="hidden" value="<?=$receipt_email?>">
 
   <script
     src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button waiting"

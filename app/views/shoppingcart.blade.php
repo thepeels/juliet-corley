@@ -9,7 +9,10 @@ Session::put('return_url',$url);
 Session::put('cart_instance','main');
 Session::put('dest_email',isset($dest_email)?$dest_email:Session::get('dest_email'));
 Session::flash('previous_url',$previous);
-$owner = (isset(Auth::user()->email)?Auth::user()->email:"guest user");?>
+if(Auth::check()){
+	if  	(Auth::user()->email)		$owner = Auth::user()->email;
+	elseif	(Auth::user()->oauth_email)	$owner = Auth::user()->oauth_email;/*isset(Auth::user()->oauth_email)?*/
+	}else    							$owner = "guest";?>
 <div class="cart">
     
     <h2 class="julie merri">JulietCorley.com</h2>

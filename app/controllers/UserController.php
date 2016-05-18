@@ -109,6 +109,7 @@ class UserController extends \BaseController {
 		$id=Input::get('userid');
 		$user = User::find($id);
 		$user->email = Input::get('email');
+		if ($user->oauth_email != ""){$user->both_emails = TRUE;}
 		$user->save();
 		return Redirect::to('user/change');
 	}

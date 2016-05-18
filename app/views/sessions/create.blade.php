@@ -15,7 +15,12 @@ Session::put('login_from',$previous);
         
 
 <h2 class="julie merri">JulietCorley.com</h2>
-<h3 class= "caption merri">Log in</h3>
+<h3 class= "caption merri">Log in</h3></br>
+<a href="facebook/authorize" class ="btn-lg btn-primary">Login with Facebook</a></br></br>
+<a href="google/authorize" class ="btn-lg btn-danger">Login with Google</a></br></br>
+<a href="github/authorize" class ="btn-lg btn-info">Login with GitHub</a></br></br>
+------------- OR -------------</br>
+<h5 class= "caption merri">Log in with email and password</h5>
 <fieldset class="login">
     
 {{Form::open(['route'=>'sessions.store'])}}

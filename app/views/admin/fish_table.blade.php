@@ -4,6 +4,7 @@
 <title>Fish Table</title>
 @stop
 <?
+$table_row_index = 1;
 $prices = getPrice('icons');
 foreach ($prices as $price){}
 ?>
@@ -28,8 +29,8 @@ foreach ($prices as $price){}
         </tr>
         
     @foreach ($fishs as $fish)
-        <tr id="<?=$fish->name[0]?>">
-            <td>{{ $fish->name }}</td>
+        <tr id="{{$table_row_index}}">
+            <td id="{{ $fish->name[0] }}">{{ $fish->name }}</td>
             
             <td><img src="{{ $fish->image_thumb->image_url }}"></td>
             <td><img src="{{ $fish->silhouette_thumb->image_url }}"></td>
@@ -37,7 +38,7 @@ foreach ($prices as $price){}
             <td>
                 <ul style="list-style-type: none">
                     <li style="float:left;margin-right:5px">
-                        <a href="/icon/preview{{ $fish->large_image_watermarked->image_url }} / {{ $fish->name }}" 
+                        <a href="/icon/preview{{ $fish->large_image_watermarked->image_url }} / {{ $fish->name }}/{{$table_row_index}}" 
                             class="btn btn-info btn-xs"
                             style="width:55px"
                             title="Preview large image">Preview
@@ -60,6 +61,7 @@ foreach ($prices as $price){}
                 </ul>
             </td>
         </tr>
+        <?$table_row_index ++;?>
     @endforeach
     </table>
     </div>

@@ -45,11 +45,17 @@
         	{{Form::input('hidden','userid',$id)}}
             {{Form::input('email','email',null,['class'=>'newclass','placeholder'=>'Enter new email'])}}
         
-            {{Form::submit('Change',['class'=>'btn btn-info btn-xs'])}}
+            {{Form::submit('Add/Change',['class'=>'btn btn-info btn-xs'])}}
             {{$errors->first('email','<small style="color:#f00">:message</small>')}}</br>
         
         {{form::close()}}</br> 
-    
+    <?php
+    if(Auth::user()->oauth_email){?>
+    <h4>Oauth2 e-mail - <span>{{Auth::user()->oauth_email}}</span></h4>
+    <p>(This shows here because you logged in using	your Account with Facebook, Google etc.)</br></br>
+    	You can add/change your registered email to one you may prefer to use for this site,</br>
+    	and you can add/change a password, then you are able to use 'email and password' login too.</p></br>
+    <?}?>
     <h4>Change Password</h4>
         
         {{Form::open(array('url' => '/user/editpassword','class'=>'form-inline'))}}
@@ -57,7 +63,7 @@
             {{Form::input('hidden','userid',$id)}}
             {{Form::input('password','password',null,['class'=>'newclass input-xs','placeholder'=>'Change Password'])}}
         
-            {{Form::submit('Change',['class'=>'btn btn-info btn-xs'])}}
+            {{Form::submit('Add/Change',['class'=>'btn btn-info btn-xs'])}}
             {{$errors->first('password','<small style="color:#f00">:message</small>')}}</br>
         
         {{form::close()}}</br> 
@@ -113,7 +119,9 @@
             {{Form::submit('Load / Change the above Note',['name'=>'newnote','class'=>'btn btn-primary btn-xs'])}}
             {{Form::submit('Append to Existing Note',['name'=>'append','class'=>'btn btn-info btn-xs'])}}
             {{Form::submit('Delete Existing Notes',['name'=>'delete','class'=>'btn btn-default btn-xs'])}}
-        {{form::close()}}</br></br>
+        {{form::close()}}
+    <p></br>tip - to edit current note, copy and paste it into the text box.</p>
+        </br>
         
 
     </div>

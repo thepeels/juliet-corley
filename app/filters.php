@@ -85,7 +85,12 @@ Route::filter('guest', function()
             if (Auth::check()) return Redirect::to('/');
         }//if (Auth::check()) return Redirect::intended();
 });
-
+Route::filter('duplicate',function($user,$details){
+	//dd($user);
+	$userexists = User::where('email', '=' ,$details->email)->first();
+			if($userexists !==NULL){Redirect::to('download');}
+			return Redirect::intended();
+});		
 /*
 |--------------------------------------------------------------------------
 | CSRF Protection Filter

@@ -10,8 +10,10 @@ return array(
 			'scope' => array(),
 		),
 		'google' => array(
-			'client_id' => '644392492282-ier6n14askn4ot13jd3k4prg6isvvdst.apps.googleusercontent.com',
-			'client_secret' => 'PjqiZEqqNDdxVttZSXVL5vgP',
+			//'client_id' => '644392492282-ier6n14askn4ot13jd3k4prg6isvvdst.apps.googleusercontent.com',
+			'client_id' => '1077415270322-bulfiup4uv5h4ma50udhef8iphqdsbns.apps.googleusercontent.com',
+			//'client_secret' => 'PjqiZEqqNDdxVttZSXVL5vgP',
+			'client_secret' => 'FTfygSgtazwkVeaBlD6VMUaI',
 			'redirect_uri' => URL::to('google/login'),
 			'scope' => array(),
 		),
@@ -24,7 +26,7 @@ return array(
 		'linkedin' => array(
 			'client_id' => '12345678',
 			'client_secret' => 'y0ur53cr374ppk3y',
-			'redirect_uri' => URL::to('your/linkedin/redirect'),
+			'redirect_uri' => URL::to('linkedin/login'),
 			'scope' => array(),
 		),
 		'instagram' => array(

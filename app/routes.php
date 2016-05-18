@@ -28,6 +28,14 @@ Route::resource('sessions','SessionsController');
     Route::post('loginadmin',array('before'=>'csrf',function()
             {Route::post('loginadmin','SessionsController@adminstore');}));
 
+//Route::get('facebook/login','OauthController@facebookLogin');
+Route::get('facebook/authorize','OauthController@facebookAuth');
+Route::get('facebook/login','OauthController@facebookLogin');
+Route::get('google/authorize','OauthController@googleAuth');
+Route::get('google/login','OauthController@googleLogin');
+Route::get('github/authorize', 'OauthController@githubAuth');
+Route::get('github/login', 'OauthController@githubLogin');
+
 Route::get('demo','HomeController@demo');
 Route::get('temphome','HomeController@temphome');
 //Route::get('/','HomeController@temphome');

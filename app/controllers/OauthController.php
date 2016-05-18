@@ -69,6 +69,7 @@ function thelogin($provider){
 				$detail = new Detail;
 				$detail->user_id = $user->id;
 				$detail->save();
+				
 			}
     		}
 	    // Current user is now available via Auth facade
