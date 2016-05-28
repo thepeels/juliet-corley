@@ -5,10 +5,13 @@
 @stop
 <?$url = Request::url();
 $previous = URL::previous();
-//dd($url);
-$return_url=urlencode($url);
+//dd($previous);
+$return_url=urlencode($previous);
 Session::put('login_from',$previous);
+$message = (!NULL == Session::has('message')?Session::pull('message'):NULL);
+
 //dd(Session::get('login_from'));?>
+
 @section('content')
 <div class="container-16">
     <div class="grid-5 push-3 loginform">
@@ -16,13 +19,17 @@ Session::put('login_from',$previous);
 
 <h2 class="julie merri">JulietCorley.com</h2>
 <h3 class= "caption merri">Log in</h3></br>
-<a href="facebook/authorize" class ="btn-lg btn-primary">Login with Facebook</a></br></br>
-<a href="google/authorize" class ="btn-lg btn-danger">Login with Google</a></br></br>
-<a href="github/authorize" class ="btn-lg btn-info">Login with GitHub</a></br></br>
-------------- OR -------------</br>
+<a href="../authorize/facebook" class ="btn-lg btn-primary">Login with Facebook</a></br></br>
+<a href="../authorize/google" class ="btn-lg btn-danger">Login with Google</a></br></br>
+<a href="../authorize/github" class ="btn-lg btn-info">Login with GitHub</a></br></br>
+<?php
+if (isset($message)){?><span style = "color:#f00"><?}
+else{?><span><?}?>
+{{$message or '------------- OR -------------'}}</span>
+</br>
 <h5 class= "caption merri">Log in with email and password</h5>
 <fieldset class="login">
-    
+	
 {{Form::open(['route'=>'sessions.store'])}}
 
     {{Form:: label('email','Email')}}
@@ -32,12 +39,8 @@ Session::put('login_from',$previous);
 
     {{Form:: label('password','Password')}}
     </br>
-    {{Form::password('password')}} </br> 
-    
-@if(Session::has('message'))
-    {{Session::pull('message','<small style="color:#f00">:message</small>')}}
-@endif
-    </br>
+    {{Form::password('password')}} 
+    </br></br> 
     @if(Auth::guest())
         {{Form::submit('Login',array('class'=>'btn btn-info btn-xs'))}}
     @endif  

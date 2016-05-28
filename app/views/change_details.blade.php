@@ -52,7 +52,7 @@
     <?php
     if(Auth::user()->oauth_email){?>
     <h4>Oauth2 e-mail - <span>{{Auth::user()->oauth_email}}</span></h4>
-    <p>(This shows here because you logged in using	your Account with Facebook, Google etc.)</br></br>
+    <p style="font:italic 12px arial;color:#222">(This shows here because you logged in using	your Account with Facebook, Google etc.)</br></br>
     	You can add/change your registered email to one you may prefer to use for this site,</br>
     	and you can add/change a password, then you are able to use 'email and password' login too.</p></br>
     <?}?>
@@ -106,7 +106,8 @@
         
         {{form::close()}}</br>
         
-    <h4>Add Notes</h4>
+    <h4>Add Notes &nbsp;&nbsp;<span style="font:italic 12px arial;color:#222">
+    		tip - to edit current note, copy and paste it into the text box.</span></h4>
     <p><span>{{Auth::user()->detail->note}}</span></p>
         
         {{Form::open(array('url' => '/user/addnote','class'=>'form-signup','id'=>'noteform'))}}
@@ -120,7 +121,6 @@
             {{Form::submit('Append to Existing Note',['name'=>'append','class'=>'btn btn-info btn-xs'])}}
             {{Form::submit('Delete Existing Notes',['name'=>'delete','class'=>'btn btn-default btn-xs'])}}
         {{form::close()}}
-    <p></br>tip - to edit current note, copy and paste it into the text box.</p>
         </br>
         
 

@@ -9,6 +9,10 @@ class SessionsController extends BaseController{
             if(!Session::has('login_from')){	
 			Session::put('login_from',URL::previous());
 			}
+			/*if(Session::has('message')){
+				$message = Session::pull('message');
+			}
+			//else $message = "";*/
             if (Auth::check()) return Redirect::intended();
             return View::make('sessions.create');
         
