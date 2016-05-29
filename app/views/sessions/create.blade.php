@@ -19,9 +19,9 @@ $message = (!NULL == Session::has('message')?Session::pull('message'):NULL);
 
 <h2 class="julie merri">JulietCorley.com</h2>
 <h3 class= "caption merri">Log in</h3></br>
-<a href="../authorize/facebook" class ="btn-lg btn-primary">Login with Facebook</a></br></br>
-<a href="../authorize/google" class ="btn-lg btn-danger">Login with Google</a></br></br>
-<a href="../authorize/github" class ="btn-lg btn-info">Login with GitHub</a></br></br>
+<a href="../authorize/facebook" class ="btn-lg btn-primary" title = "Use your Facebook profile to login">Login with Facebook</a></br></br>
+<a href="../authorize/google" class ="btn-lg btn-danger" title = "Use your Gmail or Googleplus profile to login">Login with Google</a></br></br>
+<a href="../authorize/github" class ="btn-lg btn-info"title = "Use your Github credentials to login">Login with GitHub</a></br></br>
 <?php
 if (isset($message)){?><span style = "color:#f00"><?}
 else{?><span><?}?>

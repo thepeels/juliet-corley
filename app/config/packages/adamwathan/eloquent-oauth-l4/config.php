@@ -4,8 +4,10 @@ return array(
 	'table' => 'oauth_identities',
 	'providers' => array(
 		'facebook' => array(
-			'client_id' => '1567619263568720',
-			'client_secret' => '403b194db0acd05a97b1ccec7ea9432b',
+			//'client_id' => '1446724855658162',//live
+			'client_id' => '1567619263568720',//local
+			//'client_secret' => 'f08ced5592c7f69a4eaf5dac4d84d6a4',//live
+			'client_secret' => '403b194db0acd05a97b1ccec7ea9432b',//local
 			'redirect_uri' => URL::to('oalogin/facebook'),
 			'scope' => array(),
 		),
