@@ -17,6 +17,6 @@
                     <li><a class="btn btn-default btn-sm" href="/admin/fish">Admin Pages</a></li>
                     @endif
                 @else
-                        <li><a class="btn btn-default btn-sm" href="/login">Login/Register</a></li>
+                        <li><a class="btn btn-default btn-sm" href="/login" title="Logging in will get discounts applied where appropriate.">Login/Register</a></li>
                 @endif
             </ul>

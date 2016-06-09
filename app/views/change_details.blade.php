@@ -10,7 +10,7 @@
 @stop
 @section('content')
 <div class="centered userdownloads">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
 <script type="text/javascript">
     
     $(document).keypress(function(e) {
@@ -29,6 +29,7 @@
         $email =  Auth::user()->email;
         $icons = showPurchases($email);
 		$id = Auth::user()->id;
+		$duplicate = (!NULL == Session::has('duplicate')?Session::pull('duplicate'):NULL);
     ?>
 
     <h4>Registered e-mail - <span>{{Auth::user()->email}}</span></h4>
@@ -41,7 +42,7 @@
                     <li>{{ $error}}</li>
                  @endforeach
             </ul>--}}
-        
+        	<?if(isset($duplicate)){?><span style = "color:#f00">{{$duplicate}}</span><?}?>
         	{{Form::input('hidden','userid',$id)}}
             {{Form::input('email','email',null,['class'=>'newclass','placeholder'=>'Enter new email'])}}
         
@@ -107,7 +108,7 @@
         {{form::close()}}</br>
         
     <h4>Add Notes &nbsp;&nbsp;<span style="font:italic 12px arial;color:#222">
-    		tip - to edit current note, copy and paste it into the text box.</span></h4>
+    		tip - to edit current note, copy and paste it, then edit in the text box.</span></h4>
     <p><span>{{Auth::user()->detail->note}}</span></p>
         
         {{Form::open(array('url' => '/user/addnote','class'=>'form-signup','id'=>'noteform'))}}

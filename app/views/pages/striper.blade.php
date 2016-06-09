@@ -29,13 +29,16 @@ else{echo("
 $amountindollars = Input::get('amountindollars');
 $amountincents= $amountindollars*100;
 $itemdescription = Input::get('itemdescription');
+$cardholder_name = Input::get('cardholder_name');
 $receipt_email = Input::get('receipt_email');
+//dd($cardholder_name);
 ?>
 <div class="cart merri">
 <h3></br> Pay <span class= "julie">Juliet Corley</span> $<?=$amountindollars?> for <?=$itemdescription?></h3></br> 
 <form action="{{url('payment/testsinglepayment')}}" method="POST"> {{--singlepayment or testsinglepayment uses different stripe keys--}}
 	<input name ="amountincents" type="hidden" value="<?=$amountincents;?>">
 	<input name ="itemdescription" type="hidden" value="<?=$itemdescription;?>">
+	<input name ="name" type="hidden" value="<?=$cardholder_name;?>">
 	<input name ="receipt_email" type="hidden" value="<?=$receipt_email;?>">
 
 
@@ -45,6 +48,7 @@ $receipt_email = Input::get('receipt_email');
     data-amount="<?=$amountincents;?>"
     data-name="JulietCorley.com"
     data-description="<?=$itemdescription;?>"
+    data-metadata={'name':'<?$cardholder_name;?>'"
     data-receipt_email="<?=$receipt_email;?>"
     data-image="">
   </script>

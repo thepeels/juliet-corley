@@ -65,6 +65,16 @@ class DownloadController extends \BaseController {
     
     public function getFreepdfdownload($image_id,$description)
     {
+        $pageload = new Pageload;
+		$pdf = Pageload::where('pdf','>',0)->get();
+		foreach($pdf as $pdf);
+		$pdf_count = $pdf->pdf+1;
+		$pdf->delete();
+		$pageload->pdf = $pdf_count;
+		//$pageload->client_ip = Request::getClientIp();
+		$pageload->save();
+		//Pageload::add_pdf();
+			
         $target_image = public_path()."/images/".$image_id;
         $name = $description.".pdf";
 		$clicked = date("Y-m-d H:i:s");

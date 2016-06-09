@@ -37,7 +37,7 @@ App::after(function($request, $response)
  * ----------*/
 
 Route::filter('auth', function()
-{
+{	
     if(Auth::guest())return Redirect::to('login');
     return;
     });
@@ -108,4 +108,13 @@ Route::filter('csrf', function()
     {
         throw new Illuminate\Session\TokenMismatchException;
     }
-});
+});/*
+Route::filter('pageload',function(){
+	
+		$pageload = new Pageload;
+		$pageload->addtocart = 1;
+		$pageload->amount_in_cart = \Cart::total();
+		$pageload->client_ip = Request::getClientIp();
+		$pageload->save();
+		return;
+});*/

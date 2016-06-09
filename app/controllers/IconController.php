@@ -30,6 +30,12 @@ class IconController extends \BaseController {
 	}
     public function getMakecart()
     {
+    	$pageload = new Pageload;
+		$pageload->cartview = 1;
+		$pageload->amount_in_cart = \Cart::total();
+		$pageload->client_ip = Request::getClientIp();
+		$pageload->save();
+    		
     	//dd(Session::get('dest_email'));
 		//   $proxy=Input::get('proxyemail');
 	//if($proxy==""){$proxy=Auth::user()->email;}
@@ -65,14 +71,17 @@ class IconController extends \BaseController {
 			'success' 		=> true,
 			'current_email' => Session::get('cart_instance')));
 	}
-		 
+	public function getPageload($id,$fish_name,$base_price,$table_row_index)
+	{	dd($fish_name);
+		return Redirect::to('icon/addtocart')->compact('id','fish_name','$base_price','$table_row_index');
+	}	 
 	public function getAddtocart($id,$fish_name,$base_price,$table_row_index)
 	{
-		if(!Auth::check())return Response::json(array(
+		/*if(!Auth::check())return Response::json(array(
 				'fail' 		=>	true,
 				'notloggedin' 	=>	"Please login/register to use the cart.\r\n...I apologise for this, as I hate being forced to register to use sites!\nBut this is the only way I can keep a record of your entitlement to use your images.\nSo I've kept registration minimal, with just an email address and password.\nAnd I promise not to spam you!"
 			)
-		);
+		);*/
 	    // add return URL to session? 
         if (Session::has('go_back_to_URL'))
         {   
@@ -80,7 +89,7 @@ class IconController extends \BaseController {
         }   
         Session::push('go_back_to_URL',URL::previous());
         //dd($id_index);   
-	    return priorPurchase($id,$fish_name,$base_price,$table_row_index);   //add check for existing prior purchase
+	    return $this->priorPurchase($id,$fish_name,$base_price,$table_row_index);   //add check for existing prior purchase
 		//was return cartAdd($id,$fish_name,$base_price/2,$table_row_index);
 	}
 	
@@ -217,7 +226,88 @@ class IconController extends \BaseController {
             }
         }
     }
-	
+	public function shopviews()
+	{
+		#$purchases = Purchase::all();
+		$views = Pageload::all();
+			
+        return View::make('pageloads',array(
+        	'views' => $views
+		));
+	}
+	private function priorPurchase($id,$fish_name,$base_price,$table_row_index)
+{                      //dd(Auth::check());
+    $prev_charge = 0;
+    $prior = FALSE;
+    //if(!Auth::check())Redirect::action('SessionsController@create');
+	if(Auth::check()){
+       
+    $prior_purchases = showPurchases(Auth::user()->email);
+    //check for prior purchases and reduce charge by amount paid or other algorithm
+    foreach ($prior_purchases as $prior_purchase)
+        if (strpos($prior_purchase->purchase,$fish_name)!==false)//one of the icons of the fish has been bought
+		
+        {  
+            $prev_charge += $prior_purchase->amount;//previous charge incremented by price paid for item(s)
+            $prior = TRUE;//Flag may be unnecessary
+            $charge = $base_price - $prev_charge;//charge is price minus previous amount paid
+            if($charge < 0)$charge = 0;// no negative amount
+            $base_price= $charge; //price to be passed back in for next fish or output for payment
+        }
+	}  
+    return $this->cartAdd($id,$fish_name,$base_price,$table_row_index,$prior);
+}
+ 	private function cartAdd($id,$fish_name,$base_price,$id_index,$prior)
+    {  //dd($base_price);
+        //dd ('download#'.$fish_name[1]);
+        $pageload = new Pageload;
+		$pageload->addtocart = 1;
+		$pageload->amount_in_cart = \Cart::total();
+		$pageload->client_ip = Request::getClientIp();
+		$pageload->save();
+        Cart::instance('main');
+        $selections = Image::where('id',$id)->get();
+        foreach($selections as $selection)
+        {
+            //only add to cart if not already present so...    
+            if (Cart::search(array('id'=>$selection->id)) == false)
+                Cart::add(array(
+                    'id' 		=> $selection->id,
+                    'name' 		=> $fish_name . " " . $selection->filename,
+                    'qty' 		=> 1,
+                	'price' 	=> $base_price,
+                    'options' 	=> array(
+                    'filepath'	=> $selection->id,
+                    'prior'		=> $prior,
+                    //'proxy'		=> (string)Session::get('cart_instance')
+                    )
+                    )
+                );
+            }
+		Session::flash('before_cart_url','download');
+		if(Cart::count()>0) //show summary
+        {   if(Cart::count()==1){$cart_description = Cart::count() . ' item  . . . ';}
+            else {$cart_description = Cart::count() . ' items . . ';}
+            $cart_amount = '$' . Cart::total()/100;
+        }
+		//send ajax response ...
+		return Response::json(array(
+		'cart_description' => $cart_description,
+		'cart_amount' => $cart_amount
+		)
+		);  
+        //$return_to ='download#'.$id_index;
+        		//returnSession::get('go_back_to_URL');
+        //return Redirect::to($return_to);
+        //return Redirect::back();
+    }
+public function cartclick(){
+	$pageload = new Pageload;
+	$pageload->addtocart = 1;
+	$pageload->amount_in_cart = \Cart::total();
+	$pageload->client_ip = Request::getClientIp();
+	$pageload->save();
+}
 /*	public function getCartdownload($filepath,$name)
     {
         return Carthelper::download($filepath,$name);

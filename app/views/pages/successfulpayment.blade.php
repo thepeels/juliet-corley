@@ -9,12 +9,14 @@ $cart_instance = Session::get('cart_instance');
 Cart::instance($cart_instance);
 if (Cart::count()!=0){
 ?>		
-<h3 class="merri">Hi - {{Auth::user()->email}}</h3>
+<h3 class="merri">Hi - <?if(Auth::user()){
+							if(NULL != Auth::user()->email){echo(Auth::user()->email);}
+							else{echo(Auth::user()->oauth_email);}}?></h3>
 	<h4 class="caption cr merri">Thank you, your card payment was successful</h4>
 
-<p class="cr merri"><?if(Auth::user()->author_name!=""){
+<p class="cr merri"><?if(Auth::user()){if(Auth::user()->author_name!=""){
 		echo(Auth::user()->author_name.' is');
-	}else{
+	}}else{
 		echo('You {Author Name} are');
 	}?>&nbsp;entitled to use the Fish Icon 
 		images listed below, with the following stipulations:</p>

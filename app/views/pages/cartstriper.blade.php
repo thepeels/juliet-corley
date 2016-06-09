@@ -12,9 +12,12 @@ if (Cart::count()>=2){$itemdescription = (Cart::count().'&nbsp;images');}
 
 $amountincents = Cart::total();
 $amountindollars= $amountincents/100;
-if (Auth::user()->email) $receipt_email=Auth::user()->email;
-elseif(Auth::user()->oauth_email) $receipt_email=Auth::user()->oauth_email;
-else $receipt_email ="john@jjc.me";
+$receipt_email ='john@jjc.me';
+$cardholder_name = Input::get('cardholder_name');
+if(Auth::user()){
+	if (Auth::user()->email) $receipt_email=Auth::user()->email;
+	elseif(Auth::user()->oauth_email) $receipt_email=Auth::user()->oauth_email;
+}
 #$itemdescription = Cart::count().'&nbsp;items';
 #$itemdescription = Input::get('itemdescription');
 ?>
@@ -24,7 +27,11 @@ else $receipt_email ="john@jjc.me";
 <form action="{{url('payment/testpay')}}" method="POST"> {{--pay or test pay uses different stripe keys--}}
 	<input name ="amountincents" type="hidden" value="<?=$amountincents?>">
 	<input name ="itemdescription" type="hidden" value="<?=$itemdescription?>">
+	<input name ="name" type="hidden" value="<?=$cardholder_name;?>">
 	<input name ="receipt_email" type="hidden" value="<?=$receipt_email?>">
+	
+</br> 
+	
 
   <script
     src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button waiting"
@@ -32,6 +39,7 @@ else $receipt_email ="john@jjc.me";
     data-amount="<?=$amountincents;?>"
     data-name="JulietCorley.com"
     data-description="<?=$itemdescription;?>"
+    data-metadata={'name':'<?$cardholder_name;?>'"
     data-receipt_email="<?=$receipt_email;?>"
     data-image="">
   </script>

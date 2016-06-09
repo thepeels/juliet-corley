@@ -46,12 +46,12 @@ $return_url = urlencode($url);
 				<div id="colouringcart" class="cart">
                     <h5> Cart Summary: <span id="cartresume">{{cartResume()}} </span></h5>
                    
-                   <h3 class="arial"><a href="/icon/makecart?return_url={{$return_url}}" 
+                   <h3 class="arial"><a href="/icon/makeshopcart?return_url={{$return_url}}" 
                             class="btn btn-primary btn-xs" id="themailaddress">View Cart / Checkout
                         </a>
                             &nbsp;&nbsp;</br>
                         <p>
-                        <a href="/icon/ajaxdumpcart" 
+                        <a href="/icon/ajaxdumpshopcart" 
                             class= " byajax btn btn-info btn-xs">Empty Cart
                         </a></p>
                     </h3>

@@ -70,6 +70,13 @@
                           <li><a href="{{ URL::to('allpurchases') }}">All Purchases</a></li>
                         </ul>
                       </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Page Views <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="{{ URL::to('shopviews') }}">Cart View Summary</a></li>
+                          <!--<li><a href="{{ URL::to('iconviews') }}">Icon Cart Views</a></li>-->
+                        </ul>
+                      </li>
                       {{--<li {{ Request::is('admin/fish*') ? ' class="active"' : '' }}><a href="/admin/fish">Fish</a></li>--}}
                       {{--<li {{ Request::is('admin/art*') ? ' class="active"' : '' }}><a href="/admin/art">Art</a></li>--}}
                     </ul>                    

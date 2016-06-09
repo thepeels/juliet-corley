@@ -25,9 +25,8 @@ function showPayButton($dest_email)
 function shopShowPayButton($dest_email)
     {
         if (Cart::instance('shop')->total()!=0){
-            echo('<h3><a href="/cardpay" class="btn btn-primary ">Pay by Card
-                </a></h3>');
-			//echo('Cart destination:-');
+            //echo('<h3><a href="/shopcardpay" class="btn btn-primary ">Pay by Card</a></h3>');
+			echo('<h3><input type = "submit" value="Pay by Card" class="btn btn-primary "></h3>');
         }
     }
 
@@ -142,6 +141,11 @@ function shopResume()
 function cartAdd($id,$fish_name,$base_price,$id_index,$prior)
     {  //dd($base_price);
         //dd ('download#'.$fish_name[1]);
+        $pageload = new Pageload;
+		$pageload->addtocart = 1;
+		$pageload->amount_in_cart = \Cart::total();
+		$pageload->client_ip = Request::getClientIp();
+		$pageload->save();
         Cart::instance('main');
         $selections = Image::where('id',$id)->get();
         foreach($selections as $selection)
@@ -180,7 +184,7 @@ function cartAdd($id,$fish_name,$base_price,$id_index,$prior)
     }
 function cartAddColouringItem($productId)
 {
-	Cart::instance('main');
+	Cart::instance('shop');
 	$products = Product::where('id',$productId)->get();
 	foreach ($products as $product)
 	#$name = Image::withImages()->where('id',$product->full_size_image_id)->get();

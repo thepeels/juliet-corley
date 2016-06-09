@@ -12,6 +12,7 @@ public function postIndex()
 		$rules = [
 		'amountindollars' 	=> ['required'],
 		'receipt_email' 	=> ['required','email'],
+		'cardholder_name'	=> ['required'],
 		'itemdescription'	=> ['required']
 		];
 		$validation = Validator::make(Input::all(),$rules);
@@ -20,6 +21,36 @@ public function postIndex()
 			return Redirect::back()->withInput()->withErrors($validation->messages());
 		}		
 		return View::make('pages.striper');
+	}
+public function postCart()
+	{
+		$rules = [
+		//'amountindollars' 	=> ['required'],
+		//'receipt_email' 	=> ['required','email'],
+		'cardholder_name'	=> ['required']
+		//'itemdescription'	=> ['required']
+		];
+		$validation = Validator::make(Input::all(),$rules);
+		if ($validation->fails())
+		{
+			return Redirect::back()->withInput()->withErrors($validation->messages());
+		}		
+		return View::make('pages.cartstriper');
+	}
+public function postShopcart()
+	{
+		$rules = [
+		//'amountindollars' 	=> ['required'],
+		//'receipt_email' 	=> ['required','email'],
+		'cardholder_name'	=> ['required']
+		//'itemdescription'	=> ['required']
+		];
+		$validation = Validator::make(Input::all(),$rules);
+		if ($validation->fails())
+		{
+			return Redirect::back()->withInput()->withErrors($validation->messages());
+		}		
+		return View::make('pages.cartstriper');
 	}
 
 public function getPayforcart()
@@ -53,6 +84,7 @@ public function postPay()
 	$token = Input::get('stripeToken');
 	$amountincents = Input::get('amountincents');
 	$itemdescription = Input::get('itemdescription');
+	$name = null!=Input::get('name')?Input::get('name'):null;	
 	$receipt_email = Input::get('receipt_email');
 	// Create the charge on Stripe's servers - this will charge the user's card
 	try {
@@ -61,6 +93,7 @@ public function postPay()
 	      "currency" => "aud",
 	      "card"  => $token,
 	      "description" => $itemdescription,
+	      "metadata['name']" => $name,
 	      "receipt_email" => $receipt_email,
 		  )
 	    );
@@ -78,39 +111,30 @@ public function postPay()
 	if ($charge->paid == true) 
 	   {
     	    $content = Cart::content();
-            $email = null!=(Auth::user()->email)?Auth::user()->email:Auth::user()->email;
-            
-            //Session::put('purchased',array());
-                //put the purchased items in the database for later download if necessary
-            
-            //     var_dump($content);return 'stop here';
-            foreach ($content as $item)
-        {
-            $purchase = new Userpurchase;
+            $email = 'Buyer not logged in';
+		if(Auth::user()){
+        $email = NULL!=(Auth::user()->email)?Auth::user()->email:Auth::user()->oauth_email;
+		}
+		
+        //Session::put('purchased',array());
+            //put the purchased items in the database for later download if necessary
+        foreach ($content as $item){
+        	$purchase = new Purchase;
             $purchase->email = $email;
             $purchase->purchase = $item->name;
+			$purchase->cardholder_name = $name;
             $purchase->amount = $item->price;
             $purchase->image_id = $item->id;
             $purchase->save();
-			
-            $purchase = new Purchase;
-            $purchase->email = $email;
-            $purchase->purchase = $item->name;
-            $purchase->amount = $item->price;
-            $purchase->image_id = $item->id;
-            $purchase->save();
-            /*
-            DB::table('userpurchases')->insert(
-                array(
-                    'email'=>$email,
-                    'purchase'=>$item->name,
-                    'amount'=>$item->price,
-                    'image_id'=>$item->id,
-                    'created_at'=> new DateTime,
-                    )
-                );*/
+				
+			$userpurchase = new UserPurchase;
+            $userpurchase->email = $email;
+            $userpurchase->purchase = $item->name;
+			$userpurchase->cardholder_name = $name;
+            $userpurchase->amount = $item->price;
+            $userpurchase->image_id = $item->id;
+            $userpurchase->save();
             #Session::push('purchased_download',$item->name);
-            Session::push('purchased',$item->filepath);
         }
     		//return Session::all();
     		//return to download
@@ -128,6 +152,7 @@ public function postTestpay()
     $token = Input::get('stripeToken');
     $amountincents = Input::get('amountincents');
     $itemdescription = Input::get('itemdescription');
+	$name = null!=Input::get('name')?Input::get('name'):null;
 	$receipt_email = Input::get('receipt_email');
     // Create the charge on Stripe's servers - this will charge the user's card
     try {
@@ -136,6 +161,7 @@ public function postTestpay()
           "currency" => "aud",
           "card"  => $token,
           "description" => $itemdescription,
+          "metadata['name']" => $name,
           "receipt_email" => $receipt_email,
           )
         );
@@ -154,25 +180,29 @@ public function postTestpay()
     	$cart_instance = Session::get('cart_instance');
 		Cart::instance($cart_instance);
         $content = Cart::content();
-        $email = null!=(Auth::user()->email)?Auth::user()->email:Auth::user()->email;
+		$email = 'Buyer not logged in';
+		if(Auth::user()){
+        $email = NULL!=(Auth::user()->email)?Auth::user()->email:Auth::user()->oauth_email;
+		}
+		
         //Session::put('purchased',array());
             //put the purchased items in the database for later download if necessary
-        
         foreach ($content as $item){
-            
-            $purchase = new Userpurchase;
+        	$purchase = new Purchase;
             $purchase->email = $email;
             $purchase->purchase = $item->name;
+			$purchase->cardholder_name = $name;
             $purchase->amount = $item->price;
             $purchase->image_id = $item->id;
             $purchase->save();
 				
-			$purchase = new Purchase;
-            $purchase->email = $email;
-            $purchase->purchase = $item->name;
-            $purchase->amount = $item->price;
-            $purchase->image_id = $item->id;
-            $purchase->save();
+			$userpurchase = new UserPurchase;
+            $userpurchase->email = $email;
+            $userpurchase->purchase = $item->name;
+			$userpurchase->cardholder_name = $name;
+            $userpurchase->amount = $item->price;
+            $userpurchase->image_id = $item->id;
+            $userpurchase->save();
             #Session::push('purchased_download',$item->name);
             Session::push('purchased',$item->name);
         }
@@ -192,7 +222,9 @@ public function postTestsinglepayment()
     $token = Input::get('stripeToken');
     $amountincents = Input::get('amountincents');
     $itemdescription = Input::get('itemdescription');
+	$name = null!=Input::get('name')?Input::get('name'):null;
 	$receipt_email = null!=Input::get('receipt_email')?Input::get('receipt_email'):null;
+    //dd($name);
     // Create the charge on Stripe's servers - this will charge the user's card
     try {
         $charge = Stripe_Charge::create(array(
@@ -200,6 +232,7 @@ public function postTestsinglepayment()
           "currency" => "aud",
           "card"  => $token,
           "description" => $itemdescription,
+          "metadata['name']" => $name,
           "receipt_email" => $receipt_email
           )
         );
@@ -224,6 +257,7 @@ public function postTestsinglepayment()
             $purchase->email = $email;
             $purchase->purchase = $itemdescription;
             $purchase->amount = $amountincents;
+            $purchase->cardholder_name = $name;
             $purchase->image_id = 0;
             $purchase->save();
 			
@@ -231,6 +265,7 @@ public function postTestsinglepayment()
 			//if ($emailcheck !== null){
 				$purchase = new Userpurchase;
 	            $purchase->email = $receipt_email;
+	            $purchase->cardholder_name = $name;
 	            $purchase->purchase = $itemdescription;
 	            $purchase->amount = $amountincents;
 	            $purchase->image_id = 0;
@@ -250,6 +285,7 @@ public function postSinglepayment()
     $token = Input::get('stripeToken');
     $amountincents = Input::get('amountincents');
     $itemdescription = Input::get('itemdescription');
+	$name = null!=Input::get('name')?Input::get('name'):null;
 	$receipt_email = null!=Input::get('receipt_email')?Input::get('receipt_email'):null;
     // Create the charge on Stripe's servers - this will charge the user's card
     try {
@@ -258,6 +294,7 @@ public function postSinglepayment()
           "currency" => "aud",
           "card"  => $token,
           "description" => $itemdescription,
+          "metadata['name']" => $name,
           "receipt_email" => $receipt_email
           )
         );
@@ -280,6 +317,7 @@ public function postSinglepayment()
             $purchase->email = $email;
             $purchase->purchase = $itemdescription;
             $purchase->amount = $amountincents;
+			$purchase->cardholder_name = $name;
             $purchase->image_id = 0;
             $purchase->save();
 			
@@ -287,6 +325,7 @@ public function postSinglepayment()
             $purchase->email = $email;
             $purchase->purchase = $itemdescription;
             $purchase->amount = $amountincents;
+			$purchase->cardholder_name = $name;
             $purchase->image_id = 0;
             $purchase->save();
         return Redirect::to('payment/singlesuccess');

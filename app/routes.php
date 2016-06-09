@@ -1,11 +1,11 @@
 <?
+Route::controller('user','UserController');
+
 Route::controller('download','DownloadController');
 
 Route::controller('art','admin\ArtController');
 
 Route::controller('shop','ProductController');
-
-Route::controller('user','UserController');
 
 Route::controller('test','TestController');
 
@@ -53,19 +53,26 @@ Route::group(array('before'=>'superuser'), function() {
     Route::controller('admin/art','Admin\ArtController');
     Route::controller('admin/shop','Admin\ProductController');
     Route::controller('admin','Admin\IndexController');
-    Route::get('user','UserController@getIndex');
-    Route::get('purchases','UserController@getUserpurchases');
-    Route::get('notes','UserController@getUsernotes');
-    Route::get('author','UserController@getAuthorname');
-    Route::get('authornotes','UserController@getAuthornotes');
-    Route::get('allpurchases','UserController@getShowallpurchases');
+    Route::get('user','UserController@index');
+    Route::get('purchases','UserController@userpurchases');
+    Route::get('notes','UserController@usernotes');
+    Route::get('author','UserController@authorname');
+    Route::get('authornotes','UserController@authornotes');
+    Route::get('allpurchases','UserController@showallpurchases');
+    Route::get('shopviews','IconController@shopviews');
+    Route::get('iconviews','IconController@iconviews');
 });
-
-Route::group(array('before'=>'auth'), function(){
-        Route::get('cardpay', function(){return View::make('pages.cartstriper');});
-        Route::get('icon/addtocart','IconController@getAddtocart');
-});
-    
+//Route::get('icon/addtocart',array('before'=>'auth','IconController@addtocart'));/*function()
+//{Route::get('icon/addtocart','IconController@addtocart');}));*/
+	
+//Route::get('icon/addtocart','IconController@getAddtocart');
+//Route::group(array('before'=>'auth'), function(){
+       // Route::get('cardpay', function(){return View::make('pages.cartstriper');//});
+        //Route::get('icon/addtocart','IconController@getAddtocart');
+//});
+Route::post('cardpay','PaymentController@postCart');
+Route::post('shopcardpay','PaymentController@postShopcart');
+//Route::get('shopcardpay',function(){return View::make('pages.cartstriper');});    
 Route::controller('icon','IconController');
 Route::get('back', function(){return Redirect::back();});
     /*Route::get('cardpay', array('before'=>'auth',function()

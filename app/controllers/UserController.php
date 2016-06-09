@@ -8,7 +8,7 @@ class UserController extends \BaseController {
 	 * @return Response
 	 */
 	
-	public function getIndex()
+	public function index()
 	{
 		$users = \User::all();  //paginate(6);
 		
@@ -16,7 +16,7 @@ class UserController extends \BaseController {
 			'table_row' => $users
 		));
 	}
-	public function getAuthorname()
+	public function authorname()
 	{
 		$authors = \User::has('detail')->get();
 		return View::make('pages.authors', array(
@@ -24,7 +24,7 @@ class UserController extends \BaseController {
 		));
 	}
 
-    public function getAuthornotes()
+    public function authornotes()
     {
         return View::make('selectauthor_shownotes');
     }
@@ -108,8 +108,34 @@ class UserController extends \BaseController {
 	{
 		$id=Input::get('userid');
 		$user = User::find($id);
-		$user->email = Input::get('email');
-		if ($user->oauth_email != ""){$user->both_emails = TRUE;}
+		$new_email = Input::get('email');//dd($new_email);// need to eliminate integ constr violn
+			$password_login = ['email' => $new_email];	
+    		$userexists 	= User::where($password_login)->first();//dd($userexists);
+			if(NULL != $userexists){//dd($new_email);
+				$resp = Redirect::action('UserController@getChange')
+				->with('duplicate','This email address is already in 
+					use, please enter another');
+				Session::driver()->save();
+				$resp->send();
+				exit();
+			};
+			$oauth_login = ['oauth_email' => $new_email];	
+    		$userexists  = User::where($oauth_login)->first();//user id with the oalogin email
+			if(NULL != $userexists){
+				$oauth_user = DB::table('oauth_identities')->where('user_id','=',$userexists->id)->first();
+				if($userexists->id != $user->id){//not users own oauth email
+					$resp = Redirect::action('UserController@getChange')
+					->with('duplicate',"This email address has been used to 
+						login with <strong>".$oauth_user->provider.".</strong>\nPlease login with 
+						".$oauth_user->provider." and then add your email using 
+						this same method");
+					Session::driver()->save();
+					$resp->send();
+					exit();
+				}
+			};
+		if ($user->oauth_email !== NULL){$user->both_emails = TRUE;}
+		$user->email = $new_email;
 		$user->save();
 		return Redirect::to('user/change');
 	}
@@ -231,7 +257,7 @@ class UserController extends \BaseController {
 		}
     }
     
-    public function getUserpurchases()
+    public function userpurchases()
     {
         return View::make('selectuser_showpurchases');
     }
@@ -259,42 +285,46 @@ class UserController extends \BaseController {
         return View::make('userpurchases');
     }
      
-     public function getShowallpurchases()
+     public function showallpurchases()
     {
         #$purchases = Purchase::all();
 		$purchases = DB::table('purchases')
-		
-		->groupBy('purchase')
-		//->first()
-		->paginate(10);
-		#->get();
+			->groupBy('purchase')
+			//->first()
+			->paginate(10);
+			#->get();
         return View::make('showallpurchases',array(
         	'purchases' => $purchases
 		));
     }
 
-    public function getUsernotes()
+    public function usernotes()
     {
         return View::make('selectuser_shownotes');
     }
 
     public function postUsernotes()
     {
-        $email = Input::get('email');
+        $email 			= Input::get('email');
+		$oauth_email 	= Input::get('oauth_email');
 		if ($email!=null){
-			
-			$user_id = User::where('email',$email)->pluck('id');
-			$detail = Detail::where('user_id',$user_id)->get();
+			$user_id 	= User::where('email',$email)->pluck('id');
+		}
+		else if ($oauth_email!=null){
+			$user_id 	= User::where('oauth_email',$oauth_email)->pluck('id');
+		}
+		if ($user_id!=null){
+			$detail 	= Detail::where('user_id',$user_id)->get();
 			foreach($detail as $detail){
-        	$note = $detail->note;
-			//dd($note);
-			$address = $detail->address;
-			$postcode = $detail->postcode;
-			$alias = $detail->alias;
+        	$note 		= $detail->note;
+			$address	= $detail->address;
+			$postcode	= $detail->postcode;
+			$alias		 = $detail->alias;
 			$author_name = $detail->author_name;
 			}	    
         return View::make('usernotes',array(
 			'email'		=> $email,
+			'oauth_email'=> $oauth_email,
 			'note'		=> $note,
 			'address'	=> $address,
 			'postcode'	=> $postcode,
