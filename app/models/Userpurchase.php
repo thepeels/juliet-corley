@@ -1,5 +1,5 @@
 <?php
-class Userpurchase extends Purchase
+class Userpurchase extends Eloquent
 {
 	protected $table = 'userpurchases';	
     /*
@@ -10,9 +10,25 @@ class Userpurchase extends Purchase
         'purchase',
         'amount',
         'image_id',
-        'client_ip'     
+        'client_ip',
+        'cardholder_name',     
     ];
-    
+   
+   /**
+	 * @return Purchase
+	 */
+    public static function addToTable($itemName, $name, $itemPrice, $itemId, $email)
+    {
+    	$purchase = new Userpurchase;
+        $purchase->purchase = $itemName;
+        $purchase->amount = $itemPrice;
+        $purchase->image_id = $itemId;
+		$purchase->cardholder_name = $name;
+        $purchase->email = $email;
+		
+		return $purchase;
+	}
+	 
    /* function __construct(email $email,name $item,cardholder $name,price $price,image_id $id){
         $this->email = $email;
         $this->purchase = $name;
