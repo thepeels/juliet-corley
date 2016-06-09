@@ -118,31 +118,10 @@ class PaymentController extends \BaseController
             //Session::put('purchased',array());
             //put the purchased items in the database for later download if necessary
             foreach ($content as $item) {
-
                 $purchase = Purchase::addToTable($item->name, $name, $item->price, $item->id, $email);
                 $purchase->save();
                 $purchase = Userpurchase::addToTable($item->name, $name, $item->price, $item->id, $email);
                 $purchase->save();
-
-                /*$purchase = Purchase::createFromItem($item, $name, $email);
-                $purchase->save();
-                
-                $purchase = new Purchase;
-                $purchase->email = $email;
-                $purchase->purchase = $item->name;
-                $purchase->cardholder_name = $name;
-                $purchase->amount = $item->price;
-                $purchase->image_id = $item->id;
-                $purchase->save();*/
-
-                /*$userpurchase = new Userpurchase;
-                $userpurchase->email = $email;
-                $userpurchase->purchase = $item->name;
-                $userpurchase->cardholder_name = $name;
-                $userpurchase->amount = $item->price;
-                $userpurchase->image_id = $item->id;
-                $userpurchase->save();*/
-                #Session::push('purchased_download',$item->name);
             }
             //return Session::all();
             //return to download
@@ -200,22 +179,6 @@ class PaymentController extends \BaseController
                 $purchase->save();
                 $userpurchase = Userpurchase::addToTable($item->name, $name, $item->price, $item->id, $email);
                 $userpurchase->save();
-                /*$purchase = new Purchase;
-                $purchase->email = $email;
-                $purchase->purchase = $item->name;
-                $purchase->cardholder_name = $name;
-                $purchase->amount = $item->price;
-                $purchase->image_id = $item->id;
-                $purchase->save();*/
-
-                /*$userpurchase = new UserPurchase;
-                $userpurchase->email = $email;
-                $userpurchase->purchase = $item->name;
-                $userpurchase->cardholder_name = $name;
-                $userpurchase->amount = $item->price;
-                $userpurchase->image_id = $item->id;
-                $userpurchase->save();
-                #Session::push('purchased_download',$item->name);*/
                 Session::push('purchased', $item->name);
             }
 
