@@ -1,0 +1,3 @@
+app/routes.php
+public/
+vendor/filp/whoops/src/Whoops/Resources/css/whoops.base.css

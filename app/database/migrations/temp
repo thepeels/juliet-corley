@@ -1,0 +1,23 @@
+public function up()
+	{
+		Schema::create('icons',function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->string('latin');
+			$table->string('thumb3cm');
+			$table->string('thumb5cm');
+			$table->string('icon3cm');
+			$table->string('icon5cm');
+			$table->timestamps();
+		});
+	}
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::drop('icons');
+	}

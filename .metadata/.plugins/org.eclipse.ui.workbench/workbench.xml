@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="51" version="2.0">
+<workbenchAdvisor/>
+<window height="940" maximized="true" width="1200" x="25" y="25">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout>
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="122" y="22"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="137" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="84" y="22"/>
+<coolItem id="com.aptana.ui.globalActionSet" itemType="typeToolBarContribution" x="168" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="84" y="22"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="91" y="22"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="com.aptana.editor.html" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="com.aptana.editor.text" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="com.aptana.editor.css" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="com.aptana.editor.json" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="com.aptana.editor.php" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1414853818438" focus="true" label="Workspace - Web">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+<part id="12"/>
+<part id="13"/>
+<part id="14"/>
+<part id="15"/>
+<part id="16"/>
+<part id="17"/>
+<part id="18"/>
+<part id="19"/>
+<part id="20"/>
+<part id="21"/>
+<part id="22"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.internal.EditorStack@ea3bc5" ratio="0.47977686" ratioLeft="688" ratioRight="746" relationship="2" relative="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="8"/>
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.internal.EditorStack@6515a6" ratio="0.870257" ratioLeft="711" ratioRight="106" relationship="2" relative="org.eclipse.ui.internal.EditorStack@ea3bc5">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="com.aptana.editor.php" name="iconhelper.php" partName="iconhelper.php" title="iconhelper.php" tooltip="C:\xampp\htdocs\my-first-app\app\classes\iconhelper.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/classes/iconhelper.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="559" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="IconController.php" partName="IconController.php" title="IconController.php" tooltip="C:\xampp\htdocs\my-first-app\app\controllers\IconController.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/controllers/IconController.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="1236" selectionTopPixel="510"/>
+</editor>
+<editor id="com.aptana.editor.php" name="addusers.blade.php" partName="addusers.blade.php" title="addusers.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\pages\addusers.blade.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/addusers.blade.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="696" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="UserController.php" partName="UserController.php" title="UserController.php" tooltip="C:\xampp\htdocs\my-first-app\app\controllers\UserController.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/controllers/UserController.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="168" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="PagesController.php" partName="PagesController.php" title="PagesController.php" tooltip="C:\xampp\htdocs\my-first-app\app\controllers\PagesController.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/controllers/PagesController.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="69" selectionOffset="349" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="ProviderRepository.php" partName="ProviderRepository.php" title="ProviderRepository.php" tooltip="C:\xampp\htdocs\my-first-app\vendor\laravel\framework\src\Illuminate\Foundation\ProviderRepository.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="1426"/>
+</editor>
+<editor id="com.aptana.editor.php" name="AssetPublisher.php" partName="AssetPublisher.php" title="AssetPublisher.php" tooltip="C:\xampp\htdocs\my-first-app\vendor\laravel\framework\src\Illuminate\Foundation\AssetPublisher.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/vendor/laravel/framework/src/Illuminate/Foundation/AssetPublisher.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="app.php" partName="app.php" title="app.php" tooltip="C:\xampp\htdocs\my-first-app\app\config\app.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/config/app.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4483" selectionTopPixel="1607"/>
+</editor>
+<editor activePart="true" focus="true" id="com.aptana.editor.php" name="singlepayment.blade.php" partName="singlepayment.blade.php" title="singlepayment.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\pages\singlepayment.blade.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/singlepayment.blade.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="620" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="routes.php" partName="routes.php" title="routes.php" tooltip="C:\xampp\htdocs\my-first-app\app\routes.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/routes.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="683" selectionTopPixel="204"/>
+</editor>
+<editor id="com.aptana.editor.php" name="stripepayment.blade.php" partName="stripepayment.blade.php" title="stripepayment.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\pages\stripepayment.blade.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/stripepayment.blade.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="layoutstripe.blade.php" partName="layoutstripe.blade.php" title="layoutstripe.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\layoutstripe.blade.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/layoutstripe.blade.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="31" selectionOffset="266" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="PaymentController.php" partName="PaymentController.php" title="PaymentController.php" tooltip="C:\xampp\htdocs\my-first-app\app\controllers\PaymentController.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/controllers/PaymentController.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1430" selectionTopPixel="116"/>
+</editor>
+<editor id="com.aptana.editor.php" name="users.blade.php" partName="users.blade.php" title="users.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\pages\users.blade.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/users.blade.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="741" selectionTopPixel="71"/>
+</editor>
+<editor id="com.aptana.editor.php" name="lesson.blade.php" partName="lesson.blade.php" title="lesson.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\pages\lesson.blade.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/lesson.blade.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="home.blade.php" partName="home.blade.php" title="home.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\pages\home.blade.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/home.blade.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="layoutplain.blade.php" partName="layoutplain.blade.php" title="layoutplain.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\layoutplain.blade.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/layoutplain.blade.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="301" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="index.php" partName="index.php" title="index.php" tooltip="C:\xampp\htdocs\julie\public\index.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/julie/public/index.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="hello.php" partName="hello.php" title="hello.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\hello.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/hello.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="showicons.blade.php" partName="showicons.blade.php" title="showicons.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\pages\showicons.blade.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/showicons.blade.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="HomeController.php" partName="HomeController.php" title="HomeController.php" tooltip="C:\xampp\htdocs\my-first-app\app\controllers\HomeController.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/controllers/HomeController.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="651" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="temphomepage.blade.php" partName="temphomepage.blade.php" title="temphomepage.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\temphomepage.blade.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/temphomepage.blade.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="305" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.css" name="style.css" partName="style.css" title="style.css" tooltip="C:\xampp\htdocs\my-first-app\public\css\style.css" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/public/css/style.css"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1295" selectionTopPixel="0"/>
+</editor>
+<editor focus="true" id="com.aptana.editor.php" name="icon_view.blade.php" partName="icon_view.blade.php" title="icon_view.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\icon_view.blade.php" workbook="org.eclipse.ui.internal.EditorStack@ea3bc5">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/icon_view.blade.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1524" selectionTopPixel="386"/>
+</editor>
+<editor id="com.aptana.editor.text" name="laravel.log" partName="laravel.log" title="laravel.log" tooltip="C:\xampp\htdocs\my-first-app\app\storage\logs\laravel.log" workbook="org.eclipse.ui.internal.EditorStack@ea3bc5">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/storage/logs/laravel.log"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="striper.blade.php" partName="striper.blade.php" title="striper.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\pages\striper.blade.php" workbook="org.eclipse.ui.internal.EditorStack@ea3bc5">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/striper.blade.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="512" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="paths.php" partName="paths.php" title="paths.php" tooltip="C:\xampp\htdocs\my-first-app\bootstrap\paths.php" workbook="org.eclipse.ui.internal.EditorStack@ea3bc5">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/bootstrap/paths.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="71"/>
+</editor>
+<editor id="com.aptana.editor.php" name="RouteCollection.php" partName="RouteCollection.php" title="RouteCollection.php" tooltip="C:\xampp\htdocs\my-first-app\vendor\laravel\framework\src\Illuminate\Routing\RouteCollection.php" workbook="org.eclipse.ui.internal.EditorStack@ea3bc5">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/vendor/laravel/framework/src/Illuminate/Routing/RouteCollection.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5204" selectionTopPixel="2791"/>
+</editor>
+<editor id="com.aptana.editor.php" name="helpers.php" partName="helpers.php" title="helpers.php" tooltip="C:\xampp\htdocs\my-first-app\app\classes\helpers.php" workbook="org.eclipse.ui.internal.EditorStack@ea3bc5">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/classes/helpers.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="stripeclasses.php" partName="stripeclasses.php" title="stripeclasses.php" tooltip="C:\xampp\htdocs\my-first-app\app\classes\stripeclasses.php" workbook="org.eclipse.ui.internal.EditorStack@ea3bc5">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/classes/stripeclasses.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="49" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="stripe.php" partName="stripe.php" title="stripe.php" tooltip="C:\xampp\htdocs\my-first-app\app\config\stripe.php" workbook="org.eclipse.ui.internal.EditorStack@ea3bc5">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/config/stripe.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="233" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="successfulpayment.blade.php" partName="successfulpayment.blade.php" title="successfulpayment.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\pages\successfulpayment.blade.php" workbook="org.eclipse.ui.internal.EditorStack@ea3bc5">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/successfulpayment.blade.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="133" selectionTopPixel="0"/>
+</editor>
+<editor focus="true" id="com.aptana.editor.php" name="layout.blade.php" partName="layout.blade.php | views" title="layout.blade.php | views" tooltip="C:\xampp\htdocs\my-first-app\app\views\layout.blade.php" workbook="org.eclipse.ui.internal.EditorStack@6515a6">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/C:/xampp/htdocs/my-first-app/app/views/layout.blade.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="468" selectionTopPixel="0"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="com.aptana.snippets.ui.views.SnippetsView" partName="Snippets"/>
+<view id="com.aptana.samples.ui.SamplesView" partName="Samples">
+<viewState/>
+</view>
+<view id="org.eclipse.search.ui.views.SearchView" partName="Search">
+<viewState isPinned="false">
+<view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
+<view IMemento.internal.id="org.eclipse.search.text.FileSearchResultPage" org.eclipse.search.lastActivation="1" org.eclipse.search.resultpage.layout="2" org.eclipse.search.resultpage.limit="1000" org.eclipse.search.resultpage.sorting="2"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.ProblemView" partName="Problems">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Errors (1 item)"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="com.aptana.explorer.view" partName="App Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" GitChangedFilesFilterEnabled="" activeProject="my-first-app">
+<project name="my-first-app">&#x0A;<selection>&#x0A;<element path="/my-first-app"/>
+</selection>
+</project>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+</views>
+<perspectives activePart="org.eclipse.ui.navigator.ProjectExplorer" activePerspective="com.aptana.ui.WebPerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="com.aptana.ui.internal.WebPerspectiveFactory" id="com.aptana.ui.WebPerspective" label="Web"/>
+<alwaysOnActionSet id="com.aptana.ruby.debug.ui.RubyDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="com.aptana.browser.actionSet"/>
+<alwaysOnActionSet id="com.aptana.editor.common.presentation"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="com.aptana.js.debug.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.presentation"/>
+<alwaysOnActionSet id="com.aptana.ui.globalActionSet"/>
+<alwaysOnActionSet id="com.aptana.terminal.actionSet"/>
+<show_view_action id="com.aptana.browser.views.webbrowser"/>
+<show_view_action id="com.aptana.explorer.view"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="com.aptana.ui.io.remoteview"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="com.aptana.samples.ui.SamplesView"/>
+<show_view_action id="com.aptana.snippets.ui.views.SnippetsView"/>
+<show_view_action id="com.aptana.terminal.views.terminal"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="com.aptana.webserver.ui.view"/>
+<new_wizard_action id="com.aptana.editor.php.NewPHPProjectWizard"/>
+<new_wizard_action id="com.aptana.ui.wizards.NewWebProject"/>
+<new_wizard_action id="com.aptana.ruby.core.ui.rubyProjectWizard"/>
+<new_wizard_action id="com.aptana.ui.wizards.new.file"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.editors.wizards.UntitledTextFileWizard"/>
+<new_wizard_action id="org.radrails.rails.ui.projectWizard"/>
+<perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<view id="com.aptana.explorer.view"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.search.ui.views.SearchView"/>
+<view id="com.aptana.samples.ui.SamplesView"/>
+<view id="com.aptana.snippets.ui.views.SnippetsView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="left">
+<folder activePageID="org.eclipse.ui.navigator.ProjectExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
+<page content="com.aptana.explorer.view" label="App Explorer"/>
+<page content="com.aptana.ui.io.remoteview" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="882" ratioRight="294" relationship="2" relative="left">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.17234154" ratioLeft="329" ratioRight="1580" relationship="2" relative="left"/>
+<info folder="true" part="terminalArea" ratio="0.75" ratioLeft="636" ratioRight="212" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.search.ui.views.SearchView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
+<page content="com.aptana.terminal.views.terminal" label="LabelNotFound"/>
+<page content="org.eclipse.pde.runtime.LogView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.TaskList" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1e3bfb6" ratio="0.7" ratioLeft="637" ratioRight="273" relationship="4" relative="left">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="com.aptana.samples.ui.SamplesView" label="Samples"/>
+<page content="com.aptana.snippets.ui.views.SnippetsView" label="Snippets"/>
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/C:/xampp/htdocs/my-first-app/app/views/layout.blade.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/C:/xampp/htdocs/my-first-app/app/routes.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/C:/xampp/htdocs/my-first-app/app/controllers/HomeController.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/C:/xampp/htdocs/my-first-app/app/controllers/IconController.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/C:/xampp/htdocs/my-first-app/app/views/temphomepage.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/C:/xampp/htdocs/my-first-app/app/views/temphomepage.blade.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/C:/xampp/htdocs/my-first-app/app/views/icon_view.blade.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/successfulpayment.blade.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/showicons.blade.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.css" uri="file:/C:/xampp/htdocs/my-first-app/public/css/style.css"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/singlepayment.blade.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/C:/xampp/htdocs/my-first-app/app/controllers/UserController.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/users.blade.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/addusers.blade.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/home.blade.php"/>
+</editors>
+<item historyLabel="routes.php" index="1">
+<position info="not_deleted" x="829" y="0"/>
+</item>
+<item historyLabel="temphomepage.blade.php" index="5">
+<position info="not_deleted" x="48" y="0"/>
+</item>
+<item historyLabel="layout.blade.php | views" index="0">
+<position info="not_deleted" x="468" y="0"/>
+</item>
+<item historyLabel="temphomepage.blade.php" index="5">
+<position info="not_deleted" x="86" y="0"/>
+</item>
+<item historyLabel="icon_view.blade.php" index="6">
+<position info="not_deleted" x="1524" y="0"/>
+</item>
+<item historyLabel="temphomepage.blade.php" index="5">
+<position info="not_deleted" x="342" y="0"/>
+</item>
+<item historyLabel="successfulpayment.blade.php" index="7">
+<position info="not_deleted" x="133" y="0"/>
+</item>
+<item historyLabel="temphomepage.blade.php" index="5">
+<position info="not_deleted" x="27" y="0"/>
+</item>
+<item historyLabel="showicons.blade.php" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="icon_view.blade.php" index="6">
+<position info="not_deleted" x="1524" y="0"/>
+</item>
+<item historyLabel="IconController.php" index="3">
+<position info="not_deleted" x="157" y="0"/>
+</item>
+<item historyLabel="IconController.php" index="3">
+<position info="not_deleted" x="1236" y="12"/>
+</item>
+<item historyLabel="temphomepage.blade.php" index="5">
+<position info="not_deleted" x="52" y="0"/>
+</item>
+<item historyLabel="routes.php" index="1">
+<position info="not_deleted" x="795" y="0"/>
+</item>
+<item historyLabel="temphomepage.blade.php" index="5">
+<position info="not_deleted" x="52" y="0"/>
+</item>
+<item historyLabel="routes.php" index="1">
+<position info="not_deleted" x="795" y="0"/>
+</item>
+<item historyLabel="temphomepage.php" index="4">
+<position info="not_deleted" x="362" y="0"/>
+</item>
+<item historyLabel="IconController.php" index="3">
+<position info="not_deleted" x="1236" y="12"/>
+</item>
+<item historyLabel="routes.php" index="1">
+<position info="not_deleted" x="795" y="0"/>
+</item>
+<item historyLabel="HomeController.php" index="2">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="HomeController.php" index="2">
+<position info="not_deleted" x="610" y="0"/>
+</item>
+<item historyLabel="HomeController.php" index="2">
+<position info="not_deleted" x="651" y="0"/>
+</item>
+<item historyLabel="routes.php" index="1">
+<position info="not_deleted" x="829" y="0"/>
+</item>
+<item historyLabel="HomeController.php" index="2">
+<position info="not_deleted" x="651" y="0"/>
+</item>
+<item historyLabel="temphomepage.php" index="4">
+<position info="not_deleted" x="0" y="23"/>
+</item>
+<item historyLabel="HomeController.php" index="2">
+<position info="not_deleted" x="651" y="0"/>
+</item>
+<item historyLabel="temphomepage.blade.php" index="5">
+<position info="not_deleted" x="83" y="0"/>
+</item>
+<item historyLabel="icon_view.blade.php" index="6">
+<position info="not_deleted" x="1524" y="0"/>
+</item>
+<item historyLabel="temphomepage.blade.php" index="5">
+<position info="not_deleted" x="83" y="0"/>
+</item>
+<item historyLabel="HomeController.php" index="2">
+<position info="not_deleted" x="651" y="0"/>
+</item>
+<item historyLabel="routes.php" index="1">
+<position info="not_deleted" x="683" y="0"/>
+</item>
+<item historyLabel="temphomepage.blade.php" index="5">
+<position info="not_deleted" x="350" y="0"/>
+</item>
+<item historyLabel="icon_view.blade.php" index="6">
+<position info="not_deleted" x="1524" y="0"/>
+</item>
+<item historyLabel="temphomepage.blade.php" index="5">
+<position info="not_deleted" x="381" y="4"/>
+</item>
+<item historyLabel="icon_view.blade.php" index="6">
+<position info="not_deleted" x="1524" y="0"/>
+</item>
+<item historyLabel="style.css" index="9">
+<position info="not_deleted" x="1453" y="0"/>
+</item>
+<item historyLabel="temphomepage.blade.php" index="5">
+<position info="not_deleted" x="381" y="4"/>
+</item>
+<item historyLabel="singlepayment.blade.php" index="10">
+<position info="not_deleted" x="1015" y="4"/>
+</item>
+<item historyLabel="style.css" index="9">
+<position info="not_deleted" x="1192" y="0"/>
+</item>
+<item historyLabel="singlepayment.blade.php" index="10">
+<position info="not_deleted" x="1015" y="4"/>
+</item>
+<item historyLabel="style.css" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="UserController.php" index="11">
+<position info="not_deleted" x="893" y="0"/>
+</item>
+<item historyLabel="UserController.php" index="11">
+<position info="not_deleted" x="168" y="0"/>
+</item>
+<item historyLabel="users.blade.php" index="12">
+<position info="not_deleted" x="741" y="0"/>
+</item>
+<item historyLabel="style.css" index="9">
+<position info="not_deleted" x="1295" y="0"/>
+</item>
+<item historyLabel="singlepayment.blade.php" index="10">
+<position info="not_deleted" x="819" y="0"/>
+</item>
+<item historyLabel="addusers.blade.php" index="13">
+<position info="not_deleted" x="696" y="0"/>
+</item>
+<item historyLabel="home.blade.php" index="14">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="temphomepage.blade.php" index="5">
+<position info="not_deleted" x="305" y="0"/>
+</item>
+<item active="true" historyLabel="singlepayment.blade.php" index="10">
+<position info="not_deleted" x="819" y="0"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="left"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@1e3bfb6"/>
+</trimArea>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="terminalArea"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.css" name="style.css" tooltip="C:\xampp\htdocs\my-first-app\public\css\style.css">
+<persistable uri="file:/C:/xampp/htdocs/my-first-app/public/css/style.css"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="temphomepage.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\temphomepage.blade.php">
+<persistable uri="file:/C:/xampp/htdocs/my-first-app/app/views/temphomepage.blade.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="HomeController.php" tooltip="C:\xampp\htdocs\my-first-app\app\controllers\HomeController.php">
+<persistable uri="file:/C:/xampp/htdocs/my-first-app/app/controllers/HomeController.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="temphomepage.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\temphomepage.php">
+<persistable uri="file:/C:/xampp/htdocs/my-first-app/app/views/temphomepage.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="showicons.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\pages\showicons.blade.php">
+<persistable uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/showicons.blade.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.html" name="index.html" tooltip="C:\xampp\htdocs\my-first-app\app\views\pages\index.html">
+<persistable uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/index.html"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="hello.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\hello.php">
+<persistable uri="file:/C:/xampp/htdocs/my-first-app/app/views/hello.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.html" name="index.html" tooltip="C:\xampp\htdocs\my-first-app\app\views\index.html">
+<persistable uri="file:/C:/xampp/htdocs/my-first-app/app/views/index.html"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.html" name="index.html" tooltip="C:\xampp\htdocs\julie\public\index.html">
+<persistable uri="file:/C:/xampp/htdocs/julie/public/index.html"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="index.php" tooltip="C:\xampp\htdocs\julie\public\index.php">
+<persistable uri="file:/C:/xampp/htdocs/julie/public/index.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="index.php" tooltip="C:\xampp\htdocs\my-first-app\public\index.php">
+<persistable uri="file:/C:/xampp/htdocs/my-first-app/public/index.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="layoutplain.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\layoutplain.blade.php">
+<persistable uri="file:/C:/xampp/htdocs/my-first-app/app/views/layoutplain.blade.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="layout.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\layout.blade.php">
+<persistable uri="file:/C:/xampp/htdocs/my-first-app/app/views/layout.blade.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="successfulpayment.blade.php" tooltip="C:\xampp\htdocs\my-first-app\app\views\pages\successfulpayment.blade.php">
+<persistable uri="file:/C:/xampp/htdocs/my-first-app/app/views/pages/successfulpayment.blade.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="stripe.php" tooltip="C:\xampp\htdocs\my-first-app\app\config\stripe.php">
+<persistable uri="file:/C:/xampp/htdocs/my-first-app/app/config/stripe.php"/>
+</file>
+</mruList>
+</workbench>
