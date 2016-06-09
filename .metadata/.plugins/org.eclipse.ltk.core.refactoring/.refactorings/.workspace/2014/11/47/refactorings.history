@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;my-first-app&apos;" deleteContents="false" description="Delete resource &apos;my-first-app&apos;" element1="/my-first-app" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1416315314283"/>&#x0A;<refactoring comment="Delete resource &apos;learn-laravel&apos;" deleteContents="false" description="Delete resource &apos;learn-laravel&apos;" element1="/learn-laravel" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1416315323873"/>
-</session>
