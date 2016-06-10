@@ -57,11 +57,11 @@ foreach ($prices as $price){}
                    		</h6>
                    </form>-->
                    <h3><a href="/icon/makecart?return_url={{$return_url}}" 
-                            class="btn btn-primary btn-xs" id="themailaddress">View Cart / Checkout
+                            class="btn btn-primary btn-xs" id="the-mail-address">View Cart / Checkout
                         </a>
                             &nbsp;&nbsp;
                         <a href="/icon/ajaxdumpcart" 
-                            class= " byajax btn btn-info btn-xs">Empty Cart
+                            class="by-ajax btn btn-info btn-xs">Empty Cart
                         </a>
                     </h3>
                 </div>

@@ -1,5 +1,5 @@
 <?php
-class detail extends Eloquent
+class Detail extends Eloquent
 {
 	protected $table = 'details';
 		

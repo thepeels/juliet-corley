@@ -133,6 +133,7 @@ return array(
 		'Intervention\Image\ImageServiceProvider',
 		'Chumper\Zipper\ZipperServiceProvider',
 		'AdamWathan\EloquentOAuthL4\EloquentOAuthServiceProvider',
+		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
 	),
 
 	/*

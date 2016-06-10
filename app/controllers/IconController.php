@@ -47,6 +47,11 @@ class IconController extends \BaseController {
     }
 	public function getMakeshopcart()
     {
+		$pageload = new Pageload;
+		$pageload->cartview = 1;
+		$pageload->amount_in_cart = \Cart::total();
+		$pageload->client_ip = Request::getClientIp();
+		$pageload->save();
         return View::make('shopcart',array(
             'back'=>Input::get('return_url','/shop'),
             'cart_instance'=>'shop',
