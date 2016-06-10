@@ -265,13 +265,13 @@ class IconController extends \BaseController {
 		$pageload->amount_in_cart = \Cart::total();
 		$pageload->client_ip = Request::getClientIp();
 		$pageload->save();
-        Cart::instance('main');
+        \Cart::instance('main');
         $selections = Image::where('id',$id)->get();
         foreach($selections as $selection)
         {
             //only add to cart if not already present so...    
-            if (Cart::search(array('id'=>$selection->id)) == false)
-                Cart::add(array(
+            if (\Cart::search(array('id'=>$selection->id)) == false)
+                \Cart::add(array(
                     'id' 		=> $selection->id,
                     'name' 		=> $fish_name . " " . $selection->filename,
                     'qty' 		=> 1,
@@ -285,10 +285,10 @@ class IconController extends \BaseController {
                 );
             }
 		Session::flash('before_cart_url','download');
-		if(Cart::count()>0) //show summary
-        {   if(Cart::count()==1){$cart_description = Cart::count() . ' item  . . . ';}
-            else {$cart_description = Cart::count() . ' items . . ';}
-            $cart_amount = '$' . Cart::total()/100;
+		if(\Cart::count()>0) //show summary
+        {   if(\Cart::count()==1){$cart_description = \Cart::count() . ' item  . . . ';}
+            else {$cart_description = \Cart::count() . ' items . . ';}
+            $cart_amount = '$' . \Cart::total()/100;
         }
 		//send ajax response ...
 		return Response::json(array(

@@ -32,6 +32,7 @@
             	{{ Form::input('text', 'description_2', null, ['class' => 'form-control col-6 row-4', 'id' => 'description_2', 'placeholder' => 'paragraph / sentence']) }}
             </div>
             {{Form::input('hidden','product_type','colouring')}}
+            {{Form::input('hidden','product_sub_type','paid-for')}}
             <div class="form-group">
                 {{ Form::label('name', 'Enter Page display position ') }} <em> - smallest number first, duplicate numbers -> most recent entry first</em>
                 {{ Form::input('text', 'page_order', null, ['class' => 'form-control col-6 row-4', 'id' => 'product_sub_type', 'placeholder' => 'display position']) }}
