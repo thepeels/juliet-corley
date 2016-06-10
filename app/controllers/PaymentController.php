@@ -125,11 +125,14 @@ class PaymentController extends \BaseController
             }
             //return Session::all();
             //return to download
-            
+            Session::push('purchaser',$name);
             return Redirect::to('payment/success');
         }
     }
 
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function postTestpay()
     {
         // Use the config for the stripe secret key
@@ -179,7 +182,8 @@ class PaymentController extends \BaseController
                 $purchase->save();
                 $userpurchase = Userpurchase::addToTable($item->name, $name, $item->price, $item->id, $email);
                 $userpurchase->save();
-                Session::push('purchased', $item->name);
+                Session::push('purchased',$item->name);
+                Session::push('purchaser',$name);
             }
 
             //return to download
