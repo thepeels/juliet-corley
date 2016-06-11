@@ -25,4 +25,7 @@ class Pageload extends Eloquent
 		$pageload++;
 		$pageload->save();
 	}
+
+
+
 }

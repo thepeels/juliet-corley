@@ -94,6 +94,7 @@ class DownloadController extends \BaseController {
             $purchase->save();
 			usleep(10000);
 		//}
+
         return $response;
 		
     }
