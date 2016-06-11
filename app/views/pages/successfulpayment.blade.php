@@ -6,7 +6,7 @@
 
 <?php
 	if (NULL!=Session::get('purchaser')){$purchaser = Session::pull('purchaser');};
-	$insert=(isset($purchaser))?('You <strong>'.$purchaser.'</strong> are'):('You {Author Name} are');
+	$insert=(isset($purchaser))?('You '.$purchaser.' are'):('You {Author Name} are');
 	$cart_instance = Session::get('cart_instance');
 	Cart::instance($cart_instance);
 	if (Cart::count()!=0){

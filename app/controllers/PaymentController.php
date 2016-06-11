@@ -125,7 +125,7 @@ class PaymentController extends \BaseController
             }
             //return Session::all();
             //return to download
-            Session::push('purchaser',$name);
+            Session::flash('purchaser',$name);
             return Redirect::to('payment/success');
         }
     }
@@ -183,7 +183,7 @@ class PaymentController extends \BaseController
                 $userpurchase = Userpurchase::addToTable($item->name, $name, $item->price, $item->id, $email);
                 $userpurchase->save();
                 Session::push('purchased',$item->name);
-                Session::push('purchaser',$name);
+                Session::flash('purchaser',$name);
             }
 
             //return to download
