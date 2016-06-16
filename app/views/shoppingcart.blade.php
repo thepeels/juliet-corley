@@ -37,9 +37,8 @@ if(Auth::check()){
         </table>
     {{Form::open(array('url' => '/cardpay','class'=>'form-inline'))}} 
     	@if(Cart::instance('main')->total()!=0)
-
-	</br>
-	    	{{Form::submit('Pay by Card',['class'=>'btn btn-primary'])}}
+	        {{'</br>'}}
+            {{Form::submit('Pay by Card',['class'=>'btn btn-primary'])}}
     	@endif
     	{{Form::close()}}    <h3><a href="{{$back}}"class="btn btn-info">Continue Shopping</a></h3>
 </div>

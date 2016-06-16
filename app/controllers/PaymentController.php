@@ -25,7 +25,7 @@ class PaymentController extends \BaseController
 
     public function postCart()
     {
-        /*$rules = [
+        $rules = [
             //'amountindollars' 	=> ['required'],
             //'receipt_email' 	=> ['required','email'],
             //'cardholder_name' => ['required']
@@ -34,7 +34,7 @@ class PaymentController extends \BaseController
         $validation = Validator::make(Input::all(), $rules);
         if ($validation->fails()) {
             return Redirect::back()->withInput()->withErrors($validation->messages());
-        }*/
+        }
         return View::make('pages.cartstriper');
     }
 
@@ -77,16 +77,18 @@ class PaymentController extends \BaseController
 
     public function postPay()
     {
-        // Use the config for the stripe secret key
-        Stripe::setApiKey(Config::get('stripe.stripe.secret'));
-
+        if (App::environment('local')) {
+            Stripe::setApiKey(Config::get('stripetest.stripe.secret'));
+        } else {
+            Stripe::setApiKey(Config::get('stripe.stripe.secret'));
+        }
         // Get the credit card details submitted by the form
         $token = Input::get('stripeToken');
         $amountincents = Input::get('amountincents');
         $itemdescription = Input::get('itemdescription');
-        $name = null != Input::get('name') ? Input::get('name') : null;
+        $name = (null != Input::get('stripeBillingName') ? Input::get('stripeBillingName') : null);
         $receipt_email = Input::get('receipt_email');
-        $zip_code = Input::get('zip-code');
+        $zip_code = Input::get('stripeBillingAddressZip');
         // Create the charge on Stripe's servers - this will charge the user's card
         try {
             $charge = Stripe_Charge::create(array(
@@ -94,16 +96,16 @@ class PaymentController extends \BaseController
                     "currency" => "aud",
                     "card" => $token,
                     "description" => $itemdescription,
-                    "metadata['name']" => $name,
+                    "metadata[entered-card-name]" => $name,
                     "receipt_email" => $receipt_email,
-                    "zip_code" => $zip_code,
+                    "metadata[zip-code]" => $zip_code,
                 )
             );
 
         } catch (Stripe_CardError $e) {
             $e_json = $e->getJsonBody();
             $error = $e_json['error'];
-            //dd($error);// The card has been declined
+            // The card has been declined
             // redirect back to checkout page
             return Redirect::to('payment/pay')
                 ->withInput()->with('stripe_errors', $error['message']);
@@ -111,6 +113,8 @@ class PaymentController extends \BaseController
         // Maybe add an entry to your DB that the charge was successful, or at least Log the charge or errors
         // Stripe charge was successfull, continue by redirecting to a page with a thank you message
         if ($charge->paid == true) {
+            $cart_instance = Session::get('cart_instance');
+            Cart::instance($cart_instance);
             $content = Cart::content();
             $email = 'Buyer not logged in';
             if (Auth::user()) {
@@ -148,15 +152,14 @@ class PaymentController extends \BaseController
         $zip_code = Input::get('stripeBillingAddressZip');
         // Create the charge on Stripe's servers - this will charge the user's card
         try {
-            //dd($zip_code );
             $charge = Stripe_Charge::create(array(
                     "amount" => $amountincents, // amount in cents
                     "currency" => "aud",
                     "card" => $token,
                     "description" => $itemdescription,
-                    "metadata[name]" => $name,
+                    "metadata[entered-card-name]" => $name,
                     "receipt_email" => $receipt_email,
-                    "metadata[zip]" => $zip_code,
+                    "metadata[zip-code]" => $zip_code,
                 )
             );
             //dd($charge);
