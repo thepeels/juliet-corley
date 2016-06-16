@@ -67,7 +67,7 @@
             {{Form::submit('Add/Change',['class'=>'btn btn-info btn-xs'])}}
             {{$errors->first('password','<small style="color:#f00">:message</small>')}}</br>
         
-        {{form::close()}}</br> 
+        {{Form::close()}}</br>
         
     <h4>Add/Edit Publishing Author Name - <span>{{Auth::user()->detail->author_name}}</span></h4>
         
@@ -79,7 +79,7 @@
             {{Form::submit('Add/Edit',['class'=>'btn btn-info btn-xs'])}}
             {{$errors->first('authorname','<small style="color:#f00">:message</small>')}}</br>
         
-        {{form::close()}}</br>
+        {{Form::close()}}</br>
         
     <h4>Add Publishing Aliases - <span>{{Auth::user()->detail->alias}}</span></h4>
         
@@ -91,7 +91,7 @@
             {{Form::submit('&nbsp;Add&nbsp;',['class'=>'btn btn-info btn-xs'])}}
             {{$errors->first('alias','<small style="color:#f00">:message</small>')}}</br>
         
-        {{form::close()}}</br>
+        {{Form::close()}}</br>
         
     <h4>Add Postal Address - <span>{{Auth::user()->detail->address}}&nbsp;{{Auth::user()->detail->postcode}}</span></h4>
         
@@ -105,7 +105,7 @@
             {{Form::submit('&nbsp;Add&nbsp;',['class'=>'btn btn-info btn-xs'])}}
             {{$errors->first('address','<small style="color:#f00">:message</small>')}}</br>
         
-        {{form::close()}}</br>
+        {{Form::close()}}</br>
         
     <h4>Add Notes &nbsp;&nbsp;<span style="font:italic 12px arial;color:#222">
     		tip - to edit current note, copy and paste it, then edit in the text box.</span></h4>
@@ -121,7 +121,7 @@
             {{Form::submit('Load / Change the above Note',['name'=>'newnote','class'=>'btn btn-primary btn-xs'])}}
             {{Form::submit('Append to Existing Note',['name'=>'append','class'=>'btn btn-info btn-xs'])}}
             {{Form::submit('Delete Existing Notes',['name'=>'delete','class'=>'btn btn-default btn-xs'])}}
-        {{form::close()}}
+        {{Form::close()}}
         </br>
         
 

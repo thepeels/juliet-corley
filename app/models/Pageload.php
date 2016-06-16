@@ -20,9 +20,14 @@ class Pageload extends Eloquent
 		$pageload->save();
 		return;
     }
+
+	/**
+	 *
+     */
 	public function add_pdf(){
+		//echo( Pageload::where('pdf','>',0)->get());
 		$pageload = $this->get_pdf();
-		$pageload++;
+		$pageload ++;
 		$pageload->save();
 	}
 

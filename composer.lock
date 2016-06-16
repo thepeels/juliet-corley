@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7bc3de1a60e0e9df40116e4c8e7269e0",
-    "content-hash": "61be0648ded63d0694d69ca1f6c92fa2",
+    "hash": "252429e0f62c4055c2882c59df6d7ff7",
+    "content-hash": "e638fccfade55f6e76515a6b1d234626",
     "packages": [
         {
             "name": "adamwathan/eloquent-oauth",
@@ -1695,16 +1695,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v2.3.0",
+            "version": "v3.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "9d76444550a09a6f9c55dd98113ba0901908e60a"
+                "reference": "e379140cf77debaa6a45e32b93543269851a144f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/9d76444550a09a6f9c55dd98113ba0901908e60a",
-                "reference": "9d76444550a09a6f9c55dd98113ba0901908e60a",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/e379140cf77debaa6a45e32b93543269851a144f",
+                "reference": "e379140cf77debaa6a45e32b93543269851a144f",
                 "shasum": ""
             },
             "require": {
@@ -1746,7 +1746,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2015-07-07 01:13:32"
+            "time": "2016-06-03 22:06:06"
         },
         {
             "name": "swiftmailer/swiftmailer",

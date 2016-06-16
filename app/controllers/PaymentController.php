@@ -86,6 +86,7 @@ class PaymentController extends \BaseController
         $itemdescription = Input::get('itemdescription');
         $name = null != Input::get('name') ? Input::get('name') : null;
         $receipt_email = Input::get('receipt_email');
+        $zip_code = Input::get('zip-code');
         // Create the charge on Stripe's servers - this will charge the user's card
         try {
             $charge = Stripe_Charge::create(array(
@@ -95,13 +96,14 @@ class PaymentController extends \BaseController
                     "description" => $itemdescription,
                     "metadata['name']" => $name,
                     "receipt_email" => $receipt_email,
+                    "zip_code" => $zip_code,
                 )
             );
 
         } catch (Stripe_CardError $e) {
             $e_json = $e->getJsonBody();
             $error = $e_json['error'];
-            // The card has been declined
+            dd($error);// The card has been declined
             // redirect back to checkout page
             return Redirect::to('payment/pay')
                 ->withInput()->with('stripe_errors', $error['message']);
@@ -118,9 +120,9 @@ class PaymentController extends \BaseController
             //Session::put('purchased',array());
             //put the purchased items in the database for later download if necessary
             foreach ($content as $item) {
-                $purchase = Purchase::addToTable($item->name, $name, $item->price, $item->id, $email);
+                $purchase = Purchase::addToTable($item->name, $name, $item->price, $item->id, $email, $zip_code);
                 $purchase->save();
-                $purchase = Userpurchase::addToTable($item->name, $name, $item->price, $item->id, $email);
+                $purchase = Userpurchase::addToTable($item->name, $name, $item->price, $item->id, $email, $zip_code);
                 $purchase->save();
             }
             //return Session::all();
@@ -144,6 +146,7 @@ class PaymentController extends \BaseController
         $itemdescription = Input::get('itemdescription');
         $name = null != Input::get('name') ? Input::get('name') : null;
         $receipt_email = Input::get('receipt_email');
+        $zip_code = Input::get('zip-code');
         // Create the charge on Stripe's servers - this will charge the user's card
         try {
             $charge = Stripe_Charge::create(array(
@@ -151,8 +154,9 @@ class PaymentController extends \BaseController
                     "currency" => "aud",
                     "card" => $token,
                     "description" => $itemdescription,
-                    "metadata['name']" => $name,
+                    "metadata[name]" => $name,
                     "receipt_email" => $receipt_email,
+                    "zip-code" => $zip_code,
                 )
             );
 
@@ -178,10 +182,10 @@ class PaymentController extends \BaseController
             //Session::put('purchased',array());
             //put the purchased items in the database for later download if necessary
             foreach ($content as $item) {
-                $purchase = Purchase::addToTable($item->name, $name, $item->price, $item->id, $email);
+                $purchase = Purchase::addToTable($item->name, $name, $item->price, $item->id, $email, $zip_code);
                 $purchase->save();
-                $userpurchase = Userpurchase::addToTable($item->name, $name, $item->price, $item->id, $email);
-                $userpurchase->save();
+                $purchase = Userpurchase::addToTable($item->name, $name, $item->price, $item->id, $email, $zip_code);
+                $purchase->save();
                 Session::push('purchased',$item->name);
                 Session::flash('purchaser',$name);
             }

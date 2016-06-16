@@ -65,7 +65,8 @@ class DownloadController extends \BaseController {
     
     public function getFreepdfdownload($image_id,$description)
     {
-        $pageload = new Pageload;
+        //$pageload->add_pdf();
+		$pageload = new Pageload;
 		$pdf = Pageload::where('pdf','>',0)->get();
 		foreach($pdf as $pdf);
 		$pdf_count = $pdf->pdf+1;

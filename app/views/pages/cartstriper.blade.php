@@ -34,13 +34,15 @@ if(Auth::user()){
 	
 
   <script
-    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button waiting"
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button waiting"
     data-key="{{Config::get('stripetest.stripe.public')}}"//stripe.stripe.public - or stripetest.stripe.public
     data-amount="<?=$amountincents;?>"
     data-name="JulietCorley.com"
     data-description="<?=$itemdescription;?>"
-    data-metadata={'name':'<?$cardholder_name;?>'"
+    data-metadata={name:'<?$cardholder_name;?>'"
     data-receipt_email="<?=$receipt_email;?>"
+    data-zip-code="true"
+    data-address_line1="true"
     data-image="">
   </script>
 
