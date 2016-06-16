@@ -13,7 +13,7 @@ class PaymentController extends \BaseController
         $rules = [
             'amountindollars' => ['required'],
             'receipt_email' => ['required', 'email'],
-            'cardholder_name' => ['required'],
+            //'cardholder_name' => ['required'],
             'itemdescription' => ['required']
         ];
         $validation = Validator::make(Input::all(), $rules);
@@ -25,16 +25,16 @@ class PaymentController extends \BaseController
 
     public function postCart()
     {
-        $rules = [
+        /*$rules = [
             //'amountindollars' 	=> ['required'],
             //'receipt_email' 	=> ['required','email'],
-            'cardholder_name' => ['required']
+            //'cardholder_name' => ['required']
             //'itemdescription'	=> ['required']
         ];
         $validation = Validator::make(Input::all(), $rules);
         if ($validation->fails()) {
             return Redirect::back()->withInput()->withErrors($validation->messages());
-        }
+        }*/
         return View::make('pages.cartstriper');
     }
 
@@ -43,7 +43,7 @@ class PaymentController extends \BaseController
         $rules = [
             //'amountindollars' 	=> ['required'],
             //'receipt_email' 	=> ['required','email'],
-            'cardholder_name' => ['required']
+            //'cardholder_name' => ['required']
             //'itemdescription'	=> ['required']
         ];
         $validation = Validator::make(Input::all(), $rules);
@@ -103,7 +103,7 @@ class PaymentController extends \BaseController
         } catch (Stripe_CardError $e) {
             $e_json = $e->getJsonBody();
             $error = $e_json['error'];
-            dd($error);// The card has been declined
+            //dd($error);// The card has been declined
             // redirect back to checkout page
             return Redirect::to('payment/pay')
                 ->withInput()->with('stripe_errors', $error['message']);
@@ -139,16 +139,16 @@ class PaymentController extends \BaseController
     {
         // Use the config for the stripe secret key
         Stripe::setApiKey(Config::get('stripetest.stripe.secret'));//duplicated in stripe script in cartstriper
-
         // Get the credit card details submitted by the form
         $token = Input::get('stripeToken');
         $amountincents = Input::get('amountincents');
         $itemdescription = Input::get('itemdescription');
-        $name = null != Input::get('name') ? Input::get('name') : null;
+        $name = (null != Input::get('stripeBillingName') ? Input::get('stripeBillingName') : null);
         $receipt_email = Input::get('receipt_email');
-        $zip_code = Input::get('zip-code');
+        $zip_code = Input::get('stripeBillingAddressZip');
         // Create the charge on Stripe's servers - this will charge the user's card
         try {
+            //dd($zip_code );
             $charge = Stripe_Charge::create(array(
                     "amount" => $amountincents, // amount in cents
                     "currency" => "aud",
@@ -156,10 +156,10 @@ class PaymentController extends \BaseController
                     "description" => $itemdescription,
                     "metadata[name]" => $name,
                     "receipt_email" => $receipt_email,
-                    "zip-code" => $zip_code,
+                    "metadata[zip]" => $zip_code,
                 )
             );
-
+            //dd($charge);
         } catch (Stripe_CardError $e) {
             $e_json = $e->getJsonBody();
             $error = $e_json['error'];

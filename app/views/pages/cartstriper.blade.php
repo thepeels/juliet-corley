@@ -13,7 +13,7 @@ if (Cart::count()>=2){$itemdescription = (Cart::count().'&nbsp;images');}
 $amountincents = Cart::total();
 $amountindollars= $amountincents/100;
 $receipt_email ='john@jjc.me';
-$cardholder_name = Input::get('cardholder_name');
+//$cardholder_name = Input::get('cardholder_name');
 if(Auth::user()){
 	if (Auth::user()->email) $receipt_email=Auth::user()->email;
 	elseif(Auth::user()->oauth_email) $receipt_email=Auth::user()->oauth_email;
@@ -26,8 +26,7 @@ if(Auth::user()){
 <h3>Pay <span class="julie">Juliet Corley</span> $<?=$amountindollars?> for <?=$itemdescription?></h3>
 <form action="{{url('payment/testpay')}}" method="POST"> {{--pay or test pay uses different stripe keys--}}
 	<input name ="amountincents" type="hidden" value="<?=$amountincents?>">
-	<input name ="itemdescription" type="hidden" value="<?=$itemdescription?>">
-	<input name ="name" type="hidden" value="<?=$cardholder_name;?>">
+	<input name ="itemdescription" type="hidden" value="<?=$itemdescription?>" style = border-radius:5px;>
 	<input name ="receipt_email" type="hidden" value="<?=$receipt_email?>">
 	
 </br> 
@@ -39,10 +38,10 @@ if(Auth::user()){
     data-amount="<?=$amountincents;?>"
     data-name="JulietCorley.com"
     data-description="<?=$itemdescription;?>"
-    data-metadata={name:'<?$cardholder_name;?>'"
+
     data-receipt_email="<?=$receipt_email;?>"
     data-zip-code="true"
-    data-address_line1="true"
+    data-billing-address="true"
     data-image="">
   </script>
 

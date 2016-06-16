@@ -37,9 +37,7 @@ if(Auth::check()){
         </table>
     {{Form::open(array('url' => '/cardpay','class'=>'form-inline'))}} 
     	@if(Cart::instance('main')->total()!=0)
-	    	{{Form::label('text','CardHolder Name (as it appears on the card):')}}
-			{{Form::input('text','cardholder_name',null,['class'=>'newclass aligned-right','placeholder'=>'name','size'=>'35'])}}<br>
-			{{$errors->first('cardholder_name','<small class="red-error">:message</small>')}}
+
 	</br>
 	    	{{Form::submit('Pay by Card',['class'=>'btn btn-primary'])}}
     	@endif
