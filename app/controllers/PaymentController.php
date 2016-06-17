@@ -211,7 +211,7 @@ class PaymentController extends \BaseController
                     "description" => $itemdescription,
                     "metadata[entered-card-name]" => $name,
                     "receipt_email" => $receipt_email,
-                    "metadata[zip-code]" => $zip_code,
+                    "zip-code" => $zip_code,
                 ]
             );
 
