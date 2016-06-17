@@ -11,7 +11,7 @@
 
 
 ?>    
-    <h4><a href="../back" class="btn btn-primary">Select different Author</a></h4>
+    <h4><a href="../authornotes" class="btn btn-primary">Select different Author</a></h4>
     <table class="text-table">
         <caption>
             
@@ -24,7 +24,7 @@
             <th>E-mail</th>
         </tr>
         <? foreach ($notes as $row) :
-	        ?>            
+	        ?>
 	        <tr>
                 <td>
                     <?=$author?>
@@ -45,7 +45,4 @@
 
     </table>
     {{--$purchases->links()--}}
-@stop
-@section('footer')  
-    <!--<h4><a href="../back" class="btn btn-primary">Select different User</a></h4>-->
 @stop

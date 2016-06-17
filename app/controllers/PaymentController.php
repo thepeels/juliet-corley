@@ -1,5 +1,4 @@
 <?php
-
 class PaymentController extends \BaseController
 {
 
@@ -18,8 +17,11 @@ class PaymentController extends \BaseController
         ];
         $validation = Validator::make(Input::all(), $rules);
         if ($validation->fails()) {
-            return Redirect::back()->withInput()->withErrors($validation->messages());
+            return Redirect::back()
+                ->withInput()
+                ->withErrors($validation->messages());
         }
+
         return View::make('pages.striper');
     }
 
@@ -33,8 +35,11 @@ class PaymentController extends \BaseController
         ];
         $validation = Validator::make(Input::all(), $rules);
         if ($validation->fails()) {
-            return Redirect::back()->withInput()->withErrors($validation->messages());
+            return Redirect::back()
+                ->withInput()
+                ->withErrors($validation->messages());
         }
+
         return View::make('pages.cartstriper');
     }
 
@@ -48,8 +53,11 @@ class PaymentController extends \BaseController
         ];
         $validation = Validator::make(Input::all(), $rules);
         if ($validation->fails()) {
-            return Redirect::back()->withInput()->withErrors($validation->messages());
+            return Redirect::back()
+                ->withInput()
+                ->withErrors($validation->messages());
         }
+
         return View::make('pages.cartstriper');
     }
 
@@ -59,7 +67,7 @@ class PaymentController extends \BaseController
     }
 
     public function getStripe()
-    {    #return 'hello';
+    {
         return View::make('pages.singlepayment');
     }
     // Maybe add an entry to your DB that the charge was successful, or at least Log the charge or errors
@@ -67,7 +75,6 @@ class PaymentController extends \BaseController
     public function getSuccess()
     {
         return View::make('pages.successfulpayment');
-        #return Redirect::to($return_url);
     }
 
     public function getSinglesuccess()
@@ -81,36 +88,37 @@ class PaymentController extends \BaseController
     public function postPay()
     {
         Stripe::setApiKey($_ENV['STRIPE_KEY']);
-        // Get the credit card details submitted by the form
+                    // Get the credit card details submitted by the form
         $token = Input::get('stripeToken');
         $amountincents = Input::get('amountincents');
         $itemdescription = Input::get('itemdescription');
         $name = (null != Input::get('stripeBillingName') ? Input::get('stripeBillingName') : null);
         $receipt_email = Input::get('receipt_email');
         $zip_code = Input::get('stripeBillingAddressZip');
-        // Create the charge on Stripe's servers - this will charge the user's card
+                    // Create the charge on Stripe's servers - this will charge the user's card
         try {
-            $charge = Stripe_Charge::create(array(
-                    "amount" => $amountincents, // amount in cents
-                    "currency" => "aud",
+            $charge = Stripe_Charge::create([
+                    "amount" => $amountincents,
                     "card" => $token,
+                    "currency" => "aud",
                     "description" => $itemdescription,
                     "metadata[entered-card-name]" => $name,
                     "receipt_email" => $receipt_email,
                     "metadata[zip-code]" => $zip_code,
-                )
+                ]
             );
 
         } catch (Stripe_CardError $e) {
             $e_json = $e->getJsonBody();
             $error = $e_json['error'];
-            // The card has been declined
-            // redirect back to checkout page
+                    // The card has been declined
+                     // redirect back to checkout page
             return Redirect::to('payment/pay')
-                ->withInput()->with('stripe_errors', $error['message']);
+                ->withInput()->
+                with('stripe_errors', $error['message'])
+            ;
         }
-        // Maybe add an entry to your DB that the charge was successful, or at least Log the charge or errors
-        // Stripe charge was successfull, continue by redirecting to a page with a thank you message
+
         if ($charge->paid == true) {
             $cart_instance = Session::get('cart_instance');
             Cart::instance($cart_instance);
@@ -120,18 +128,15 @@ class PaymentController extends \BaseController
                 $email = NULL != (Auth::user()->email) ? Auth::user()->email : Auth::user()->oauth_email;
             }
 
-            //Session::put('purchased',array());
-            //put the purchased items in the database for later download if necessary
             foreach ($content as $item) {
                 $purchase = Purchase::addToTable($item->name, $name, $item->price, $item->id, $email, $zip_code);
                 $purchase->save();
                 $purchase = Userpurchase::addToTable($item->name, $name, $item->price, $item->id, $email, $zip_code);
                 $purchase->save();
             }
-            //return Session::all();
-            //return to download
             Session::push('purchased',$item->name);
             Session::flash('purchaser',$name);
+
             return Redirect::to('payment/success');
         }
     }
@@ -189,40 +194,38 @@ class PaymentController extends \BaseController
 
     public function postSinglepayment()
     {
-        // Use the config for the stripe secret key
-        Stripe::setApiKey(Config::get('stripe.stripe.secret'));//duplicated in stripe script in cartstriper
-
-        // Get the credit card details submitted by the form
+        Stripe::setApiKey($_ENV['STRIPE_KEY']);
+                    // Get the credit card details submitted by the form
         $token = Input::get('stripeToken');
         $amountincents = Input::get('amountincents');
         $itemdescription = Input::get('itemdescription');
-        $name = null != Input::get('name') ? Input::get('name') : null;
+        $name = (null != Input::get('cardholder_name') ? Input::get('cardholder_name') : null);
         $receipt_email = null != Input::get('receipt_email') ? Input::get('receipt_email') : null;
-        // Create the charge on Stripe's servers - this will charge the user's card
+        $zip_code = Input::get('zip-code');
+                    // Create the charge on Stripe's servers - this will charge the user's card
         try {
-            $charge = Stripe_Charge::create(array(
-                    "amount" => $amountincents, // amount in cents
-                    "currency" => "aud",
+            $charge = Stripe_Charge::create([
+                    "amount" => $amountincents,
                     "card" => $token,
+                    "currency" => "aud",
                     "description" => $itemdescription,
-                    "metadata['name']" => $name,
-                    "receipt_email" => $receipt_email
-                )
+                    "metadata[entered-card-name]" => $name,
+                    "receipt_email" => $receipt_email,
+                    "metadata[zip-code]" => $zip_code,
+                ]
             );
 
         } catch (Stripe_CardError $e) {
-            $e_json = $e->getJsonBody();
-            $error = $e_json['error'];
+                    $e_json = $e->getJsonBody();
+                    $error = $e_json['error'];
             // The card has been declined
             // redirect back to checkout page
-            return Redirect::
-                to('payment/pay')
-                ->withInput()->with('stripe_errors', $error['message'])
+            return Redirect::to('payment/pay')
+                ->withInput()
+                ->with('stripe_errors', $error['message'])
             ;
         }
         
-        // Maybe add an entry to your DB that the charge was successful, or at least Log the charge or errors
-        // Stripe charge was successfull, continue by redirecting to a page with a thank you message
         if ($charge->paid == true) {
             $email = isset(Auth::user()->email) ? Auth::user()->email : $receipt_email;
             
@@ -232,6 +235,7 @@ class PaymentController extends \BaseController
             $purchase->amount = $amountincents;
             $purchase->cardholder_name = $name;
             $purchase->image_id = 0;
+            $purchase->zip_code = $zip_code;
             $purchase->save();
 
             $purchase = new Userpurchase;
@@ -240,6 +244,7 @@ class PaymentController extends \BaseController
             $purchase->amount = $amountincents;
             $purchase->cardholder_name = $name;
             $purchase->image_id = 0;
+            $purchase->zip_code = $zip_code;
             $purchase->save();
             
             return Redirect::to('payment/singlesuccess');
@@ -247,74 +252,4 @@ class PaymentController extends \BaseController
     }
 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-
-    public function create()
-    {
-        //
-    }
-
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        //
-    }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-
-    public function update($id)
-    {
-        //
-    }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
