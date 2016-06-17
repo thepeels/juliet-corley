@@ -2,9 +2,9 @@
 require_once(public_path().'/stripe/lib/Stripe/Stripe.php');
 
 $stripe = array(
-  "secret_key"      => "sk_test_4Nlx9yNGz0dopBKex7XygdEX",//test keys
-  "publishable_key" => "pk_test_4NlxkkNmfDOegqOGQ61paMpx"
+  "secret_key"      => $_ENV['STRIPE_KEY'],//test keys
+  "publishable_key" => $_ENV['STRIPE_PUBLIC_KEY']
 );
 
-Stripe::setApiKey($stripe['secret_key']);
+//Stripe::setApiKey($stripe['secret_key']);
 ?>

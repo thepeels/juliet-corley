@@ -75,13 +75,12 @@ class PaymentController extends \BaseController
         return View::make('pages.successfulsingle');
     }
 
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function postPay()
     {
-        if (App::environment('local')) {
-            Stripe::setApiKey(Config::get('stripetest.stripe.secret'));
-        } else {
-            Stripe::setApiKey(Config::get('stripe.stripe.secret'));
-        }
+        Stripe::setApiKey($_ENV['STRIPE_KEY']);
         // Get the credit card details submitted by the form
         $token = Input::get('stripeToken');
         $amountincents = Input::get('amountincents');
@@ -131,72 +130,12 @@ class PaymentController extends \BaseController
             }
             //return Session::all();
             //return to download
+            Session::push('purchased',$item->name);
             Session::flash('purchaser',$name);
             return Redirect::to('payment/success');
         }
     }
 
-    /**
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function postTestpay()
-    {
-        // Use the config for the stripe secret key
-        Stripe::setApiKey(Config::get('stripetest.stripe.secret'));//duplicated in stripe script in cartstriper
-        // Get the credit card details submitted by the form
-        $token = Input::get('stripeToken');
-        $amountincents = Input::get('amountincents');
-        $itemdescription = Input::get('itemdescription');
-        $name = (null != Input::get('stripeBillingName') ? Input::get('stripeBillingName') : null);
-        $receipt_email = Input::get('receipt_email');
-        $zip_code = Input::get('stripeBillingAddressZip');
-        // Create the charge on Stripe's servers - this will charge the user's card
-        try {
-            $charge = Stripe_Charge::create(array(
-                    "amount" => $amountincents, // amount in cents
-                    "currency" => "aud",
-                    "card" => $token,
-                    "description" => $itemdescription,
-                    "metadata[entered-card-name]" => $name,
-                    "receipt_email" => $receipt_email,
-                    "metadata[zip-code]" => $zip_code,
-                )
-            );
-            //dd($charge);
-        } catch (Stripe_CardError $e) {
-            $e_json = $e->getJsonBody();
-            $error = $e_json['error'];
-            // The card has been declined
-            // redirect back to checkout page
-            return Redirect::to('payment/testpay')
-                ->withInput()->with('stripe_errors', $error['message']);
-        }
-        // Maybe add an entry to your DB that the charge was successful, or at least Log the charge or errors
-        // Stripe charge was successfull, continue by redirecting to a page with a thank you message
-        if ($charge->paid == true) {
-            $cart_instance = Session::get('cart_instance');
-            Cart::instance($cart_instance);
-            $content = Cart::content();
-            $email = 'Buyer not logged in';
-            if (Auth::user()) {
-                $email = NULL != (Auth::user()->email) ? Auth::user()->email : Auth::user()->oauth_email;
-            }
-
-            //Session::put('purchased',array());
-            //put the purchased items in the database for later download if necessary
-            foreach ($content as $item) {
-                $purchase = Purchase::addToTable($item->name, $name, $item->price, $item->id, $email, $zip_code);
-                $purchase->save();
-                $purchase = Userpurchase::addToTable($item->name, $name, $item->price, $item->id, $email, $zip_code);
-                $purchase->save();
-                Session::push('purchased',$item->name);
-                Session::flash('purchaser',$name);
-            }
-
-            //return to download
-            return Redirect::to('payment/success');
-        }
-    }
 
     public function postTestsinglepayment()
     {

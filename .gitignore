@@ -2,3 +2,4 @@
 .settings
 .idea
 vendor
+.env.local.php
