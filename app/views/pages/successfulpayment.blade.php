@@ -5,28 +5,28 @@
     <h2 class="julie merri">JulietCorley.com</h2>
 
 <?php
-	if (NULL!=Session::get('purchaser')){$purchaser = Session::pull('purchaser');};
+	if (NULL!=Session::get('purchaser')){
+		$purchaser = Session::pull('purchaser');
+	}else{$purchaser = 'Guest';
+	}
 	$insert=(isset($purchaser))?('You '.$purchaser.' are'):('You {Author Name} are');
 	$cart_instance = Session::get('cart_instance');
 	Cart::instance($cart_instance);
 	if (Cart::count()!=0){
-?>		
-<h3 class="merri">Hi - <?if(Auth::user()){
+	?>
+	<h3 class="merri">Hi - <?if(Auth::user()){
 							if(NULL != Auth::user()->email){echo(Auth::user()->email);}
 							else{echo(Auth::user()->oauth_email);
 								}}
 		else{echo ($purchaser);}
-
 	?></h3>
 	<h4 class="caption cr merri">Thank you, your card payment was successful</h4>
-
-
 	<p class="cr merri">
 	<?if(Auth::user()){
 		if(Auth::user()->author_name!=""){
 			echo(Auth::user()->author_name.' is');
-		}}else
-		{echo ($insert);
+		}
+		}else{echo ($insert);
 	}?>&nbsp;entitled to use the Fish Icon
 		images listed below, with the following stipulations:</p>
 		<ul class="merri" style="font-size:10px;">

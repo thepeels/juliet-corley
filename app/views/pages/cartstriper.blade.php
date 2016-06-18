@@ -13,7 +13,7 @@ if (Cart::count()>=2){$itemdescription = (Cart::count().'&nbsp;images');}
 $amountincents = Cart::total();
 $amountindollars= $amountincents/100;
 $receipt_email ='john@jjc.me';
-//$cardholder_name = Input::get('cardholder_name');
+$cardholder_name = Input::get('cardholder_name');
 if(Auth::user()){
 	if (Auth::user()->email) $receipt_email=Auth::user()->email;
 	elseif(Auth::user()->oauth_email) $receipt_email=Auth::user()->oauth_email;
@@ -28,12 +28,13 @@ if(Auth::user()){
             <br><br>
             <script
                 src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button waiting"
-                data-key="{{Config::get($_ENV['STRIPE_CONFIG'])}}"//from .env.local.php or .env.php
+                data-key="{{Config::get($_ENV['STRIPE_CONFIG'])}}"
                 data-amount="<?=$amountincents;?>"
+                data-metadata={'entered-card-name':'<?$cardholder_name?>'}
                 data-name="JulietCorley.com"
                 data-description="<?=$itemdescription;?>"
                 data-receipt_email="<?=$receipt_email;?>"
-                data-billing-address="true"
+                data-zip-code="true"
                 data-image="">
             </script>
         </form>

@@ -92,9 +92,9 @@ class PaymentController extends \BaseController
         $token = Input::get('stripeToken');
         $amountincents = Input::get('amountincents');
         $itemdescription = Input::get('itemdescription');
-        $name = (null != Input::get('stripeBillingName') ? Input::get('stripeBillingName') : null);
+        $name = (null != Input::get('cardholder_name') ? Input::get('cardholder_name') : null);
         $receipt_email = Input::get('receipt_email');
-        $zip_code = Input::get('stripeBillingAddressZip');
+        $zip_code = Input::get('zip-code');
                     // Create the charge on Stripe's servers - this will charge the user's card
         try {
             $charge = Stripe_Charge::create([
@@ -104,7 +104,7 @@ class PaymentController extends \BaseController
                     "description" => $itemdescription,
                     "metadata[entered-card-name]" => $name,
                     "receipt_email" => $receipt_email,
-                    "metadata[zip-code]" => $zip_code,
+                    "zip-code" => $zip_code,
                 ]
             );
 
