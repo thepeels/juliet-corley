@@ -39,7 +39,7 @@
 </span><br>
 <span>
 	</br>
-{{Form::submit('Pay with Stripe',['class'=>'btn btn-primary btn-sm'])}}
+{{Form::submit('Pay with Card',['class'=>'btn btn-primary btn-sm'])}}
 </span> 
 {{Form::close()}}
 </fieldset>

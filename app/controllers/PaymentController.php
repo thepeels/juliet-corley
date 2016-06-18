@@ -142,55 +142,6 @@ class PaymentController extends \BaseController
     }
 
 
-    public function postTestsinglepayment()
-    {
-        // Use the config for the stripe secret key
-        Stripe::setApiKey(Config::get('stripetest.stripe.secret'));//duplicated in stripe script in cartstriper
-
-        // Get the credit card details submitted by the form
-        $token = Input::get('stripeToken');
-        $amountincents = Input::get('amountincents');
-        $itemdescription = Input::get('itemdescription');
-        $name = null != Input::get('name') ? Input::get('name') : null;
-        $receipt_email = null != Input::get('receipt_email') ? Input::get('receipt_email') : null;
-        //dd($name);
-        // Create the charge on Stripe's servers - this will charge the user's card
-        try {
-            $charge = Stripe_Charge::create(array(
-                    "amount" => $amountincents, // amount in cents
-                    "currency" => "aud",
-                    "card" => $token,
-                    "description" => $itemdescription,
-                    "metadata['name']" => $name,
-                    "receipt_email" => $receipt_email
-                )
-            );
-            //						dd($charge['receipt_email']);
-
-        } catch (Stripe_CardError $e) {
-            $e_json = $e->getJsonBody();
-            $error = $e_json['error'];
-            // The card has been declined
-            // redirect back to checkout page
-            return Redirect::to('payment/testpay')
-                ->withInput()->with('stripe_errors', $error['message']);
-        }
-        // Maybe add an entry to your DB that the charge was successful, or at least Log the charge or errors
-        // Stripe charge was successfull, continue by redirecting to a page with a thank you message
-        if ($charge->paid == true) {
-
-            $email = isset(Auth::user()->email) ? Auth::user()->email : $receipt_email;
-            //ok so send an email as stripe won't...
-            $purchase = Purchase::addToTable($itemdescription, $name, $amountincents, 0, $email);
-            $purchase->save();
-
-            $emailcheck = User::where('email', '=', $receipt_email)->first();
-            $purchase = Userpurchase::addToTable($itemdescription, $name, $amountincents, 0, $receipt_email);
-            $purchase->save();
-            
-            return Redirect::to('payment/singlesuccess');
-        }
-    }
 
     public function postSinglepayment()
     {
@@ -229,24 +180,11 @@ class PaymentController extends \BaseController
         if ($charge->paid == true) {
             $email = isset(Auth::user()->email) ? Auth::user()->email : $receipt_email;
             
-            $purchase = new Purchase;
-            $purchase->email = $email;
-            $purchase->purchase = $itemdescription;
-            $purchase->amount = $amountincents;
-            $purchase->cardholder_name = $name;
-            $purchase->image_id = 0;
-            $purchase->zip_code = $zip_code;
+            $purchase = Purchase::addToTable($itemdescription, $name, $amountincents, 0, $email, $zip_code);
+            $purchase->save();
+            $purchase = Userpurchase::addToTable($itemdescription, $name, $amountincents, 0, $email, $zip_code);
             $purchase->save();
 
-            $purchase = new Userpurchase;
-            $purchase->email = $email;
-            $purchase->purchase = $itemdescription;
-            $purchase->amount = $amountincents;
-            $purchase->cardholder_name = $name;
-            $purchase->image_id = 0;
-            $purchase->zip_code = $zip_code;
-            $purchase->save();
-            
             return Redirect::to('payment/singlesuccess');
         }
     }

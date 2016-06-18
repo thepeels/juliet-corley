@@ -35,6 +35,7 @@ if(Auth::user()){
                 data-description="<?=$itemdescription;?>"
                 data-receipt_email="<?=$receipt_email;?>"
                 data-zip-code="true"
+                data-label="Proceed to Stripe Payment Form"
                 data-image="">
             </script>
         </form>

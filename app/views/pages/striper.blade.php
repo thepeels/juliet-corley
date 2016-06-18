@@ -13,7 +13,9 @@ $receipt_email = Input::get('receipt_email');
 
 ?>
 <div class="cart merri" style="border-radius: 5px">
+    <br>
     <h3>Pay <span class= "julie">Juliet Corley</span> $<?=$amountindollars?> for <?=$itemdescription?></h3>
+    <br>
         <form action="{{url('payment/singlepayment')}}" method="POST">
             <input name ="amountincents" type="hidden" value="<?=$amountincents;?>">
             <input name ="itemdescription" type="hidden" value="<?=$itemdescription;?>">
@@ -28,6 +30,7 @@ $receipt_email = Input::get('receipt_email');
                 data-description="<?=$itemdescription;?>"
                 data-receipt_email="<?=$receipt_email;?>"
                 data-zip-code="true"
+                data-label="Proceed to Stripe Payment Form"
                 data-image="">
             </script>
         </form>
