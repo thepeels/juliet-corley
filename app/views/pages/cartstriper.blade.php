@@ -23,8 +23,10 @@ if(Auth::user()){
     <h3>Pay <span class="julie">Juliet Corley</span> $<?=$amountindollars?> for <?=$itemdescription?></h3>
         <form action="{{url('payment/pay')}}" method="POST"> {{--pay or test pay uses different stripe keys--}}
             <input name ="amountincents" type="hidden" value="<?=$amountincents?>">
-            <input name ="itemdescription" type="hidden" value="<?=$itemdescription?>" style = border-radius:5px;>
+            <input name ="itemdescription" type="hidden" value="<?=$itemdescription?>" >
             <input name ="receipt_email" type="hidden" value="<?=$receipt_email?>">
+            <label style="padding-top: 10px;">Card Holder Name:&nbsp;</label>
+            <input name="cardholder_name" type="text" style = "border-radius:6px;padding-left:5px;width:220px;">
             <br><br>
             <script
                 src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button waiting"
