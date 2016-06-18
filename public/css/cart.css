@@ -8,7 +8,9 @@ table{
     border:1px solid #222;
     border-collapse:separate;
 }
-table tr th{padding:10px;padding-left:10px}
+table tr th{
+    padding:10px;
+}
 table tr td{
     line-height:30px;
     padding-left:10px;
@@ -32,6 +34,7 @@ table.cart{background-color:#fff;}
 .cartstriper{
     margin:50px auto;
     border:solid 1px #222;
+    border-radius: 8px;
     width:550px;
     padding:20px;
     background-color:#fff}

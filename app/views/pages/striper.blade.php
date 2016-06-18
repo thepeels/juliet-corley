@@ -12,7 +12,7 @@ $receipt_email = Input::get('receipt_email');
 //dd($cardholder_name);
 
 ?>
-<div class="cart merri">
+<div class="cart merri" style="border-radius: 5px">
     <h3>Pay <span class= "julie">Juliet Corley</span> $<?=$amountindollars?> for <?=$itemdescription?></h3>
         <form action="{{url('payment/singlepayment')}}" method="POST">
             <input name ="amountincents" type="hidden" value="<?=$amountincents;?>">

@@ -19,32 +19,25 @@ if(Auth::user()){
 	elseif(Auth::user()->oauth_email) $receipt_email=Auth::user()->oauth_email;
 }
 ?>
-<div class="cartstriper">
-    
-<h3>Pay <span class="julie">Juliet Corley</span> $<?=$amountindollars?> for <?=$itemdescription?></h3>
-<form action="{{url('payment/pay')}}" method="POST"> {{--pay or test pay uses different stripe keys--}}
-	<input name ="amountincents" type="hidden" value="<?=$amountincents?>">
-	<input name ="itemdescription" type="hidden" value="<?=$itemdescription?>" style = border-radius:5px;>
-	<input name ="receipt_email" type="hidden" value="<?=$receipt_email?>">
-	
-</br> 
-	
+<div class="cartstriper merri">
+    <h3>Pay <span class="julie">Juliet Corley</span> $<?=$amountindollars?> for <?=$itemdescription?></h3>
+        <form action="{{url('payment/pay')}}" method="POST"> {{--pay or test pay uses different stripe keys--}}
+            <input name ="amountincents" type="hidden" value="<?=$amountincents?>">
+            <input name ="itemdescription" type="hidden" value="<?=$itemdescription?>" style = border-radius:5px;>
+            <input name ="receipt_email" type="hidden" value="<?=$receipt_email?>">
+            <br><br>
+            <script
+                src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button waiting"
+                data-key="{{Config::get($_ENV['STRIPE_CONFIG'])}}"//from .env.local.php or .env.php
+                data-amount="<?=$amountincents;?>"
+                data-name="JulietCorley.com"
+                data-description="<?=$itemdescription;?>"
+                data-receipt_email="<?=$receipt_email;?>"
+                data-billing-address="true"
+                data-image="">
+            </script>
+        </form>
 
-  <script
-    src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button waiting"
-    data-key="{{Config::get($_ENV['STRIPE_CONFIG'])}}"//from .env.local.php or .env.php
-    data-amount="<?=$amountincents;?>"
-    data-name="JulietCorley.com"
-    data-description="<?=$itemdescription;?>"
-    data-receipt_email="<?=$receipt_email;?>"
-    data-billing-address="true"
-    data-image="">
-  </script>
-
-
-</form>
-<p><em>(Sometimes, especially with Firefox, a pop-up indicates that a script has stopped, please 
-    select 'continue', be patient, and stripe will shortly complete its job.)</em></p>
 </div>
 
 @stop

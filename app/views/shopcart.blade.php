@@ -32,10 +32,10 @@ $owner = (isset(Auth::user()->email)?Auth::user()->email:"guest user");//for tit
         </table></br>
         {{Form::open(array('url' => '/shopcardpay','class'=>'form-inline'))}} 
     	@if(Cart::instance('shop')->total()!=0)
-    	{{Form::label('text','CardHolder Name (as it appears on the card):')}}
+            {{--{{Form::label('text','CardHolder Name (as it appears on the card):')}}
 		{{Form::input('text','cardholder_name',null,['class'=>'newclass aligned-right','placeholder'=>'name','size'=>'35'])}}<br>
 		{{$errors->first('cardholder_name','<small class="red-error">:message</small>')}}
-</br>
+</br>--}}
     	{{Form::submit('Pay by Card',['class'=>'btn btn-primary'])}}
     	@endif
     	{{Form::close()}}
