@@ -25,8 +25,8 @@ if(Auth::user()){
             <input name ="amountincents" type="hidden" value="<?=$amountincents?>">
             <input name ="itemdescription" type="hidden" value="<?=$itemdescription?>" >
             <input name ="receipt_email" type="hidden" value="<?=$receipt_email?>">
-            <label style="padding-top: 10px;">Card Holder Name:&nbsp;</label>
-            <input name="cardholder_name" type="text" style = "border-radius:6px;padding-left:5px;width:220px;">
+            <label style="padding-top: 10px;">Copyright Licensee:&nbsp;</label>
+            <input name="cardholder_name" type="text" placeholder="Enter name of Licensee" style="border-radius:6px;padding-left:5px;width:220px;">
             <br><br>
             <script
                 src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button waiting"
