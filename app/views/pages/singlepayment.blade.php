@@ -27,8 +27,8 @@
 {{Form::label('text','Please send my receipt e-mail to:')}}
 {{Form::input('email','receipt_email',null,['class'=>'newclass aligned-right','placeholder'=>'e-mail','size'=>'35'])}}<br>
 {{$errors->first('receipt_email','<small class="red-error">:message</small>')}}
-{{--</br>
-{{Form::label('text','CardHolder Name (as it appears on the card):')}}
+</br>
+{{--{{Form::label('text','CardHolder Name (as it appears on the card):')}}
 {{Form::input('text','cardholder_name',null,['class'=>'newclass aligned-right','placeholder'=>'name','size'=>'35'])}}<br>
 {{$errors->first('cardholder_name','<small class="red-error">:message</small>')}}--}}
 </br>

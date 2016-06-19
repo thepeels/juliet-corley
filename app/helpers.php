@@ -267,6 +267,7 @@ function fillOutPurchaseTable()
         echo'<tr><td class="table-summary">Cart Total</td>';
         echo'<td>&dollar;' . Cart::total()/100 . '</td>';
         echo'<td>' . Cart::count() . '</td>';
+        echo'<td>&nbsp</td>';
         if($cart_instance == 'main')echo'<td><a href="/download/downloadall" class="btn btn-default btn-xs">&nbsp;&nbsp;Download All&nbsp;&nbsp;</a></td></tr>';
   	//Cart::destroy();
    //var_dump(Session::get('cart_instance'));

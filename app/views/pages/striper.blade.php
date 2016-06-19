@@ -9,6 +9,10 @@ $amountincents= $amountindollars*100;
 $itemdescription = Input::get('itemdescription');
 $cardholder_name = Input::get('cardholder_name');
 $receipt_email = Input::get('receipt_email');
+$year = ((int)date('y'))*10000;
+$last_purchase = Purchase::orderBy('id', 'desc')->first();
+$purchase_number = ($last_purchase->id)+$year+1;
+//dd($receipt_number);
 //dd($cardholder_name);
 
 ?>
@@ -20,12 +24,17 @@ $receipt_email = Input::get('receipt_email');
             <input name ="amountincents" type="hidden" value="<?=$amountincents;?>">
             <input name ="itemdescription" type="hidden" value="<?=$itemdescription;?>">
             <input name ="receipt_email" type="hidden" value="<?=$receipt_email;?>">
+            <input name ="purchase_number" type="hidden" value="<?=$purchase_number;?>">
+            <label>Copyright Licensee:&nbsp;</label>
+            <input name="cardholder_name" type="text" placeholder="Enter name of Licensee">
+            <br><br>
 
             <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button waiting"
                 data-key="{{Config::get($_ENV['STRIPE_CONFIG'])}}"
                 data-amount="<?=$amountincents;?>"
-                data-metadata={'entered-card-name':'<?$cardholder_name?>'}
+                data-metadata={'licensee':'<?$cardholder_name?>'}
+                data-metadata={'purchase_number':'<?=$purchase_number;?>'}
                 data-name="JulietCorley.com"
                 data-description="<?=$itemdescription;?>"
                 data-receipt_email="<?=$receipt_email;?>"

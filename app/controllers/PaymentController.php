@@ -94,6 +94,7 @@ class PaymentController extends \BaseController
         $itemdescription = Input::get('itemdescription');
         $name = (null != Input::get('cardholder_name') ? Input::get('cardholder_name') : null);
         $receipt_email = Input::get('receipt_email');
+        $purchase_number = Input::get('purchase_number');
         $zip_code = Input::get('zip-code');
                     // Create the charge on Stripe's servers - this will charge the user's card
         try {
@@ -102,7 +103,8 @@ class PaymentController extends \BaseController
                     "card" => $token,
                     "currency" => "aud",
                     "description" => $itemdescription,
-                    "metadata[entered-card-name]" => $name,
+                    "metadata" => [ "licensee"=>$name,
+                        "purchase_number"=>$purchase_number],
                     "receipt_email" => $receipt_email,
                     "zip-code" => $zip_code,
                 ]
@@ -129,7 +131,7 @@ class PaymentController extends \BaseController
             }
 
             foreach ($content as $item) {
-                $purchase = Purchase::addToTable($item->name, $name, $item->price, $item->id, $email, $zip_code);
+                $purchase = Purchase::addToTable($item->name, $name, $item->price, $item->id, $email, $charge->metadata{'purchase_number'});
                 $purchase->save();
                 $purchase = Userpurchase::addToTable($item->name, $name, $item->price, $item->id, $email, $zip_code);
                 $purchase->save();
@@ -152,6 +154,7 @@ class PaymentController extends \BaseController
         $itemdescription = Input::get('itemdescription');
         $name = (null != Input::get('cardholder_name') ? Input::get('cardholder_name') : null);
         $receipt_email = null != Input::get('receipt_email') ? Input::get('receipt_email') : null;
+        $purchase_number = Input::get('purchase_number');
         $zip_code = Input::get('zip-code');
                     // Create the charge on Stripe's servers - this will charge the user's card
         try {
@@ -160,7 +163,8 @@ class PaymentController extends \BaseController
                     "card" => $token,
                     "currency" => "aud",
                     "description" => $itemdescription,
-                    "metadata[entered-card-name]" => $name,
+                    "metadata" => [ "licensee"=>$name,
+                                    "purchase_number"=>$purchase_number],
                     "receipt_email" => $receipt_email,
                     "zip-code" => $zip_code,
                 ]
@@ -178,10 +182,12 @@ class PaymentController extends \BaseController
         }
         
         if ($charge->paid == true) {
+            //dd($charge);
             $email = isset(Auth::user()->email) ? Auth::user()->email : $receipt_email;
             
-            $purchase = Purchase::addToTable($itemdescription, $name, $amountincents, 0, $email, $zip_code);
+            $purchase = Purchase::addToTable($itemdescription, $name, $amountincents, 0, $email, $charge->metadata{'purchase_number'});
             $purchase->save();
+            //also this $charge->metadata{'purchase_number'}
             $purchase = Userpurchase::addToTable($itemdescription, $name, $amountincents, 0, $email, $zip_code);
             $purchase->save();
 
