@@ -273,7 +273,11 @@ function fillOutPurchaseTable()
    //var_dump(Session::get('cart_instance'));
    //dd(Session::get('purchased'));
     }
-    
+
+
+/**
+ *TODO: check cart instance and does it work for shopping cart
+ */
 function downloadWholeCart()
 {
     $zipname = 'julietcorley' .time().'.zip';

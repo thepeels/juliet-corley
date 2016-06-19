@@ -1,5 +1,5 @@
 body{   
-    background-image:url('/images/bg-images/dbase-bg-tile.jpg');
+    background-image:url('../images/bg-images/dbase-bg-tile.jpg');
     background-repeat:repeat;
 }
 h5{font-size:16px;}
