@@ -17,42 +17,47 @@ $message = (!NULL == Session::has('message')?Session::pull('message'):NULL);
     <div class="grid-5 push-3 loginform">
         
 
-<h2 class="julie merri">JulietCorley.com</h2>
-<h3 class= "caption merri">Log in</h3></br>
-<a href="../authorize/facebook" class ="btn-lg btn-primary" title = "Use your Facebook profile to login">Login with Facebook</a></br></br>
-<a href="../authorize/google" class ="btn-lg btn-danger" title = "Use your Gmail or Googleplus profile to login">Login with Google</a></br></br>
-<a href="../authorize/github" class ="btn-lg btn-info"title = "Use your Github credentials to login">Login with GitHub</a></br></br>
-<?php
-if (isset($message)){?><span style = "color:#f00"><?}
-else{?><span><?}?>
-{{$message or '------------- OR -------------'}}</span>
-</br>
-<h5 class= "caption merri">Log in with email and password</h5>
-<fieldset class="login">
-	
-{{Form::open(['route'=>'sessions.store'])}}
-
-    {{Form:: label('email','Email')}}
+    <h2 class="julie merri">JulietCorley.com</h2>
+    <h3 class= "caption merri">Log in</h3></br>
+    <a href="../authorize/facebook" class ="btn-lg btn-primary" title = "Use your Facebook profile to login">Login with Facebook</a></br></br>
+    <a href="../authorize/google" class ="btn-lg btn-danger" title = "Use your Gmail or Googleplus profile to login">Login with Google</a></br></br>
+    <a href="../authorize/github" class ="btn-lg btn-info"title = "Use your Github credentials to login">Login with GitHub</a></br></br>
+    <?php
+    if (isset($message)){
+        ?><span style = "color:#f00"><?
+    }else{
+        ?><span><?
+    }?>
+    {{$message or '------------- OR -------------'}}</span>
     </br>
-    {{Form::email('email')}}
-    {{$errors->first('name','<small style="color:#f00">:message</small>')}}</br></br> 
+    <h5 class= "caption merri">Log in with email and password</h5>
+    <fieldset class="login">
+        {{Form::open(['route'=>'sessions.store'])}}
 
-    {{Form:: label('password','Password')}}
-    </br>
-    {{Form::password('password')}} 
-    </br></br> 
-    @if(Auth::guest())
-        {{Form::submit('Login',array('class'=>'btn btn-info btn-xs'))}}
-    @endif  
+            {{Form:: label('email','Email')}}
+            <br>
+            {{Form::email('email')}}
+            {{$errors->first('name','<small style="color:#f00">:message</small>')}}<br><br>
 
-{{Form::close()}}
+            {{Form:: label('password','Password')}}
+            <br>
+            {{Form::password('password')}}
+            <br><br>
+            @if(Auth::guest())
+                {{Form::submit('Login',array('class'=>'btn btn-info btn-xs'))}}
+            @endif
 
-</br>
+        {{Form::close()}}
+    <br>
 
-<a href="user/newuser">Register</a>&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="user/reset">Forgot password?</a>
-</fieldset>
-
-    </div> 
+    <a href="user/newuser">Register</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="user/reset">Forgot password?</a>
+    </fieldset>
+    <p class ="merri"><br><small>While you may prefer to not login, there are advantages.<br>
+        Creating an account allows you to come back and download again in the future.
+        It will also get you discounts where you have previously ordered either the<br>
+        same fish icon or an icon for the same species. JulietCorley.com will never send you spam.</small>
+    </p>
+    </div>
 </div>
 @stop

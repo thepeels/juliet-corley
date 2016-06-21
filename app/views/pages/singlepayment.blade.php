@@ -30,8 +30,8 @@
 </br>
 {{--{{Form::label('text','CardHolder Name (as it appears on the card):')}}
 {{Form::input('text','cardholder_name',null,['class'=>'newclass aligned-right','placeholder'=>'name','size'=>'35'])}}<br>
-{{$errors->first('cardholder_name','<small class="red-error">:message</small>')}}--}}
-</br>
+{{$errors->first('cardholder_name','<small class="red-error">:message</small>')}}
+</br>--}}
 <span class="payment-errors"></span>
 {{Form::label('text','Description of item agreed for purchase')}}
 {{Form::input('text','itemdescription',null,['class' => 'newclass','placeholder' => 'Item description','size'=>'35'])}}
