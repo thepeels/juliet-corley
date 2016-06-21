@@ -33,8 +33,7 @@ $purchase_number = ($last_purchase->id)+$year+1;
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button waiting"
                 data-key="{{Config::get($_ENV['STRIPE_CONFIG'])}}"
                 data-amount="<?=$amountincents;?>"
-                data-metadata={'licensee':'<?$cardholder_name?>'}
-                data-metadata={'purchase_number':'<?=$purchase_number;?>'}
+                data-metadata={'entered-card-name':'<?$cardholder_name?>','purchase_number':'<?=$purchase_number;?>'}
                 data-name="JulietCorley.com"
                 data-description="<?=$itemdescription;?>"
                 data-receipt_email="<?=$receipt_email;?>"

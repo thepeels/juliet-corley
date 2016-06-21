@@ -130,14 +130,15 @@ class PaymentController extends \BaseController
                 $email = NULL != (Auth::user()->email) ? Auth::user()->email : Auth::user()->oauth_email;
             }
 
+
             foreach ($content as $item) {
                 $purchase = Purchase::addToTable($item->name, $name, $item->price, $item->id, $email, $charge->metadata{'purchase_number'});
                 $purchase->save();
                 $purchase = Userpurchase::addToTable($item->name, $name, $item->price, $item->id, $email, $zip_code);
                 $purchase->save();
-            }
-            Session::push('purchased',$item->name);
 
+                Session::push('purchased',$item->name);//or outside foreach...
+            }
             return Redirect::to('payment/success')
                 ->with('purchaser',$name);
         }
@@ -192,7 +193,7 @@ class PaymentController extends \BaseController
             $purchase->save();
 
             return Redirect::to('payment/singlesuccess')
-                ->with('purchaser',$name);;
+                ->with('purchaser',$name);
         }
     }
 
