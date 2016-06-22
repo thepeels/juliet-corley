@@ -11,7 +11,7 @@
 
 
 ?>    
-    <h4><a href="../back" class="btn btn-primary">Select different User</a></h4>
+    <h4><a href="../purchases" class="btn btn-primary">Select different User</a></h4>
     <table class="text-table">
         <caption>
             

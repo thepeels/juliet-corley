@@ -6,14 +6,15 @@ class Purchase extends Eloquent
 	 /*
      * Fillable attributes
      */
-     protected $fillable = [        
+     protected $fillable = array(
         'email',
         'purchase',
         'amount',
         'image_id',
         'client_ip', 
         'cardholder_name',
-    ];
+        'purchase_number'
+     );
     
 	/**
 	 * @return Purchase

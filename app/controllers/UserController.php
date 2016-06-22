@@ -266,6 +266,7 @@ class UserController extends \BaseController
                 ->where('email', $email)
                 ->orderBy('created_at', 'DESC')
                 ->get();
+
             return View::make('userpurchases', array(
                 'purchases' => $purchases,
                 'email' => $email

@@ -4,13 +4,13 @@ class Pageload extends Eloquent
     /*
      * Fillable attributes
      */
-     protected $fillable = [        
+     protected $fillable = array(
         'cartview',
         'addtocart',
         'pdf',
         'amount_in_cart',
         'client_ip'     
-    ];
+	 );
     
     public function add_icon(){
     	$pageload = new Pageload;

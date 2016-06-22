@@ -59,7 +59,7 @@
                           <li><a href="{{ URL::to('purchases') }}">User Purchases</a></li>
                           <li><a href="{{ URL::to('notes') }}">User Notes</a></li>
                           <li class="divider"></li>
-                          <li><a href="{{ URL::to('author') }}">Authors with Notes</a></li>
+                          <li><a href="{{ URL::to('authors') }}">Authors with Notes</a></li>
                           <li><a href="{{ URL::to('authornotes') }}">Notes by Author</a></li>
                         </ul>
                       </li>
