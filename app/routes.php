@@ -53,7 +53,7 @@ Route::group(array('before'=>'superuser'), function() {
     Route::controller('admin/art','Admin\ArtController');
     Route::controller('admin/shop','Admin\ProductController');
     Route::controller('admin','Admin\IndexController');
-    Route::get('user','UserController@index');
+    Route::get('user','UserController@getIndex');
     Route::get('purchases','UserController@userpurchases');
     Route::get('notes','UserController@usernotes');
     Route::get('author','UserController@authorname');

@@ -8,7 +8,7 @@ class UserController extends \BaseController
      *
      * @return Response
      */
-    public function index()
+    public function getIndex()
     {
         $users = \User::all();
 

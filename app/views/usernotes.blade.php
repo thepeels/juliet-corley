@@ -13,7 +13,7 @@
 	else if(null!=($email)) {$mail = $email;}
 	else {$mail = "no mail";}
 	?>  
-    <h4><a href="../back" class="btn btn-primary">Select different User</a>
+    <h4><a href="../notes" class="btn btn-primary">Select different User</a>
     <?echo('&nbsp;&nbsp;Notes Posted by <span style="font-style:italic;color:#39b;">'
     			.$mail.'</span></h4>');?>
     <h4>Notes</h4>
