@@ -20,6 +20,7 @@ class UserController extends \BaseController
     public function authorname()
     {
         $authors = \User::has('detail')->get();
+        
         return View::make('pages.authors', array(
             'authors' => $authors
         ));
