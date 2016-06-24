@@ -14,7 +14,7 @@ $last_purchase = Purchase::orderBy('id', 'desc')->first();
 $purchase_number = ($last_purchase->id)+$year+1;
 //dd($receipt_number);
 //dd($cardholder_name);
-
+//dd($_ENV['STRIPE_KEY']);
 ?>
 <div class="cart merri" style="border-radius: 5px">
     <br>
@@ -31,7 +31,7 @@ $purchase_number = ($last_purchase->id)+$year+1;
 
             <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button waiting"
-                data-key="{{Config::get($_ENV['STRIPE_CONFIG'])}}"
+                data-key="{{($_ENV['STRIPE_PUBLIC_KEY'])}}"
                 data-amount="<?=$amountincents;?>"
                 data-metadata={'entered-card-name':'<?$cardholder_name?>','purchase_number':'<?=$purchase_number;?>'}
                 data-name="JulietCorley.com"

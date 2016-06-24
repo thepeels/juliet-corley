@@ -33,7 +33,7 @@ if(Auth::user()){
             <br><br>
             <script
                 src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button waiting"
-                data-key="{{Config::get($_ENV['STRIPE_CONFIG'])}}"
+                data-key="{{$_ENV['STRIPE_PUBLIC_KEY']}}"
                 data-amount="<?=$amountincents;?>"
                 data-metadata={'entered-card-name':'<?$cardholder_name?>','purchase_number':'<?=$purchase_number;?>'}
                 data-name="JulietCorley.com"

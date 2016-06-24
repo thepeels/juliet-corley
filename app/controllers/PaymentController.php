@@ -10,7 +10,7 @@ class PaymentController extends \BaseController
     public function postIndex()
     {
         $rules = [
-            'amountindollars' => ['required'],
+            'amountindollars' => ['required','numeric'],
             'receipt_email' => ['required', 'email'],
             //'cardholder_name' => ['required'],
             'itemdescription' => ['required']
