@@ -11,8 +11,8 @@ class Pageload extends Eloquent
         'amount_in_cart',
         'client_ip'     
 	 );
-    
-    public function add_icon(){
+
+	public function add_icon(){		//this not working
     	$pageload = new Pageload;
 		$pageload->set_addtocart(1);
 		$pageload->set_amount_in_cart(\Cart::total());
