@@ -43,7 +43,8 @@ class RemindersController extends Controller {
 		return View::make('password.pw_reset')->with('token', $token);
 	}
 
-	/**
+	/**TODO: trace routes during reset
+	 * 
 	 * Handle a POST request to reset a user's password.
 	 *
 	 * @return Response

@@ -18,10 +18,10 @@ $message = (!NULL == Session::has('message')?Session::pull('message'):NULL);
         
 
     <h2 class="julie merri">JulietCorley.com</h2>
-    <h3 class= "caption merri">Log in</h3></br>
-    <a href="../authorize/facebook" class ="btn-lg btn-primary" title = "Use your Facebook profile to login">Login with Facebook</a></br></br>
-    <a href="../authorize/google" class ="btn-lg btn-danger" title = "Use your Gmail or Googleplus profile to login">Login with Google</a></br></br>
-    <a href="../authorize/github" class ="btn-lg btn-info"title = "Use your Github credentials to login">Login with GitHub</a></br></br>
+    <h3 class= "caption merri">Log in</h3><br>
+    <a href="../authorize/facebook" class ="btn-lg btn-primary" title = "Use your Facebook profile to login">Login with Facebook</a><br><br>
+    <a href="../authorize/google" class ="btn-lg btn-danger" title = "Use your Gmail or Googleplus profile to login">Login with Google</a><br><br>
+    <a href="../authorize/github" class ="btn-lg btn-info"title = "Use your Github credentials to login">Login with GitHub</a><br><br>
     <?php
     if (isset($message)){
         ?><span style = "color:#f00"><?
@@ -29,7 +29,7 @@ $message = (!NULL == Session::has('message')?Session::pull('message'):NULL);
         ?><span><?
     }?>
     {{$message or '------------- OR -------------'}}</span>
-    </br>
+    <br>
     <h5 class= "caption merri">Log in with email and password</h5>
     <fieldset class="login">
         {{Form::open(['route'=>'sessions.store'])}}
@@ -54,9 +54,11 @@ $message = (!NULL == Session::has('message')?Session::pull('message'):NULL);
     <a href="user/reset">Forgot password?</a>
     </fieldset>
     <p class ="merri"><br><small>While you may prefer to not login, there are advantages.<br>
-        Creating an account allows you to come back and download again in the future.
-        It will also get you discounts where you have previously ordered either the<br>
-        same fish icon or an icon for the same species. JulietCorley.com will never send you spam.</small>
+        Creating an account allows you to return and download previously purchased files from your account.
+        Being logged in will apply discounts where you have previously ordered either the
+        same fish icon or an icon for the same species. <br>
+            More details are available under the 'About' menu item. <br>
+            JulietCorley.com will never send you spam.</small>
     </p>
     </div>
 </div>
