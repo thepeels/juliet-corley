@@ -3,11 +3,7 @@
 {{ HTML::style( asset('css/imagetable.css') ) }}
 {{ HTML::style( asset('css/grid16.css') ) }}
 @stop
-<?$url = Request::url();
-$previous = URL::previous();
-//dd($previous);
-$return_url=urlencode($previous);
-Session::put('login_from',$previous);
+<?
 $message = (!NULL == Session::has('message')?Session::pull('message'):NULL);
 
 //dd(Session::get('login_from'));?>

@@ -20,7 +20,10 @@ class RemindersController extends Controller {
 	public function postRemind() /*postRemind or store*/
 	{
 		    
-		switch ($response = Password::remind(Input::only('email')))
+		switch ($response = Password::remind(Input::only('email'), function($message)
+		{
+			$message->subject('Link with Password Reset Token');
+		}))
 		{
 			case Password::INVALID_USER:
 				return Redirect::back()->with('error', Lang::get($response));
@@ -29,7 +32,6 @@ class RemindersController extends Controller {
 				return Redirect::back()->with('success', Lang::get($response));
 		}
 	}
-
 	/**
 	 * Display the password reset view for the given token.
 	 *
