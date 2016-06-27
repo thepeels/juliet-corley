@@ -17,8 +17,10 @@ $message = (!NULL == Session::has('message')?Session::pull('message'):NULL);
     <h3 class= "caption merri">Log in</h3><br>
     <a href="../authorize/facebook" class ="btn-lg btn-primary" title = "Use your Facebook profile to login">Login with Facebook</a><br><br>
     <a href="../authorize/google" class ="btn-lg btn-danger" title = "Use your Gmail or Googleplus profile to login">Login with Google</a><br><br>
-    <a href="../authorize/github" class ="btn-lg btn-info"title = "Use your Github credentials to login">Login with GitHub</a><br><br>
-    <?php
+    @if(App::environment('local'))
+        <a href="../authorize/github" class ="btn-lg btn-info"title = "Use your Github credentials to login">Login with GitHub</a><br><br>
+    @endif
+        <?php
     if (isset($message)){
         ?><span style = "color:#f00"><?
     }else{
@@ -49,6 +51,7 @@ $message = (!NULL == Session::has('message')?Session::pull('message'):NULL);
     <a href="user/newuser">Register</a>&nbsp;&nbsp;&nbsp;&nbsp;
     <a href="user/reset">Forgot password?</a>
     </fieldset>
+    @if(App::environment('local'))
     <p class ="merri"><br><small>While you may prefer to not login, there are advantages.<br>
         Creating an account allows you to return and download previously purchased files from your account.
         Being logged in will apply discounts where you have previously ordered either the
@@ -56,6 +59,7 @@ $message = (!NULL == Session::has('message')?Session::pull('message'):NULL);
             More details are available under the 'About' menu item. <br>
             JulietCorley.com will never send you spam.</small>
     </p>
+        @endif
     </div>
 </div>
 @stop

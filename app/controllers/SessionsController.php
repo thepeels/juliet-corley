@@ -13,7 +13,7 @@ class SessionsController extends BaseController{
 				$message = Session::pull('message');
 			}
 			//else $message = "";*/
-            if (Auth::check()) return Redirect::intended();
+            if (Auth::check()) return Redirect::intended('/');
             return View::make('sessions.create');
         
     }    

@@ -9,7 +9,7 @@ Cart::instance($cart_instance);
 $content = Cart::content();
 foreach($content as $row){$itemdescription = $row['name'];}
 if (Cart::count()>=2){$itemdescription = (Cart::count().'&nbsp;images');}
-$year = ((int)date('y'))*10000;
+$year = ((int)date('y'))*100000;
 $amountincents = Cart::total();
 $amountindollars= $amountincents/100;
 $receipt_email ='john@jjc.me';
