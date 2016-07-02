@@ -61,7 +61,7 @@ foreach ($prices as $price){}
                         </a>
                             &nbsp;&nbsp;
                         <a href="/icon/ajaxdumpcart" 
-                            class="by-ajax btn btn-info btn-xs">Empty Cart
+                            class="byajax btn btn-info btn-xs">Empty Cart
                         </a>
                     </h3>
                 </div>

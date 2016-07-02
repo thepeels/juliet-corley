@@ -138,50 +138,6 @@ function shopResume()
         }    
     } 
 
-function cartAdd($id,$fish_name,$base_price,$id_index,$prior)
-    {  //dd($base_price);
-        //dd ('download#'.$fish_name[1]);
-        $pageload = new Pageload;
-		$pageload->addtocart = 1;
-		$pageload->amount_in_cart = \Cart::total();
-		$pageload->client_ip = Request::getClientIp();
-		$pageload->save();
-        Cart::instance('main');
-        $selections = Image::where('id',$id)->get();
-        foreach($selections as $selection)
-        {
-            //only add to cart if not already present so...    
-            if (Cart::search(array('id'=>$selection->id)) == false)
-                Cart::add(array(
-                    'id' 		=> $selection->id,
-                    'name' 		=> $fish_name . " " . $selection->filename,
-                    'qty' 		=> 1,
-                	'price' 	=> $base_price,
-                    'options' 	=> array(
-                    'filepath'	=> $selection->id,
-                    'prior'		=> $prior,
-                    //'proxy'		=> (string)Session::get('cart_instance')
-                    )
-                    )
-                );
-            }
-		Session::flash('before_cart_url','download');
-		if(Cart::count()>0) //show summary
-        {   if(Cart::count()==1){$cart_description = Cart::count() . ' item  . . . ';}
-            else {$cart_description = Cart::count() . ' items . . ';}
-            $cart_amount = '$' . Cart::total()/100;
-        }
-		//send ajax response ...
-		return Response::json(array(
-		'cart_description' => $cart_description,
-		'cart_amount' => $cart_amount
-		)
-		);  
-        //$return_to ='download#'.$id_index;
-        		//returnSession::get('go_back_to_URL');
-        //return Redirect::to($return_to);
-        //return Redirect::back();
-    }
 function cartAddColouringItem($productId)
 {
 	Cart::instance('shop');
@@ -206,6 +162,7 @@ function cartAddColouringItem($productId)
             else {$cart_description = Cart::count() . ' items . . ';}
             $cart_amount = '$' . Cart::total()/100;
         }
+        Event::fire('has_addedtocart');
 		//send ajax response ...
 		return Response::json(array(
 		'cart_description' => $cart_description,

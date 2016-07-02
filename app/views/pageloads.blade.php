@@ -11,6 +11,7 @@
              	$addtocart = Pageload::where('addtocart',1)->where('amount_in_cart','<',2000)->count();
              	$addtocart_plus = Pageload::where('addtocart',1)->where('amount_in_cart','>=',2000)->count();
              	$pdf = Pageload::where('pdf','>',0)->get();
+                $preview = Pageload::where('preview','>',0)->get();
             ?>
     <table class="text-table">
         <caption>
@@ -51,15 +52,25 @@
         	</tr>
         	@foreach ($pdf as $pdf)
             <tr>
-				<td>
-					Free PDFs 
-				</td>
+                <td>
+                    Free PDFs
+                </td>
                 <td>
                     <?=$pdf->pdf?>
                 </td>
-        	</tr>
+            </tr>
             @endforeach
-        
+            @foreach($preview as $preview)
+            <tr>
+                <td>
+                    Fish Previews
+                </td>
+                <td>
+                <?=$preview->preview?>
+                </td>
+            </tr>
+            @endforeach
+
 
     </table>
     <p></br> "Cart View" represents colouring page items added to the cart and then someone clicking to view the cart.

@@ -30,11 +30,9 @@ class IconController extends \BaseController {
 	}
     public function getMakecart()
     {
-    	$pageload = new Pageload;
-		$pageload->cartview = 1;
-		$pageload->amount_in_cart = \Cart::total();
-		$pageload->client_ip = Request::getClientIp();
-		$pageload->save();
+    	if(Cart::count()>0) {
+			Event::fire('cartclick');
+		}
     		
     	//dd(Session::get('dest_email'));
 		//   $proxy=Input::get('proxyemail');
@@ -47,11 +45,10 @@ class IconController extends \BaseController {
     }
 	public function getMakeshopcart()
     {
-		$pageload = new Pageload;
-		$pageload->cartview = 1;
-		$pageload->amount_in_cart = \Cart::total();
-		$pageload->client_ip = Request::getClientIp();
-		$pageload->save();
+		if(Cart::instance('shop')->count()>0) {
+			Event::fire('cartclick');
+		}
+
         return View::make('shopcart',array(
             'back'=>Input::get('return_url','/shop'),
             'cart_instance'=>'shop',
@@ -76,10 +73,6 @@ class IconController extends \BaseController {
 			'success' 		=> true,
 			'current_email' => Session::get('cart_instance')));
 	}
-	public function getPageload($id,$fish_name,$base_price,$table_row_index)
-	{	dd($fish_name);
-		return Redirect::to('icon/addtocart')->compact('id','fish_name','$base_price','$table_row_index');
-	}	 
 	public function getAddtocart($id,$fish_name,$base_price,$table_row_index)
 	{
 		/*if(!Auth::check())return Response::json(array(
@@ -121,10 +114,10 @@ class IconController extends \BaseController {
 	{
 		Cart::instance('main')->destroy();
 	    return Redirect::back();
-	    /*return View::make('shoppingcart',array(
+		/*return View::make('shoppingcart',array(
             'back'=>Input::get('return_url','/download'),
-			'dest_email'=>$proxy)
-		);*/
+            'dest_email'=>$proxy)
+        );*/
 	}
 	
 	public function getDumpshopcart()
@@ -140,7 +133,8 @@ class IconController extends \BaseController {
 	public function getAjaxdumpcart()
 	{
 		Cart::instance('main')->destroy();
-	    return Response::json(array(
+
+		return Response::json(array(
 			'success' => true,
 			'cart_description' => "",
 			'cart_amount' => ""
@@ -174,7 +168,8 @@ class IconController extends \BaseController {
      */
     public function getPreview($folder,$preview_url,$fish_name,$table_row_index)
     {
-        
+        Event::fire('viewed_preview');
+		
 		return View::make('pages.image_preview',array(
         'preview_url'=>$preview_url,
         'fish_name'=>$fish_name,
@@ -263,20 +258,14 @@ class IconController extends \BaseController {
     return $this->cartAdd($id,$fish_name,$base_price,$table_row_index,$prior);
 }
  	private function cartAdd($id,$fish_name,$base_price,$id_index,$prior)
-    {  //dd($base_price);
-        //dd ('download#'.$fish_name[1]);
-        $pageload = new Pageload;
-		$pageload->addtocart = 1;
-		$pageload->amount_in_cart = \Cart::total();
-		$pageload->client_ip = Request::getClientIp();
-		$pageload->save();
-        \Cart::instance('main');
-        $selections = Image::where('id',$id)->get();
-        foreach($selections as $selection)
-        {
-            //only add to cart if not already present so...    
-            if (\Cart::search(array('id'=>$selection->id)) == false)
-                \Cart::add(array(
+    {
+		\Cart::instance('main');
+		$selections = Image::where('id',$id)->get();
+		foreach($selections as $selection)
+		{
+			//only add to cart if not already present so...
+			if (\Cart::search(array('id'=>$selection->id)) == false)
+				\Cart::add(array(
                     'id' 		=> $selection->id,
                     'name' 		=> $fish_name . " " . $selection->filename,
                     'qty' 		=> 1,
@@ -288,13 +277,14 @@ class IconController extends \BaseController {
                     )
                     )
                 );
-            }
+		}
 		Session::flash('before_cart_url','download');
 		if(\Cart::count()>0) //show summary
-        {   if(\Cart::count()==1){$cart_description = \Cart::count() . ' item  . . . ';}
-            else {$cart_description = \Cart::count() . ' items . . ';}
-            $cart_amount = '$' . \Cart::total()/100;
-        }
+		{   if(\Cart::count()==1){$cart_description = \Cart::count() . ' item  . . . ';}
+		else {$cart_description = \Cart::count() . ' items . . ';}
+			$cart_amount = '$' . \Cart::total()/100;
+		}
+		Event::fire('has_addedtocart');
 		//send ajax response ...
 		return Response::json(array(
 		'cart_description' => $cart_description,
@@ -306,18 +296,6 @@ class IconController extends \BaseController {
         //return Redirect::to($return_to);
         //return Redirect::back();
     }
-public function cartclick(){
-	$pageload = new Pageload;
-	$pageload->addtocart = 1;
-	$pageload->amount_in_cart = \Cart::total();
-	$pageload->client_ip = Request::getClientIp();
-	$pageload->save();
-}
-/*	public function getCartdownload($filepath,$name)
-    {
-        return Carthelper::download($filepath,$name);
-    }
-*/    
 /**
 	 * Show the form for creating a new resource.
 	 *

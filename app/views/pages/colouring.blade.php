@@ -44,7 +44,7 @@ $return_url = urlencode($url);
 				</div>
 				{{--@if((Cart::instance('main')->count())>0)--}}
 				<div id="colouringcart" class="cart">
-                    <h5> Cart Summary: <span id="cartresume">{{cartResume()}} </span></h5>
+                    <h5> Cart Summary: <span id="cartresume">{{shopResume()}} </span></h5>
                    
                    <h3 class="arial"><a href="/icon/makeshopcart?return_url={{$return_url}}" 
                             class="btn btn-primary btn-xs" id="themailaddress">View Cart / Checkout
