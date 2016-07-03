@@ -7,19 +7,24 @@
  */
 Event::listen('has_addedtocart',function()
 {
-    $pageload = new Pageload;
-    $pageload->addtocart = 1;
-    $pageload->amount_in_cart = \Cart::total();
-    $pageload->client_ip = Request::getClientIp();
-    $pageload->save();
+    if(strpos($_SERVER['HTTP_USER_AGENT'],'bot')===FALSE) {
+        $pageload = new Pageload;
+        $pageload->addtocart = 1;
+        $pageload->amount_in_cart = \Cart::total();
+        $pageload->client_ip = Request::getClientIp();
+        $pageload->save();
+    }
 });
 Event::listen('cartclick', function()
 {
-    $pageload = new Pageload;
-    $pageload->cartview = 1;
-    $pageload->amount_in_cart = \Cart::total();
-    $pageload->client_ip = Request::getClientIp();
-    $pageload->save();
+    if(strpos($_SERVER['HTTP_USER_AGENT'],'bot')===FALSE)
+    {
+        $pageload = new Pageload;
+        $pageload->cartview = 1;
+        $pageload->amount_in_cart = \Cart::total();
+        $pageload->client_ip = Request::getClientIp();
+        $pageload->save();
+    }
 });
 Event::listen('has_downloaded_pdf',function()
 {
@@ -33,11 +38,14 @@ Event::listen('has_downloaded_pdf',function()
 });
 Event::listen('viewed_preview',function()
 {
-    $pageload = new Pageload;
-    $preview = Pageload::where('preview','>',0)->get();
-    foreach($preview as $preview);
-    $preview_count = $preview->preview+1;
-    $preview->delete();
-    $pageload->preview = $preview_count;
-    $pageload->save();
+    if(strpos($_SERVER['HTTP_USER_AGENT'],'bot')===FALSE)
+    {
+        $pageload = new Pageload;
+        $preview = Pageload::where('preview','>',0)->get();
+        foreach($preview as $preview);
+        $preview_count = $preview->preview+1;
+        $preview->delete();
+        $pageload->preview = $preview_count;
+        $pageload->save();
+    }
 });

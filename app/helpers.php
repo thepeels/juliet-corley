@@ -162,6 +162,7 @@ function cartAddColouringItem($productId)
             else {$cart_description = Cart::count() . ' items . . ';}
             $cart_amount = '$' . Cart::total()/100;
         }
+    
         Event::fire('has_addedtocart');
 		//send ajax response ...
 		return Response::json(array(
