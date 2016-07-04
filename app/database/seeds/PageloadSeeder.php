@@ -7,7 +7,12 @@ class PageloadSeeder
   {
     $pageloads = [
       [
-        "pdf" => 1,
+        "pdf" => 1
+      ],
+      [
+        "free_icon" => 1
+      ],
+      [
         "preview"=>1
       ]
     ];

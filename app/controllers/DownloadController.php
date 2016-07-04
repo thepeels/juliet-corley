@@ -42,7 +42,9 @@ class DownloadController extends \BaseController {
     
     public function getFreedownload($image_id)
     {
-        $target_image = public_path()."/images/bg-images/".$image_id;
+		Event::fire('downloaded_free_icon');
+		
+		$target_image = public_path()."/images/bg-images/".$image_id;
         $name = $image_id;
 		$clicked = date("Y-m-d H:i:s");
 		$clicked_at = Purchase::whereCreated_at($clicked)->first();

@@ -51,3 +51,16 @@ Event::listen('viewed_preview',function()
         $pageload->save();
     }
 });
+Event::listen('downloaded_free_icon',function()
+{
+    if(strpos($_SERVER['HTTP_USER_AGENT'],'bot')===FALSE)
+    {
+        $pageload = new Pageload;
+        $preview = Pageload::where('free_icon','>',0)->get();
+        foreach($preview as $preview);
+        $preview_count = $preview->free_icon+1;
+        $preview->delete();
+        $pageload->free_icon = $preview_count;
+        $pageload->save();
+    }
+});
