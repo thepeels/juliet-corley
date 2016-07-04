@@ -50,16 +50,20 @@ class DownloadController extends \BaseController {
 			return Redirect::back();
 		}
         $response = Response::download($target_image,$name);
-        if (App::environment('local')) ob_end_clean();//for xampp locally
-        $purchase_email = null!=Auth::user()?Auth::user()->email:'FREE download';
-        	$purchase = new Purchase;
-            $purchase->email = $purchase_email;
-            $purchase->purchase = $name;
-            $purchase->amount = 0;
-            $purchase->image_id = 0;
-			$purchase->client_ip = null!=Request::getClientIp()?Request::getClientIp():'not discovered';
-            $purchase->save();
+		if (App::environment('local')) {
+			ob_end_clean();
+		}
+		if(strpos($_SERVER['HTTP_USER_AGENT'],'bot')===FALSE) {
+			$purchase_email = null != Auth::user() ? Auth::user()->email : 'FREE download';
+			$purchase = new Purchase;
+			$purchase->email = $purchase_email;
+			$purchase->purchase = $name;
+			$purchase->amount = 0;
+			$purchase->image_id = 0;
+			$purchase->client_ip = null != Request::getClientIp() ? Request::getClientIp() : 'not discovered';
+			$purchase->save();
 			usleep(10000);
+		}
         return $response;
     }
     
@@ -75,8 +79,12 @@ class DownloadController extends \BaseController {
 			return Redirect::back();
 		}
 		$response = Response::download($target_image,$name);
-        if (App::environment('local')) ob_end_clean();//for xampp locally
-        $purchase_email = null!=Auth::user()?Auth::user()->email:'FREE download';
+        if (App::environment('local')) {
+			ob_end_clean();
+		}
+		if(strpos($_SERVER['HTTP_USER_AGENT'],'bot')===FALSE) {
+        	$purchase_email = null!=Auth::user()?Auth::user()->email:'FREE download';
+
         	$purchase = new Purchase;
             $purchase->email = $purchase_email;
             $purchase->purchase = $name;
@@ -85,7 +93,7 @@ class DownloadController extends \BaseController {
 			$purchase->client_ip = null!=Request::getClientIp()?Request::getClientIp():'not discovered';
             $purchase->save();
 			usleep(10000);
-		//}
+		}
 
         return $response;
 		

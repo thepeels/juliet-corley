@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.autpmatic title section
+ * Created by PhpStorm.automatic title section
  * User: John
  * Date: 01/07/2016
  * Time: 23:07
@@ -28,13 +28,15 @@ Event::listen('cartclick', function()
 });
 Event::listen('has_downloaded_pdf',function()
 {
-    $pageload = new Pageload;
-    $pdf = Pageload::where('pdf','>',0)->get();
-    foreach($pdf as $pdf);
-    $pdf_count = $pdf->pdf+1;
-    $pdf->delete();
-    $pageload->pdf = $pdf_count;
-    $pageload->save();
+    if(strpos($_SERVER['HTTP_USER_AGENT'],'bot')===FALSE) {
+        $pageload = new Pageload;
+        $pdf = Pageload::where('pdf', '>', 0)->get();
+        foreach ($pdf as $pdf) ;
+        $pdf_count = $pdf->pdf + 1;
+        $pdf->delete();
+        $pageload->pdf = $pdf_count;
+        $pageload->save();
+    }
 });
 Event::listen('viewed_preview',function()
 {
