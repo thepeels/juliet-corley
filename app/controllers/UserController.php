@@ -17,6 +17,12 @@ class UserController extends \BaseController
         ));
     }
 
+
+    /**
+     * Display a page of users author names
+     *
+     * @return Response
+     */
     public function authorname()
     {
         $authors = \User::has('detail')->get();
@@ -26,11 +32,23 @@ class UserController extends \BaseController
         ));
     }
 
+
+    /**
+     * Select a user to show their notes
+     *
+     * @return Response
+     */
     public function authornotes()
     {
         return View::make('selectauthor_shownotes');
     }
 
+
+    /**
+     * Display the user with their notes
+     *
+     * @return Response
+     */
     public function postAuthornotes()
     {
         $author = Input::get('author');

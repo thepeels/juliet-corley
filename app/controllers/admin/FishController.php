@@ -89,7 +89,8 @@ public function postPrices()
     /**
      * Download
      * 
-     * @param  none
+     * @param  string   $name
+     * @param  string   $type
      * @return string
      */
 public function getDownload($name, $type)
@@ -211,8 +212,14 @@ public function postValidateaddfish()
             return Redirect::to('/fish/create');
         }
     }
-     
-public function getDeliver($id)
+
+    /**
+     * Delinver
+     *
+     * @param  int  $id
+     * @return string
+     */
+    public function getDeliver($id)
     {
         return View::make('admin/deliver',array('id'=>$id));
     }
