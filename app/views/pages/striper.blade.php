@@ -9,7 +9,7 @@ $amountincents= $amountindollars*100;
 $itemdescription = Input::get('itemdescription');
 $cardholder_name = Input::get('cardholder_name');
 $receipt_email = Input::get('receipt_email');
-$year = ((int)date('y'))*10000;
+$year = ((int)date('y'))*100000;
 $last_purchase = Purchase::orderBy('id', 'desc')->first();
 $purchase_number = ($last_purchase->id)+$year+1;
 //dd($receipt_number);

@@ -31,6 +31,13 @@
     			<td>
     			    {{$user->superuser*-1}}
     			</td>
+				<td>
+					<a href="/user/delete/{{$user->id}}"
+					   class="btn btn-default btn-xs"
+					   style="margin-bottom:-1px;"
+					   title="Delete this user">Delete User
+					</a>
+				</td>
     		</tr>
     	
     	@endforeach

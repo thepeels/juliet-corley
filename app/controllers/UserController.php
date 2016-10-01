@@ -354,5 +354,30 @@ class UserController extends \BaseController
     {
         return View::make('change_details');
     }
+
+
+    public function getDelete($id)
+    {
+        User::where('id',$id)->delete();
+
+        return Redirect::back();
+
+    }
+    public function getRestore($id)
+    {
+        User::where('id',$id)->restore();
+
+        return Redirect::back();
+
+    }
+    public function getDeleted()
+    {
+        $users = \User::onlyTrashed()->get();
+
+        return View::make('pages.users_deleted', array(
+            'table_row' => $users
+        ));
+    }
+
 }
  
