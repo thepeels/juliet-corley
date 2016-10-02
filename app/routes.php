@@ -1,4 +1,5 @@
 <?
+Route::get('user/deleted',array('before'=>'developer','uses'=>'UserController@getDeleted'));
 Route::controller('user','UserController');
 
 Route::controller('download','DownloadController');
@@ -12,20 +13,20 @@ Route::controller('test','TestController');
 Route::controller('image-test','ImageTestController');
 
 Route::controller('password','RemindersController');
-    Route::get('password/reset/{token}','RemindersController@getReset');
-    Route::post('password/reset/{token}',array('uses'=>
+Route::get('password/reset/{token}','RemindersController@getReset');
+Route::post('password/reset/{token}',array('uses'=>
                 'RemindersController@postReset','as' =>'password.reset'));
 
 Route::controller('payment','PaymentController');
 
 Route::resource('sessions','SessionsController');
-    Route::get('logout', 'SessionsController@destroy');
-    Route::get('logoutadmin', 'SessionsController@adminDestroy');
-    Route::get('login', 'SessionsController@create');
-    Route::post('login',array('before'=>'csrf',function()
+Route::get('logout', 'SessionsController@destroy');
+Route::get('logoutadmin', 'SessionsController@adminDestroy');
+Route::get('login', 'SessionsController@create');
+Route::post('login',array('before'=>'csrf',function()
             {Route::post('login','SessionsController@store');}));
-    Route::get('loginadmin', 'SessionsController@createadmin');
-    Route::post('loginadmin',array('before'=>'csrf',function()
+Route::get('loginadmin', 'SessionsController@createadmin');
+Route::post('loginadmin',array('before'=>'csrf',function()
             {Route::post('loginadmin','SessionsController@adminstore');}));
 
 //OAUTH2 Login routes

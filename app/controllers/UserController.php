@@ -305,6 +305,7 @@ class UserController extends \BaseController
     {
         $purchases = DB::table('purchases')
             ->groupBy('purchase')
+            ->orderBy('created_at')
             ->paginate(10);
         
         return View::make('showallpurchases', array(

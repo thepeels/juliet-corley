@@ -48,12 +48,12 @@ Route::filter('auth', function()
  * -------------------------------- */
  
 Route::filter('superuser', function() {
-    if(Auth::guest()||(Auth::user()->superuser !== 1))return Redirect::to('/login');
+    if(Auth::guest()||((Auth::user()->superuser !== 1)&&(Auth::user()->superuser !== 2)))return Redirect::to('/login');
     return;
-        //dd(Auth::user()->superuser);
-    
-        //return Redirect::to('admin');
-    
+});
+Route::filter('developer', function() {
+    if(Auth::guest()||(Auth::user()->superuser !== 2))return Redirect::to('/login');
+    return;
 });
 
 /* --------------------
