@@ -3,7 +3,7 @@
     <title>User List</title>
 @stop
 @section('content')
-
+    <h3>Deleted Users</h3>
     <table class="text-table">
         <tr>
             <th>ID</th>
