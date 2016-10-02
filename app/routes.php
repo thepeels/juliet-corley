@@ -1,5 +1,5 @@
 <?
-Route::get('user/deleted',array('before'=>'developer','uses'=>'UserController@getDeleted'));
+Route::get('user/deleted',array('before'=>'superuser','uses'=>'UserController@getDeleted'));
 Route::controller('user','UserController');
 
 Route::controller('download','DownloadController');

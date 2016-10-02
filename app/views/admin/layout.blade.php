@@ -58,9 +58,7 @@
                           <li><a href="{{ URL::to('user') }}">User List</a></li>
                           <li><a href="{{ URL::to('purchases') }}">User Purchases</a></li>
                           <li><a href="{{ URL::to('notes') }}">User Notes</a></li>
-                          @if (Auth::user()->superuser == 2)
                           <li><a href="{{ URL::to('user/deleted') }}">Deleted Users</a></li>
-                          @endif
                           <li class="divider"></li>
                           <li><a href="{{ URL::to('authors') }}">Authors with Notes</a></li>
                           <li><a href="{{ URL::to('authornotes') }}">Notes by Author</a></li>

@@ -31,6 +31,7 @@
                 <td>
                     {{$user->superuser*-1}}
                 </td>
+                @if (Auth::user()->superuser == 2)
                 <td>
                     <a href="/user/restore/{{$user->id}}"
                        class="btn btn-default btn-xs"
@@ -38,6 +39,7 @@
                        title="Restore this deletion">Restore Record
                     </a>
                 </td>
+                @endif
             </tr>
 
         @endforeach
