@@ -312,6 +312,17 @@ class UserController extends \BaseController
             'purchases' => $purchases
         ));
     }
+    public function showrecentpurchases()
+    {
+        $date_from = (date('Y-m-d H:m:s',strtotime("-110 days")));
+        $purchases = DB::table('purchases')
+            ->where('created_at','>',$date_from)
+            ->paginate(10);
+
+        return View::make('recentpurchases', array(
+            'purchases' => $purchases
+        ));
+    }
 
     public function usernotes()
     {

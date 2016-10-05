@@ -56,6 +56,7 @@ Route::group(array('before'=>'superuser'), function() {
     Route::controller('admin','Admin\IndexController');
     Route::get('user','UserController@getIndex');
     Route::get('purchases','UserController@userpurchases');
+    Route::get('recentpurchases','UserController@showrecentpurchases');
     Route::get('notes','UserController@usernotes');
     Route::get('authors','UserController@authorname');
     Route::get('authornotes','UserController@authornotes');

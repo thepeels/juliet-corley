@@ -67,6 +67,7 @@
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Purchases <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
+                          <li><a href="{{ URL::to('recentpurchases') }}">Recent Purchases</a></li>
                           <li><a href="{{ URL::to('purchases') }}">User Purchases</a></li>
                           <li><a href="{{ URL::to('allpurchases') }}">All Purchases</a></li>
                         </ul>
