@@ -8,7 +8,7 @@
     <table class="text-table">
         <caption>
             
-    <h4>Image Downloads and Sales </h4>
+    <h4>{{$title}} Image Downloads and Sales </h4>
     {{$purchases->links()}}
         </caption>
         <tr>

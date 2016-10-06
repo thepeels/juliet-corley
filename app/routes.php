@@ -60,7 +60,9 @@ Route::group(array('before'=>'superuser'), function() {
     Route::get('notes','UserController@usernotes');
     Route::get('authors','UserController@authorname');
     Route::get('authornotes','UserController@authornotes');
-    Route::get('allpurchases','UserController@showallpurchases');
+    Route::get('purchasessummary','UserController@showallpurchases');
+    Route::get('twelvepurchases','UserController@twelvepurchases');
+    Route::get('allpurchases','UserController@allpurchases');
     Route::get('shopviews','IconController@shopviews');
     Route::get('iconviews','IconController@iconviews');
 });

@@ -8,7 +8,7 @@
     <table class="text-table">
         <caption>
 
-            <h4>Recent Image Downloads and Sales </h4>
+            <h4>{{$title}} Image Downloads and Sales </h4>
             {{$purchases->links()}}
         </caption>
         <tr>
@@ -17,28 +17,36 @@
             <th>Cardholder</th>
             <th>Purchase No.</th>
             <th>Purchase</th>
-            <th>Amount (dollars)</th>
+            <th>Dollars</th>
+            <th>Date - Time</th>
         </tr>
         <? foreach ($purchases as $row) : ?>
 
         <tr>
             <td>
-                <?=$row->id?>
+                {{$row->id}}
             </td>
             <td>
-                <?=$row->email?>
+                {{$row->email}}
             </td>
             <td>
-                <?=$row->cardholder_name?>
+                {{$row->cardholder_name}}
             </td>
             <td>
-                <?=$row->purchase_number?>
+                {{$row->purchase_number}}
             </td>
             <td>
-                <?=$row->purchase?>
+                {{$row->purchase}}
             </td>
             <td>
-                <?=number_format($row->amount/100,2)?>
+                {{number_format($row->amount/100,2)}}
+            </td>
+            <td>
+                <?
+                    $date = new DateTime($row->created_at);
+                    $date->setTimezone(new DateTimeZone('Australia/Brisbane'));
+                    echo ($date->format('Y-m-d H:i:s'));
+                    ?>
             </td>
         </tr>
         <? endforeach; ?>

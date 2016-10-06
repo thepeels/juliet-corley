@@ -309,18 +309,45 @@ class UserController extends \BaseController
             ->paginate(10);
         
         return View::make('showallpurchases', array(
-            'purchases' => $purchases
+            'purchases' => $purchases,
+            'title'     => 'Summary of'
+        ));
+    }
+    public function allpurchases()
+    {
+        $purchases = DB::table('purchases')
+            ->orderBy('id','desc')
+            ->paginate(50);
+
+        return View::make('recentpurchases', array(
+            'purchases' => $purchases,
+            'title'     => 'All'
         ));
     }
     public function showrecentpurchases()
     {
-        $date_from = (date('Y-m-d H:m:s',strtotime("-110 days")));
+        $date_from = (date('Y-m-d H:m:s',strtotime("-61 days")));
         $purchases = DB::table('purchases')
             ->where('created_at','>',$date_from)
+            ->orderBy('id','desc')
             ->paginate(10);
 
         return View::make('recentpurchases', array(
-            'purchases' => $purchases
+            'purchases' => $purchases,
+            'title'     => 'Last 61 Days\''
+        ));
+    }
+    public function twelvepurchases()
+    {
+        $date_from = (date('Y-m-d H:m:s',strtotime("-366 days")));
+        $purchases = DB::table('purchases')
+            ->where('created_at','>',$date_from)
+            ->orderBy('id','desc')
+            ->paginate(10);
+
+        return View::make('recentpurchases', array(
+            'purchases' => $purchases,
+            'title'     => 'One Year\'s'
         ));
     }
 
