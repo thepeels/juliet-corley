@@ -321,7 +321,8 @@ class UserController extends \BaseController
 
         return View::make('recentpurchases', array(
             'purchases' => $purchases,
-            'title'     => 'All'
+            'title'     => 'All',
+            'subtitle'  => ''
         ));
     }
     public function showrecentpurchases()
@@ -329,12 +330,14 @@ class UserController extends \BaseController
         $date_from = (date('Y-m-d H:m:s',strtotime("-61 days")));
         $purchases = DB::table('purchases')
             ->where('created_at','>',$date_from)
+            ->where('email','!=','FREE download')
             ->orderBy('id','desc')
             ->paginate(10);
 
         return View::make('recentpurchases', array(
             'purchases' => $purchases,
-            'title'     => 'Last 61 Days\''
+            'title'     => 'Last 61 Days\'',
+            'subtitle'  => 'Excluding FREE downloads'
         ));
     }
     public function twelvepurchases()
@@ -342,12 +345,14 @@ class UserController extends \BaseController
         $date_from = (date('Y-m-d H:m:s',strtotime("-366 days")));
         $purchases = DB::table('purchases')
             ->where('created_at','>',$date_from)
+            ->where('email','!=','FREE download')
             ->orderBy('id','desc')
             ->paginate(10);
 
         return View::make('recentpurchases', array(
             'purchases' => $purchases,
-            'title'     => 'One Year\'s'
+            'title'     => 'One Year\'s',
+            'subtitle'  => 'Excluding FREE downloads'
         ));
     }
 

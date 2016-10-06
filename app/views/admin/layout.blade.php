@@ -69,7 +69,6 @@
                         <ul class="dropdown-menu" role="menu">
                           <li><a href="{{ URL::to('recentpurchases') }}">Recent Purchases</a></li>
                           <li><a href="{{ URL::to('twelvepurchases') }}">Year Purchases</a></li>
-                          <li><a href="{{ URL::to('purchases') }}">User Purchases</a></li>
                           <li><a href="{{ URL::to('purchasessummary') }}">Summarized Purchases</a></li>
                           <li><a href="{{ URL::to('allpurchases') }}">All Purchases</a></li>
                         </ul>

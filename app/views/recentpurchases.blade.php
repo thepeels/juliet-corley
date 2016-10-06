@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title')
-    <title>All Purchases</title>
+    <title>{{$title}}</title>
 @stop
 @section('content')
 
@@ -9,12 +9,13 @@
         <caption>
 
             <h4>{{$title}} Image Downloads and Sales </h4>
+            <h5>{{$subtitle}}</h5>
             {{$purchases->links()}}
         </caption>
         <tr>
             <th>Id</th>
             <th>Email</th>
-            <th>Cardholder</th>
+            <th>Licensee</th>
             <th>Purchase No.</th>
             <th>Purchase</th>
             <th>Dollars</th>
