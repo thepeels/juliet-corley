@@ -9,7 +9,14 @@
         <caption>
 
             <h4>{{$title}} Image Downloads and Sales </h4>
-            <h5>{{$subtitle}}&nbsp;&nbsp;&nbsp;<a href='{{$reverse}}'class= "btn btn-default btn-xs">reverse order</a></h5>
+            <h5>{{$subtitle}}
+                <?
+                if(!empty($reverse))
+                    {echo ('&nbsp;&nbsp;&nbsp;<a href="'.$reverse.'"class= "btn btn-default btn-xs">reverse order</a>');}
+                else
+                    {echo ('');}
+                ?>
+            </h5>
             {{$purchases->links()}}
         </caption>
         <tr>
