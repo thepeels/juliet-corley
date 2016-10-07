@@ -9,7 +9,7 @@
         <caption>
 
             <h4>{{$title}} Image Downloads and Sales </h4>
-            <h5>{{$subtitle}}</h5>
+            <h5>{{$subtitle}}&nbsp;&nbsp;&nbsp;<a href='{{$reverse}}'class= "btn btn-default btn-xs">reverse order</a></h5>
             {{$purchases->links()}}
         </caption>
         <tr>
@@ -47,7 +47,7 @@
                     $date = new DateTime($row->created_at);
                     $date->setTimezone(new DateTimeZone('Australia/Brisbane'));
                     echo ($date->format('Y-m-d H:i:s'));
-                    ?>
+                ?>
             </td>
         </tr>
         <? endforeach; ?>

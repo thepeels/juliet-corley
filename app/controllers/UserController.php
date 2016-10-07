@@ -305,7 +305,7 @@ class UserController extends \BaseController
     {
         $purchases = DB::table('purchases')
             ->groupBy('purchase')
-            ->orderBy('created_at')
+            ->orderBy('created_at','desc')
             ->paginate(10);
         
         return View::make('showallpurchases', array(
@@ -337,7 +337,24 @@ class UserController extends \BaseController
         return View::make('recentpurchases', array(
             'purchases' => $purchases,
             'title'     => 'Last 61 Days\'',
-            'subtitle'  => 'Excluding FREE downloads'
+            'subtitle'  => 'Excluding FREE downloads',
+            'reverse'   => 'recent_reversed'
+        ));
+    }
+    public function showrecent_reversed()
+    {
+        $date_from = (date('Y-m-d H:m:s',strtotime("-61 days")));
+        $purchases = DB::table('purchases')
+            ->where('created_at','>',$date_from)
+            ->where('email','!=','FREE download')
+            ->orderBy('id','asc')
+            ->paginate(10);
+
+        return View::make('recentpurchases', array(
+            'purchases' => $purchases,
+            'title'     => 'Last 61 Days\'',
+            'subtitle'  => 'Excluding FREE downloads',
+            'reverse'   => 'recentpurchases'
         ));
     }
     public function twelvepurchases()

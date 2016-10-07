@@ -88,7 +88,7 @@ foreach ($prices as $price){}
                 Show all species&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </a>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Click on fish images to select your download.  
+            Click on fish images to select your download.
             <em>(Click on fish name to preview full size image)</em>
         </h5>
     </div>

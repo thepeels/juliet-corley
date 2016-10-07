@@ -57,6 +57,7 @@ Route::group(array('before'=>'superuser'), function() {
     Route::get('user','UserController@getIndex');
     Route::get('purchases','UserController@userpurchases');
     Route::get('recentpurchases','UserController@showrecentpurchases');
+    Route::get('recent_reversed','UserController@showrecent_reversed');
     Route::get('notes','UserController@usernotes');
     Route::get('authors','UserController@authorname');
     Route::get('authornotes','UserController@authornotes');
