@@ -301,7 +301,7 @@ class UserController extends \BaseController
         return View::make('userpurchases');
     }
 
-    public function showallpurchases()
+    public function showallpurchases() //summarized and grouped on page
     {
         $purchases = DB::table('purchases')
             ->groupBy('purchase')
@@ -313,7 +313,7 @@ class UserController extends \BaseController
             'title'     => 'Summary of'
         ));
     }
-    public function allpurchases()
+    public function allpurchases() //unsummarized
     {
         $purchases = DB::table('purchases')
             ->orderBy('id','desc')
@@ -325,7 +325,7 @@ class UserController extends \BaseController
             'subtitle'  => ''
         ));
     }
-    public function showrecentpurchases()
+    public function showrecentpurchases() //most recent purchases
     {
         $date_from = (date('Y-m-d H:m:s',strtotime("-61 days")));
         $purchases = DB::table('purchases')
@@ -357,7 +357,7 @@ class UserController extends \BaseController
             'reverse'   => 'recentpurchases'
         ));
     }
-    public function twelvepurchases()
+    public function twelvepurchases() //one year's purchases
     {
         $date_from = (date('Y-m-d H:m:s',strtotime("-366 days")));
         $purchases = DB::table('purchases')
