@@ -30,43 +30,42 @@ foreach ($prices as $price){}
             </tr>
         </thead>
         <tbody>
-    @foreach ($fishs as $fish)
-        <tr id="{{$table_row_index}}">
-            <td id="{{ $fish->name[0] }}">{{ $fish->name }}</td>
-            
-            <td><img src="{{ $fish->image_thumb->image_url }}"></td>
-            <td><img src="{{ $fish->silhouette_thumb->image_url }}"></td>
-            <td><img src="{{ $fish->outline_thumb->image_url }}"></td>
-            <td>
-                <ul style="list-style-type: none">
-                    <li style="float:left;margin-right:5px">
-                        <a href="/icon/preview{{ $fish->large_image_watermarked->image_url }} / {{ $fish->name }}/{{$table_row_index}}" 
-                            class="btn btn-info btn-xs"
-                            style="width:55px"
-                            title="Preview large image">Preview
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/admin/fish/delete/{{ $fish->id }}" 
-                            class="btn btn-danger btn-xs"
-                            style="width:55px"
-                            title="Delete Fish and all associated images">Delete
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/admin/fish/deliver/{{ $fish->id }}" 
-                            class="btn btn-warning btn-xs"
-                            style="margin-top:5px;margin-bottom:-10px"
-                            title="Add Fish and all associated images to a Users purchases">Deliver Commission
-                        </a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <?$table_row_index ++;?>
-    @endforeach
+        @foreach ($fishs as $fish)
+            <tr id="{{$table_row_index}}">
+                <td id="{{ $fish->name[0] }}">{{ $fish->name }}</td>
+
+                <td><img src="{{ $fish->image_thumb->image_url }}"></td>
+                <td><img src="{{ $fish->silhouette_thumb->image_url }}"></td>
+                <td><img src="{{ $fish->outline_thumb->image_url }}"></td>
+                <td>
+                    <ul style="list-style-type: none">
+                        <li style="float:left;margin-right:5px">
+                            <a href="/icon/preview{{ $fish->large_image_watermarked->image_url }} / {{ $fish->name }}/{{$table_row_index}}"
+                                class="btn btn-info btn-xs"
+                                style="width:55px"
+                                title="Preview large image">Preview
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/fish/delete/{{ $fish->id }}"
+                                class="btn btn-danger btn-xs"
+                                style="width:55px"
+                                title="Delete Fish and all associated images">Delete
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin/fish/deliver/{{ $fish->id }}"
+                                class="btn btn-warning btn-xs"
+                                style="margin-top:5px;margin-bottom:-10px"
+                                title="Add Fish and all associated images to a Users purchases">Deliver Commission
+                            </a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <?$table_row_index ++;?>
+        @endforeach
         </tbody>
     </table>
     </div>
-
 @stop
