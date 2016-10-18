@@ -1,4 +1,13 @@
 .text-table td, th{border:1px solid #888;border-collapse:collapse;margin:0 auto;padding:4px 10px;}
+.table-fish thead tr{/*display: block; */position: relative;}
+.table-fish tbody {
+    /*display: block;*/
+    overflow: auto;
+    /*width: 100%;*/
+}
+.table-fish tr:nth-child(even) {
+    background-color:#eee;
+}
 .userdownloads th{border:none;}
 .spaced{margin-top:15px}
 .scrollable{overflow-y:scroll;max-height:525px}
@@ -11,8 +20,9 @@ h2 span{font-size:14px;}
     background:url('/images/bg-images/blue-icon.jpg')no-repeat 10px 4px;
     padding-left:60px;
     }
-.my-account.navbar-brand{padding-left:60px}    
-body{margin-top:132px;}
+.my-account.navbar-brand{padding-left:60px}
+.alpha-search{margin-left:150px;margin-top:-30px;}
+body{margin-top:140px;}
 body.myaccount{margin-top:0;}
 .attached-nav{padding-top:10px;}
 @media (min-width:768px){

@@ -18,16 +18,18 @@ foreach ($prices as $price){}
 @section('content')
     <div >
         
-    <table class="table table-striped table-hover table-bordered ">
-        <tr>
-            <th>Fish Names</th>
-            
-            <th>Main Icons&nbsp;&nbsp;&nbsp;${{ $price->first_price/100 }} / ${{ $price->second_price/100 }}</th>
-            <th>Silhouettes&nbsp;&nbsp;&nbsp;${{ $price->third_price/100 }}</th>
-            <th>Outlines&nbsp;&nbsp;&nbsp;${{ $price->fourth_price/100 }}</th>
-            <th>Actions</th>
-        </tr>
-        
+    <table class="table table-striped table-hover table-bordered table-fish">
+        <thead>
+            <tr>
+                <th>Fish Names</th>
+
+                <th>Main Icons&nbsp;&nbsp;&nbsp;${{ $price->first_price/100 }} / ${{ $price->second_price/100 }}</th>
+                <th>Silhouettes&nbsp;&nbsp;&nbsp;${{ $price->third_price/100 }}</th>
+                <th>Outlines&nbsp;&nbsp;&nbsp;${{ $price->fourth_price/100 }}</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
     @foreach ($fishs as $fish)
         <tr id="{{$table_row_index}}">
             <td id="{{ $fish->name[0] }}">{{ $fish->name }}</td>
@@ -63,6 +65,7 @@ foreach ($prices as $price){}
         </tr>
         <?$table_row_index ++;?>
     @endforeach
+        </tbody>
     </table>
     </div>
 
