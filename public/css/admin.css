@@ -17,11 +17,10 @@
 h2 span{font-size:14px;}
 .navbar-brand
 {
-    background:url('/images/bg-images/blue-icon.jpg')no-repeat 10px 4px;
+    background:url('../images/bg-images/blue-icon.jpg')no-repeat 10px 4px;
     padding-left:60px;
     }
-.my-account.navbar-brand{padding-left:60px}
-.alpha-search{margin-left:150px;margin-top:-30px;}
+.my-account.navbar-brand{padding-left:60px}    
 body{margin-top:140px;}
 body.myaccount{margin-top:0;}
 .attached-nav{padding-top:10px;}

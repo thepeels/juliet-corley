@@ -68,4 +68,5 @@ foreach ($prices as $price){}
         </tbody>
     </table>
     </div>
+
 @stop
