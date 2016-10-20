@@ -16,28 +16,29 @@ foreach ($prices as $price){}
     </p>
 @stop
 @section('content')
-    <div >
+    <div class="scrollable-container">
+        <div class="scrolling-area">
         
     <table class="table table-striped table-hover table-bordered table-fish">
         <thead>
             <tr>
-                <th>Fish Names</th>
+                <th><div class="names">Fish Names</div></th>
 
-                <th>Main Icons&nbsp;&nbsp;&nbsp;${{ $price->first_price/100 }} / ${{ $price->second_price/100 }}</th>
-                <th>Silhouettes&nbsp;&nbsp;&nbsp;${{ $price->third_price/100 }}</th>
-                <th>Outlines&nbsp;&nbsp;&nbsp;${{ $price->fourth_price/100 }}</th>
-                <th>Actions</th>
+                <th><div class="main-icons">Main Icons&nbsp;&nbsp;&nbsp;${{ $price->first_price/100 }} / ${{ $price->second_price/100 }}</div></th>
+                <th><div class="silhouettes">Silhouettes&nbsp;&nbsp;&nbsp;${{ $price->third_price/100 }}</div></th>
+                <th><div class="outlines">Outlines&nbsp;&nbsp;&nbsp;${{ $price->fourth_price/100 }}</div></th>
+                <th><div class="actions">Actions</div></th>
             </tr>
         </thead>
         <tbody>
         @foreach ($fishs as $fish)
             <tr id="{{$table_row_index}}">
-                <td id="{{ $fish->name[0] }}">{{ $fish->name }}</td>
+                <td id="{{ $fish->name[0] }}"><div class="names">{{ $fish->name }}</div></td>
 
-                <td><img src="{{ $fish->image_thumb->image_url }}"></td>
-                <td><img src="{{ $fish->silhouette_thumb->image_url }}"></td>
-                <td><img src="{{ $fish->outline_thumb->image_url }}"></td>
-                <td>
+                <td><div class="main-icons"><img src="{{ $fish->image_thumb->image_url }}"></div></td>
+                <td><div class="silhouettes"><img src="{{ $fish->silhouette_thumb->image_url }}"></div></td>
+                <td><div class="outlines"><img src="{{ $fish->outline_thumb->image_url }}"></div></td>
+                <td><div class="actions">
                     <ul style="list-style-type: none">
                         <li style="float:left;margin-right:5px">
                             <a href="/icon/preview{{ $fish->large_image_watermarked->image_url }} / {{ $fish->name }}/{{$table_row_index}}"
@@ -61,12 +62,13 @@ foreach ($prices as $price){}
                             </a>
                         </li>
                     </ul>
-                </td>
+                    </div></td>
             </tr>
             <?$table_row_index ++;?>
         @endforeach
         </tbody>
     </table>
+        </div>
     </div>
 
 @stop

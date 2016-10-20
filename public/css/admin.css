@@ -1,5 +1,5 @@
 .text-table td, th{border:1px solid #888;border-collapse:collapse;margin:0 auto;padding:4px 10px;}
-.table-fish thead tr{/*display: block; */position: relative;}
+/*.table-fish thead tr{/*display: block; *//*position: relative;}*/
 .table-fish tbody {
     /*display: block;*/
     overflow: auto;
@@ -41,3 +41,17 @@ body.myaccount{margin-top:0;}
 .centered{margin:0 auto;width:700px;}
 .modified{display:none;}
 .footer{text-align:center;}
+div.scrollable-container{position: relative;margin:90px auto 0;width:880px;}
+div.scrolling-area{height: 400px;overflow: auto;}
+table.table-fish thead tr {left: 0; top: -38px;position: absolute;border-top: solid 2px #ddd;}
+table.table-fish .names{width:227px;}
+table.table-fish .main-icons{width:175px;}
+table.table-fish .silhouettes{width:105px;}
+table.table-fish .outlines{width:100px;}
+table.table-fish .actions{width:160px;}
+table.table-fish th div.names{width:229px;}
+table.table-fish th div.main-icons{width:177px;}
+table.table-fish th div.silhouettes{width:106px;}
+table.table-fish th div.outlines{width:101px;}
+table.table-fish th div.actions{width:180px;}
+
