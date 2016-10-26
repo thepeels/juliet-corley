@@ -12,7 +12,7 @@ if (Cart::count()>=2){$itemdescription = (Cart::count().'&nbsp;images');}
 $year = ((int)date('y'))*100000;
 $amountincents = Cart::total();
 $amountindollars= $amountincents/100;
-$receipt_email ='john@jjc.me';
+$receipt_email = Input::get('receipt_email');
 $cardholder_name = Input::get('cardholder_name');
 $last_purchase = Purchase::orderBy('id', 'desc')->first();
 $purchase_number = ($last_purchase->id)+$year+1;

@@ -6,7 +6,7 @@
     /*width: 100%;*/
 }
 .table-fish tr:nth-child(even) {
-    background-color:#eee;
+    background-color:#f8f8f8;
 }
 .userdownloads th{border:none;}
 .spaced{margin-top:15px}
