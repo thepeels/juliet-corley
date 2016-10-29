@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title')
-<title>Select User</title>
+<title>{{$title}}</title>
 @stop
 <?
 $list = \User::lists('email','email');

@@ -13,7 +13,8 @@ class UserController extends \BaseController
         $users = \User::all();
 
         return View::make('pages.users', array(
-            'table_row' => $users
+            'table_row' => $users,
+            'title'     => 'User List'
         ));
     }
 
@@ -48,7 +49,8 @@ class UserController extends \BaseController
         $placeholder = [null=>'Select'];
         $authors = array_merge($placeholder, $list);
         return View::make('selectauthor_shownotes',array(
-            'authors' => $authors
+            'authors' => $authors,
+            'title'   => 'Select Author'
         ));
     }
 
@@ -283,7 +285,9 @@ class UserController extends \BaseController
 
     public function userpurchases()
     {
-        return View::make('selectuser_showpurchases');
+        return View::make('selectuser_showpurchases',array(
+            'title' => 'Select User'
+        ));
     }
 
     public function postUserpurchases()
@@ -297,7 +301,8 @@ class UserController extends \BaseController
 
             return View::make('userpurchases', array(
                 'purchases' => $purchases,
-                'email' => $email
+                'email' => $email,
+                'title' => 'Purchases'
             ));
         }
         Session::flash('notselected', 'No email selected!');
@@ -445,7 +450,8 @@ class UserController extends \BaseController
         $users = \User::onlyTrashed()->get();
 
         return View::make('pages.users_deleted', array(
-            'table_row' => $users
+            'table_row' => $users,
+            'title'     => 'Deleted Users'
         ));
     }
 

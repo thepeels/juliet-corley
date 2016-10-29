@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title')
-<title>Purchases</title>
+<title>Notes</title>
 @stop
 @section('content')
 

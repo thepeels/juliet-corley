@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title')
-<title>Select Author</title>
+<title>{{$title}}</title>
 @stop
 
 @section('content')

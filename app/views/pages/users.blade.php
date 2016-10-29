@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title')
-<title>User List</title>
+<title>{{$title}}</title>
 @stop
 @section('content')
     

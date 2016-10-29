@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title')
-<title>Purchases</title>
+<title>{{$title}}</title>
 @stop
 @section('content')
 

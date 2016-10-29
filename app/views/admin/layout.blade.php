@@ -100,7 +100,7 @@
               </nav>
           
             @yield('title')
-            
+
             @yield('content')
             
             @yield('footer')
