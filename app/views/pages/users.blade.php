@@ -26,7 +26,7 @@
     				{{$user->email}}
     			</td>
     			<td>
-    				{{$user->author_name}}
+    				{{$user->detail->author_name}}
     			</td>
     			<td>
     			    {{$user->superuser*-1}}
