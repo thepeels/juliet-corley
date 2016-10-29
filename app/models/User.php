@@ -38,12 +38,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	
 	public function author()
 	{
-		return $this->detail->author;
+		return $this->detail->author_name;
 	}
 	
 	 public function scopeWithDetail($query)
 	 {
-	 	foreach(self::$details as $detail_property_name)
+	 	foreach(self::Detail() as $detail_property_name)
 		{
 			$query->with($detail_property_name);
 		}

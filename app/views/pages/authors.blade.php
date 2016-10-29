@@ -13,27 +13,25 @@
     		<th>Aliases</th>
     	</tr>
     	
-    	<? foreach ($authors as $user) : ?>
-    	@if($user->detail->note !="" && $user->detail->author_name != "")
-    		<tr>
-    			<td>
-    				<?=$user->detail->author_name?>
-    			</td>
-    			<td>
-    				<?=$user->name?>
-    			</td>
-    			<td>
-    				<?=$user->detail->note?>
-    			</td>
-    			<td>
-    				<?=$user->email?>
-    			</td>
-    			<td>
-    				<?=$user->detail->alias?>
-    			</td>
-    		</tr>
-    	@endif
-    	<? endforeach; ?>
+    	@foreach ($users_with_details as $user)
+				<tr>
+					<td>
+						<?=$user->detail->author_name?>
+					</td>
+					<td>
+						<?=$user->name?>
+					</td>
+					<td>
+						<?=$user->detail->note?>
+					</td>
+					<td>
+						<?=$user->email?>
+					</td>
+					<td>
+						<?=$user->detail->alias?>
+					</td>
+				</tr>
+    	@endforeach
 
   	</table>
 @stop

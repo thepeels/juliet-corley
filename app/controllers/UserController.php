@@ -25,13 +25,15 @@ class UserController extends \BaseController
      */
     public function authorname()
     {
-        $authors = \User::has('detail')->get();
-        
+        $user_list = Detail::where('author_name','<>','')
+            ->where('note','<>','')
+            ->lists('user_id');
+        $users_with_details = \User::withDetail()->whereIn('id',$user_list)->get();
+            //yeeeeeee haaaaaaaaa
         return View::make('pages.authors', array(
-            'authors' => $authors
+            'users_with_details' => $users_with_details
         ));
     }
-
 
     /**
      * Select a user to show their notes
@@ -40,7 +42,14 @@ class UserController extends \BaseController
      */
     public function authornotes()
     {
-        return View::make('selectauthor_shownotes');
+        $list = \Detail::where('author_name','<>','')
+            ->where('note','<>','')
+            ->lists('author_name','author_name');
+        $placeholder = [null=>'Select'];
+        $authors = array_merge($placeholder, $list);
+        return View::make('selectauthor_shownotes',array(
+            'authors' => $authors
+        ));
     }
 
 

@@ -2,13 +2,7 @@
 @section('title')
 <title>Select Author</title>
 @stop
-<?
-$list = \Detail::where('author_name','<>','')
-			->where('note','<>','')
-			->lists('author_name','author_name');
-$placeholder = [null=>'Select'];
-$authors = array_merge($placeholder, $list);
-?>
+
 @section('content')
     
 <h2 >List Notes for Author</h2></br>

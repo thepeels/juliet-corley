@@ -21,4 +21,8 @@ class Detail extends Eloquent
 	{
 		return $this->author_name;
 	}
+	public function scopeHasnotes()
+    {
+        return $this->where('note','!=','');
+    }
 }
