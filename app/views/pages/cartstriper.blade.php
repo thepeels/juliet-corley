@@ -12,14 +12,14 @@ if (Cart::count()>=2){$itemdescription = (Cart::count().'&nbsp;images');}
 $year = ((int)date('y'))*100000;
 $amountincents = Cart::total();
 $amountindollars= $amountincents/100;
-$receipt_email = Input::get('receipt_email');
+$receipt_email = NULL != Input::get('receipt_email')?Input::get('receipt_email'):'john@jjc.me';
 $cardholder_name = Input::get('cardholder_name');
 $last_purchase = Purchase::orderBy('id', 'desc')->first();
 $purchase_number = ($last_purchase->id)+$year+1;
 if(Auth::user()){
 	if (Auth::user()->email) $receipt_email=Auth::user()->email;
 	elseif(Auth::user()->oauth_email) $receipt_email=Auth::user()->oauth_email;
-}
+}//dd($receipt_email);
 ?>
 <div class="cartstriper merri">
     <h3>Pay <span class="julie">Juliet Corley</span> $<?=$amountindollars?> for <?=$itemdescription?></h3>

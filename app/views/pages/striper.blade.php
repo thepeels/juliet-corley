@@ -12,9 +12,10 @@ $receipt_email = Input::get('receipt_email');
 $year = ((int)date('y'))*100000;
 $last_purchase = Purchase::orderBy('id', 'desc')->first();
 $purchase_number = ($last_purchase->id)+$year+1;
-//dd($receipt_number);
-//dd($cardholder_name);
-//dd($_ENV['STRIPE_KEY']);
+if(Auth::user()){
+    if (Auth::user()->email) $receipt_email=Auth::user()->email;
+    elseif(Auth::user()->oauth_email) $receipt_email=Auth::user()->oauth_email;
+}
 ?>
 <div class="cart merri" style="border-radius: 5px">
     <br>
