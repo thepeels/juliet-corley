@@ -24,19 +24,20 @@
 {{Form::input('text','amountindollars',null,['class'=>'newclass aligned-right','placeholder'=>'AUD$','size'=>'5'])}}<br>
 {{$errors->first('amountindollars','<small class="red-error">:message</small>')}}
 </br>
+{{Form::label('text','Name of Licensee:')}}
+{{Form::input('text','cardholder_name',null,['class'=>'newclass aligned-right','placeholder'=>'name','size'=>'35'])}}<br>
+{{$errors->first('cardholder_name','<small class="red-error">:message</small>')}}
+</br>
 {{Form::label('text','Please send my receipt e-mail to:')}}
 {{Form::input('email','receipt_email',null,['class'=>'newclass aligned-right','placeholder'=>'e-mail','size'=>'35'])}}<br>
 {{$errors->first('receipt_email','<small class="red-error">:message</small>')}}
 </br>
-{{--{{Form::label('text','CardHolder Name (as it appears on the card):')}}
-{{Form::input('text','cardholder_name',null,['class'=>'newclass aligned-right','placeholder'=>'name','size'=>'35'])}}<br>
-{{$errors->first('cardholder_name','<small class="red-error">:message</small>')}}
-</br>--}}
-<span class="payment-errors"></span>
+
+{{--<span class="payment-errors"></span>--}}
 {{Form::label('text','Description of item agreed for purchase')}}
-{{Form::input('text','itemdescription',null,['class' => 'newclass','placeholder' => 'Item description','size'=>'35'])}}
+{{Form::input('text','itemdescription',null,['class' => 'newclass','placeholder' => 'Item description','size'=>'35'])}}<br>
 {{$errors->first('itemdescription','<small class="red-error">:message</small>')}}
-</span><br>
+<br>
 <span>
 	</br>
 {{Form::submit('Pay with Card',['class'=>'btn btn-primary btn-sm'])}}

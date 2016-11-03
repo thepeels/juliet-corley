@@ -12,7 +12,7 @@ class PaymentController extends \BaseController
         $rules = [
             'amountindollars' => ['required','numeric'],
             'receipt_email' => ['required', 'email'],
-            //'cardholder_name' => ['required'],
+            'cardholder_name' => ['required'], //no field on form for single payment
             'itemdescription' => ['required']
         ];
         $validation = Validator::make(Input::all(), $rules);
@@ -30,7 +30,7 @@ class PaymentController extends \BaseController
         $rules = [
             //'amountindollars' 	=> ['required'],
             //'receipt_email' 	=> ['required','email'],
-            //'cardholder_name' => ['required']
+            'licensee' => ['required']
             //'itemdescription'	=> ['required']
         ];
         $validation = Validator::make(Input::all(), $rules);
@@ -125,7 +125,8 @@ class PaymentController extends \BaseController
             $cart_instance = Session::get('cart_instance');
             Cart::instance($cart_instance);
             $content = Cart::content();
-            $email = 'Buyer not logged in';
+            //$email = 'Buyer not logged in';
+            $email = $charge->source['name'];
             if (Auth::user()) {
                 $email = NULL != (Auth::user()->email) ? Auth::user()->email : Auth::user()->oauth_email;
             }

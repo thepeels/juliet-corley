@@ -12,8 +12,8 @@ if (Cart::count()>=2){$itemdescription = (Cart::count().'&nbsp;images');}
 $year = ((int)date('y'))*100000;
 $amountincents = Cart::total();
 $amountindollars= $amountincents/100;
-$receipt_email = NULL != Input::get('receipt_email')?Input::get('receipt_email'):'john@jjc.me';
-$cardholder_name = Input::get('cardholder_name');
+$receipt_email = NULL != Input::get('receipt_email')?Input::get('receipt_email'):$_ENV['RECEIPT_EMAIL'];
+$cardholder_name = Input::get('licensee');
 $last_purchase = Purchase::orderBy('id', 'desc')->first();
 $purchase_number = ($last_purchase->id)+$year+1;
 if(Auth::user()){
@@ -28,8 +28,8 @@ if(Auth::user()){
             <input name ="itemdescription" type="hidden" value="<?=$itemdescription?>" >
             <input name ="receipt_email" type="hidden" value="<?=$receipt_email?>">
             <input name ="purchase_number" type="hidden" value="<?=$purchase_number;?>">
-            <label>Copyright Licensee:&nbsp;</label>
-            <input name="cardholder_name" type="text" placeholder="Enter name of Licensee">
+            <label>Copyright Licensee:&nbsp;{{$cardholder_name}}</label>
+            <input name="cardholder_name" type="hidden" value={{$cardholder_name}}>
             <br><br>
             <script
                 src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button waiting"
@@ -39,6 +39,7 @@ if(Auth::user()){
                 data-name="JulietCorley.com"
                 data-description="<?=$itemdescription;?>"
                 data-receipt_email="<?=$receipt_email;?>"
+                data-zip-code="true"
                 data-label="Proceed to Stripe Payment Form"
                 data-image="">
             </script>

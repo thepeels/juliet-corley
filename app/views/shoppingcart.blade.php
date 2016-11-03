@@ -35,11 +35,17 @@ if(Auth::check()){
                 <td></td>
             </tr>
         </table>
-    {{Form::open(array('url' => '/cardpay','class'=>'form-inline'))}} 
+    {{Form::open(array('url' => '/cardpay','class'=>'form-inline'))}}
+    <br>
+        {{Form::label('text','Name of Licensee:')}}
+        {{Form::input('text','licensee',null,['class'=>'newclass','placeholder'=>'name','size'=>'35'])}}<br>
+        {{$errors->first('licensee','<small class="red-error">:message</small>')}}
+        </br>
     	@if(Cart::instance('main')->total()!=0)
 	        {{'</br>'}}
             {{Form::submit('Pay by Card',['class'=>'btn btn-primary'])}}
     	@endif
+
     	{{Form::close()}}    <h3><a href="{{$back}}"class="btn btn-info">Continue Shopping</a></h3>
 </div>
 @endsection

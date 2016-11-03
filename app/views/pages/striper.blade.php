@@ -26,8 +26,8 @@ if(Auth::user()){
             <input name ="itemdescription" type="hidden" value="<?=$itemdescription;?>">
             <input name ="receipt_email" type="hidden" value="<?=$receipt_email;?>">
             <input name ="purchase_number" type="hidden" value="<?=$purchase_number;?>">
-            <label>Copyright Licensee:&nbsp;</label>
-            <input name="cardholder_name" type="text" placeholder="Enter name of Licensee">
+            <label>Copyright Licensee:&nbsp;{{$cardholder_name}}</label>
+            <input name="cardholder_name" type="hidden" value="<?=$cardholder_name;?>">
             <br><br>
 
             <script

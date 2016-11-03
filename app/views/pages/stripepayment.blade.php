@@ -3,13 +3,13 @@
       $email = Input::get('email');
       $amount = Input::get('amount');
       $description = Input::get('description');
-  } else */{
+  } else {
       $email = '';
       $amount = '';
       $description = '';
 	  $submission = '';
 	  $message = '';
-  }
+  }*/
 ?>
 
 <section class="payment">
@@ -28,14 +28,14 @@
               <label for="description">Description: </label>
               <input type="text" name="description" id="description" required="required" value="{{$description}}" />
               <label>&nbsp;</label>
-              <button id="submitPayment">Pay with Card</button>
+              <button id="submitPayment">Paying with Card</button>
           </form>
   @else
           <h2 style="text-align: center;">Your payment of ${{$amount}} was successful!</h2>
   @endif
 </section>
 
-
+<!--
 <script type="javascript">
 	
 function validateEmail(email) {
@@ -98,3 +98,4 @@ function validateEmail(email) {
         });
     });
 </script>
+-->
