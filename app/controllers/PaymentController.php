@@ -127,6 +127,7 @@ class PaymentController extends \BaseController
             $content = Cart::content();
             //$email = 'Buyer not logged in';
             $email = $charge->source['name'];
+            Session::push('email_to',$email);
             if (Auth::user()) {
                 $email = NULL != (Auth::user()->email) ? Auth::user()->email : Auth::user()->oauth_email;
             }
@@ -139,6 +140,22 @@ class PaymentController extends \BaseController
                 $purchase->save();
 
                 Session::push('purchased',$item->name);//or outside foreach...
+            }
+            if (Auth::check() == FALSE){
+
+                Mail::send('emails.receipt',array(
+                    'amount' => $charge->amount,
+                    'reference' => $charge->metadata['purchase_number'],
+                    'name'   => $charge->source['name'],
+                    'description' => $charge->description,
+                    'number' => $charge->source['last4'],
+                    'licensee' => $charge->metadata['licensee'],
+                    ),function($message)
+                {
+                    $email_to = Session::get('email_to');
+                    $message->to($email_to)->subject('Your JulietCorley.com receipt');
+                });
+                Session::pull('email_to');
             }
             return Redirect::to('payment/success')
                 ->with('purchaser',$name);
