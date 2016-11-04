@@ -132,13 +132,13 @@ class PaymentController extends \BaseController
                 $email = NULL != (Auth::user()->email) ? Auth::user()->email : Auth::user()->oauth_email;
             }
 
-
+            $items_list = array();
             foreach ($content as $item) {
                 $purchase = Purchase::addToTable($item->name, $name, $item->price, $item->id, $email, $charge->metadata{'purchase_number'});
                 $purchase->save();
                 $purchase = Userpurchase::addToTable($item->name, $name, $item->price, $item->id, $email, $zip_code);
                 $purchase->save();
-
+                $items_list[] = $item->name;
                 Session::push('purchased',$item->name);//or outside foreach...
             }
             if (Auth::check() == FALSE){
@@ -147,9 +147,10 @@ class PaymentController extends \BaseController
                     'amount' => $charge->amount,
                     'reference' => $charge->metadata['purchase_number'],
                     'name'   => $charge->source['name'],
-                    'description' => $charge->description,
+                    'description' => $items_list,
                     'number' => $charge->source['last4'],
                     'licensee' => $charge->metadata['licensee'],
+
                     ),function($message)
                 {
                     $email_to = Session::get('email_to');

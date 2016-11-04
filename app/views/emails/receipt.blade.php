@@ -2,5 +2,9 @@
 <p>our Reference number {{$reference}}</p>
 <h3>Thankyou {{$name}},</h3>
 <p>We have successfully charged AUD${{$amount/100}} to your card with number ending .. {{$number}}<br><br>
-for <strong>{{$description}}.</strong></p>
+for:-<br><strong>
+    @foreach($description as $row)
+        {{$row}}<br>
+    @endforeach
+</strong></p>
 <p>The image/images purchased here are licensed to <strong>{{$licensee}}.</strong></p>
