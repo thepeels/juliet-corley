@@ -146,7 +146,7 @@ class PaymentController extends \BaseController
             if (Auth::check() == FALSE){ //send receipt as no email available to send to stripe
 
                 Mail::send('emails.receipt',array(
-                    'amount' => $charge->amount,
+                    'amount' => number_format($charge->amount/100, 2, '.', ''),
                     'reference' => $charge->metadata['purchase_number'],
                     'name'   => $charge->source['name'],
                     'description' => $items_list,
