@@ -4,7 +4,7 @@
 <p>We have successfully charged AUD${{$amount/100}} to your card with number ending .. {{$number}}<br><br>
 for:-<br><strong>
     @foreach($description as $row)
-        {{$row}}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{$row}}<br>
     @endforeach
 </strong></p>
 <p>The image/images purchased here are licensed to <strong>{{$licensee}}.</strong></p>

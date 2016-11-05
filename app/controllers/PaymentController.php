@@ -103,8 +103,10 @@ class PaymentController extends \BaseController
                     "card" => $token,
                     "currency" => "aud",
                     "description" => $itemdescription,
-                    "metadata" => [ "licensee"=>$name,
-                        "purchase_number"=>$purchase_number],
+                    "metadata" => [
+                        "licensee"=>$name,
+                        "purchase_number"=>$purchase_number
+                    ],
                     "receipt_email" => $receipt_email,
                     "zip-code" => $zip_code,
                 ]
@@ -134,14 +136,14 @@ class PaymentController extends \BaseController
 
             $items_list = array();
             foreach ($content as $item) {
-                $purchase = Purchase::addToTable($item->name, $name, $item->price, $item->id, $email, $charge->metadata{'purchase_number'});
+                $purchase = Purchase::addToTable($item->name, $name, $item->price, $item->id, $email, $charge->metadata['purchase_number']);
                 $purchase->save();
                 $purchase = Userpurchase::addToTable($item->name, $name, $item->price, $item->id, $email, $zip_code);
                 $purchase->save();
-                $items_list[] = $item->name;
-                Session::push('purchased',$item->name);//or outside foreach...
+                $items_list[] = $item->name; //list for email receopt if not logged in see below
+                Session::push('purchased',$item->name);
             }
-            if (Auth::check() == FALSE){
+            if (Auth::check() == FALSE){ //send receipt as no email available to send to stripe
 
                 Mail::send('emails.receipt',array(
                     'amount' => $charge->amount,
@@ -183,8 +185,10 @@ class PaymentController extends \BaseController
                     "card" => $token,
                     "currency" => "aud",
                     "description" => $itemdescription,
-                    "metadata" => [ "licensee"=>$name,
-                                    "purchase_number"=>$purchase_number],
+                    "metadata" => [
+                        "licensee"=>$name,
+                        "purchase_number"=>$purchase_number
+                    ],
                     "receipt_email" => $receipt_email,
                     "zip-code" => $zip_code,
                 ]
@@ -193,8 +197,7 @@ class PaymentController extends \BaseController
         } catch (Stripe_CardError $e) {
                     $e_json = $e->getJsonBody();
                     $error = $e_json['error'];
-            // The card has been declined
-            // redirect back to checkout page
+                        // The card has been declined redirect back to checkout page
             return Redirect::to('payment/pay')
                 ->withInput()
                 ->with('stripe_errors', $error['message'])
@@ -202,10 +205,10 @@ class PaymentController extends \BaseController
         }
         
         if ($charge->paid == true) {
-            //dd($charge);
+
             $email = isset(Auth::user()->email) ? Auth::user()->email : $receipt_email;
             
-            $purchase = Purchase::addToTable($itemdescription, $name, $amountincents, 0, $email, $charge->metadata{'purchase_number'});
+            $purchase = Purchase::addToTable($itemdescription, $name, $amountincents, 0, $email, $charge->metadata['purchase_number']);
             $purchase->save();
             //also this $charge->metadata{'purchase_number'}
             $purchase = Userpurchase::addToTable($itemdescription, $name, $amountincents, 0, $email, $zip_code);
