@@ -130,7 +130,7 @@ class DownloadController extends \BaseController {
 	}
 
     public function getFinished()//after successful downloads
-    {	$instance = Session::get('cart_instance');
+    {	$instance = null != Session::get('cart_instance')?Session::get('cart_instance'):'main';
         $back_to = Session::get('before_cart_url');
         Cart::instance($instance)->destroy();
         return Redirect::to($back_to);
