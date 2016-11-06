@@ -57,8 +57,7 @@ function cartResume()
     } 
 
 function cartAdd($id,$fish_name,$base_price,$id_index,$prior)
-    {  //dd($base_price);
-        //dd ('download#'.$fish_name[1]);
+    {
         $selections = Image::where('id',$id)->get();
         foreach($selections as $selection)
         {
@@ -79,7 +78,7 @@ function cartAdd($id,$fish_name,$base_price,$id_index,$prior)
         $return_to ='download#'.$id_index;
         //returnSession::get('go_back_to_URL');
         return Redirect::to($return_to);
-        return Redirect::back();
+        //return Redirect::back();
     }
     
 function fillOutPurchaseTable()
@@ -146,7 +145,7 @@ function showPurchases($email)
     return $purchases;
 }
  function priorPurchase($id,$fish_name,$base_price,$table_row_index)
- {      //dd(Auth::check());
+ {
      $prev_charge = 0;
      $prior = FALSE;
      if(!Auth::check())return Redirect::action('SessionsController@create');  
@@ -158,13 +157,11 @@ function showPurchases($email)
             //&& ($prior_purchase->image_id == $id))
         {   
             $prev_charge += $prior_purchase->amount;
-            //dd ($prior_purchases);
             $prior = TRUE;
         $charge = $base_price - $prev_charge;
         if($charge <= 0)$charge = 100;
         $base_price = $charge;
         }   
-        //dd ($charge);
         return cartAdd($id,$fish_name,$base_price,$table_row_index,$prior);
     
  }
