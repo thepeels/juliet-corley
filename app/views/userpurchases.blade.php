@@ -25,9 +25,6 @@
             <th>Date</th>
         </tr>
         <? foreach ($purchases as $row) :
-		$date = new DateTime($row->updated_at,new DateTimeZone('Europe/London'));
-		$date->setTimeZone(new DateTimeZone('Australia/Brisbane'));
-		 
         ?>            <tr>
                 <td>
                     <?=$row->id?>
@@ -48,7 +45,7 @@
                     <?='$'.number_format($row->amount/100,2,'.','')?>
                 </td>
                 <td>
-                    <?=date_format($date,'Y-M-d g:ia');?>
+                    <?=date_format($row->updated_at,'Y-M-d g:ia');?>
                 </td>
             </tr>
         

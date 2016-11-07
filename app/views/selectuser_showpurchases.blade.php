@@ -4,9 +4,10 @@
 @stop
 <?
 $list = \User::lists('email','email');
-//var_dump($list);
+$list_oauth_email = \User::lists('oauth_email','oauth_email');
 $placeholder = [null=>'Select'];
 $emails = array_merge($placeholder, $list);
+$oauth_emails = array_merge($placeholder, $list_oauth_email);
 ?>
 @section('content')
     
@@ -21,6 +22,9 @@ $emails = array_merge($placeholder, $list);
         <div class="form-group">
     		{{ Form::label('email', 'Select E-mail') }}
             {{ Form::select('email', $emails) }}
+			<p>or if not present try</p>
+			{{ Form::label('oauth_email', 'Select OAuth_E-mail') }}
+			{{ Form::select('oauth_email', $oauth_emails) }}
     	</div>
     	<div class="form-group">
     		{{Form::submit('Show purchases',['class'=>'btn btn-sm btn-primary'])}}
