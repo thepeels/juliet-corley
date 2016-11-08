@@ -5,9 +5,8 @@
 <?
 $list = \User::lists('email','email');
 $list_oauth_email = \User::lists('oauth_email','oauth_email');
-$placeholder = [null=>'Select'];
-$emails = array_merge($placeholder, $list);
-$oauth_emails = array_merge($placeholder, $list_oauth_email);
+$emails = [null => 'Select'] + $list;
+$oauth_emails = [null => 'Select'] + $list_oauth_email;
 ?>
 @section('content')
     

@@ -292,28 +292,31 @@ class UserController extends \BaseController
 
     public function postUserpurchases()
     {
+        $key_value = null;
         $email = Input::get('email');
         $oauth_email = Input::get('oauth_email');
         if ($email != null) {
-            $user_email = $email;
+            $key_value = $email;
         } else if ($oauth_email != null) {
-            $user_email = $oauth_email;
+            $key_value = $oauth_email;
         }
-        if ($user_email != null) {
+        if ($key_value != null) {
             $purchases = Userpurchase::distinct()
-                ->where('email', $user_email)
+                ->where('email', $key_value)
                 ->orderBy('created_at', 'DESC')
                 ->get();
             foreach ($purchases as $key => $field)
             {       //change displayed timezone to Oz time
                 $date = new DateTime($field['updated_at'],new DateTimeZone('Europe/London'));
                 $date->setTimeZone(new DateTimeZone('Australia/Brisbane'));
+
                 $purchases[$key]['updated_at'] = $date;
+                //dd($purchases[$key]['updated_at']);
             }
 
             return View::make('userpurchases', array(
                 'purchases' => $purchases,
-                'email' => $user_email,
+                'email' => $key_value,
                 'title' => 'Purchases'
             ));
         }
@@ -406,6 +409,7 @@ class UserController extends \BaseController
 
     public function postUsernotes()
     {
+        $user_id = null;
         $email = Input::get('email');
         $oauth_email = Input::get('oauth_email');
         if ($email != null) {
