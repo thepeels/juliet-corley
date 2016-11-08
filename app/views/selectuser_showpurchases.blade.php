@@ -10,7 +10,7 @@ $oauth_emails = [null => 'Select'] + $list_oauth_email;
 ?>
 @section('content')
     
-<h2 >List Purchases for User</h2></br>
+<h2 >List Purchases for User</h2><br>
 {{Form::open(array('url' => '/user/userpurchases','class'=>'form-signup'))}}
 {{--<ul>
     @foreach($errors->all() as $error)
@@ -28,7 +28,7 @@ $oauth_emails = [null => 'Select'] + $list_oauth_email;
     	<div class="form-group">
     		{{Form::submit('Show purchases',['class'=>'btn btn-sm btn-primary'])}}
     	</div>
-	{{form::close()}}
+	{{Form::close()}}
             @if(Session::has('notselected'))
         		<p>{{Session::get('notselected')}}</p>
     		@endif
