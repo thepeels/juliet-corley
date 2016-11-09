@@ -158,6 +158,13 @@ class PaymentController extends \BaseController
                     $email_to = Session::get('email_to');
                     $message->to($email_to)->subject('Your JulietCorley.com receipt');
                 });
+                Mail::send('emails.receipt_sent',array(
+                    'amount' => number_format($charge->amount/100, 2, '.', ''),
+                    'name'   => $charge->source['name'],
+                    ),function($message)
+                {
+                    $message->to('john@corley.co')->subject('JulietCorley.com receipt email activated');
+                });
                 Session::pull('email_to');
             }
             return Redirect::to('payment/success')

@@ -2,12 +2,7 @@
 @section('title')
 <title>User Notes</title>
 @stop
-<?
-$list_email = \User::lists('email','email');
-$list_oauth_email = \User::lists('oauth_email','oauth_email');
-$emails = [null => 'Select'] + $list_email;
-$oauth_emails = [null => 'Select'] + $list_oauth_email;
-?>
+
 @section('content')
     
 <h2 >List Notes for User</h2><br>

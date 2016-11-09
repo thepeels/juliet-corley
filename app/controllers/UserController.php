@@ -285,8 +285,14 @@ class UserController extends \BaseController
 
     public function userpurchases()
     {
+        $list_email = \User::lists('email','email');
+        $list_oauth_email = \User::lists('oauth_email','oauth_email');
+        $emails = [null => 'Select'] + $list_email;
+        $oauth_emails = [null => 'Select'] + $list_oauth_email;
         return View::make('selectuser_showpurchases',array(
-            'title' => 'Select User'
+            'title' => 'Select User',
+            'emails' => $emails,
+            'oauth_emails'=>$oauth_emails
         ));
     }
 
@@ -404,7 +410,15 @@ class UserController extends \BaseController
 
     public function usernotes()
     {
-        return View::make('selectuser_shownotes');
+        $list_email = \User::lists('email','email');
+        $list_oauth_email = \User::lists('oauth_email','oauth_email');
+        $emails = [null => 'Select'] + $list_email;
+        $oauth_emails = [null => 'Select'] + $list_oauth_email;
+        return View::make('selectuser_shownotes',array(
+            'title' => 'Select User',
+            'emails' => $emails,
+            'oauth_emails'=>$oauth_emails
+        ));
     }
 
     public function postUsernotes()

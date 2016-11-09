@@ -2,12 +2,7 @@
 @section('title')
 <title>{{$title}}</title>
 @stop
-<?
-$list = \User::lists('email','email');
-$list_oauth_email = \User::lists('oauth_email','oauth_email');
-$emails = [null => 'Select'] + $list;
-$oauth_emails = [null => 'Select'] + $list_oauth_email;
-?>
+
 @section('content')
     
 <h2 >List Purchases for User</h2><br>
