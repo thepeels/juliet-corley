@@ -435,7 +435,15 @@ class UserController extends \BaseController
 
     public function getChange()
     {
-        return View::make('change_details');
+        if(Auth::check()){
+            $email =  Auth::user()->email;
+            $icons = showPurchases($email);
+            $id = Auth::user()->id;
+            $duplicate = (!NULL == Session::has('duplicate')?Session::pull('duplicate'):NULL);
+        return View::make('change_details')->with(compact(
+            'email','icons','id','duplicate')
+            );
+        }
     }
 
 

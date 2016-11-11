@@ -23,18 +23,11 @@
 
     <h3>Account Details</h3>
 
-
     <?php
-    if(Auth::check()){
-        $email =  Auth::user()->email;
-        $icons = showPurchases($email);
-		$id = Auth::user()->id;
-		$duplicate = (!NULL == Session::has('duplicate')?Session::pull('duplicate'):NULL);
-    ?>
-
+    if(Auth::check()){?>
     <h4>Registered e-mail - <span>{{Auth::user()->email}}</span></h4>
     <?}?>
-    
+
         {{Form::open(array('url' => '/user/edituser','class'=>'form-inline'))}}
 
             {{--<ul>
