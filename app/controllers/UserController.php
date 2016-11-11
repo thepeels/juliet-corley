@@ -122,11 +122,9 @@ class UserController extends \BaseController
     public function postEdituser()
     {
         $id = Input::get('userid');
-        $user = User::find($id);
+        $user = $this->find($id);
         $new_email = Input::get('email');//dd($new_email);// need to eliminate integ constr violn
-        $password_login = ['email' => $new_email];
-        $userexists = User::where($password_login)->first();//dd($userexists);
-        if (NULL != $userexists) {//dd($new_email);
+        if ($this->email_exists($new_email)) {//dd($new_email);
             $resp = Redirect::action('UserController@getChange')
                 ->with('duplicate', 'This email address is already in 
 					use, please enter another');
@@ -135,10 +133,10 @@ class UserController extends \BaseController
             exit();
         };
         $oauth_login = ['oauth_email' => $new_email];
-        $userexists = User::where($oauth_login)->first();//user id with the oalogin email
+        $userexists = User::where($oauth_login)->first();//user id with the oauth_login email
         if (NULL != $userexists) {
             $oauth_user = DB::table('oauth_identities')->where('user_id', '=', $userexists->id)->first();
-            if ($userexists->id != $user->id) {//not users own oauth email
+            if ($userexists->id != $user->id) {//not users own oauth_email, therefore a different user
                 $resp = Redirect::action('UserController@getChange')
                     ->with('duplicate', "This email address has been used to 
 						login with <strong>" . $oauth_user->provider . ".</strong>\nPlease login with 
@@ -161,9 +159,10 @@ class UserController extends \BaseController
     public function postEditpassword()
     {
         $rules = [
-            'password' => 'required|min:6|not_in:admin1,administrator,
-			123456789,987654321,87654321,12345678,123456,1234567,
-			password,7654321,654321,111111,aaaaaaa'
+            'password' => 'required|min:6|not_in:
+                admin1,administrator,admin,
+			    123456789,987654321,87654321,12345678,123456,1234567,
+			    password,7654321,654321,111111,aaaaaaa'
         ];
         $validation = Validator::make(Input::all(), $rules);
         if ($validation->fails()) {
@@ -219,16 +218,6 @@ class UserController extends \BaseController
         return Redirect::to('user/change');
     }
 
-    public function postReplacenote() //needs two actions on form so is Addnote below
-    {
-        $detail_id = \Auth::user()->detail->id;
-        $detail = Detail::find($detail_id);
-        $detail->note = Input::get('note');
-
-        $detail->save();
-        return Redirect::to('user/change');
-    }
-
     public function postAddnote()
     {
         $detail_id = \Auth::user()->detail->id;
@@ -245,17 +234,6 @@ class UserController extends \BaseController
         }
 
         $detail->save();
-        return Redirect::to('user/change');
-    }
-
-    public function getDeletenote()
-    {
-        $detail_id = \Auth::user()->detail->id;
-        $detail = Detail::find($detail_id);
-        $detail->note = "";
-
-        $detail->save();
-        
         return Redirect::to('user/change');
     }
 
@@ -484,6 +462,14 @@ class UserController extends \BaseController
             'title'     => 'Deleted Users'
         ));
     }
+    private function email_exists($new_email)
+    {
+        return (bool) User::where('email','=',$new_email)->first();
+    }
 
+    private function find($id)
+    {
+        return User::where('id','=',$id)->first();
+    }
 }
  
