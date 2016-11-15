@@ -32,7 +32,8 @@ class UserController extends \BaseController
         $users_with_details = \User::withDetail()->whereIn('id',$user_list)->get();
             //yeeeeeee haaaaaaaaa
         return View::make('pages.authors', array(
-            'users_with_details' => $users_with_details
+            'users_with_details' => $users_with_details,
+            'title'              => 'Author List'
         ));
     }
 
@@ -74,7 +75,8 @@ class UserController extends \BaseController
             return View::make('authornotes', [
                 'author' => $author,
                 'notes' => $notes,
-                'email' => $email
+                'email' => $email,
+                'title' => 'Notes'
             ]);
         } else {
             Session::flash('notselected', 'No Author selected!');
