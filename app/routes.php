@@ -67,25 +67,10 @@ Route::group(array('before'=>'superuser'), function() {
     Route::get('shopviews','IconController@shopviews');
     Route::get('iconviews','IconController@iconviews');
 });
-//Route::get('icon/addtocart',array('before'=>'auth','IconController@addtocart'));/*function()
-//{Route::get('icon/addtocart','IconController@addtocart');}));*/
-	
-//Route::get('icon/addtocart','IconController@getAddtocart');
-//Route::group(array('before'=>'auth'), function(){
-       // Route::get('cardpay', function(){return View::make('pages.cartstriper');//});
-        //Route::get('icon/addtocart','IconController@getAddtocart');
-//});
+
 Route::post('cardpay','PaymentController@postCart');
 Route::post('shopcardpay','PaymentController@postShopcart');
 //Route::get('shopcardpay',function(){return View::make('pages.cartstriper');});    
 Route::controller('icon','IconController');
 Route::get('back', function(){return Redirect::back();});
-    /*Route::get('cardpay', array('before'=>'auth',function()
-{
-    return View::make('pages.cartstriper');
-}));
-Route::filter('auth',function(){
-    if(Auth::guest()){
-        return Redirect::guest('login');
-    }
-});*/
+

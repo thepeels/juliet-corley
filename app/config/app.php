@@ -12,8 +12,8 @@ return array(
 	| application. If disabled, a simple generic error page is shown.
 	|
 	*/
-
-	'debug' => false,
+    /*'error_reporting' => E_ALL ^ E_DEPRECATED,*/
+	'debug' => true,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -78,9 +78,11 @@ return array(
 	|
 	*/
 
-	'key' => 'asdfghjklpoiuytrewqzxcvbnm2014/5',
+	'key' => '4oBOzEYBXSjA5fxBezpuFvZc8TOJlLZ0',
 
-	'cipher' => MCRYPT_RIJNDAEL_128,
+	/*'cipher' => MCRYPT_RIJNDAEL_128,*/
+    'cipher'   => 'AES-256-CBC',
+    /*'cipher'     => null,*/
 
 	/*
 	|--------------------------------------------------------------------------
@@ -110,7 +112,9 @@ return array(
 		
 		'Illuminate\Cookie\CookieServiceProvider',
 		'Illuminate\Database\DatabaseServiceProvider',
-		'Illuminate\Encryption\EncryptionServiceProvider',
+        /*'Thomaswelton\LaravelMcryptFaker\NoEncryptionServiceProvider',*/
+        'Illuminate\Encryption\EncryptionServiceProvider',/*
+        'Thomaswelton\LaravelMcryptFaker\OpensslEncryptionServiceProvider',*/
 		'Illuminate\Filesystem\FilesystemServiceProvider',
 		'Illuminate\Hashing\HashServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',

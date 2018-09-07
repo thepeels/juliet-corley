@@ -12,7 +12,7 @@
 @section('content')
 
 
-<?$url = Request::url();
+<?
 $genus = Input::get('genus');
 $species = Input::get('species');
 
@@ -21,10 +21,8 @@ if(null!=Session::get('cart_instance'))
 else 
 	{$placeholder = "enter e-mail";}
 	
-$return_url=urlencode($url.'?'.'genus='.$genus.'&'.'species='.$species);
-//$frag = $_COOKIE['thefragment'];
-//dd($frag);
-//Session::put('usefragment',$frag);
+
+
 ?>
 <?
 $table_row_index = 1;
@@ -45,18 +43,8 @@ foreach ($prices as $price){}
             <div class=" push-5 grid-11 ">
                 <div class="cart">
                     <h5> Cart Summary: <span id="cartresume">{{cartResume()}} </span></h5>
-                   <!--<form id="proxyemail" action="/icon/ajaxemail" > 
-                    	<h6 style ="font-size: 8px;margin-top:-2px;margin-bottom:-18px">Cart for:-
-                    		<input size="15" type="email" id="themailaddress"
-                    			name="proxyemail"
-                    			placeholder={{$placeholder}}/>
-                    		<input type="submit" class="btn btn-info btn-xxs ajaxit" value="Set"/>
-                    		<!--<a class="btn btn-primary btn-xs"
-                    			href="/icon/makecart?return_url={{$return_url}}"
-                    			>View Cart / Checkout"</a>--><!--
-                   		</h6>
-                   </form>-->
-                   <h3><a href="/icon/makecart?return_url={{$return_url}}" 
+                   
+                   <h3><a href="/icon/makecart"
                             class="btn btn-primary btn-xs" id="the-mail-address">View Cart / Checkout
                         </a>
                             &nbsp;&nbsp;
@@ -167,11 +155,5 @@ foreach ($prices as $price){}
 </div> {{--shading-container--}}
 @stop
 @section('footer')
-<!--<script>
-	$(document).ready(function(){
-		$('html, body').animate({
-            scrollTop: 0
-            },100);
-	});
-</script>-->
+
 @stop

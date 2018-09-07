@@ -1,6 +1,9 @@
 <?php
- 
-class IconController extends \BaseController {
+
+use Illuminate\Support\Facades\View;
+
+class IconController extends \BaseController{
+
 
 	/**
 	 * Display a listing of the resource.
@@ -13,7 +16,7 @@ class IconController extends \BaseController {
     {
         //return Carthelper::display();
         $fish = \Fish::withImages()->orderBy('name')->get();
-        return \View::make('icondownloads', array(
+        return View::make('icondownloads', array(
             'fishs' => $fish
         ));
     }
@@ -33,12 +36,9 @@ class IconController extends \BaseController {
     	if(Cart::count()>0) {
 			Event::fire('cartclick');
 		}
-    		
-    	//dd(Session::get('dest_email'));
-		//   $proxy=Input::get('proxyemail');
-	//if($proxy==""){$proxy=Auth::user()->email;}
+
         return View::make('shoppingcart',array(
-            'back'=>Input::get('return_url','/download'),
+            'back'=>\Redirect::back(),
 			//'dest_email'=>$proxy)
 			)
         );
@@ -50,9 +50,8 @@ class IconController extends \BaseController {
 		}
 
         return View::make('shopcart',array(
-            'back'=>Input::get('return_url','/shop'),
+            'back'=>\Redirect::back(),
             'cart_instance'=>'shop',
-			//'dest_email'=>$proxy)
 			)
         );
     }
@@ -80,7 +79,7 @@ class IconController extends \BaseController {
 				'notloggedin' 	=>	"Please login/register to use the cart.\r\n...I apologise for this, as I hate being forced to register to use sites!\nBut this is the only way I can keep a record of your entitlement to use your images.\nSo I've kept registration minimal, with just an email address and password.\nAnd I promise not to spam you!"
 			)
 		);*/
-	    // add return URL to session? 
+	    // add return URL to session?
         if (Session::has('go_back_to_URL'))
         {   
             Session::forget('go_back_to_URL');
@@ -113,21 +112,15 @@ class IconController extends \BaseController {
 	public function getDumpcart()
 	{
 		Cart::instance('main')->destroy();
-	    return Redirect::back();
-		/*return View::make('shoppingcart',array(
-            'back'=>Input::get('return_url','/download'),
-            'dest_email'=>$proxy)
-        );*/
+
+		return Redirect::back();
 	}
 	
 	public function getDumpshopcart()
 	{
 		Cart::instance('shop')->destroy();
-	    return Redirect::back();
-	    /*return View::make('shoppingcart',array(
-            'back'=>Input::get('return_url','/download'),
-			'dest_email'=>$proxy)
-		);*/
+
+		return Redirect::back();
 	}
 	
 	public function getAjaxdumpcart()
