@@ -9,10 +9,11 @@ class FishController extends \BaseController
  */
 public function getIndex()
     {
-            
+        $prices = Price::where('name','icons')->first();
         $fish = Fish::withImages()->orderBy('name')->get();
         return View::make('admin.fish_table', array(
-            'fishs' => $fish
+            'fishs' => $fish,
+            'prices'=> $prices
         ));
     }
     

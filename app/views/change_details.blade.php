@@ -9,24 +9,24 @@
 <body class="myaccount">
 @stop
 @section('content')
-<div class="centered userdownloads">
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
-<script type="text/javascript">
-    
-    $(document).keypress(function(e) {
-    if (e.which == 13 && e.target.id != 'noteform') {            
-            return false;
-        }
-    });    
-
-</script>
+    <div class="centered userdownloads">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+        <script type="text/javascript">
+            
+            $(document).keypress(function(e) {
+            if (e.which == 13 && e.target.id != 'noteform') {
+                    return false;
+                }
+            });
+        
+        </script>
 
     <h3>Account Details</h3>
 
     <?php
     if(Auth::check()){?>
     <h4>Registered e-mail - <span>{{Auth::user()->email}}</span></h4>
-    <?}?>
+    <?php }?>
 
         {{Form::open(array('url' => '/user/edituser','class'=>'form-inline'))}}
 
@@ -35,7 +35,7 @@
                     <li>{{ $error}}</li>
                  @endforeach
             </ul>--}}
-        	<?if(isset($duplicate)){?><span style = "color:#f00">{{$duplicate}}</span><?}?>
+        	<?php if(isset($duplicate)){?><span style = "color:#f00">{{$duplicate}}</span><?php }?>
         	{{Form::input('hidden','userid',$id)}}
             {{Form::input('email','email',null,['class'=>'newclass','placeholder'=>'Enter new email'])}}
         
@@ -49,7 +49,7 @@
     <p style="font:italic 12px arial;color:#222">(This shows here because you logged in using	your Account with Facebook, Google etc.)<br><br>
     	You can add/change your registered email to one you may prefer to use for this site,<br>
     	and you can add/change a password, then you are able to use 'email and password' login too.</p><br>
-    <?}?>
+    <?php }?>
     <h4>Change Password</h4>
         
         {{Form::open(array('url' => '/user/editpassword','class'=>'form-inline'))}}

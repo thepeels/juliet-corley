@@ -1,2 +1,2 @@
 #php_value Header edit Set-Cookie Null
-php_value Header always_unSet-Cookie
+#php_value Header always_unSet-Cookie

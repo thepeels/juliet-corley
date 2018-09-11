@@ -19,25 +19,25 @@ if(Auth::user()){
 ?>
 <div class="cart merri" style="border-radius: 5px">
     <br>
-    <h3>Pay <span class= "julie">Juliet Corley</span> $<?=$amountindollars?> for <?=$itemdescription?></h3>
+    <h3>Pay <span class= "julie">Juliet Corley</span> ${{$amountindollars}} for {{$itemdescription}}</h3>
     <br>
         <form action="{{url('payment/singlepayment')}}" method="POST">
-            <input name ="amountincents" type="hidden" value="<?=$amountincents;?>">
-            <input name ="itemdescription" type="hidden" value="<?=$itemdescription;?>">
-            <input name ="receipt_email" type="hidden" value="<?=$receipt_email;?>">
-            <input name ="purchase_number" type="hidden" value="<?=$purchase_number;?>">
+            <input name ="amountincents" type="hidden" value="{{$amountincents}}">
+            <input name ="itemdescription" type="hidden" value="{{$itemdescription}}">
+            <input name ="receipt_email" type="hidden" value="{{$receipt_email}}">
+            <input name ="purchase_number" type="hidden" value="{{$purchase_number}}">
             <label>Copyright Licensee:&nbsp;{{$cardholder_name}}</label>
-            <input name="cardholder_name" type="hidden" value="<?=$cardholder_name;?>">
+            <input name="cardholder_name" type="hidden" value="{{$cardholder_name}}">
             <br><br>
 
             <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button waiting"
                 data-key="{{($_ENV['STRIPE_PUBLIC_KEY'])}}"
-                data-amount="<?=$amountincents;?>"
-                data-metadata={'entered-card-name':'<?$cardholder_name?>','purchase_number':'<?=$purchase_number;?>'}
+                data-amount="{{$amountincents}}"
+                data-metadata={'entered-card-name':'{{$cardholder_name}}','purchase_number':'{{$purchase_number}}'}
                 data-name="JulietCorley.com"
-                data-description="<?=$itemdescription;?>"
-                data-receipt_email="<?=$receipt_email;?>"
+                data-description="{{$itemdescription}}"
+                data-receipt_email="{{$receipt_email}}"
                 data-zip-code="true"
                 data-label="Proceed to Stripe Payment Form"
                 data-image="">

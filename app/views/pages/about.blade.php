@@ -8,9 +8,7 @@
 @section('title')
 <title>About</title>
 @stop
-<?
-$previous = Session::get('previous_url');
-?>
+
 @section('content')
 <div class="fixed-menu merri">
 	<h3 id="01" class="julie">JulietCorley.com</h3>

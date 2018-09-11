@@ -1,4 +1,4 @@
-( function( $ ) {
+<script langauage=javascript>
 $(document).ready(function(){
 
 $('#cssmenu > ul > li.has-sub > ul').each(function(index, e){
@@ -29,5 +29,4 @@ $('#cssmenu > ul > li > a').click(function() {
 });
 
 });
-
-} )( jQuery );
+</script>

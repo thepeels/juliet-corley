@@ -6,10 +6,7 @@
 {{ HTML::style( asset('css/jchome.css') ) }}
 
 @stop
-<?$form_index = 1;
-$url = Request::url();
-$return_url = urlencode($url);
-?>
+
 @section('body-class')
 <body class="shop">
 @stop
@@ -60,7 +57,7 @@ $return_url = urlencode($url);
 							type="application/x-shockwave-flash" 
 							class="zazzle" style="margin-top:-10px;">
 							</embed><br/><p class="zazzle segoe">View more <a href="http://www.zazzle.com.au/">gifts</a> at Zazzle.</p>
-							--><?$pclass = '<p class="babyfoot"></p>';?>
+							--><?php $pclass = '<p class="babyfoot"></p>';?>
 							<p class="cone-notice">This page is not yet</br>
 								fully functional</br>- please email
 								</br>me with orders</p>
@@ -91,7 +88,7 @@ $return_url = urlencode($url);
 						</div>
 					</div>
 					@foreach ($products as $product)
-					<?$form_id = 'form-'.$form_index;?><!-- redundant -->
+					<?php $form_id = 'form-'.$form_index;?><!-- redundant -->
 					<div class="grid-11 pushdown">
 					<div class="grid-5 alpha image-column">
 						<img src="{{$product->small_size_image->image_url}}" width="286px" />
@@ -120,7 +117,7 @@ $return_url = urlencode($url);
 						<p class="segoe">{{$product->description_4}}</p>	
 					</div>
 					</div>
-					<?$form_index ++;?>
+					<?php $form_index ++;?>
 					@endforeach
 				</div>
 			</div>
@@ -128,5 +125,5 @@ $return_url = urlencode($url);
 	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script><?  include_once(public_path().'/packages/menu-script.js');?></script>
+<script><?php  include_once(public_path().'/packages/menu-script.js');?></script>
 @stop

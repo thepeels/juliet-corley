@@ -3,10 +3,8 @@
 @section('title')
 <title>Fish Table</title>
 @stop
-<?
+<?php
 $table_row_index = 1;
-$prices = getPrice('icons');
-foreach ($prices as $price){}
 ?>
 @section('attached-nav')
     <p class="attached-nav">
@@ -24,9 +22,9 @@ foreach ($prices as $price){}
             <tr>
                 <th><div class="names">Fish Names</div></th>
 
-                <th><div class="main-icons">Main Icons&nbsp;&nbsp;&nbsp;${{ $price->first_price/100 }} / ${{ $price->second_price/100 }}</div></th>
-                <th><div class="silhouettes">Silhouettes&nbsp;&nbsp;&nbsp;${{ $price->third_price/100 }}</div></th>
-                <th><div class="outlines">Outlines&nbsp;&nbsp;&nbsp;${{ $price->fourth_price/100 }}</div></th>
+                <th><div class="main-icons">Main Icons&nbsp;&nbsp;&nbsp;${{ $prices->first_price/100 }} / ${{ $prices->second_price/100 }}</div></th>
+                <th><div class="silhouettes">Silhouettes&nbsp;&nbsp;&nbsp;${{ $prices->third_price/100 }}</div></th>
+                <th><div class="outlines">Outlines&nbsp;&nbsp;&nbsp;${{ $prices->fourth_price/100 }}</div></th>
                 <th><div class="actions">Actions</div></th>
             </tr>
         </thead>
@@ -64,7 +62,7 @@ foreach ($prices as $price){}
                     </ul>
                     </div></td>
             </tr>
-            <?$table_row_index ++;?>
+            <?php $table_row_index ++;?>
         @endforeach
         </tbody>
     </table>

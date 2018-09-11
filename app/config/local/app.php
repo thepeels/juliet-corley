@@ -80,7 +80,8 @@ return array(
 
 	'key' => 'asdfghjklpoiuytrewqzxcvbnm2014/5',
 
-	'cipher' => MCRYPT_RIJNDAEL_128,
+	/*'cipher' => MCRYPT_RIJNDAEL_128,*/
+    'cipher' => 'AES-256-CBC',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -101,16 +102,15 @@ return array(
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
 		'Illuminate\Cache\CacheServiceProvider',
-		
-					'Illuminate\Session\CommandsServiceProvider',
-		
-		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
-		
-					'Illuminate\Routing\ControllerServiceProvider',
-		
-		'Illuminate\Cookie\CookieServiceProvider',
-		'Illuminate\Database\DatabaseServiceProvider',
-		'Illuminate\Encryption\EncryptionServiceProvider',
+		'Illuminate\Session\CommandsServiceProvider',
+        'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
+        'Illuminate\Routing\ControllerServiceProvider',
+        'Illuminate\Cookie\CookieServiceProvider',
+        'Illuminate\Database\DatabaseServiceProvider',
+
+        'Tomgrohl\Laravel\Encryption\EncryptionServiceProvider',
+        /*'Illuminate\Encryption\EncryptionServiceProvider',*/
+
 		'Illuminate\Filesystem\FilesystemServiceProvider',
 		'Illuminate\Hashing\HashServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',
@@ -128,7 +128,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		
-				'Illuminate\Workbench\WorkbenchServiceProvider',
+		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Gloudemans\Shoppingcart\ShoppingcartServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
 	),

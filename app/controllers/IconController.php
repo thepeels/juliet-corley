@@ -36,11 +36,15 @@ class IconController extends \BaseController{
     	if(Cart::count()>0) {
 			Event::fire('cartclick');
 		}
+		$owner = $this->defineOwner();
+        Session::put('cart_instance','main');
+        $previous = Session::get('previous');
 
-        return View::make('shoppingcart',array(
+        return View::make('shoppingcart')->with([
             'back'=>\Redirect::back(),
-			//'dest_email'=>$proxy)
-			)
+			'owner' => $owner,
+            'previous' => $previous
+			]
         );
     }
 	public function getMakeshopcart()
@@ -74,11 +78,12 @@ class IconController extends \BaseController{
 	}
 	public function getAddtocart($id,$fish_name,$base_price,$table_row_index)
 	{
-		/*if(!Auth::check())return Response::json(array(
+        $owner = $this->defineOwner();
+        if(!Auth::check())return Response::json(array(
 				'fail' 		=>	true,
 				'notloggedin' 	=>	"Please login/register to use the cart.\r\n...I apologise for this, as I hate being forced to register to use sites!\nBut this is the only way I can keep a record of your entitlement to use your images.\nSo I've kept registration minimal, with just an email address and password.\nAnd I promise not to spam you!"
 			)
-		);*/
+		);
 	    // add return URL to session?
         if (Session::has('go_back_to_URL'))
         {   
@@ -288,6 +293,15 @@ class IconController extends \BaseController{
         		//returnSession::get('go_back_to_URL');
         //return Redirect::to($return_to);
         //return Redirect::back();
+    }
+
+    public function defineOwner()
+    {
+        if(Auth::check()){
+            if  	(Auth::user()->email)		$owner = Auth::user()->email;
+            elseif	(Auth::user()->oauth_email)	$owner = Auth::user()->oauth_email;/*isset(Auth::user()->oauth_email)?*/
+        }else    							    $owner = "guest";
+        return $owner;
     }
 /**
 	 * Show the form for creating a new resource.

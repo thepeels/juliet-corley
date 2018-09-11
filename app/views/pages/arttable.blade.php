@@ -53,7 +53,7 @@
         <div class="grid-11 main-table scrolling">
                 <table class="separated data" style = "padding:0px">
                 @foreach ($arts as $art)
-                    <tr id="<?=$art->name[0]?>" style= "border:1px solid #777">
+                    <tr id="{{$art->name[0]}}" style= "border:1px solid #777">
                         <td>{{ $art->name }}</td>
                         <td>${{ $art->price_dollars }}</td>
                         <td>

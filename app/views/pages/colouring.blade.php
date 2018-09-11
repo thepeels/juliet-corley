@@ -12,10 +12,7 @@
 								Try my colouring pages ansd see if they work for you &#9786;"/>
 <meta property="og:image"		content="https://julietcorley.com/images/bg-images/colouring.jpg"/>
 @stop
-<?$div_index = 1;
-$url = Request::url();
-$return_url = urlencode($url);
-?>
+
 @section('body-class')
 <body class="colouring">
 	<div id="fb-root"></div>
@@ -46,7 +43,7 @@ $return_url = urlencode($url);
 				<div id="colouringcart" class="cart">
                     <h5> Cart Summary: <span id="cartresume">{{shopResume()}} </span></h5>
                    
-                   <h3 class="arial"><a href="/icon/makeshopcart?return_url={{$return_url}}" 
+                   <h3 class="arial"><a href="/icon/makeshopcart"
                             class="btn btn-primary btn-xs" id="themailaddress">View Cart / Checkout
                         </a>
                             &nbsp;&nbsp;</br>
@@ -136,7 +133,7 @@ $return_url = urlencode($url);
 				</div>  
 			</div>
 			@endif
-			<?$div_index ++;?>
+			<?php $div_index ++;?>
 			@endforeach  
 			</div> 
 		</div> 
@@ -144,6 +141,6 @@ $return_url = urlencode($url);
 </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script><?  include_once(public_path().'/packages/menu-script.js');?>
+<script><?php  include_once(public_path().'/packages/menu-script.js');?>
 </script>
 @endsection

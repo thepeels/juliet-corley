@@ -37,7 +37,7 @@ class SessionsController extends BaseController{
         $entered_email = $credentials['email'];
         
         if (Auth::attempt($credentials,true))
-        {   //correct login details
+        {
             //return Redirect::to(Session::get('return_url'))->with(Auth::user()->email);
             //from download page ...{
             $uri_fragment = Session::get('urifragment');
@@ -50,7 +50,7 @@ class SessionsController extends BaseController{
 				;
 			//...}
         }
-        else  //login failed - is entered email in db?
+        else  dd('login failed - is entered email in db?'.$_ENV['DATABASE_NAME']);
         {
         $email_exists = (!null ==(DB::table('users')->where('email',$entered_email)->get()));
         if ($email_exists)

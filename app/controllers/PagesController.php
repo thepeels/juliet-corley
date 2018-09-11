@@ -16,8 +16,10 @@ class PagesController extends \BaseController {
 	public function about()
 	{
 		$previous = URL::previous();
-		Session::flash('previous_url',$previous);
-		return View::make('pages.about');
+
+		return View::make('pages.about')->with([
+            'previous' => $previous
+        ]);
 	}
 	
 	public function home()
@@ -28,8 +30,10 @@ class PagesController extends \BaseController {
     public function info()
     {
         $previous = URL::previous();
-		Session::flash('previous_url',$previous);
-        return View::make('pages.info');
+
+        return View::make('pages.info')->with([
+            'previous' => $previous
+            ]);
     }
 	
     public function commissions()
@@ -70,8 +74,10 @@ class PagesController extends \BaseController {
     public function terms()
     {
         $previous = URL::previous();
-		Session::flash('previous_url',$previous);
-		return View::make('pages.terms');
+
+		return View::make('pages.terms')->with([
+            'previous' => $previous
+        ]);
     }
     
 	/**

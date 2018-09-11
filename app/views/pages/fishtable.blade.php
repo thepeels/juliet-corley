@@ -12,7 +12,7 @@
 @section('content')
 
 
-<?
+<?php
 $genus = Input::get('genus');
 $species = Input::get('species');
 
@@ -24,11 +24,11 @@ else
 
 
 ?>
-<?
+<?php
 $table_row_index = 1;
-$prices = getPrice('icons');
-foreach ($prices as $price){}
+
 ?>
+
 <div class="container-24">
 <div class="shading-container">
     <div class="grid-24">
@@ -91,11 +91,11 @@ foreach ($prices as $price){}
                 <table class="separated captions" style = "padding:0px">
                     <tr>
                         <th></th>
-                        <th>3cm ${{ $price->second_price/100 }}</th>
-                        <th>5cm ${{ $price->first_price/100 }}</th>
+                        <th>3cm ${{ $prices->second_price/100 }}</th>
+                        <th>5cm ${{ $prices->first_price/100 }}</th>
                         
-                        <th>Silhouette ${{ $price->third_price/100 }}</th>
-                        <th>Outline ${{ $price->fourth_price/100 }}</th>
+                        <th>Silhouette ${{ $prices->third_price/100 }}</th>
+                        <th>Outline ${{ $prices->fourth_price/100 }}</th>
                     </tr>
                 </table>
         </div>
@@ -112,39 +112,39 @@ foreach ($prices as $price){}
                         	class="btn btn-default btn-lg" title="Click to Preview">{{ $fish->name }}    
                             </a></td>
                         <td>
-                            <a class="byajax" href="/icon/addtocart/{{ $fish->small_image_id }}/{{$fish->name }}/{{ $price->second_price }}/{{$table_row_index }}">
+                            <a class="byajax" href="/icon/addtocart/{{ $fish->small_image_id }}/{{$fish->name }}/{{ $prices->second_price }}/{{$table_row_index }}">
                                 <img src="{{ $fish->image_thumb->image_url }}" class="cell">
                             </a>
                         </td>
                         <td>
-                            <a class="byajax" href="/icon/addtocart/{{ $fish->small_image_flipped_id }}/{{ $fish->name }}/{{ $price->second_price }}/{{$table_row_index }}">
+                            <a class="byajax" href="/icon/addtocart/{{ $fish->small_image_flipped_id }}/{{ $fish->name }}/{{ $prices->second_price }}/{{$table_row_index }}">
                                 <img src="{{ $fish->image_thumb_flipped->image_url }}" class="cell">
                             </a>
                         </td>
                         <td>
-                            <a class="byajax" href="/icon/addtocart/{{ $fish->large_image_id }}/{{ $fish->name }}/{{ $price->first_price }}/{{$table_row_index }}">
+                            <a class="byajax" href="/icon/addtocart/{{ $fish->large_image_id }}/{{ $fish->name }}/{{ $prices->first_price }}/{{$table_row_index }}">
                                 <img src="{{ $fish->image_thumb->image_url }}" class="cell">
                             </a>
                         </td>
                         <td>
-                            <a class="byajax" href="/icon/addtocart/{{ $fish->large_image_flipped_id }}/{{ $fish->name }}/{{ $price->first_price }}/{{$table_row_index }}">
+                            <a class="byajax" href="/icon/addtocart/{{ $fish->large_image_flipped_id }}/{{ $fish->name }}/{{ $prices->first_price }}/{{$table_row_index }}">
                                 <img src="{{ $fish->image_thumb_flipped->image_url }}" class="cell">
                             </a>
                         </td>
                         
                         <td>
-                            <a class="byajax" href="/icon/addtocart/{{ $fish->silhouette_image_id }}/{{ $fish->name }}/{{ $price->third_price }}/{{$table_row_index }}">
+                            <a class="byajax" href="/icon/addtocart/{{ $fish->silhouette_image_id }}/{{ $fish->name }}/{{ $prices->third_price }}/{{$table_row_index }}">
                                 <img src="{{ $fish->silhouette_thumb->image_url }}" class="cell">
                             </a>
                         </td>
                         <td>
-                            <a class="byajax" href="/icon/addtocart/{{ $fish->outline_image_id }}/{{ $fish->name }}/{{ $price->fourth_price }}/{{$table_row_index }}">
+                            <a class="byajax" href="/icon/addtocart/{{ $fish->outline_image_id }}/{{ $fish->name }}/{{ $prices->fourth_price }}/{{$table_row_index }}">
                                 <img src="{{ $fish->outline_thumb->image_url }}" class="cell">
                             </a>
                         </td>
                        	
                     </tr>
-                    <?$table_row_index ++;?>
+                    <?php $table_row_index ++;?>
                 @endforeach 
                
                 </table>

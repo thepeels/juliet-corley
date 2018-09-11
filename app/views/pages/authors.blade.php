@@ -16,19 +16,19 @@
     	@foreach ($users_with_details as $user)
 				<tr>
 					<td>
-						<?=$user->detail->author_name?>
+						{{$user->detail->author_name}}
 					</td>
 					<td>
-						<?=$user->name?>
+						{{$user->name}}
 					</td>
 					<td>
-						<?=$user->detail->note?>
+						{{$user->detail->note}}
 					</td>
 					<td>
-						<?=$user->email?>
+						{{$user->email}}
 					</td>
 					<td>
-						<?=$user->detail->alias?>
+						{{$user->detail->alias}}
 					</td>
 				</tr>
     	@endforeach

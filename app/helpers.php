@@ -313,6 +313,7 @@ function getPrice($column)
 {
     $prices = Price::where('name',$column)->get();
     //$prices = DB::table('prices')->where('name',$column)->get();
+    dd($prices);
     return $prices;
 }
 

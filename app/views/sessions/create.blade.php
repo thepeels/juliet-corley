@@ -2,7 +2,7 @@
 @section('stylesheets')
 {{ HTML::style( asset('css/imagetable.css') ) }}
 {{ HTML::style( asset('css/grid16.css') ) }}
-@stop
+@endsection
 <?
 $message = (!NULL == Session::has('message')?Session::pull('message'):NULL);
 
@@ -20,13 +20,8 @@ $message = (!NULL == Session::has('message')?Session::pull('message'):NULL);
     @if(App::environment('local'))
         <a href="../authorize/github" class ="btn-lg btn-info"title = "Use your Github credentials to login">Login with GitHub</a><br><br>
     @endif
-        <?php
-    if (isset($message)){
-        ?><span style = "color:#f00"><?
-    }else{
-        ?><span><?
-    }?>
-    {{$message or '------------- OR -------------'}}</span>
+    
+    <span>{{$message or '------------- OR -------------'}}</span>
     <br>
     <h5 class= "caption merri">Log in with email and password</h5>
     <fieldset class="login">
@@ -59,7 +54,7 @@ $message = (!NULL == Session::has('message')?Session::pull('message'):NULL);
             More details are available under the 'About' menu item. <br>
             JulietCorley.com will never send you spam.</small>
     </p>
-        @endif
+    @endif
     </div>
 </div>
-@stop
+@endsection

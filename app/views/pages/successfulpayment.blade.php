@@ -19,7 +19,7 @@
 	Cart::instance($cart_instance);
 	if (Cart::count()!=0){
 		?>
-		<h3 class="merri">Hi - <?if(Auth::user()){
+		<h3 class="merri">Hi - <?php if(Auth::user()){
 									if(NULL != Auth::user()->email){
 										echo(Auth::user()->email);
 									}else{
@@ -31,7 +31,7 @@
 		?></h3>
 		<h4 class="caption cr merri">Thank you, your card payment was successful</h4>
 		<p class="cr merri">
-		<?if(Auth::user()){
+		<?php if(Auth::user()){
 			if(Auth::user()->author_name!=""){
 				echo(Auth::user()->author_name.' is');
 			}
@@ -86,7 +86,7 @@
 				</tr>
 				{{fillOutPurchasetable()}}
 		</table>
-	<?
+	<?php
 }
 else echo ('<h3>Your Cart is empty</h3>')
 ?>

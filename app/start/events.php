@@ -5,6 +5,7 @@
  * Date: 01/07/2016
  * Time: 23:07
  */
+
 Event::listen('has_addedtocart',function()
 {
     if(strpos($_SERVER['HTTP_USER_AGENT'],'bot')===FALSE) {

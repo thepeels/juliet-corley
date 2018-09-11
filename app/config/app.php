@@ -13,7 +13,7 @@ return array(
 	|
 	*/
     /*'error_reporting' => E_ALL ^ E_DEPRECATED,*/
-	'debug' => true,
+	'debug' => false,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,8 +80,8 @@ return array(
 
 	'key' => '4oBOzEYBXSjA5fxBezpuFvZc8TOJlLZ0',
 
-	/*'cipher' => MCRYPT_RIJNDAEL_128,*/
-    'cipher'   => 'AES-256-CBC',
+	'cipher' => MCRYPT_RIJNDAEL_128,
+    /*'cipher'   => 'AES-256-CBC',*/
     /*'cipher'     => null,*/
 
 	/*
@@ -113,8 +113,9 @@ return array(
 		'Illuminate\Cookie\CookieServiceProvider',
 		'Illuminate\Database\DatabaseServiceProvider',
         /*'Thomaswelton\LaravelMcryptFaker\NoEncryptionServiceProvider',*/
-        'Illuminate\Encryption\EncryptionServiceProvider',/*
-        'Thomaswelton\LaravelMcryptFaker\OpensslEncryptionServiceProvider',*/
+        'Illuminate\Encryption\EncryptionServiceProvider',
+        'Thomaswelton\LaravelMcryptFaker\OpensslEncryptionServiceProvider',
+        /*'Tomgrohl\Laravel\Encryption\EncryptionServiceProvider',*/
 		'Illuminate\Filesystem\FilesystemServiceProvider',
 		'Illuminate\Hashing\HashServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',
@@ -138,6 +139,7 @@ return array(
 		'Chumper\Zipper\ZipperServiceProvider',
 		'AdamWathan\EloquentOAuthL4\EloquentOAuthServiceProvider',
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+
 	),
 
 	/*

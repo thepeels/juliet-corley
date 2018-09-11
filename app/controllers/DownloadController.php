@@ -10,9 +10,15 @@ class DownloadController extends \BaseController {
 	
 	public function getIndex()
 	{
-		$contents = Cart::content();
-        $fishs = Fish::withImages()->orderby('name','asc')->get();
-        return View::make('pages.fishtable',compact('contents','fishs'));
+		$prices = Price::where('name','icons')->first();
+        Session::put('previous',Request::url());
+        //dd(Session::get('previous_url'));
+        $table_row_index = 1;
+	    $contents = Cart::content();
+        $fishs = Fish::withImages()->orderby('name','asc')->take(10)->get();
+        return View::make('pages.fishtable',
+            compact('contents','fishs','prices','table_row_index')
+        );
 	}
     
     public function getCartdownload($image_id,$name)

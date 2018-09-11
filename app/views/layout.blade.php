@@ -1,6 +1,7 @@
 <!doctype html>
 <head>
 <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <?php if (App::environment('local')){echo("
 <link href='http://fonts.googleapis.com/css?family=Trykker' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
@@ -19,15 +20,15 @@ else{echo("
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="/fonts/MyFontsWebfontsKit.css" type="text/css">
 <!--<link rel="shortcut icon" href="favicon.ico"/> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <link rel="icon" href="favicon.ico"/> -->
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">        
-@yield('stylesheets')
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    @yield('stylesheets')
 </head>
 @yield('body-class')
 @yield('title')
 @yield('content')
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <?php
   include_once('packages/prevent_right_click_script.php');
   include_once('packages/ajax-cart.php');

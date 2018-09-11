@@ -10,7 +10,9 @@ class ProductController extends \BaseController
 			->get();
 
 		return View::make('pages.shoptable',array(
-			'products' => $products
+			'products'      => $products,
+            'form_index'    => 1,
+            'form_id'       => 1
 		));
 	}
 
@@ -22,7 +24,9 @@ class ProductController extends \BaseController
 			->get();
 
 		return View::make('pages.colouring',array(
-			'products' => $products
+			'products'  => $products,
+            'div_index' => 1,
+            'div_id'    => 1
 		));
 	}
 	
