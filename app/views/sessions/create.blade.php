@@ -3,10 +3,7 @@
 {{ HTML::style( asset('css/imagetable.css') ) }}
 {{ HTML::style( asset('css/grid16.css') ) }}
 @endsection
-<?
-$message = (!NULL == Session::has('message')?Session::pull('message'):NULL);
-
-//dd(Session::get('login_from'));?>
+<?php $message = (!NULL == Session::has('message')?Session::pull('message'):NULL);?>
 
 @section('content')
 <div class="container-16">

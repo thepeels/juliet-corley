@@ -1,11 +1,7 @@
 @extends('layout')
 @section('stylesheets')<link href='/css/cart.css' rel='stylesheet' type='text/css'>@endsection
 @section('content')
-<?php
-//$previous = URL::previous();
 
-
-?>
 <div class="cart">
     
     <h2 class="julie merri">JulietCorley.com</h2>
@@ -39,6 +35,6 @@
             {{Form::submit('Pay by Card',['class'=>'btn btn-primary'])}}
     	@endif
 
-    	{{Form::close()}}    <h3><a href="{{$previous}}"class="btn btn-info">Continue Shopping</a></h3>
+    	{{Form::close()}}    <h3><a href="/icon/continue"class="btn btn-info">Continue Shopping</a></h3>
 </div>
 @endsection

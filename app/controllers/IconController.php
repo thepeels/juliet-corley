@@ -23,7 +23,8 @@ class IconController extends \BaseController{
 	
 	public function getAjaxcart($id,$fish_name,$base_price,$table_row_index)
 	{
-		return Response::json(array(
+
+	    return Response::json(array(
 			'success'	=>	true,
 			'price'		=> 	$base_price,
 			'message'	=>	'yes',
@@ -84,13 +85,8 @@ class IconController extends \BaseController{
 				'notloggedin' 	=>	"Please login/register to use the cart.\r\n...I apologise for this, as I hate being forced to register to use sites!\nBut this is the only way I can keep a record of your entitlement to use your images.\nSo I've kept registration minimal, with just an email address and password.\nAnd I promise not to spam you!"
 			)
 		);
-	    // add return URL to session?
-        if (Session::has('go_back_to_URL'))
-        {   
-            Session::forget('go_back_to_URL');
-        }   
-        Session::push('go_back_to_URL',URL::previous());
-        //dd($id_index);   
+	    $this->setTableRowIndex($table_row_index);
+
 	    return $this->priorPurchase($id,$fish_name,$base_price,$table_row_index);   //add check for existing prior purchase
 		//was return cartAdd($id,$fish_name,$base_price/2,$table_row_index);
 	}
@@ -167,11 +163,12 @@ class IconController extends \BaseController{
     public function getPreview($folder,$preview_url,$fish_name,$table_row_index)
     {
         Event::fire('viewed_preview');
+        $this->setTableRowIndex($table_row_index);
 		
 		return View::make('pages.image_preview',array(
         'preview_url'=>$preview_url,
         'fish_name'=>$fish_name,
-        'return_to'=> URL::previous().'#'.$table_row_index
+
         ));
     }
     
@@ -302,6 +299,25 @@ class IconController extends \BaseController{
             elseif	(Auth::user()->oauth_email)	$owner = Auth::user()->oauth_email;/*isset(Auth::user()->oauth_email)?*/
         }else    							    $owner = "guest";
         return $owner;
+    }
+
+    public function getContinue()
+    {
+        $row = Session::pull('row.0');
+        $url = 'download#'.$row;
+
+        return Redirect::to($url);
+    }
+
+    public function setTableRowIndex($table_row_index)
+    {
+        if (Session::has('row'))
+        {
+            Session::forget('row');
+        }
+        Session::push('row',$table_row_index);
+
+        return;
     }
 /**
 	 * Show the form for creating a new resource.

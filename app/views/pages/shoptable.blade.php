@@ -81,7 +81,7 @@
 							<p>Cart Summary: <span id="cartresume">{{shopResume()}}</span></p>
 						</div>
 						<div class="opaque grid-3">
-							<a href="#"class= "  btn btn-primary btn-xs" title="not yet enabled">View Cart / Checkout</a><!--/icon/makeshopcart?return_url={{$return_url}}"-->
+							<a href="#"class= "  btn btn-primary btn-xs" title="not yet enabled">View Cart / Checkout</a>
 						</div>
 						<div class="opaque grid-3 emptycart">
 							<a href="#"class="byajax btn btn-info btn-xs" title="not yet enabled">Empty Cart</a><!--/icon/ajaxdumpshopcart"--> 
@@ -93,10 +93,9 @@
 					<div class="grid-5 alpha image-column">
 						<img src="{{$product->small_size_image->image_url}}" width="286px" />
 						<div class="opaque grid-5">
-						{{Form::open(array('id' => $form_id, 'url' => "/shop/cartadd?return_url=$url",'class' => 'shopform form-addfish'))}}
+						{{Form::open(array('id' => $form_id, 'url' => "/shop/cartadd",'class' => 'shopform form-addfish'))}}
 							{{ Form::hidden('productId', $product->id)}}
 							{{ Form::hidden('productName', $product->title)}}
-							{{ Form::hidden('return_url', $return_url)}}
 							{{ Form::label('number', 'Order Quantity:&nbsp;',['class' => 'label','style' => 'float:left']) }}
 							&nbsp;
 							{{ Form::text('number','1',  ['class' => 'form-control quantity', 'id' => 'number','style' => 'float:left;margin-top:0px;']) }}
@@ -125,5 +124,5 @@
 	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script><?php  include_once(public_path().'/packages/menu-script.js');?></script>
+<?php include_once(public_path('packages/menu-script.php'));?>
 @stop

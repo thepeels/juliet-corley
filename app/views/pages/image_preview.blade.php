@@ -16,7 +16,7 @@
     <img src="/images/{{ $preview_url }}" alt="image preview" />
 </div>
 <div class="push-4 grid-4">
-    <a href="{{URL::to($return_to)}}" class="btn btn-default btn-sm">Close Preview</a>
+    <a href="/icon/continue" class="btn btn-default btn-sm">Close Preview</a>
 </div>
 </div>    
 

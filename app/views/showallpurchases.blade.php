@@ -20,8 +20,9 @@
             <th>Most Recent Sale</th>
             <th>Sold to:</th>
         </tr>
-        <? foreach ($purchases as $row) : ?>
-            <? 	$number = Purchase::where('purchase',$row->purchase)->count();
+        @foreach ($purchases as $row)
+            <?php
+                $number = Purchase::where('purchase',$row->purchase)->count();
             	$total_amount 	= Purchase::where('purchase',$row->purchase)->sum('amount');
             	$first_entry 	= Purchase::where('purchase',$row->purchase)->orderBy('created_at','ASC')->first();
             	$last_entry 	= Purchase::where('purchase',$row->purchase)->orderBy('created_at','DESC')->first();
@@ -55,7 +56,7 @@
                 	<?=$last_entry->email?>
                 </td>
         	</tr>
-        <? endforeach; ?>
+        @endforeach
 
     </table>
 @stop

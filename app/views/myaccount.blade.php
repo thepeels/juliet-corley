@@ -10,7 +10,7 @@
 @stop
 @section('content')
 <div class="centered userdownloads">
-<p class="cr merri"><?if(Auth::user()->detail->author_name){
+<p class="cr merri"><?php if(Auth::user()->detail->author_name){
 		echo(Auth::user()->detail->author_name.' is');
 	}else{
 		echo('You {Author Name} are');

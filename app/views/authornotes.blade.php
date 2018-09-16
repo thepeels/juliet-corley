@@ -15,7 +15,7 @@
     <table class="text-table">
         <caption>
             
-        <?echo('<h4>Notes by '.(isset($author)?$author:'nothing here').'</h4>');?>
+        <?php echo('<h4>Notes by '.(isset($author)?$author:'nothing here').'</h4>');?>
         </caption>
         <tr>
             <th>Author</th>
@@ -23,8 +23,7 @@
             <th>Aliases</th>
             <th>E-mail</th>
         </tr>
-        <? foreach ($notes as $row) :
-	        ?>
+        @foreach ($notes as $row)
 	        <tr>
                 <td>
                     <?=$author?>
@@ -41,7 +40,7 @@
                 
             </tr>
         
-        <? endforeach; ?>
+        @endforeach
 
     </table>
     {{--$purchases->links()--}}

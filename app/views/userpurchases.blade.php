@@ -15,7 +15,7 @@
     <table class="text-table">
         <caption>
             
-        <?echo('<h4>Purchases by '.(isset($email)?$email:'nothing here').'</h4>');?>
+        <?php echo('<h4>Purchases by '.(isset($email)?$email:'nothing here').'</h4>');?>
         </caption>
         <tr>
             <th>ID</th>
@@ -24,8 +24,8 @@
             <th>Amount</th>
             <th>Date</th>
         </tr>
-        <? foreach ($purchases as $row) :
-        ?>            <tr>
+        @foreach ($purchases as $row)
+            <tr>
                 <td>
                     <?=$row->id?>
                 </td>
@@ -49,7 +49,7 @@
                 </td>
             </tr>
         
-        <? endforeach; ?>
+        @endforeach
 
     </table>
     {{--$purchases->links()--}}

@@ -5,7 +5,7 @@
 @section('content')
 
   
-            <? 	
+            <?php
              	$cartview = Pageload::where('cartview',1)->where('amount_in_cart','<',200)->count();
              	$cartview_plus = Pageload::where('cartview',1)->where('amount_in_cart','>=',200)->count();
              	$addtocart = Pageload::where('addtocart',1)->where('amount_in_cart','<',2000)->count();

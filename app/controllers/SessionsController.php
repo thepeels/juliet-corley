@@ -3,12 +3,13 @@
 class SessionsController extends BaseController{
     
      
+
     public function create()
     {
             //dd($login_source);
-            if(!Session::has('login_from')){	
+            /*if(!Session::has('login_from')){
 			Session::put('login_from',URL::previous());
-			}
+			}*/
 			/*if(Session::has('message')){
 				$message = Session::pull('message');
 			}
@@ -17,7 +18,7 @@ class SessionsController extends BaseController{
             return View::make('sessions.create');
         
     }    
-    
+    /*remove url previous from login section*********************/
     public function createadmin()
     {
             if (Auth::check()&&Auth::user()->superuser) return Redirect::to('Admin\FishController@getIndex');

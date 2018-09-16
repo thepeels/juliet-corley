@@ -10,7 +10,7 @@
 
             <h4>{{$title}} Image Downloads and Sales </h4>
             <h5>{{$subtitle}}
-                <?
+                <?php
                 if(!empty($reverse))
                     {echo ('&nbsp;&nbsp;&nbsp;<a href="'.$reverse.'"class= "btn btn-default btn-xs">reverse order</a>');}
                 else
@@ -28,7 +28,7 @@
             <th>Dollars</th>
             <th>Date - Time</th>
         </tr>
-        <? foreach ($purchases as $row) : ?>
+        @foreach ($purchases as $row)
 
         <tr>
             <td>
@@ -50,14 +50,14 @@
                 {{number_format($row->amount/100,2)}}
             </td>
             <td>
-                <?
+                <?php
                     $date = new DateTime($row->created_at);
                     $date->setTimezone(new DateTimeZone('Australia/Brisbane'));
                     echo ($date->format('Y-m-d H:i:s'));
                 ?>
             </td>
         </tr>
-        <? endforeach; ?>
+        @endforeach
 
     </table>
 @stop

@@ -3,7 +3,7 @@
 @section('title')
 <title>Pricing</title>
 @stop
-<?
+<?php
 $prices = getPrice('icons');
 foreach ($prices as $price){}
 ?>
