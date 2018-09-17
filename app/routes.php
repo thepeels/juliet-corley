@@ -5,11 +5,9 @@ Route::controller('art', 'admin\ArtController');
 Route::controller('shop', 'ProductController');
 Route::controller('test', 'TestController');
 Route::controller('image-test', 'ImageTestController');
-Route::group(array('before' => 'csrf'),function() {
     Route::controller('password', 'RemindersController');
     Route::controller('payment', 'PaymentController');
     Route::resource('sessions', 'SessionsController');
-});
     Route::get('logout', 'SessionsController@destroy');
     Route::get('logoutadmin', 'SessionsController@adminDestroy');
     Route::get('login', 'SessionsController@create');

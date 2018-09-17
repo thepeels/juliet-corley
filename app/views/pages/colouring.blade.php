@@ -92,7 +92,7 @@
       			</p>
 			</div>
 			@foreach ($products as $product)
-			<?$div_id = 'position-'.$div_index;?>
+			<?php $div_id = 'position-'.$div_index;?>
 			@if (($product->product_sub_type) == 'free') <!-------FREE DownLOAD ------------------>
 			{{--$product->full_size_image->image_url--}}
 			<div class="grid-11 push-1 raised">
@@ -141,6 +141,6 @@
 </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script><?php  include_once(public_path().'/packages/menu-script.js');?>
+<?php include_once(public_path('packages/menu-script.php'));?>
 </script>
 @endsection

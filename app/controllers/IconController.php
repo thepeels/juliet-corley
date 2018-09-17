@@ -23,12 +23,12 @@ class IconController extends \BaseController{
 	
 	public function getAjaxcart($id,$fish_name,$base_price,$table_row_index)
 	{
+        $this->setTableRowIndex($table_row_index); // used in getContinue for returning to same row
 
 	    return Response::json(array(
 			'success'	=>	true,
 			'price'		=> 	$base_price,
-			'message'	=>	'yes',
-			'row' 		=> 	$table_row_index
+			'message'	=>	'yes'
 			)
 		);
 	}
@@ -39,12 +39,10 @@ class IconController extends \BaseController{
 		}
 		$owner = $this->defineOwner();
         Session::put('cart_instance','main');
-        $previous = Session::get('previous');
 
         return View::make('shoppingcart')->with([
             'back'=>\Redirect::back(),
-			'owner' => $owner,
-            'previous' => $previous
+			'owner' => $owner
 			]
         );
     }
