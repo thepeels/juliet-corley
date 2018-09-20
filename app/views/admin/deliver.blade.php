@@ -3,7 +3,7 @@
 @section('title')
 <title>Deliver Commission</title>
 @stop
-<?
+<?php
 $fish = \Fish::find($id);
 /*dd($fish->name);*/
 $list = \User::lists('email','email');
