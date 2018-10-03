@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "daf5037f795f6759fa6ece7d4c4043ef",
+    "content-hash": "895f1c90f6c00f13f99b07b6c70b3b6a",
     "packages": [
         {
             "name": "adamwathan/eloquent-oauth",
@@ -298,51 +298,6 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "time": "2014-01-17T12:21:18+00:00"
-        },
-        {
-            "name": "defuse/php-encryption",
-            "version": "v1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/defuse/php-encryption.git",
-                "reference": "b87737b2eec06b13f025cabea847338fa203d1b4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/defuse/php-encryption/zipball/b87737b2eec06b13f025cabea847338fa203d1b4",
-                "reference": "b87737b2eec06b13f025cabea847338fa203d1b4",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mcrypt": "*",
-                "ext-openssl": "*",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "Crypto.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Hornby",
-                    "email": "havoc@defuse.ca"
-                }
-            ],
-            "description": "Secure PHP Encryption Library",
-            "keywords": [
-                "aes",
-                "cipher",
-                "encryption",
-                "mcrypt",
-                "security"
-            ],
-            "time": "2015-03-14T20:27:45+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -1453,16 +1408,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.33.0",
+            "version": "1.34.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "55667c1007a99e82030874b1bb14d24d07108413"
+                "reference": "1dbd3cb01c5645f3e7deda7aa46ef780d95fcc33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/55667c1007a99e82030874b1bb14d24d07108413",
-                "reference": "55667c1007a99e82030874b1bb14d24d07108413",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1dbd3cb01c5645f3e7deda7aa46ef780d95fcc33",
+                "reference": "1dbd3cb01c5645f3e7deda7aa46ef780d95fcc33",
                 "shasum": ""
             },
             "require": {
@@ -1504,7 +1459,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-08-07T08:39:47+00:00"
+            "time": "2018-09-20T19:36:25+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -3468,98 +3423,6 @@
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
             "time": "2018-05-17T10:34:06+00:00"
-        },
-        {
-            "name": "thomaswelton/laravel-mcrypt-faker",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thomaswelton/laravel-mcrypt-faker.git",
-                "reference": "a1abbc672951af583a878f376e6c61b54c14f1f1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thomaswelton/laravel-mcrypt-faker/zipball/a1abbc672951af583a878f376e6c61b54c14f1f1",
-                "reference": "a1abbc672951af583a878f376e6c61b54c14f1f1",
-                "shasum": ""
-            },
-            "require": {
-                "defuse/php-encryption": "~1.2",
-                "php": ">=5.4.0"
-            },
-            "provide": {
-                "ext-mcrypt": "*",
-                "ext-openssl": "*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Thomaswelton\\LaravelMcryptFaker\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Thomas Welton",
-                    "email": "thomaswelton@me.com"
-                }
-            ],
-            "description": "Allows installation of Laravel where the PHP Mcrypt extension is not available. Provides encryption using OpenSSL, or by disabling encryption entierly.",
-            "keywords": [
-                "encryption",
-                "hack",
-                "laravel",
-                "mcrypt"
-            ],
-            "time": "2015-05-13T22:48:54+00:00"
-        },
-        {
-            "name": "tomgrohl/laravel4-php71-encrypter",
-            "version": "1.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/tomgrohl/laravel4-php71-encrypter.git",
-                "reference": "1e4d47062990cdd94dcb42d7fd522dc93e270c28"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/tomgrohl/laravel4-php71-encrypter/zipball/1e4d47062990cdd94dcb42d7fd522dc93e270c28",
-                "reference": "1e4d47062990cdd94dcb42d7fd522dc93e270c28",
-                "shasum": ""
-            },
-            "require": {
-                "ext-openssl": "*",
-                "paragonie/random_compat": "~1.4|~2.0",
-                "php": ">=5.6.4"
-            },
-            "require-dev": {
-                "laravel/laravel": "~4.2.0",
-                "phpunit/phpunit": "~4.0|~5.7"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Tomgrohl\\Laravel\\Encryption\\": "src/Tomgrohl/Laravel/Encryption/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Laravel 4.2 Encrypter for PHP 7.1+",
-            "keywords": [
-                "encryption",
-                "laravel"
-            ],
-            "time": "2018-01-29T20:36:43+00:00"
         }
     ],
     "packages-dev": [],

@@ -51,10 +51,13 @@ class IconController extends \BaseController{
 		if(Cart::instance('shop')->count()>0) {
 			Event::fire('cartclick');
 		}
+        $owner = $this->defineOwner();
+		$this->setRetreat(URL::previous());
 
         return View::make('shopcart',array(
             'back'=>\Redirect::back(),
             'cart_instance'=>'shop',
+            'owner' => $owner
 			)
         );
     }
@@ -316,6 +319,20 @@ class IconController extends \BaseController{
         Session::push('row',$table_row_index);
 
         return;
+    }
+
+    public function setRetreat($return_to)
+    {
+        Session::push('return_to',$return_to);
+
+        return;
+    }
+
+    public function getRetreat()
+    {
+        $retreat = Session::get('return_to.0');
+
+        return Redirect::to($retreat);
     }
 /**
 	 * Show the form for creating a new resource.

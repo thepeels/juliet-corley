@@ -13,7 +13,7 @@ class DownloadController extends \BaseController {
 		$prices = Price::where('name','icons')->first();
         $table_row_index = 1;
 	    $contents = Cart::content();
-        //$fishs = Fish::withImages()->orderby('name','asc')->take(10)->get();
+        //$fishs = Fish::withImages()->orderby('name','asc')->take(15)->get();
         $fishs = Fish::withImages()->orderby('name','asc')->get();
 
         return View::make('pages.fishtable')->with([

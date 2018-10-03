@@ -80,8 +80,8 @@ return array(
 
 	'key' => 'asdfghjklpoiuytrewqzxcvbnm2014/5',
 
-	/*'cipher' => MCRYPT_RIJNDAEL_128,*/
-    'cipher' => 'AES-256-CBC',
+	'cipher' => MCRYPT_RIJNDAEL_128,
+    /*'cipher' => 'AES-256-CBC',*/
 
 	/*
 	|--------------------------------------------------------------------------
@@ -108,8 +108,8 @@ return array(
         'Illuminate\Cookie\CookieServiceProvider',
         'Illuminate\Database\DatabaseServiceProvider',
 
-        'Tomgrohl\Laravel\Encryption\EncryptionServiceProvider',
-        /*'Illuminate\Encryption\EncryptionServiceProvider',*/
+        /*'Tomgrohl\Laravel\Encryption\EncryptionServiceProvider',*/
+        'Illuminate\Encryption\EncryptionServiceProvider',
 
 		'Illuminate\Filesystem\FilesystemServiceProvider',
 		'Illuminate\Hashing\HashServiceProvider',

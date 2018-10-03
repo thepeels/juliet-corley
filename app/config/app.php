@@ -13,7 +13,7 @@ return array(
 	|
 	*/
     /*'error_reporting' => E_ALL ^ E_DEPRECATED,*/
-	'debug' => false,
+	'debug' => true,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -112,10 +112,7 @@ return array(
 		
 		'Illuminate\Cookie\CookieServiceProvider',
 		'Illuminate\Database\DatabaseServiceProvider',
-        /*'Thomaswelton\LaravelMcryptFaker\NoEncryptionServiceProvider',*/
         'Illuminate\Encryption\EncryptionServiceProvider',
-        'Thomaswelton\LaravelMcryptFaker\OpensslEncryptionServiceProvider',
-        /*'Tomgrohl\Laravel\Encryption\EncryptionServiceProvider',*/
 		'Illuminate\Filesystem\FilesystemServiceProvider',
 		'Illuminate\Hashing\HashServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',

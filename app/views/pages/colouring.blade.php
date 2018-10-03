@@ -122,12 +122,11 @@
 					<p class="segoe">{{$product->description_1}}</p>
 					<p class="segoe">{{$product->description_2}}</p>
 					<p class="segoe">${{number_format(($product->price)/100,2)}}<p>
-					{{--add to separate cart function wothout prior purchase--}}
-                    {{Form::open(array( 'url' => "/shop/cartadd?return_url=$url",'class' => 'shopform form-addfish'))}}
+					{{--add to separate cart function without prior purchase--}}
+                    {{Form::open(array( 'url' => "/shop/cartadd",'class' => 'shopform form-addfish'))}}
                     	{{ Form::hidden('productId', $product->id)}}
                     	{{ Form::hidden('productType','ColouringPdf')}}
 						{{ Form::submit('Add to Cart', ['class' => 'colouringajax btn btn-xs btn-primary']) }}
-						{{--<a href="#" class="btn btn-xs btn-primary opaque" title="not yet enabled">Add to Cart</a>--}}
 					{{Form::close()}}
 						
 				</div>  

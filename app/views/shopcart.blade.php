@@ -1,9 +1,7 @@
 @extends('layout')
 @section('stylesheets')<link href='/css/cart.css' rel='stylesheet' type='text/css'>@endsection
 @section('content')
-<?$url = Request::url();
-$return_url=urlencode($url);
-Session::put('return_url',$url);//where to go back to from cart view
+<?php
 Session::put('cart_instance','shop');//carried into cartstriper
 Session::put('dest_email',isset($dest_email)?$dest_email:Session::get('dest_email'));
 $owner = (isset(Auth::user()->email)?Auth::user()->email:"guest user");//for title of cart
@@ -39,6 +37,6 @@ $owner = (isset(Auth::user()->email)?Auth::user()->email:"guest user");//for tit
     	{{Form::submit('Pay by Card',['class'=>'btn btn-primary'])}}
     	@endif
     	{{Form::close()}}
-    <h3><a href="{{ $back }}"class="btn btn-info">Continue Shopping</a></h3>
+    <h3><a href="/icon/retreat"class="btn btn-info">Continue Shopping</a></h3>
 </div>
 @endsection

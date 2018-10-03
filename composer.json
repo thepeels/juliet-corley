@@ -13,8 +13,6 @@
 		"adamwathan/eloquent-oauth-l4": "^0.2.0",
 		"barryvdh/laravel-ide-helper": "~1.11",
 		"doctrine/dbal": "^2.5",
-		"thomaswelton/laravel-mcrypt-faker": "1.0.*",
-		"tomgrohl/laravel4-php71-encrypter": "^1.1",
 		"ext-mcrypt": "*"
 	},
 	"autoload": {
