@@ -85,7 +85,7 @@
 				<p class="segoe colouring">&nbsp;&nbsp;&nbsp;&nbsp;. . . a good way to</br>
 					 relax and unwind</br> 
 					 after a stressful</br>
-					 &nbsp;day. Try my free</br>
+					 &nbsp;day. Try these free</br>
 					 &nbsp;&nbsp;&nbsp;&nbsp;pages, and see</br>  
       				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if it works</br>
       				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for you :)
