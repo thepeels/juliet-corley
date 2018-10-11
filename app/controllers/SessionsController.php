@@ -51,7 +51,7 @@ class SessionsController extends BaseController{
 				;
 			//...}
         }
-        else  dd('login failed - is entered email in db?'.$_ENV['DATABASE_NAME']);
+        else  /*dd('login failed - is entered email in db?'.$_ENV['DATABASE_NAME']);*/
         {
         $email_exists = (!null ==(DB::table('users')->where('email',$entered_email)->get()));
         if ($email_exists)
