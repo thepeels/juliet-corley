@@ -264,8 +264,8 @@ class FishBuilder
             $constraint->aspectRatio();
             //$constraint->upsize();
         });
-        $res= imageresolution($img);
-        dd($res);
+        //$res= imageresolution($img);
+        //dd($res);
         
         if ($flipped)
         {
