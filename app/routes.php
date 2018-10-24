@@ -21,6 +21,7 @@ Route::controller('image-test', 'ImageTestController');
 //OAUTH2 Login routes
     Route::get('authorize/{provider}', array('as' => 'provider', 'uses' => 'OauthController@Auth'));
     Route::get('oalogin/{provider}', array('as' => 'provider', 'uses' => 'OauthController@OaLogin'));
+    Route::get('delete_data_request','OauthController@deleteDataRequest');
     Route::get('demo', 'HomeController@demo');
     Route::get('temphome', 'HomeController@temphome');
 //Route::get('/','HomeController@temphome');

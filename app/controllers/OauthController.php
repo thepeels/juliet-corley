@@ -101,7 +101,13 @@ class OauthController extends \BaseController
 		exit();
 		
 	}
+
+    public function deleteDataRequest(){
+	    return View::make('sessions.remove_fb_user_data');
+    }
 }
+
+
 
 /*	function processlogins($provider){
 		//$this->errorhandling($provider,$access_error);

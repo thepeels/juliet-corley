@@ -9,4 +9,5 @@ return array(
     'DATABASE_USER'         => 'homestead',
     'DATABASE_NAME'         => 'homestead',
     'RECEIPT_EMAIL'         => 'john@jjc.me',
+    'DEBUG'                 => true,
 );

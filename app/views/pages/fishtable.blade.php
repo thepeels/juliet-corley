@@ -44,7 +44,7 @@ $table_row_index = 1;
                 <div class="cart">
                     <h5> Cart Summary: <span id="cartresume">{{cartResume()}} </span></h5>
                    
-                   <h3><a href="/icon/makecart"
+                   <h3><a href="/icon/seecart"
                             class="btn btn-primary btn-xs" id="the-mail-address">View Cart / Checkout
                         </a>
                             &nbsp;&nbsp;
