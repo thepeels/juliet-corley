@@ -32,7 +32,7 @@ class IconController extends \BaseController{
 			)
 		);
 	}
-    public function getMakecart()
+    public function getSeecart()
     {
     	if(Cart::count()>0) {
 			Event::fire('cartclick');
