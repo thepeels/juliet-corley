@@ -49,7 +49,7 @@
 		            	title="This is a Free Download"><img src="/images/bg-images/mpa.jpg"/></a>-->
 					</p>
 					<p class="mpa">
-						Fishing Game for marine educators..
+						Fishing Game for marine educators.
 					</p>
 				</div>
 				<div class="grid-3 omega paint">
