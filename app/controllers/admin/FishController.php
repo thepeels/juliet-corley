@@ -319,4 +319,41 @@ public function postDeliver()
             
      
      }
+    /**
+     * Preview the Full size fish image
+     *
+     * @param url
+     * @return view
+     */
+    public function getPreview($folder,$preview_url,$fish_name,$table_row_index)
+    {
+        //Event::fire('viewed_preview');
+        //$this->setTableRowIndex($table_row_index);
+
+        return View::make('admin.image_preview',array(
+            'preview_url'=>$preview_url,
+            'fish_name'=>$fish_name,
+
+        ));
+    }
+    public function setRetreat($return_to)
+    {
+        Session::push('return_to',$return_to);
+
+        return;
+    }
+
+    public function getRetreat()
+    {
+        $retreat = Session::get('return_to.0');
+
+        return Redirect::to($retreat);
+    }
+    public function getContinue()
+    {
+        $row = Session::pull('row.0');
+        $url = 'admin\fish#'.$row;
+
+        return Redirect::to($url);
+    }
 }
