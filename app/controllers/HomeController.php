@@ -87,4 +87,11 @@ public function home()
     {
         return View::make('demotemphomepage');
     }
+
+    public function error()
+    {
+        return View::make('error')->with([
+            'url' => Request::url()
+        ]);
+    }
 }

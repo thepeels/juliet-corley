@@ -14,6 +14,7 @@ return array(
 	*/
     /*'error_reporting' => E_ALL ^ E_DEPRECATED,*/
 	'debug' => $_ENV['DEBUG'],
+    //'debug' => false,
 
 	/*
 	|--------------------------------------------------------------------------

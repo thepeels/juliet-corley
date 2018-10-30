@@ -73,6 +73,7 @@ Route::controller('image-test', 'ImageTestController');
     Route::get('back', function () {
         return Redirect::back();
     });
+    Route::get('error','HomeController@error');
     /*Route::get('cardpay', array('before'=>'auth',function()
     {
     return View::make('pages.cartstriper');
