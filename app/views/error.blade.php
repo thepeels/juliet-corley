@@ -5,7 +5,6 @@
     {{ HTML::style( asset('css/imagetable.css') ) }}
 @stop
 
-
 @section('content')
     <div class="container-24" style = "background:inherit">
         <div class="push-3 grid-21 preview fish-name">

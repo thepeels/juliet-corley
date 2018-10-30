@@ -119,7 +119,7 @@ App::error(function(Exception $exception,$code)
     if ($_ENV['DEBUG'] == false){
         //dd('hi');
         return Redirect::to('error')->with([
-            'code' => $exception
+            'title' => 'error'
         ]);
 }});
 /*
