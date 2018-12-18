@@ -10,11 +10,8 @@
 @stop
 @section('content')
 <div class="centered userdownloads">
-<p class="cr merri"><?php if(Auth::user()->detail->author_name){
-		echo(Auth::user()->detail->author_name.' is');
-	}else{
-		echo('You {Author Name} are');
-	}?>&nbsp;entitled to use the Fish Icon 
+<p class="cr merri">
+	{{$authorisation}}&nbsp;entitled to use the Fish Icon
 		images listed below, with the following stipulations:</p>
 		<ul class="merri" style="font-size:10px;">
 			<li style="font-size:10px;">
@@ -48,13 +45,6 @@
 
 <h3>Your Purchases</h3>
 
-
-<?php
-//$email =  Auth::user()->email;
-//if($email == NULL){$email =  Auth::user()->oauth_email;}
-$icons = showPurchases($purchases_email);
-
-?>
 <p><bold>{{$purchases_email}}</bold> - You have paid for:</p>
 <table class ="userdownloads">
         <tr>
