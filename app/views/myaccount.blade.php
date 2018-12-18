@@ -50,8 +50,9 @@
 
 
 <?php
-$email =  Auth::user()->email;
-$icons = showPurchases($email);
+//$email =  Auth::user()->email;
+//if($email == NULL){$email =  Auth::user()->oauth_email;}
+$icons = showPurchases($purchases_email);
 
 ?>
 <p><bold><?php echo Auth::user()->email;?></bold> - You have paid for:</p>
