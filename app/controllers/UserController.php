@@ -257,7 +257,11 @@ class UserController extends \BaseController
     public function getMyaccount()
     {
         if (Auth::check()) {
-            return View::make('myaccount');
+            $email =  Auth::user()->email;
+            if($email == NULL){$email =  Auth::user()->oauth_email;}
+
+            return View::make('myaccount')->with([
+                'purchases_email' => $email]);
         } else {
             Redirect::to('/');
         }
