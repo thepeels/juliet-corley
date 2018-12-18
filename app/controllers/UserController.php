@@ -259,9 +259,19 @@ class UserController extends \BaseController
         if (Auth::check()) {
             $email =  Auth::user()->email;
             if($email == NULL){$email =  Auth::user()->oauth_email;}
+            $icons = showPurchases($email);
+            if(Auth::user()->detail->author_name){
+                $authorisation = Auth::user()->detail->author_name.' is';
+            }
+            else{
+                $authorisation = 'You {Author Name} are';
+            }
 
             return View::make('myaccount')->with([
-                'purchases_email' => $email]);
+                'purchases_email'   => $email,
+                'icons'             => $icons,
+                'authorisation'     => $authorisation
+            ]);
         } else {
             Redirect::to('/');
         }
