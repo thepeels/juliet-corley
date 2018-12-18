@@ -55,7 +55,7 @@
 $icons = showPurchases($purchases_email);
 
 ?>
-<p><bold><?php echo Auth::user()->email;?></bold> - You have paid for:</p>
+<p><bold>{{$purchases_email}}</bold> - You have paid for:</p>
 <table class ="userdownloads">
         <tr>
             <th>Image</th>
