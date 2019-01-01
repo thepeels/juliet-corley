@@ -41,7 +41,7 @@ class IconController extends \BaseController{
         Session::put('cart_instance','main');
 
         return View::make('shoppingcart')->with([
-            'back'=>\Redirect::back(),
+            //'back'=>\Redirect::back(),
 			'owner' => $owner
 			]
         );
