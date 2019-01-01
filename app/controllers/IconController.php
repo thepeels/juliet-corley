@@ -99,7 +99,7 @@ class IconController extends \BaseController{
 	        Cart::remove($rowId);
 	    }
 		//return Carthelper::display();
-		return redirect()->back();
+		return Redirect()->back();
 	}
 	public function getShopdumprow($rowId)
 	{
