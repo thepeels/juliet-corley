@@ -52,10 +52,10 @@ class IconController extends \BaseController{
 			Event::fire('cartclick');
 		}
         $owner = $this->defineOwner();
-		$this->setRetreat(URL::previous());
+		//$this->setRetreat(URL::previous());
 
         return View::make('shopcart',array(
-            'back'=>\Redirect::back(),
+            //'back'=>\Redirect::back(),
             'cart_instance'=>'shop',
             'owner' => $owner
 			)
