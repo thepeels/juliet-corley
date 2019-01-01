@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Redirect;
 
 class IconController extends \BaseController{
 
