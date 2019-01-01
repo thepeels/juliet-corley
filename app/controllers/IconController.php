@@ -100,7 +100,7 @@ class IconController extends \BaseController{
 	        Cart::remove($rowId);
 	    }
 		//return Carthelper::display();
-		return Redirect()->back();
+		return Redirect::back();
 	}
 	public function getShopdumprow($rowId)
 	{
@@ -109,7 +109,7 @@ class IconController extends \BaseController{
 	        Cart::remove($rowId);
 	    }
 		//return Carthelper::display();
-		return Redirect()->back();
+		return Redirect::back();
 	}
 
 	public function getDumpcart()
