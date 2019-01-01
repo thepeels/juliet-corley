@@ -28,6 +28,7 @@ class Purchase extends Eloquent
 		$purchase->cardholder_name = $name;
         $purchase->email = $email;
         $purchase->purchase_number = $purchase_number;
+        $purchase->client_ip = Request::ip();
 
 		return $purchase;
 	}

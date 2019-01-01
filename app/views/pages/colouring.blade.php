@@ -141,5 +141,5 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <?php include_once(public_path('packages/menu-script.php'));?>
-</script>
+
 @endsection

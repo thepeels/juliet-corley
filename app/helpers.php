@@ -140,7 +140,7 @@ function shopResume()
 
 function cartAddColouringItem($productId)
 {
-	Cart::instance('shop');
+    Cart::instance('shop');
 	$products = Product::where('id',$productId)->get();
 	foreach ($products as $product)
 	#$name = Image::withImages()->where('id',$product->full_size_image_id)->get();
@@ -156,7 +156,7 @@ function cartAddColouringItem($productId)
 				))
 			);
 		}
-		Session::flash('before_cart_url','colouring');
+
 		if(Cart::count()>0) //show summary
         {   if(Cart::count()==1){$cart_description = Cart::count() . ' item  . . . ';}
             else {$cart_description = Cart::count() . ' items . . ';}
@@ -171,24 +171,24 @@ function cartAddColouringItem($productId)
 		)
 		); 
 }
-function shopCartAdd($productId,$quantity)
+function shopCartAdd($productId)
 {
-		$product = Product::where('id',$productId)->get();
-		foreach($product as $product){
-		//dd($product);
-		Cart::instance('shop');	
-		Cart::add(
+    $product = Product::where('id',$productId)->get();
+    foreach($product as $product){
+            //dd($product);
+            Cart::instance('shop');
+            Cart::add(
 			$product->id,
 	        $product->title,
-	        $quantity,
+	        //$quantity,
 	    	$product->price
 	        );
-		if(Cart::count()>0) //show summary
-        {   if(Cart::count()==1){$cart_description = Cart::count() . ' item  . . . ';}
-            else {$cart_description = Cart::count() . ' items . . ';}
+            if(Cart::count()>0) //show summary
+            {   if(Cart::count()==1){$cart_description = Cart::count() . ' item  . . . ';}
+        else {$cart_description = Cart::count() . ' items . . ';}
             $cart_amount = '$' . Cart::total()/100;
         }
-		//send ajax response ...
+            //send ajax response ...
 		return Response::json(array(
 			'success' => true,
 			'cart_description' => $cart_description,
@@ -329,7 +329,16 @@ function ajaxemail($proxyemail)
 			'current_email' => $proxyemail));
 	}
 
+function setDivId($div_id)
+    {
+        if (Session::has('colouring_row'))
+        {
+            Session::forget('colouring_row');
+        }
+        Session::push('colouring_row',$div_id);
 
+        return;
+    }
 
 
 

@@ -116,7 +116,7 @@ Route::filter('csrf', function()
 App::error(function(Exception $exception,$code)
 {
     Log::error($exception);
-    if ($_ENV['DEBUG'] == false){
+    if ($_ENV['DEBUG'] == true){
         //dd('hi');
         return Redirect::to('error')->with([
             'title' => 'error'

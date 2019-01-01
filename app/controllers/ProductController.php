@@ -42,9 +42,14 @@ class ProductController extends \BaseController
 		$productId 			= Input::get('productId');
 		$productType 		= Input::get('productType');
 
-		if ($productType == 'ColouringPdf'){
-			return cartAddColouringItem($productId);
-		}
+        if ($productType == 'ColouringPdf'){
+            return cartAddColouringItem($productId);
+        }
+	}
+
+    public function getContinue()
+    {
+        return Redirect::to('/colouring');
 	}
 }
 	

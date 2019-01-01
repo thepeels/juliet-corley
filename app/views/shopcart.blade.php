@@ -37,6 +37,6 @@ $owner = (isset(Auth::user()->email)?Auth::user()->email:"guest user");//for tit
     	{{Form::submit('Pay by Card',['class'=>'btn btn-primary'])}}
     	@endif
     	{{Form::close()}}
-    <h3><a href="/icon/retreat"class="btn btn-info">Continue Shopping</a></h3>
+    <h3><a href="/shop/continue"class="btn btn-info">Continue Shopping</a></h3>
 </div>
 @endsection

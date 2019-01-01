@@ -165,7 +165,7 @@
 	browser, whereas persistent cookies remain stored on your computer until deleted, 
 	or until they reach their expiry date.</p>
 	
-	<p>JulietCorley.com uses the cookies to assist navigation and 
+	<p>JulietCorley.com uses session cookies to assist navigation and
 	manage the shopping cart.</p>
 </div>
 <div id="07"></br>	
@@ -179,7 +179,7 @@
 	In Firefox, you can adjust your cookies settings by clicking “Tools”, 
 	“Options” and “Privacy”.</p>
 	<p>Blocking cookies will have a negative impact upon the usability 
-	of some websites.</p>
+	of the website.</p>
 </div>
 <div id="linking"></br> 
 	<h4 class="julie">LINKING POLICY</h4>

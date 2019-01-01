@@ -96,7 +96,7 @@ return array(
 	|
 	*/
 
-	'cookie' => 'laravel_session',
+	'cookie' => 'initial_session',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -135,6 +135,6 @@ return array(
 	|
 	*/
 
-	'secure' => false,
+	'secure' => $_ENV['SESSION_SECURE'],
 
 );

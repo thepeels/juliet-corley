@@ -65,9 +65,8 @@ class DownloadController extends \BaseController {
 			ob_end_clean();
 		}
 		if(strpos($_SERVER['HTTP_USER_AGENT'],'bot')===FALSE) {
-			$purchase_email = null != Auth::user() ? Auth::user()->email : 'FREE download';
 			$purchase = new Purchase;
-			$purchase->email = $purchase_email;
+			$purchase->email = $this->purchaseEmail();
 			$purchase->purchase = $name;
 			$purchase->amount = 0;
 			$purchase->image_id = 0;
@@ -94,10 +93,9 @@ class DownloadController extends \BaseController {
 			ob_end_clean();
 		}
 		if(strpos($_SERVER['HTTP_USER_AGENT'],'bot')===FALSE) {
-        	$purchase_email = null!=Auth::user()?Auth::user()->email:'FREE download';
 
         	$purchase = new Purchase;
-            $purchase->email = $purchase_email;
+            $purchase->email = $this->purchaseEmail();
             $purchase->purchase = $name;
             $purchase->amount = 0;
             $purchase->image_id = 0;
@@ -108,6 +106,20 @@ class DownloadController extends \BaseController {
 
         return $response;
 		
+    }
+
+    public function purchaseEmail()
+    {
+        $purchase_email = 'FREE Download';
+        if (null!=Auth::user()) {
+            if (null != Auth::user()->email) {
+                $purchase_email = Auth::user()->email;
+            } elseif(null != Auth::user()->oauth_email){
+                $purchase_email = Auth::user()->oauth_email;
+            }
+        }
+
+        return $purchase_email;
     }
     
 	public function getFreedbdownload($image_id,$name)
