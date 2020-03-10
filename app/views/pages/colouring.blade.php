@@ -105,7 +105,7 @@
 					<p class="segoe">{{$product->description_1}}</p>
 					<p class="segoe">{{$product->description_2}}</p>
 					<p class="segoe">
-						<a href="/download/freepdfdownload/{{ Image::freeFile($product->full_size_image->image_path) }}/{{ $product->title }}" 
+						<a href="/download/freepdfdownload/{{ Image::freeFile($product->full_size_image->image_path) }}/{{ $product->title }}"
 							 onclick="return disableDoubleClick()">
 							Download now
 						</a></p>
@@ -123,11 +123,11 @@
 					<p class="segoe">{{$product->description_2}}</p>
 					<p class="segoe">${{number_format(($product->price)/100,2)}}<p>
 					{{--add to separate cart function without prior purchase--}}
-                    {{Form::open(array( 'url' => "/shop/cartadd",'class' => 'shopform form-addfish'))}}
+                    {{ Form::open(array( 'url' => "/shop/cartadd",'class' => 'shopform form-addfish'))}}
                     	{{ Form::hidden('productId', $product->id)}}
                     	{{ Form::hidden('productType','ColouringPdf')}}
 						{{ Form::submit('Add to Cart', ['class' => 'colouringajax btn btn-xs btn-primary']) }}
-					{{Form::close()}}
+					{{ Form::close()}}
 						
 				</div>  
 			</div>

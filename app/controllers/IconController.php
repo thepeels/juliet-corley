@@ -176,6 +176,7 @@ class IconController extends \BaseController{
     
     public function getSeek()
     {
+        $prices     = Price::where('name','icons')->first();
         $genus      = Input::get('genus');
         $species    = Input::get('species');
         if (!$species && !$genus){
@@ -209,7 +210,7 @@ class IconController extends \BaseController{
                 ->orderBy('name')
                 ->get();
         }
-        return View::make('pages.fishtable',compact('contents','fishs','genus','species'));
+        return View::make('pages.fishtable',compact('contents','fishs','genus','species','prices'));
     }
 	
     public function getAlldownload()//infinished business

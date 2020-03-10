@@ -37,7 +37,7 @@
 							class="zazzle" style="margin-top:20px;margin-left:18px;">
 							</embed><br/><p class="zazzle segoe">
 								(For other items with my designs, click 
-								<a href="http://www.zazzle.com.au/bluesparklefish/gifts"
+								<a href="https://www.zazzle.com.au/bluesparklefish/gifts"
 									class="segoe julie" target="_blank">here 
 								</a> 
 								to go to my Zazzle site)</p>
