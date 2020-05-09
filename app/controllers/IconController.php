@@ -183,7 +183,7 @@ class IconController extends \BaseController{
             $fishs = Fish::withImages()
                 ->orderBy('name')
                 ->get();
-            return View::make('pages.fishtable',compact('contents','fishs'));    
+            return View::make('pages.fishtable',compact('contents','fishs','prices'));
         }
         if ($species && $genus){
             $search_g = '%'.$genus.'%';
